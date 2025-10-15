@@ -1,0 +1,81 @@
+tab a = ["a", "b"];
+tab b = "k";
+
+a[0,1] //Range
+a.0 //Single elem
+
+tab c = *b; //c is true if b contained any elements contained in true
+
+
+
+
+
+========GRAMMAR========
+
+program => import* statement* funcDeclaration* "EOF"
+
+import => "import" IDENTIFIER ";"
+
+funcDeclaration => "function" IDENTIFIER "(" (IDENTIFIER ("," IDENTIFIER)*)? ")" block
+
+statement => varDecl | assignment | exprStatement | if | while | do | foreach | breakStmt | continueStmt | returnStmt | exitStmt
+
+varDecl => "tab" IDENTIFIER ("=" expression)? ";"
+
+assignment => tabAssignment | elemAssignment
+
+tabAssignment => IDENTIFIER ("=" | "+=") expression ";"
+
+elemAssignment => IDENTIFIER "." (NUMBER | "random") ("=" | "+=") expression ";"
+
+if => "if" expression block ("else" (if | block))?
+
+while => "while" expression block ("else" block)?
+
+do => "do" block "while" expression (";" | ("else" block))
+
+foreach => "foreach" IDENTIFIER "@" expression block ("else" block)?
+
+block => "{" statement* "}"
+
+breakStmt => "break" ";"
+
+continueStmt => "continue" ";"
+
+returnStmt => "return" expression? ";"
+
+exitStmt => "exit" ";"
+
+exprStatement => expression ";"
+
+expression => ternary
+
+ternary => or ("?" expression ":" ternary)?
+
+or => and ("|" and)*
+
+and => equality ("&" equality)*
+
+equality => comparison (("!=" | "==") comparison)*
+
+comparison => membership ((">" | ">=" | "<" | "<=") membership)*
+
+membership => binary ("@" binary)*
+
+binary => unary (("+" | "-") unary)*
+
+unary => ("!" | "*") unary | postFix
+
+postFix => primary ("^" | "%" | tabGetElement | tabGetRange | selfFuncCall)*
+
+tabGetElement => "." (NUMBER | "random" | "length")
+
+tabGetRange => "[" (NUMBER | "random" | expression) "," (NUMBER | "length" | expression) "]"
+
+selfFuncCall => "." IDENTIFIER "(" (expression ("," expression)*)? ")"
+
+primary => tabLit | STRING | NUMBER | IDENTIFIER | "(" expression ")" | funcCall
+
+funcCall => IDENTIFIER "(" (expression ("," expression)*)? ")"
+
+tabLit => "[" (expression ("," expression)*)? "]"
