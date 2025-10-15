@@ -1,0 +1,360 @@
+{
+  "source_base_path": "D:/treespace/TableScript/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "icon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.BlockStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.BlockStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.BlockStmt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.FunctionDefStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.FunctionDefStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.FunctionDefStmt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.FunctionExtStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.FunctionExtStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.FunctionExtStmt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.FunctionStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.FunctionStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.FunctionStmt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.IImportResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.IImportResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.IImportResolver",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.ResolvedImport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.ResolvedImport.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.ResolvedImport",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardImportResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardImportResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardImportResolver",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StdLib.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StdLib.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StdLib",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StdNum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StdNum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StdNum",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Stmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Stmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Stmt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabFunc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabFunc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabFunc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabIndex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabIndex.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabIndex",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabIndexMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabIndexMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabIndexMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Table.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Table.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Table",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TableScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TableScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TableScript",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Token.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Token.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Token",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TokenType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TokenType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TokenType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/example.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/example.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
