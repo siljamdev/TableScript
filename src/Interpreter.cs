@@ -333,6 +333,12 @@ class Interpreter{
 				
 				return ta;
 			
+			case TokenType.Star:
+				ta = eval(b.left);
+				tb = eval(b.right);
+				
+				return ta.Product(tb);
+			
 			case TokenType.DobEqual:
 				ta = eval(b.left);
 				tb = eval(b.right);

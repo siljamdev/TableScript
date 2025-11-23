@@ -272,6 +272,9 @@ class Optimizer{
 							t3.RemoveSingle(lit2.val);
 							return new LiteralExpr(t3);
 						
+						case TokenType.Star:
+							return new LiteralExpr(lit1.val.Product(lit2.val));
+						
 						case TokenType.DobEqual:
 							return new LiteralExpr(Table.GetBool(lit1.val.EqualTo(lit2.val)));
 						
@@ -301,6 +304,10 @@ class Optimizer{
 					}
 					
 					return new BinaryExpr(o1, b.op, o2);
+				}else if(b.op == TokenType.And && o1 is UnaryExpr u1 && o2 is UnaryExpr u2 && u1.op == TokenType.Exclamation && u2.op == TokenType.Exclamation){ //Morgans law
+					return new UnaryExpr(TokenType.Exclamation, new BinaryExpr(u1.right, TokenType.Or, u2.right));
+				}else if(b.op == TokenType.Or && o1 is UnaryExpr u3 && o2 is UnaryExpr u4 && u3.op == TokenType.Exclamation && u4.op == TokenType.Exclamation){ //Morgans law
+					return new UnaryExpr(TokenType.Exclamation, new BinaryExpr(u3.right, TokenType.And, u4.right));
 				}else{
 					return new BinaryExpr(o1, b.op, o2);
 				}

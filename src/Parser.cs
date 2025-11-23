@@ -365,9 +365,21 @@ class Parser{
 	}
 	
 	Expr membership(){
-		Expr exp = binary();
+		Expr exp = addition();
 		
 		while(match(TokenType.At)){
+			TokenType op = prev.type;
+			Expr r = addition();
+			exp = new BinaryExpr(exp, op, r);
+		}
+		
+		return exp;
+	}
+	
+	Expr addition(){
+		Expr exp = binary();
+		
+		while(match(TokenType.Plus) || match(TokenType.Minus)){
 			TokenType op = prev.type;
 			Expr r = binary();
 			exp = new BinaryExpr(exp, op, r);
@@ -379,7 +391,7 @@ class Parser{
 	Expr binary(){
 		Expr exp = unary();
 		
-		while(match(TokenType.Plus) || match(TokenType.Minus)){
+		while(match(TokenType.Star)){
 			TokenType op = prev.type;
 			Expr r = unary();
 			exp = new BinaryExpr(exp, op, r);

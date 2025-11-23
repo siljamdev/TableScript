@@ -38,8 +38,17 @@ tab t = !["h"];
 
 //- operator: removes elements
 tab h = ["a", "a", "b"] - ["a"];
-
 print(h); //ab
+
+//* operator: cartesian product
+tab p = ["a", "b"] * ["c", "d"];
+print(p); //acbcadbd
+
+p = ["a", "b"] * 3;
+print(p); //ababab
+
+p = 3 * ["a", "b"];
+print(p); //aaabbb
 
 //Equality
 print(["a", "b"] == "ab" ? "true" : "false"); //false

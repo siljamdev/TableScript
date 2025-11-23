@@ -102,6 +102,10 @@ class Lexer{
 				}
 			break;
 			
+			case '*':
+				tokens.Add(create(TokenType.Star));
+			break;
+			
 			case '^':
 				tokens.Add(create(TokenType.Caret));
 			break;

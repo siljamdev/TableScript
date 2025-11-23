@@ -349,6 +349,33 @@ public class Table{
 		return true;
 	}
 	
+	public Table Product(Table t){
+		if(isSpecial && t.isSpecial){
+			return new Table(Length * t.Length);
+		}
+		
+		if(t.isSpecial){
+			return new Table(Enumerable.Repeat(tab, t.Length).SelectMany(h => h).ToList());
+		}
+		
+		if(isSpecial){
+			return new Table(t.tab.SelectMany(h => Enumerable.Repeat(h, Length)).ToList());
+		}
+		
+		List<string> a = this.tab;
+		List<string> b = t.tab;
+		
+		List<string> c = new(a.Count * b.Count);
+		
+		foreach(string b1 in b){
+			foreach(string a1 in a){
+				c.Add(a1 + b1);
+			}
+		}
+		
+		return new Table(c);
+	}
+	
 	public bool EqualTo(Table t){
 		if(Length != t.Length){
 			return false;

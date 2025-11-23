@@ -60,11 +60,13 @@ equality => comparison (("!=" | "==") comparison)*
 
 comparison => membership ((">" | ">=" | "<" | "<=") membership)*
 
-membership => binary ("@" binary)*
+membership => addition ("@" addition)*
 
-binary => unary (("+" | "-") unary)*
+addition => binary (("+" | "-") binary)*
 
-unary => ("!" | "*") unary | postFix
+binary => unary ("*" unary)*
+
+unary => "!" unary | postFix
 
 postFix => primary ("^" | "%" | tabGetElement | tabGetRange | selfFuncCall)*
 
