@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/example.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -128,8 +128,17 @@ tab t = ![&quot;h&quot;];
 
 //- operator: removes elements
 tab h = [&quot;a&quot;, &quot;a&quot;, &quot;b&quot;] - [&quot;a&quot;];
-
 print(h); //ab
+
+//* operator: cartesian product
+tab p = [&quot;a&quot;, &quot;b&quot;] * [&quot;c&quot;, &quot;d&quot;];
+print(p); //acbcadbd
+
+p = [&quot;a&quot;, &quot;b&quot;] * 3;
+print(p); //ababab
+
+p = 3 * [&quot;a&quot;, &quot;b&quot;];
+print(p); //aaabbb
 
 //Equality
 print([&quot;a&quot;, &quot;b&quot;] == &quot;ab&quot; ? &quot;true&quot; : &quot;false&quot;); //false

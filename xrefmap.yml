@@ -1163,6 +1163,19 @@ references:
   isSpec: "True"
   fullName: TabScript.Table.Length
   nameWithType: Table.Length
+- uid: TabScript.Table.Product(TabScript.Table)
+  name: Product(Table)
+  href: api/TabScript.Table.html#TabScript_Table_Product_TabScript_Table_
+  commentId: M:TabScript.Table.Product(TabScript.Table)
+  fullName: TabScript.Table.Product(TabScript.Table)
+  nameWithType: Table.Product(Table)
+- uid: TabScript.Table.Product*
+  name: Product
+  href: api/TabScript.Table.html#TabScript_Table_Product_
+  commentId: Overload:TabScript.Table.Product
+  isSpec: "True"
+  fullName: TabScript.Table.Product
+  nameWithType: Table.Product
 - uid: TabScript.Table.RemoveAll(TabScript.Table)
   name: RemoveAll(Table)
   href: api/TabScript.Table.html#TabScript_Table_RemoveAll_TabScript_Table_
@@ -1795,6 +1808,12 @@ references:
   commentId: F:TabScript.TokenType.Semicolon
   fullName: TabScript.TokenType.Semicolon
   nameWithType: TokenType.Semicolon
+- uid: TabScript.TokenType.Star
+  name: Star
+  href: api/TabScript.TokenType.html#TabScript_TokenType_Star
+  commentId: F:TabScript.TokenType.Star
+  fullName: TabScript.TokenType.Star
+  nameWithType: TokenType.Star
 - uid: TabScript.TokenType.String
   name: String
   href: api/TabScript.TokenType.html#TabScript_TokenType_String
