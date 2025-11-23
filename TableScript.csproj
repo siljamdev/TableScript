@@ -12,7 +12,10 @@
     
     <PackageDescription>String list based scripting languange</PackageDescription>
 	
-	<ApplicationIcon>res/icon.ico</ApplicationIcon>
+	<RepositoryUrl>https://github.com/siljamdev/TableScript</RepositoryUrl>
+	<PackageProjectUrl>https://github.com/siljamdev/TableScript</PackageProjectUrl>
+	
+	<PackageIcon>res/icon.ico</PackageIcon>
 <!--@propertyGr-->
   </PropertyGroup>
   
