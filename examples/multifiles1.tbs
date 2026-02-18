@@ -1,0 +1,25 @@
+// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
+
+import stdlib; //Nothing happens for duplicated imports
+import "multifiles2.tbs"; //Import the other file. Cyclic imports is not something to worry about
+
+tab a = "Hello world"; //Global variable
+
+tab b = "Greetings!"; //Global variable
+
+print(greet()); //Greetings!
+print(greet2()); //I have always been ready to greet you
+print(greet3()); //I have always been ready to greet you
+print(greet4()); //I have always been ready to greet you
+print(greet5()); //I have always been ready to greet you
+print(greet6()); //Greetings
+print(bye());
+
+function fun(){
+	return b; //Accessing local variables
+}
+
+export function greet(){
+	return fun(); //Can access function that isnt export
+}

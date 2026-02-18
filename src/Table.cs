@@ -3,13 +3,15 @@ using System.Text;
 
 namespace TabScript;
 
+/// <summary>
+/// Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself
+/// </summary>
 public class Table{
 	static Random rand = new();
 	
 	static readonly List<string> empty = new List<string>();
 	
 	public static Table True => new Table(1);
-	
 	public static Table False => new Table(0);
 	
 	List<string> tab;
@@ -17,30 +19,61 @@ public class Table{
 	bool isSpecial;
 	int specialLen;
 	
+	/// <summary>
+	/// If it is internally represented as a number
+	/// </summary>
 	public bool IsNumber => isSpecial;
 	
 	public int Length => isSpecial ? specialLen : tab.Count;
 	
+	/// <summary>
+	/// If it is considered true
+	/// </summary>
 	public bool Truthy => Length > 0;
 	
+	/// <summary>
+	/// Full contents
+	/// </summary>
 	public IReadOnlyList<string> contents => isSpecial ? Enumerable.Repeat("", Math.Max(0, specialLen)).ToList().AsReadOnly() : tab.AsReadOnly();
 	
+	/// <summary>
+	/// Careful! Unsafe
+	/// </summary>
 	public string this[int index]{get{
 		return isSpecial ? "" : tab[index];
 	}
-	set{
+	private set{
 		makeNormal();
 		tab[index] = value;
 	}}
 	
+	/// <summary>
+	/// Initialize empty Table
+	/// </summary>
 	public Table(){
 		tab = new List<string>();
 	}
 	
+	/// <summary>
+	/// Initialize table with strings
+	/// </summary>
 	public Table(params string[] ss){
 		tab = new List<string>(ss);
 	}
 	
+	/// <summary>
+	/// Initialize table with single string
+	/// </summary>
+	public Table(string s){
+		tab = new List<string>(1);
+		if(s != null){
+			tab.Add(s);
+		}
+	}
+	
+	/// <summary>
+	/// Clone Table
+	/// </summary>
 	public Table(Table t){
 		if(t.isSpecial){
 			isSpecial = true;
@@ -53,11 +86,17 @@ public class Table{
 		tab = new List<string>(u);
 	}
 	
+	/// <summary>
+	/// Initialize Table as number
+	/// </summary>
 	public Table(int n){
 		isSpecial = true;
 		specialLen = n;
 	}
 	
+	/// <summary>
+	/// Initialize Table
+	/// </summary>
 	public Table(List<string> t){
 		t ??= empty;
 		tab = new List<string>(t);
@@ -80,6 +119,9 @@ public class Table{
 		specialLen = 0;
 	}
 	
+	/// <summary>
+	/// Set element to another Table
+	/// </summary>
 	public void SetElem(TabIndex ind, Table t){
 		makeNormal();
 		
@@ -93,7 +135,7 @@ public class Table{
 				}
 				
 				if(real >= 0 && real < Length){
-					this[real] = t.AsString();
+					tab[real] = t.AsString();
 				}else if(real >= Length){
 					tab.AddRange(Enumerable.Repeat("", real - Length));
 					tab.Add(t.AsString());
@@ -106,11 +148,14 @@ public class Table{
 					return;
 				}
 				
-				this[rand.Next(Length)] = t.AsString();
+				tab[rand.Next(Length)] = t.AsString();
 			break;
 		}
 	}
 	
+	/// <summary>
+	/// Get Element
+	/// </summary>
 	public Table GetElem(TabIndex ind){
 		switch(ind.mode){
 			case TabIndexMode.Number:
@@ -150,6 +195,9 @@ public class Table{
 		}
 	}
 	
+	/// <summary>
+	/// Get multiple elements
+	/// </summary>
 	public Table GetRange(TabIndex ind, TabIndex len){
 		int start;
 		int length;
@@ -224,6 +272,32 @@ public class Table{
 		return new Table(tab.GetRange(start, length));
 	}
 	
+	/// <summary>
+	/// Add to end
+	/// </summary>
+	public void Add(string s){
+		if(isSpecial && s == ""){
+			specialLen += 1;
+			return;
+		}
+		
+		makeNormal();
+		
+		tab.Add(s);
+	}
+	
+	/// <summary>
+	/// Add to end
+	/// </summary>
+	public void Add(Table t){
+		makeNormal();
+		
+		tab.Add(t.AsString());
+	}
+	
+	/// <summary>
+	/// Add to end
+	/// </summary>
 	public void AddRange(Table t){
 		if(isSpecial && t.isSpecial){
 			specialLen += t.specialLen;
@@ -239,6 +313,9 @@ public class Table{
 		}
 	}
 	
+	/// <summary>
+	/// Remove from Table all elements contained in arg Table
+	/// </summary>
 	public void RemoveAll(Table t){
 		if(isSpecial && t.isSpecial){
 			specialLen = t.specialLen > 0 ? 0 : specialLen;
@@ -260,6 +337,9 @@ public class Table{
 		tab.RemoveAll(h => t.tab.Contains(h));
 	}
 	
+	/// <summary>
+	/// Remove from Table elements contained in arg Table, only once
+	/// </summary>
 	public void RemoveSingle(Table t){
 		if(isSpecial && t.isSpecial){
 			specialLen = specialLen - t.specialLen;
@@ -284,6 +364,9 @@ public class Table{
 		}
 	}
 	
+	/// <summary>
+	/// Remove from Table at index
+	/// </summary>
 	public void RemoveAt(int ind){
 		if(isSpecial){
 			if(ind >= 0 && ind < specialLen){
@@ -296,10 +379,27 @@ public class Table{
 		tab.RemoveAt(ind);
 	}
 	
+	/// <summary>
+	/// Find index of element
+	/// </summary>
+	public int IndexOf(string elem){
+		if(isSpecial){
+			return Length > 0 && elem == "" ? 0 : -1;
+		}
+		
+		return tab.IndexOf(elem);
+	}
+	
+	/// <summary>
+	/// Table -> Table of length 1 strings
+	/// </summary>
 	public string[] SplitToChars(){
 		return AsString().ToCharArray().Select(c => c.ToString()).ToArray();
 	}
 	
+	/// <summary>
+	/// Randomly shuffled Table
+	/// </summary>
 	public Table Shuffled(){
 		Table m = this.Clone();
 		
@@ -319,6 +419,24 @@ public class Table{
 		return m;
 	}
 	
+	/// <summary>
+	/// Reversed table
+	/// </summary>
+	public Table Reversed(){
+		Table m = this.Clone();
+		
+		if(m.isSpecial){
+			return m;
+		}
+		
+		m.tab.Reverse();
+		
+		return m;
+	}
+	
+	/// <summary>
+	/// If the Table contains all elements of the Table arg
+	/// </summary>
 	public bool Contains(Table t){
 		if(t.Length == 0){
 			return true;
@@ -349,6 +467,9 @@ public class Table{
 		return true;
 	}
 	
+	/// <summary>
+	/// Cartesian product
+	/// </summary>
 	public Table Product(Table t){
 		if(isSpecial && t.isSpecial){
 			return new Table(Length * t.Length);
@@ -376,6 +497,9 @@ public class Table{
 		return new Table(c);
 	}
 	
+	/// <summary>
+	/// Checking for equality
+	/// </summary>
 	public bool EqualTo(Table t){
 		if(Length != t.Length){
 			return false;
@@ -394,21 +518,33 @@ public class Table{
 		return true;
 	}
 	
+	/// <summary>
+	/// Returns True or False
+	/// </summary>
 	public static Table GetBool(bool b){
 		return b ? True : False;
 	}
 	
+	/// <summary>
+	/// Table -> string
+	/// </summary>
 	public string AsString(){
 		return isSpecial ? "" : string.Join("", tab);
 	}
 	
+	/// <summary>
+	/// Represent in a coder-friendly way
+	/// </summary>
 	public override string ToString(){
 		return "[" + (isSpecial ? ("#" + Length) : string.Join(", ", tab)) + "]";
 	}
 }
 
+/// <summary>
+/// Represents an Index for a Table
+/// </summary>
 public record struct TabIndex(TabIndexMode mode, int num){
-	public TabIndex(Token k) : this(
+	internal TabIndex(Token k) : this(
 		k.type switch{
 			TokenType.Number => TabIndexMode.Number,
 			TokenType.Random => TabIndexMode.Random,

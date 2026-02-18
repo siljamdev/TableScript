@@ -1,0 +1,48 @@
+import stdlib; //Nothing happens for duplicated imports
+import "multifiles1.tbs"; //Import the other file. Cyclic imports is not something to worry about
+import stdnum; //Only in this file
+
+tab a = "I have always been"; //Global variable
+
+tab b = " ready to greet you"; //Global variable
+
+print("Welcome!"); //This wont execute. Of the main body of imported scripts, only variable declarations are kept
+
+//Returns "I have always been", "ready to greet you"
+function fun(){
+	return a + b; //Accessing local variables
+}
+
+//same name as function in other file
+export function greet(){
+	return fun(); //Can access function that isnt export
+}
+
+export function greet2(){
+	return local::fun(); //Accesses local function
+}
+
+export function greet3(){
+	return greet(); //Accesses the local function, locals are prioritised if unspecified import
+}
+
+export function greet4(){
+	return local::greet(); //Accesses local function
+}
+
+export function greet5(){
+	return multifiles2_tbs::greet(); //Accesses local function with its import name
+}
+
+export function greet6(){
+	return multifiles1_tbs::greet(); //Accesses the function in the other file specifying the import
+}
+
+export function bye(){
+	//Stdnum is only available in this file
+	if stdnum::greater(stdnum::rand("0", "1"), "0.5"){
+		print("Sad to see you go!");
+	}else{
+		print("Bye!");
+	}
+}

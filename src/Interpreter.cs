@@ -2,10 +2,7 @@ using System;
 
 namespace TabScript;
 
-class Interpreter{
-	
-	TabFunc[] functions;
-	
+class Interpreter{	
 	Stack<List<Table>> scopes = new();
 	
 	List<Table> currentScope => scopes.Peek();
@@ -19,20 +16,25 @@ class Interpreter{
 	
 	Table returnVal;
 	
-	public Interpreter(){
+	string currentFilename;
+	
+	TabFunc[] functions;
+	Stmt[] mainBody;
+	
+	public Interpreter(TableScript t){
 		globals = new List<Table>();
-		globals.Add(new Table()); //Args
+		globals.Add(new Table()); //args
+		
+		functions = t.functions;
+		mainBody = t.body.body;
+		currentFilename = t.body.filename;
 	}
 	
-	public void Interpret(TableScript t, Table args){
-		functions = t.functions;
-		
+	public void Interpret(Table args){
 		scopes.Clear();
 		scopes.Push(globals);
 		
 		globals[0] = args.Clone();
-		
-		Stmt[] mainBody = t.topLevel;
 		
 		foreach(Stmt s in mainBody){
 			Interpret(s);
@@ -41,11 +43,6 @@ class Interpreter{
 				break;
 			}
 		}
-	}
-	
-	public void Clear(){
-		globals = new List<Table>();
-		globals.Add(new Table()); //Args
 	}
 	
 	void Interpret(Stmt s){
@@ -78,7 +75,7 @@ class Interpreter{
 			break;
 			
 			case OptElementAssignStmt l:
-				scopes.ElementAt(l.depth)[l.index].SetElem(l.ind, eval(l.val));
+				scopes.ElementAt(l.depth)[l.index].SetElem(evalIndex(l.ind), eval(l.val));
 			break;
 			
 			case IfStmt f:
@@ -192,7 +189,7 @@ class Interpreter{
 			break;
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, s.line, "Invalid statement: " + s);
+				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, s.line, "Invalid statement: " + s);
 			break;
 		}
 	}
@@ -201,7 +198,7 @@ class Interpreter{
 		TabFunc fun = functions[x.index];
 		
 		if(fun.arity != x.args.Length){
-			throw new TabScriptException(TabScriptErrorType.Runtime, fun.line, "Non-matching arity");
+			throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, fun.line, "Non-matching arity in call: " + x);
 		}
 		
 		Table[] args = x.args.Select(h => eval(h).Clone()).ToArray();
@@ -212,9 +209,10 @@ class Interpreter{
 			scopes.Push(globals);
 			scopes.Push(new List<Table>());
 			
-			for(int i = 0; i < fun.arity; i++){
-				currentScope.AddRange(args);
-			}
+			string tempCF = currentFilename;
+			currentFilename = fun.filename;
+			
+			currentScope.AddRange(args);
 			
 			foreach(Stmt g in funs.body.inner){
 				Interpret(g);
@@ -224,6 +222,8 @@ class Interpreter{
 				}
 			}
 			
+			currentFilename = tempCF;
+			
 			scopes = temp;
 			
 			Table retVal = returnVal ?? new Table(0);
@@ -231,9 +231,10 @@ class Interpreter{
 			
 			return retVal;
 		}else if(fun is TabExternFunc funn){
-			return funn.body(args);
+			Table ret = funn.body(args);
+			return ret ?? new Table(0);
 		}else{
-			return new Table();
+			return new Table(0);
 		}
 	}
 	
@@ -262,10 +263,10 @@ class Interpreter{
 				return scopes.ElementAt(v.depth)[v.index];
 			
 			case GetElementExpr e:
-				return eval(e.left).GetElem(e.ind);
+				return eval(e.left).GetElem(evalIndex(e.ind));
 			
-			case GetRangeExpr e:
-				return eval(e.left).GetRange(evalIndex(e.ind), evalIndex(e.len));
+			case GetRangeExpr e2:
+				return eval(e2.left).GetRange(evalIndex(e2.ind), evalIndex(e2.len));
 			
 			case BuildLiteralExpr d:
 				Table t = new Table();
@@ -275,17 +276,17 @@ class Interpreter{
 				return t;
 			
 			case DollarExpr l:
-				Table t2 = new Table("");
+				string t2 = "";
 				foreach(Expr xx in l.parts){
-					t2[0] += eval(xx).AsString();
+					t2 += eval(xx).AsString();
 				}
-				return t2;
+				return new Table(t2);
 			
 			case OptCallExpr c:
 				return callFunc(c);
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, -1, "Invalid expression: " + x);
+				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Invalid expression: " + x);
 				return null;
 		}
 	}
@@ -306,7 +307,7 @@ class Interpreter{
 				return new Table(eval(u.right).SplitToChars());
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, -1, "Invalid unary operator: " + Token.GetAsString(u.op));
+				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Invalid unary operator: " + Token.GetAsString(u.op));
 				return null;
 		}
 	}
@@ -404,7 +405,7 @@ class Interpreter{
 				return Table.GetBool(tb.Contains(ta));
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, -1, "Invalid binary operator: " + Token.GetAsString(b.op));
+				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Invalid binary operator: " + Token.GetAsString(b.op));
 				return null;
 		}
 	}

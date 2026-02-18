@@ -1,8 +1,9 @@
 namespace TabScript;
 
-public abstract record Stmt(int line){
-	
-}
+/// <summary>
+/// Statements that form programs
+/// </summary>
+public abstract record Stmt(int line){}
 
 record ExprStmt(Expr exp, int line) : Stmt(line){
 	public override string ToString(){
@@ -12,7 +13,7 @@ record ExprStmt(Expr exp, int line) : Stmt(line){
 
 record BlockStmt(Stmt[] inner, int line) : Stmt(line){
 	public override string ToString(){
-		return "{\n" + string.Join('\n', inner.Select(h => h.ToString())) + "\n}";
+		return "{\n" + string.Join('\n', inner.SelectMany(h => h.ToString().Split("\n")).Select(h => "\t" + h)) + "\n}";
 	}
 }
 
@@ -28,7 +29,7 @@ record TabAssignStmt(string identifier, Expr val, int line) : Stmt(line){
 	}
 }
 
-record ElementAssignStmt(string identifier, TabIndex ind, Expr val, int line) : Stmt(line){
+record ElementAssignStmt(string identifier, IndexExpr ind, Expr val, int line) : Stmt(line){
 	public override string ToString(){
 		return identifier + "." + ind.ToString() + " = " + val + ";";
 	}
@@ -82,36 +83,43 @@ record ReturnStmt(Expr val, int line) : Stmt(line){
 	}
 }
 
-record ImportStmt(string import, int line) : Stmt(line){
-	public override string ToString(){
-		return "import " + import + ";";
-	}
-}
-
-#region function
+#region functions
+/// <summary>
+/// Statement that represents a function
+/// </summary>
 public abstract record FunctionStmt(string identifier, string[] pars, int line) : Stmt(line){
 	public int arity => pars.Length;
 	
-	public abstract TabFunc ToTabFunc(string im);
+	public abstract TabFunc ToTabFunc(string import, string filename);
 }
 
-record FunctionDefStmt(string identifier, string[] pars, BlockStmt body, int line) : FunctionStmt(identifier, pars, line){
+/// <summary>
+/// Native function as a statement
+/// </summary>
+record FunctionDefStmt(string identifier, string[] pars, bool export, BlockStmt body, int line) : FunctionStmt(identifier, pars, line){
 	public override string ToString(){
-		return "function " + identifier + "(" + string.Join(", ", pars) + ")" + body;
+		return (export ? "export " : "") + "function " + identifier + "(" + string.Join(", ", pars) + ")" + body;
 	}
 	
-	public override TabFunc ToTabFunc(string im){
-		return new TabNativeFunc(im, identifier, pars, pars.Length > 0 && pars[0] == "self", body, line);
+	public override TabFunc ToTabFunc(string import, string filename){
+		return new TabNativeFunc(import, identifier, pars, pars.Length > 0 && pars[0] == "self", export, body, filename, line);
 	}
 }
 
-public record FunctionExtStmt(string identifier, string[] pars, Func<Table[], Table> body, int line) : FunctionStmt(identifier, pars, line){
+/// <summary>
+/// External function as a statement
+/// </summary>
+public record FunctionExtStmt(string identifier, string[] pars, Func<Table[], Table> body, string description, int line) : FunctionStmt(identifier, pars, line){
+	public FunctionExtStmt(string identifier, string[] pars, Func<Table[], Table> body, string description) : this(identifier, pars, body, description, -1){}
+	
+	public FunctionExtStmt(string identifier, string[] pars, Func<Table[], Table> body) : this(identifier, pars, body, null, -1){}
+	
 	public override string ToString(){
-		return "function " + identifier + "(" + string.Join(", ", pars) + "){ ##NATIVE##; }";
+		return "export function " + identifier + "(" + string.Join(", ", pars) + "){ EXTERN; }" + (description == null ? "" : (" //" + description));
 	}
 	
-	public override TabFunc ToTabFunc(string im){
-		return new TabExternFunc(im, identifier, pars, pars.Length > 0 && pars[0] == "self", body, line);
+	public override TabFunc ToTabFunc(string import, string filename){
+		return new TabExternFunc(import, identifier, pars, pars.Length > 0 && pars[0] == "self", true, body, description, filename, line);
 	}
 }
 #endregion
@@ -119,19 +127,19 @@ public record FunctionExtStmt(string identifier, string[] pars, Func<Table[], Ta
 #region optimization
 record OptVarDeclStmt(int depth, int index, Expr val, int line) : Stmt(line){
 	public override string ToString(){
-		return "tab " + depth + ":" + index + " = " + val + ";";
+		return "tab " + depth + "_" + index + " = " + val + ";";
 	}
 }
 
 record OptTabAssignStmt(int depth, int index, Expr val, int line) : Stmt(line){
 	public override string ToString(){
-		return depth + ":" + index  + " = " + val + ";";
+		return depth + "_" + index  + " = " + val + ";";
 	}
 }
 
-record OptElementAssignStmt(int depth, int index, TabIndex ind, Expr val, int line) : Stmt(line){
+record OptElementAssignStmt(int depth, int index, IndexExpr ind, Expr val, int line) : Stmt(line){
 	public override string ToString(){
-		return depth + ":" + index  + "." + ind.ToString() + " = " + val + ";";
+		return depth + "_" + index  + "." + ind.ToString() + " = " + val + ";";
 	}
 }
 #endregion

@@ -3,11 +3,10 @@ using System;
 namespace TabScript;
 
 class Parser{
-	static void report(TabScriptException x){
-		Console.Error.WriteLine(x.ToShortString());
-	}
+	public Action<TabScriptException> OnReport;
+	public bool hadError{get; private set;}
 	
-	public Action<TabScriptException> OnReport = report;
+	string filename;
 	
 	Token[] tokens;
 	int current = 0;
@@ -18,29 +17,28 @@ class Parser{
 	
 	bool atEnd => tokens[current].type == TokenType.EOF;
 	
-	public bool hadError{get; private set;}
-	
-	public Parser(Token[] t){
-		tokens = t;
+	public Parser(TokenList tl){
+		filename = tl.filename;
+		tokens = tl.tokens;
 	}
 	
-	public Stmt[] Parse(){
-		Stmt[] im = imports();
+	public ResolvedImport Parse(){
+		string[] im = imports();
 		
 		Stmt[] top = topLevel();
 		
-		Stmt[] funcs = funcDefinitions();
+		FunctionStmt[] funcs = funcDefinitions();
 		
 		if(hadError){
-			throw new TabScriptException(TabScriptErrorType.Parser, -1, "Errors present: Unable to continue");
+			throw new TabScriptException(TabScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue");
 			return null;
 		}else{
-			return im.Concat(top).Concat(funcs).ToArray();
+			return new ResolvedImport(filename, im, top, funcs);
 		}
 	}
 	
-	Stmt[] imports(){
-		List<Stmt> im = new();
+	string[] imports(){
+		List<string> im = new();
 		
 		while(match(TokenType.Import)){
 			im.Add(import());
@@ -49,31 +47,34 @@ class Parser{
 		return im.ToArray();
 	}
 	
-	Stmt import(){
-		Token impor = consume(TokenType.Identifier, "Expected identifier after import keyword");
-		consume(TokenType.Semicolon, "Expected ';' after import statement");
-		
-		return new ImportStmt(impor.lex, impor.line); 
-	}
-	
-	Stmt[] topLevel(){
-		List<Stmt> s = new();
-		
-		while(!atEnd && !check(TokenType.Function)){
-			s.Add(statement());
+	string import(){
+		string impor = "";
+		if(match(TokenType.Identifier)){
+			impor = prev.lex;
+		}else if(match(TokenType.String)){
+			impor = prev.obj;
+		}else{
+			error("Expected identifier or string after import keyword", curr);
 		}
 		
-		return s.ToArray();
+		consume(TokenType.Semicolon, "Expected ';' after import statement");
+		
+		return impor; 
 	}
 	
-	Stmt[] funcDefinitions(){
-		List<Stmt> defined = new();
+	FunctionStmt[] funcDefinitions(){
+		List<FunctionStmt> defined = new();
 		
-		while(!atEnd && match(TokenType.Function)){
+		while(!atEnd && (match(TokenType.Function) || match(TokenType.Export))){
 			try{
-				defined.Add(functionDef());
+				if(prev.type == TokenType.Export){
+					consume(TokenType.Function, "Expected 'function' keyword after 'export' keyword");
+					defined.Add(functionDef(true));
+				}else{
+					defined.Add(functionDef());
+				}
 			}catch(TabScriptException pe){
-				OnReport(pe);
+				OnReport?.Invoke(pe);
 				sync();
 			}
 		}
@@ -81,7 +82,7 @@ class Parser{
 		return defined.ToArray();
 	}
 	
-	Stmt functionDef(){
+	FunctionStmt functionDef(bool export = false){
 		Token id = consume(TokenType.Identifier, "Expected function identifier after keyword 'function'");
 		
 		consume(TokenType.LeftPar, "Expected '(' after function identifier");
@@ -98,7 +99,17 @@ class Parser{
 		
 		BlockStmt bod = block();
 		
-		return new FunctionDefStmt(id.lex, parameters.ToArray(), bod, id.line);
+		return new FunctionDefStmt(id.lex, parameters.ToArray(), export, bod, id.line);
+	}
+	
+	Stmt[] topLevel(){
+		List<Stmt> s = new();
+		
+		while(!atEnd && !check(TokenType.Function) && !check(TokenType.Export)){
+			s.Add(statement());
+		}
+		
+		return s.ToArray();
 	}
 	
 	Stmt statement(){
@@ -128,7 +139,7 @@ class Parser{
 				return assignment();
 			}
 		}catch(TabScriptException pe){
-			OnReport(pe);
+			OnReport?.Invoke(pe);
 			sync();
 			return null;
 		}
@@ -172,8 +183,8 @@ class Parser{
 				
 				return new TabAssignStmt(v.identifier, val, assig.line);
 			}else if(e is GetElementExpr g && g.left is VariableExpr vv){
-				if(g.ind.mode == TabIndexMode.Length){
-					error("Cannot asign to the length of a table", assig);
+				if(g.ind.val == null && g.ind.ind.mode == TabIndexMode.Length){
+					error("Cannot assign to the length of a table", assig);
 					return null;
 				}
 				
@@ -181,7 +192,7 @@ class Parser{
 				consume(TokenType.Semicolon, "Expected ';' after element assignment");
 				
 				if(assig.type == TokenType.MinusEqual){
-					error("Cant use '-=' with elements", assig);
+					error("Cannot use '-=' when assigning to elements", assig);
 					return null;
 				}
 				
@@ -416,11 +427,11 @@ class Parser{
 		while(true){
 			if(match(TokenType.Caret)){
 				exp = new UnaryExpr(TokenType.Caret, exp);
-			}if(match(TokenType.Percentage)){
+			}else if(match(TokenType.Percentage)){
 				exp = new UnaryExpr(TokenType.Percentage, exp);
 			}else if(match(TokenType.Dot)){
 				if(match(TokenType.Number) || match(TokenType.Random) || match(TokenType.Length)){
-					exp = new GetElementExpr(exp, new TabIndex(prev));
+					exp = new GetElementExpr(exp, new IndexExpr(new TabIndex(prev), null));
 				}else if(match(TokenType.Identifier)){
 					string id = prev.lex;
 					string imp = null;
@@ -451,22 +462,20 @@ class Parser{
 			}else if(match(TokenType.LeftSq)){
 				IndexExpr ind = index(1);
 				
-				consume(TokenType.Comma, "Expected comma between range arguments");
-				
-				IndexExpr len = index(2);
-				
-				exp = new GetRangeExpr(exp, ind, len);
-				
-				consume(TokenType.RightSq, "Expected closing ']' for range");
+				if(match(TokenType.Comma)){
+					IndexExpr len = index(2);
+					
+					exp = new GetRangeExpr(exp, ind, len);
+					
+					consume(TokenType.RightSq, "Expected closing ']' for range");
+				}else{
+					exp = new GetElementExpr(exp, ind);
+					
+					consume(TokenType.RightSq, "Expected closing ']' for element access");
+				}
 			}else{
 				break;
 			}
-		}
-		
-		while(match(TokenType.Dot) || match(TokenType.DobEqual)){
-			TokenType op = prev.type;
-			Expr r = comparison();
-			exp = new BinaryExpr(exp, op, r);
 		}
 		
 		return exp;
@@ -637,6 +646,7 @@ class Parser{
 				case TokenType.Do:
 				case TokenType.Foreach:
 				case TokenType.Function:
+				case TokenType.Export:
 				case TokenType.Tab:
 				return;
 			}
@@ -648,6 +658,6 @@ class Parser{
 	void error(string message, Token t){
 		hadError = true;
 		
-		throw new TabScriptException(TabScriptErrorType.Parser, t.line, message);
+		throw new TabScriptException(TabScriptErrorType.Parser, filename, t.line, message);
 	}
 }

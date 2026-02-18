@@ -18,31 +18,29 @@ class Lexer{
 		{"random", TokenType.Random},
 		{"length", TokenType.Length},
 		{"tab", TokenType.Tab},
-		{"import", TokenType.Import}
+		{"import", TokenType.Import},
+		{"export", TokenType.Export}
 	};
 	
-	static void report(TabScriptException x){
-		Console.Error.WriteLine(x.ToShortString());
-	}
+	public Action<TabScriptException> OnReport;
+	public bool hadError{get; private set;}
 	
-	public Action<TabScriptException> OnReport = report;
-	
+	string filename;
 	string src;
+	
+	//Return list
 	List<Token> tokens = new();
 	
 	int line = 1;
-	
 	int current;
-	
 	bool atEnd => current >= src.Length;
 	
-	public bool hadError{get; private set;}
-	
-	public Lexer(string s){
+	public Lexer(string f, string s){
+		filename = f;
 		src = s;
 	}
 	
-	public Token[] Scan(){
+	public TokenList Scan(){
 		while(!atEnd){
 			ScanNext();
 		}
@@ -50,11 +48,11 @@ class Lexer{
 		tokens.Add(new Token(TokenType.EOF, null, null, 0, line));
 		
 		if(hadError){
-			throw new TabScriptException(TabScriptErrorType.Lexer, -1, "Errors present: Unable to continue");
+			throw new TabScriptException(TabScriptErrorType.Lexer, filename, -1, "Errors present: Unable to continue");
 			return null;
 		}
 		
-		return tokens.ToArray();
+		return new TokenList(filename, tokens.ToArray());
 	}
 	
 	void ScanNext(){
@@ -389,7 +387,7 @@ class Lexer{
 	}
 	
 	void error(string message){
-		OnReport(new TabScriptException(TabScriptErrorType.Lexer, line, message));
+		OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Lexer, filename, line, message));
 		hadError = true;
 	}
 }

@@ -1,0 +1,187 @@
+import stdlib;
+import stdnum;
+
+substringTest();
+substringTest2();
+
+tableDeleteAtTest();
+tableRangeTest();
+tableDeleteTest();
+tableAccessTest();
+tableAccessTest2();
+tableAccessTest3();
+tableFindTest();
+tableFindTest2();
+doTest();
+doTest2();
+forTest();
+forTest2();
+
+input("Press enter to continue...");
+
+function substringTest(){
+	tab a0 = "Hello World"%;
+	tab a1 = a0[0, a0.length - 2];
+	
+	if a1 == "Hello Wor"% {
+		print("    Test 1 passed");
+	}else{
+		print("[X] Test 1 failed");
+	}
+}
+
+function substringTest2(){
+	tab a0 = "Hello World"%;
+	tab a1 = a0[-2, 2];
+	
+	if a1 == "ld"% {
+		print("    Test 2 passed");
+	}else{
+		print("[X] Test 2 failed");
+	}
+}
+
+function tableDeleteAtTest(){
+	tab a = ["a", "b", "c"];
+	a = a.stdlib::deleteAt(1);
+	
+	if a[1] == "c" {
+		print("    Test 3 passed");
+	}else{
+		print("[X] Test 3 failed");
+	}
+}
+
+function tableRangeTest(){
+	tab a = ["a", "b", "c", "d", "e", "f"];
+	a = a[-3, 3];
+	
+	if a^ == "def" {
+		print("    Test 4 passed");
+	}else{
+		print("[X] Test 4 failed");
+	}
+}
+
+function tableDeleteTest(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	a = a.stdlib::deleteAll("a");
+	
+	if a^ == "bdf" {
+		print("    Test 5 passed");
+	}else{
+		print("[X] Test 5 failed");
+	}
+}
+
+function tableAccessTest(){
+	tab a = ["a", "b", "c", "d", "a", "f"];
+	
+	if a.2 == "c" {
+		print("    Test 6 passed");
+	}else{
+		print("[X] Test 6 failed");
+	}
+}
+
+function tableAccessTest2(){
+	tab a = ["a", "b", "a", "d", "a", "f"][-2];
+	
+	if a == "a" {
+		print("    Test 7 passed");
+	}else{
+		print("[X] Test 7 failed");
+	}
+}
+
+function tableAccessTest3(){
+	tab a = ["a", "b", "a", "d", "a", "f"].-2;
+	
+	if a == "a" {
+		print("    Test 7 passed");
+	}else{
+		print("[X] Test 7 failed");
+	}
+}
+
+function tableFindTest(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	tab b = a.stdlib::indexOf("a");
+	
+	if b == 0 {
+		print("    Test 8 passed");
+	}else{
+		print("[X] Test 8 failed");
+	}
+}
+
+function tableFindTest2(){
+	tab a = ["n", "b", "c", "a", "a", "f"];
+	tab b = a.stdlib::indexOf("a");
+	
+	if b == 3 {
+		print("    Test 9 passed");
+	}else{
+		print("[X] Test 9 failed");
+	}
+}
+
+function doTest(){
+	tab a = "0";
+	tab b;
+	do{
+		a = stdnum::sum(a, "1");
+		b = stdnum::greater("7", a);
+	}while b;
+	
+	if a == "7" {
+		print("    Test 10 passed");
+	}else{
+		print("[X] Test 10 failed");
+	}
+}
+
+function doTest2(){
+	tab a = "0";
+	tab b;
+	do{
+		a = stdnum::sum(a, "1");
+		b = stdnum::less("7", a);
+	}while !b;
+	
+	if a == "8" {
+		print("    Test 11 passed");
+	}else{
+		print("[X] Test 11 failed");
+	}
+}
+
+function forTest(){
+	tab a = "0";
+	tab b;
+	while stdnum::less(a, "7"){
+		b[a.stdnum::toLen()] = a;
+		a = stdnum::sum(a, "1");
+	}
+	
+	if b^ == "0123456" {
+		print("    Test 12 passed");
+	}else{
+		print("[X] Test 12 failed");
+	}
+}
+
+function forTest2(){
+	tab a = "3";
+	tab b;
+	while stdnum::less(a, "7"){
+		b[a.stdnum::toLen()] = a;
+		a = stdnum::sum(a, "1");
+	}
+	
+	if b^ == "3456" {
+		print("    Test 13 passed");
+	}else{
+		print("[X] Test 13 failed");
+	}
+}

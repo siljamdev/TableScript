@@ -3,10 +3,7 @@ tab b = "k";
 
 a[0,1] //Range
 a.0 //Single elem
-
-tab c = *b; //c is true if b contained any elements contained in true
-
-
+a[0] //Single elem
 
 
 
@@ -14,9 +11,9 @@ tab c = *b; //c is true if b contained any elements contained in true
 
 program => import* statement* funcDeclaration* "EOF"
 
-import => "import" IDENTIFIER ";"
+import => "import" (IDENTIFIER | STRING) ";"
 
-funcDeclaration => "function" IDENTIFIER "(" (IDENTIFIER ("," IDENTIFIER)*)? ")" block
+funcDeclaration => "export"? "function" IDENTIFIER "(" (IDENTIFIER ("," IDENTIFIER)*)? ")" block
 
 statement => varDecl | assignment | exprStatement | if | while | do | foreach | breakStmt | continueStmt | returnStmt | exitStmt
 
@@ -24,7 +21,7 @@ varDecl => "tab" IDENTIFIER ("=" expression)? ";"
 
 assignment => tabAssignment | elemAssignment
 
-tabAssignment => IDENTIFIER ("=" | "+=") expression ";"
+tabAssignment => IDENTIFIER ("=" | "+=" | "-=") expression ";"
 
 elemAssignment => IDENTIFIER "." (NUMBER | "random") ("=" | "+=") expression ";"
 
@@ -72,7 +69,7 @@ postFix => primary ("^" | "%" | tabGetElement | tabGetRange | selfFuncCall)*
 
 tabGetElement => "." (NUMBER | "random" | "length")
 
-tabGetRange => "[" (NUMBER | "random" | expression) "," (NUMBER | "length" | expression) "]"
+tabGetRange => "[" (NUMBER | "random" | expression) ("," (NUMBER | "length" | expression))? "]"
 
 selfFuncCall => "." IDENTIFIER "(" (expression ("," expression)*)? ")"
 

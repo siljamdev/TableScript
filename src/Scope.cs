@@ -11,9 +11,9 @@ class Scope{
 		parent = p;
 	}
 	
-	public (int, int) define(int line, string id){
+	public (int, int) define(string filename, int line, string id){
 		if(vars.Contains(id)){
-			throw new TabScriptException(TabScriptErrorType.Checker, line, "Variable re-definition: " + id);
+			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Variable re-definition: " + id);
 		}
 		
 		vars.Add(id);
@@ -21,23 +21,23 @@ class Scope{
 		return (0, vars.Count - 1);
 	}
 	
-	public (int, int) assign(int line, string id, int depth = 0){
+	public (int, int) assign(string filename, int line, string id, int depth = 0){
 		if(vars.Contains(id)){
 			return (depth, vars.IndexOf(id));
 		}else if(parent != null){
-			return parent.assign(line, id, depth + 1);
+			return parent.assign(filename, line, id, depth + 1);
 		}else{
-			throw new TabScriptException(TabScriptErrorType.Checker, line, "Undefined variable assignment: " + id);
+			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Undefined variable assignment: " + id);
 		}
 	}
 	
-	public (int, int) get(int line, string id, int depth = 0){
+	public (int, int) get(string filename, int line, string id, int depth = 0){
 		if(vars.Contains(id)){
 			return (depth, vars.IndexOf(id));
 		}else if(parent != null){
-			return parent.get(line, id, depth + 1);
+			return parent.get(filename, line, id, depth + 1);
 		}else{
-			throw new TabScriptException(TabScriptErrorType.Checker, line, "Undefined variable access: " + id);
+			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Undefined variable access: " + id);
 		}
 	}
 }

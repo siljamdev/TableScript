@@ -24,9 +24,9 @@
             <Keywords name="Folders in comment, open"></Keywords>
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close"></Keywords>
-            <Keywords name="Keywords1">if else function return break continue exit while do foreach import</Keywords>
+            <Keywords name="Keywords1">if else function return break continue exit while do foreach import export</Keywords>
             <Keywords name="Keywords2">length random self tab args</Keywords>
-            <Keywords name="Keywords3">stdlib stdnum local</Keywords>
+            <Keywords name="Keywords3">stdlib stdnum local stdlist</Keywords>
             <Keywords name="Keywords4"></Keywords>
             <Keywords name="Keywords5"></Keywords>
             <Keywords name="Keywords6"></Keywords>

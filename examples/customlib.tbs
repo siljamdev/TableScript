@@ -1,0 +1,9 @@
+// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
+
+import stdlib;
+import stdnum;
+import customlib; //Our custom library!
+
+print(sum1(3).toNum()); //4
+print(getDayOfTheWeek(5)); //Friday

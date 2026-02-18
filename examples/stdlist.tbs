@@ -1,0 +1,81 @@
+// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
+
+import stdlib;
+import stdnum;
+import stdlist;
+
+//StdList tutorial. Lists are several tables expressed as one, compacted together.
+
+tab lst1 = ["aa", "a", "aa", "t0e0", "t1e0", "t1e1"]; //Internal format used
+printLst(lst1);
+
+tab lst2 = newLst(); //New empty list
+lst2 = lst2.addTab(["h", "g"]);
+lst2 = lst2.addTab(["1", "2", "3", "4"]);
+lst2 = lst2.addTab([]);
+printLst(lst2);
+
+tab lst3 = mergeLst(lst1, lst2);
+printLst(lst3);
+
+tab lst4 = lst3;
+lst4 = lst4.delTab(4);
+lst4 = lst4.delTab(2);
+lst4 = lst4.setTab(2, "help"%);
+lst4 = lst4.setTabElem(2, 3, "7");
+printLst(lst4);
+
+print(lst4.flattenLst().decor()); //Flattened all tables of the list
+
+tab lst5 = newLst();
+lst5 = lst5.addTab(["b", "g"]);
+lst5 = lst5.addTab(["b", "h"]);
+lst5 = lst5.addTab(["b", "f"]);
+lst5 = lst5.insertTab(1, ["ñ", "k"]);
+printLst(lst5);
+print(tf(lst5.containsTab(["b", "h"]))); //true
+print(lst5.indexOfTab(["b", "h"]).toNum());
+
+//Helper function
+function tf(self){
+	return self ? "true" : "false";
+}
+
+//Helper function
+function decor(self){
+	return "[" + self.join(", ") + "]";
+}
+
+//Function to print a list
+function printLst(self){
+	print(""); //Separator
+	print(self.decor());
+	tab isLst = self.isLst();
+	
+	print("Is list: " + tf(isLst));
+	
+	if(!isLst){
+		return; //Exit if its not a list
+	}
+	
+	tab len = self.lstLen();
+	
+	print("List length: " + len.toNum());
+	
+	tab i = 0;
+	while(i < len){ //Printing all tables
+		tab tablen = self.tabLen(i);
+		print("Table " + i.toNum() + " length: " + tablen.toNum());
+		print("Table " + i.toNum() + ": " + self.getTab(i).decor());
+		
+		tab j = 0;
+		while(j < tablen){ //Printing all elements inside table
+			print("Table " + i.toNum() + " element " + j.toNum() + ": " + self.getTabElem(i, j));
+			
+			j += 1;
+		}
+		
+		i += 1;
+	}
+}

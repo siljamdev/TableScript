@@ -2,21 +2,18 @@ using System;
 
 namespace TabScript;
 
+//Purpose: optimize expressions and statements to avoid unecessary code
 class Optimizer{
 	TableScript p;
-	
-	HashSet<int> usedFuncs = new();
-	
-	Dictionary<int, int> funcTranslating = new();
 	
 	public Optimizer(TableScript s){
 		p = s;
 	}
 	
 	public TableScript Optimize(){
-		List<Stmt> top = new(p.topLevel.Length);
+		List<Stmt> top = new(p.body.body.Length);
 		
-		foreach(Stmt v in p.topLevel){
+		foreach(Stmt v in p.body.body){
 			Stmt bf = Optimize(v);
 			if(bf != null){
 				top.Add(bf);
@@ -26,164 +23,10 @@ class Optimizer{
 		List<TabFunc> fs = new(p.functions.Length);
 		
 		foreach(TabFunc fun in p.functions){
-			TabFunc bf = Optimize(fun);
-			if(bf != null){
-				fs.Add(bf);
-			}
+			fs.Add(Optimize(fun));
 		}
 		
-		//return new TableScript(top.ToArray(), fs.ToArray());
-		
-		//2nd stage
-		
-		for(int i = 0; i < fs.Count; i++){
-			if(usedFuncs.Contains(i)){
-				funcTranslating.Add(i, funcTranslating.Count);
-			}
-		}
-		
-		fs = fs.Where((v, i) => usedFuncs.Contains(i)).ToList();
-		
-		List<Stmt> top2 = new(top.Count);
-		
-		foreach(Stmt v in top){
-			Stmt bf = Translate(v);
-			if(bf != null){
-				top2.Add(bf);
-			}
-		}
-		
-		List<TabFunc> fs2 = new(fs.Count);
-		
-		foreach(TabFunc fun in fs){
-			TabFunc bf = Translate(fun);
-			if(bf != null){
-				fs2.Add(bf);
-			}
-		}
-		
-		return new TableScript(top2.ToArray(), fs2.ToArray());
-	}
-	
-	Stmt Translate(Stmt p){
-		switch(p){
-			case ExprStmt e:
-				return new ExprStmt(Translate(e.exp), p.line);
-			
-			case BlockStmt b:
-				Stmt[] ne = b.inner.Select(h => Translate(h)).Where(h => h != null).ToArray();
-				return new BlockStmt(ne, p.line);
-			
-			case OptVarDeclStmt v:
-				Expr x = Translate(v.val);
-				return new OptVarDeclStmt(v.depth, v.index, x, p.line);
-			
-			case OptTabAssignStmt a:
-				x = Translate(a.val);
-				return new OptTabAssignStmt(a.depth, a.index, x, p.line);
-			
-			case OptElementAssignStmt l:
-				x = Translate(l.val);
-				return new OptElementAssignStmt(l.depth, l.index, l.ind, x, p.line);
-			
-			case IfStmt f:
-				x = Translate(f.condition);
-				
-				return new IfStmt(x, Translate(f.then), Translate(f.els), p.line);
-			
-			case WhileStmt w:
-				return new WhileStmt(Translate(w.condition), Translate(w.body), Translate(w.els), p.line);
-			
-			case DoStmt d:
-				return new DoStmt(Translate(d.condition), Translate(d.body), Translate(d.els), p.line);
-			
-			case ForeachStmt t:
-				return new ForeachStmt(t.id, Translate(t.pool), (BlockStmt) Translate(t.body), Translate(t.els), p.line);
-			
-			case ReturnStmt r:
-				return new ReturnStmt(Translate(r.val), p.line);
-			
-			default:
-				return p;
-		}
-	}
-	
-	TabFunc Translate(TabFunc p){
-		switch(p){
-			case TabNativeFunc f:
-				return new TabNativeFunc(f.import, f.identifier, f.pars, f.self, (BlockStmt) Translate(f.body), p.line);
-			
-			case TabExternFunc x:
-				return p;
-			
-			default:
-				return p;
-		}
-	}
-	
-	Expr Translate(Expr p){
-		switch(p){
-			case BinaryExpr b:
-				Expr o1 = Translate(b.left);
-				Expr o2 = Translate(b.right);
-				
-				return new BinaryExpr(o1, b.op, o2);
-			
-			case UnaryExpr u:
-				o2 = Translate(u.right);
-				
-				return new UnaryExpr(u.op, o2);
-			
-			case TernaryExpr q:
-				Expr cond = Translate(q.cond);
-				Expr tru = Translate(q.tr);
-				Expr fal = Translate(q.fa);
-				
-				return new TernaryExpr(cond, tru, fal);
-				
-			
-			case GroupingExpr g:
-				return Translate(g.exp);
-			
-			case GetElementExpr e:
-				o1 = Translate(e.left);
-				return new GetElementExpr(o1, e.ind);
-			
-			case GetRangeExpr r:
-				o1 = Translate(r.left);
-				IndexExpr idd = (IndexExpr) Translate(r.ind);
-				IndexExpr lld = (IndexExpr) Translate(r.len);
-				
-				return new GetRangeExpr(o1, idd, lld);
-			
-			case IndexExpr indxx:
-				if(indxx.val == null){
-					return indxx;
-				}
-				
-				Expr o3o2 = Translate(indxx.val);
-				
-				return new IndexExpr(default, o3o2);
-			
-			case BuildLiteralExpr d:
-				Expr[] n = d.parts.Select(h => Translate(h)).ToArray();
-				
-				return new BuildLiteralExpr(n);
-			
-			case DollarExpr r:
-				Expr[] n2 = r.parts.Select(h => Translate(h)).ToArray();
-				
-				return new DollarExpr(n2);
-			
-			case OptCallExpr c:
-				Expr[] n3 = c.args.Select(h => Translate(h)).ToArray();
-				
-				return new OptCallExpr(funcTranslating[c.index], n3);
-			break;
-			
-			default:
-				return p;
-		}
+		return new TableScript(new Snippet(p.body.filename, p.body.import, top.ToArray()), fs.ToArray());
 	}
 	
 	Stmt Optimize(Stmt p){
@@ -209,7 +52,8 @@ class Optimizer{
 			
 			case OptElementAssignStmt l:
 				x = Optimize(l.val);
-				return new OptElementAssignStmt(l.depth, l.index, l.ind, x, p.line);
+				IndexExpr idd2 = (IndexExpr) Optimize(l.ind);
+				return new OptElementAssignStmt(l.depth, l.index, idd2, x, p.line);
 			
 			case IfStmt f:
 				x = Optimize(f.condition);
@@ -244,10 +88,7 @@ class Optimizer{
 	TabFunc Optimize(TabFunc p){
 		switch(p){
 			case TabNativeFunc f:
-				return new TabNativeFunc(f.import, f.identifier, f.pars, f.self, (BlockStmt) Optimize(f.body), p.line);
-			
-			case TabExternFunc x:
-				return p;
+				return new TabNativeFunc(f.import, f.identifier, f.pars, f.self, f.export, (BlockStmt) Optimize(f.body), p.filename, p.line);
 			
 			default:
 				return p;
@@ -354,10 +195,11 @@ class Optimizer{
 			
 			case GetElementExpr e:
 				o1 = Optimize(e.left);
-				if(e.ind.mode != TabIndexMode.Random && o1 is LiteralExpr lit1b){
-					return new LiteralExpr(lit1b.val.GetElem(e.ind));
+				IndexExpr idd2 = (IndexExpr) Optimize(e.ind);
+				if(idd2.val == null && idd2.ind.mode != TabIndexMode.Random && o1 is LiteralExpr lit1b){
+					return new LiteralExpr(lit1b.val.GetElem(idd2.ind));
 				}else{
-					return new GetElementExpr(o1, e.ind);
+					return new GetElementExpr(o1, idd2);
 				}
 			
 			case GetRangeExpr r:
@@ -428,17 +270,15 @@ class Optimizer{
 					return new DollarExpr(n2);
 				}
 				
-				Table t2 = new Table("");
+				string t2 = "";
 				
 				foreach(Expr xx in n2){
-					t2[0] += ((LiteralExpr) xx).val.AsString();
+					t2 += ((LiteralExpr) xx).val.AsString();
 				}
-				return new LiteralExpr(t2);
+				return new LiteralExpr(new Table(t2));
 			
 			case OptCallExpr c:
 				Expr[] n3 = c.args.Select(h => Optimize(h)).ToArray();
-				
-				usedFuncs.Add(c.index);
 				
 				return new OptCallExpr(c.index, n3);
 			break;

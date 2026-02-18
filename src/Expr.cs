@@ -1,7 +1,6 @@
 namespace TabScript;
 
-abstract record Expr{
-}
+abstract record Expr{}
 
 record BinaryExpr(Expr left, TokenType op, Expr right) : Expr{
 	public override string ToString(){
@@ -27,7 +26,7 @@ record TernaryExpr(Expr cond, Expr tr, Expr fa) : Expr{
 	}
 }
 
-record GetElementExpr(Expr left, TabIndex ind) : Expr{
+record GetElementExpr(Expr left, IndexExpr ind) : Expr{
 	public override string ToString(){
 		return left?.ToString() + "." + ind.ToString();
 	}
@@ -45,12 +44,16 @@ record IndexExpr(TabIndex ind, Expr val) : Expr{
 	}
 }
 
-//Null imports meand any
+//Null imports means any
 record CallExpr(string identifier, string import, bool self, Expr[] args) : Expr{
 	public int arity => args.Length;
 	
 	public override string ToString(){
-		return self ? (args[0] + "." + (import != null ? (import + "::") : "") + identifier + "(" + string.Join(", ", args.Skip(1).Select(a => a.ToString())) + ")") : ((import != null ? (import + "::") : "") + identifier + "(" + string.Join(", ", args.Select(a => a.ToString())) + ")");
+		if(self){
+			return args[0] + "." + (import != null ? (import + "::") : "") + identifier + "(" + string.Join(", ", args.Skip(1).Select(a => a.ToString())) + ")";
+		}else{
+			return (import != null ? (import + "::") : "") + identifier + "(" + string.Join(", ", args.Select(a => a.ToString())) + ")";
+		}
 	}
 }
 
@@ -81,13 +84,13 @@ record DollarExpr(Expr[] parts) : Expr{
 #region optimized
 record OptCallExpr(int index, Expr[] args) : Expr{
 	public override string ToString(){
-		return "_:" + index + "(" + string.Join(", ", args.Select(a => a.ToString())) + ")";
+		return "@_" + index + "(" + string.Join(", ", args.Select(a => a.ToString())) + ")";
 	}
 }
 
 record OptVariableExpr(int depth, int index) : Expr{
 	public override string ToString(){
-		return depth + ":" + index;
+		return depth + "_" + index;
 	}
 }
 #endregion

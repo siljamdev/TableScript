@@ -6,17 +6,27 @@
     <Nullable>enable</Nullable>
 	
 	<PackageId>TableScript</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
+	<PackageVersion>1.2.0</PackageVersion>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
     
     <PackageDescription>String list based scripting languange</PackageDescription>
 	
 	<RepositoryUrl>https://github.com/siljamdev/TableScript</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
 	<PackageProjectUrl>https://github.com/siljamdev/TableScript</PackageProjectUrl>
 	
-	<PackageIcon>res/icon.ico</PackageIcon>
-<!--@propertyGr-->
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageIcon>res/icon.png</PackageIcon>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<!--@propertyGr-->
   </PropertyGroup>
   
+  <ItemGroup>
+	<Compile Remove="examples/**" />
+	<Compile Remove="exec/**" />
+	<None Include="res/icon.png" Pack="true" PackagePath="res/" />
+	<None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 </Project>
