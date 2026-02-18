@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Introduction | TableScript </title>
+      <title>Libraries | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Introduction | TableScript ">
+      <meta name="title" content="Libraries | TableScript ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/introduction.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/libraries.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,18 +85,85 @@
         </div>
 
         <article data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="libraries">Libraries</h1>
 
-<p>Using the scripting language without any aditional features is very straightforward:</p>
+<p>To create a custom library with external functions, start by creating a static class with static methods:</p>
+<pre><code class="lang-cs">using TabScript;
+
+public static class CustomLib{	
+	public static int sum1(int a){
+		return a + 1;
+	}
+	
+	public static string getDayOfTheWeek(int index){
+		return index switch{
+			1 =&gt; &quot;Monday&quot;,
+			2 =&gt; &quot;Tuesday&quot;,
+			3 =&gt; &quot;Wednesday&quot;,
+			4 =&gt; &quot;Thursday&quot;,
+			5 =&gt; &quot;Friday&quot;,
+			6 =&gt; &quot;Saturday&quot;,
+			7 =&gt; &quot;Sunday&quot;,
+			_ =&gt; null
+		};
+	}
+}
+</code></pre>
+<p>Because TableScript functions always return <a href="../api/TabScript.Table.html">Table</a> and take <a href="../api/TabScript.Table.html">Table</a> as arguments, they need to be converted.<br>
+For the methods, the valid return types are:</p>
+<ul>
+<li><code>void</code>: Returns an empty Table</li>
+<li><code>string</code>: Returns a single element table. If the string is null, an empty table</li>
+<li><code>int</code>: Returns a n element table (<code>new Table(int)</code>)</li>
+<li><code>bool</code>: Returns a 0 or 1 element table (<code>Table.GetBool(bool)</code>)</li>
+<li><a href="../api/TabScript.Table.html">Table</a>: No conversion is done</li>
+</ul>
+<p>For the arguments, they must be one of the following:</p>
+<ul>
+<li><code>string</code>: The table argument is reduced (<code>Table.AsString()</code>)</li>
+<li><code>int</code>: The table argumet Length is used (<code>Table.Length</code>)</li>
+<li><code>bool</code>: The table truthiness(length &gt; 0) is used (<code>Table.Truthy</code>)</li>
+<li><a href="../api/TabScript.Table.html">Table</a>: No conversion is done</li>
+</ul>
+<p>Now, add a property to convert to a ResolvedImport. Once this conversion is done, there is no point in doing it again, so we store it in a private field.<br>
+Also, creating a list with functions and their description will make it easier.</p>
+<pre><code class="lang-cs">public static (Delegate func, string description)[] AllFunctions =&gt; new (Delegate, string)[]{
+	(sum1, &quot;Sum 1 to a number&quot;),
+	(getDayOfTheWeek, &quot;Get day of the week name by index&quot;)
+};
+
+static ResolvedImport compiled = null;
+
+public static ResolvedImport AsImport {get{
+	if(compiled == null){
+		compiled = Library.BuildLibrary(&quot;customlib&quot;, AllFunctions);
+	}
+	return compiled;
+}}
+</code></pre>
+<p>As we saw previously, we can use a custom <a href="../api/TabScript.IImportResolver.html">IImportResolver</a>.<br>
+In this example, we will implement a Resolver on top of the Standard Resolver that can resolve this new library.<br>
+This is the custom IImportResolver:</p>
+<pre><code class="lang-cs">using TabScript;
+
+class CustomImportResolver : StandardImportResolver{
+	public override ResolvedImport Resolve(string import, string callingFilename){
+		if(import == &quot;customlib&quot;){
+			return CustomLib.AsImport;
+		}
+		return base.Resolve(import, callingFilename); //Safely handle anything that wasnt recognized
+	}
+}
+</code></pre>
+<p>Then, we just need the Main method:</p>
 <pre><code class="lang-cs">using TabScript;
 
 class Program{
 	static void Main(){
-		//Get source
-		string src = File.ReadAllText(&quot;program.tbs&quot;);
+		string path = &quot;program.tbs&quot;;
 		
 		try{
-			TableScript script = TableScript.FromSource(&quot;program.tbs&quot;, src);
+			TableScript script = TableScript.FromSource(path, File.ReadAllText(path), new CustomImportResolver());
 			
 			script.Run();
 		}catch(TabScriptException ex){
@@ -105,8 +172,25 @@ class Program{
 	}
 }
 </code></pre>
-<p>You can use a custom <a href="../api/TabScript.IImportResolver.html">IImportResolver</a> to add features in the form of imports.<br>
-We will explore this feature further in the next tutorial</p>
+<p>Now, using this <code>CustomImportResolver</code>, we will have acess to <code>sum1</code> and <code>getDayOfTheWeek</code>:</p>
+<pre><code>// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
+
+import stdlib;
+import stdnum;
+import customlib; //Our custom library!
+
+print(sum1(3).toNum()); //4
+print(getDayOfTheWeek(5)); //Friday
+</code></pre>
+<p>If there is any doubt about the signature of functions implemented in libraries, you can always print them out:</p>
+<pre><code class="lang-cs">Console.WriteLine(CustomLib.AsImport);
+</code></pre>
+<p>This prints:</p>
+<pre><code>customlib
+export function sum1(a){ EXTERN; } //Sum 1 to a number
+export function getDayOfTheWeek(index){ EXTERN; } //Get day of the week name by index
+</code></pre>
 
 </article>
 

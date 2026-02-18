@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class StandardImportResolver | TableScript </title>
+      <title>Class Library | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class StandardImportResolver | TableScript ">
+      <meta name="title" content="Class Library | TableScript ">
       
-      
+      <meta name="description" content="The purpose of this class is to transform C# libraries into available functions for TableScript">
       <link rel="icon" href="../icon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/new/main/apiSpec/new?filename=TabScript_StandardImportResolver.md&amp;value=---%0Auid%3A%20TabScript.StandardImportResolver%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/new/main/apiSpec/new?filename=TabScript_Library.md&amp;value=---%0Auid%3A%20TabScript.Library%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="TabScript.StandardImportResolver">
+        <article data-uid="TabScript.Library">
 
 
 
-  <h1 id="TabScript_StandardImportResolver" data-uid="TabScript.StandardImportResolver" class="text-break">
-Class StandardImportResolver  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/IImportResolver.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <h1 id="TabScript_Library" data-uid="TabScript.Library" class="text-break">
+Class Library  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/Library.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,12 @@ Class StandardImportResolver  <a class="header-action link-secondary" title="Vie
   <dl><dt>Assembly</dt><dd>TableScript.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>The purpose of this class is to transform C# libraries into available functions for TableScript</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StandardImportResolver : IImportResolver</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Library</code></pre>
   </div>
 
 
@@ -111,16 +112,10 @@ Class StandardImportResolver  <a class="header-action link-secondary" title="Vie
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">StandardImportResolver</span></div>
+      <div><span class="xref">Library</span></div>
     </dd>
   </dl>
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -154,64 +149,30 @@ Class StandardImportResolver  <a class="header-action link-secondary" title="Vie
 
 
 
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="TabScript_StandardImportResolver_OnReport_" data-uid="TabScript.StandardImportResolver.OnReport*"></a>
-
-  <h3 id="TabScript_StandardImportResolver_OnReport" data-uid="TabScript.StandardImportResolver.OnReport">
-  OnReport
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/IImportResolver.cs/#L10"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;TabScriptException&gt; OnReport { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="TabScriptException.html">TabScriptException</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="TabScript_StandardImportResolver_Resolve_" data-uid="TabScript.StandardImportResolver.Resolve*"></a>
+  <a id="TabScript_Library_BuildLibrary_" data-uid="TabScript.Library.BuildLibrary*"></a>
 
-  <h3 id="TabScript_StandardImportResolver_Resolve_System_String_System_String_" data-uid="TabScript.StandardImportResolver.Resolve(System.String,System.String)">
-  Resolve(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/IImportResolver.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_Delegate_System_String____" data-uid="TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[])">
+  BuildLibrary(string, (Delegate func, string description)[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/Library.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Using reflecion, transforms C# functions with Table, string, bool, int and void return types and arguments into FunctionExtStmt records</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ResolvedImport Resolve(string import, string callingFilename)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ResolvedImport BuildLibrary(string filename, (Delegate func, string description)[] functions)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>import</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
-    <dt><code>callingFilename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>functions</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.delegate,system.string-.func">func</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.delegate,system.string-.description">description</a>)[]</dt>
     <dd></dd>
   </dl>
 

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Example program | TabScript </title>
+      <title>Example program | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Example program | TabScript ">
+      <meta name="title" content="Example program | TableScript ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../icon.svg" alt="TabScript">
-            TabScript
+            <img id="logo" class="svg" src="../icon.svg" alt="TableScript">
+            TableScript
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -88,18 +88,21 @@
 <h1 id="example-program">Example program</h1>
 
 <p>Here is a program showing virtually all features:</p>
-<pre><code>//Importing the standard library for print
+<pre><code>// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
+
+//Importing the standard library for print
 import stdlib;
 
 //Table variables
 tab global = [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;];
 
-//Table appending
-tab greeting = global + &quot; &quot; + &quot;world&quot;;
+//Concatenation operator +: table concatenation
+tab greeting = global + [&quot; &quot;, &quot;world&quot;];
 
 print(greeting); //hello world
 
-//Dollar strings with full expressions
+//Dollar strings with full expressions (syntax highlighter migh break because of this)
 tab doll = $&quot;The message of the day is '{greeting + &quot;!&quot;}'&quot;;
 
 print(doll); //The message of the day is 'hello world!'
@@ -120,17 +123,17 @@ if false{
 //String literals are handled like length 1 tables:
 tab eq = &quot;abcd&quot; == [&quot;abcd&quot;];
 
-//Ternary operators
+//Ternary operator
 print(eq ? &quot;equal&quot; : &quot;not equal&quot;); //equal
 
-//! operator: returns [] (false) when the table has length greater than zero and [&quot;&quot;] (true) when length is 0. This is the general concept of truthiness
+//nagation operator !: returns [] (false) when the table has length greater than zero and [&quot;&quot;] (true) when length is 0. This is the general concept of truthiness
 tab t = ![&quot;h&quot;];
 
-//- operator: removes elements
+//difference operator -: removes elements
 tab h = [&quot;a&quot;, &quot;a&quot;, &quot;b&quot;] - [&quot;a&quot;];
 print(h); //ab
 
-//* operator: cartesian product
+//product operator *: cartesian product
 tab p = [&quot;a&quot;, &quot;b&quot;] * [&quot;c&quot;, &quot;d&quot;];
 print(p); //acbcadbd
 
@@ -140,45 +143,58 @@ print(p); //ababab
 p = 3 * [&quot;a&quot;, &quot;b&quot;];
 print(p); //aaabbb
 
-//Equality
+//Equality operators == and !=
+print([&quot;a&quot;, &quot;b&quot;] != [&quot;ab&quot;] ? &quot;true&quot; : &quot;false&quot;); //true
+print([&quot;a&quot;, &quot;b&quot;] == [&quot;a&quot;, &quot;b&quot;] ? &quot;true&quot; : &quot;false&quot;); //true
 print([&quot;a&quot;, &quot;b&quot;] == &quot;ab&quot; ? &quot;true&quot; : &quot;false&quot;); //false
-print([&quot;a&quot;, &quot;b&quot;] != &quot;ab&quot; ? &quot;true&quot; : &quot;false&quot;); //true
 
-//^ operator: joins all elements into a single string
+//Reduction operator ^: joins all elements into a single string
 print([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]^ == &quot;abc&quot; ? &quot;true&quot; : &quot;false&quot;); //true
 
-//% operator: separates all charachters of all elements into their own elements
+//Decomposition operator %: separates all charachters of all elements into their own elements
 print([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;] == &quot;abc&quot;% ? &quot;true&quot; : &quot;false&quot;); //true
 
-//@ operator: checks if all elements are contained
+//containment operator @: checks if all elements are contained
 print([&quot;a&quot;, &quot;b&quot;] @ [&quot;c&quot;, &quot;d&quot;, &quot;a&quot;, &quot;n&quot;, &quot;b&quot;] ? &quot;true&quot; : &quot;false&quot;); //true
+print([&quot;a&quot;, &quot;b&quot;, &quot;m&quot;] @ [&quot;c&quot;, &quot;d&quot;, &quot;a&quot;, &quot;n&quot;, &quot;b&quot;] ? &quot;true&quot; : &quot;false&quot;); //false
+
+//Comparison operators &lt;, &lt;=, &gt;, &gt;=: they compare lengths of tables
+print([&quot;1&quot;] &gt; [&quot;a&quot;, &quot;b&quot;] ? &quot;true&quot; : &quot;false&quot;); //false
+print(4 &gt; [&quot;a&quot;, &quot;b&quot;] ? &quot;true&quot; : &quot;false&quot;); //true
+
+//Numbers are tables as well: 2 is the same as [&quot;&quot;, &quot;&quot;], with empty strings and length 2.
+print(3); //Nothing will be seen (empty strings)
+print(3 == [&quot;&quot;, &quot;&quot;, &quot;&quot;] ? &quot;true&quot; : &quot;false&quot;); //true
 
 //Element access
 tab abc = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;];
 print(abc.0); //a
 print(abc.1); //b
-print(abc.-1); //Last element: f
-print(abc.-2); //Previous element: e
+
+//Negative index: last elements
+print(abc.-1); //f
+print(abc.-2); //e
 print(abc.random); //Random element
 
-print(abc.100); //Obviously out of bounds, returns &quot;&quot;
-print(abc.-100); //Obviously out of bounds, returns &quot;&quot;
+print(abc[1]); //b
+
+print(abc.100); //Obviously out of bounds, returns []
+print(abc.-100); //Obviously out of bounds, returns []
 
 //Element setting
 tab nums = [&quot;0&quot;, &quot;2&quot;, &quot;3&quot;];
 nums.0 = &quot;1&quot;;
 print(nums); //123
+nums[1] = &quot;a&quot;;
+print(nums); //1a3
+
+//Expression index access with []
+nums[1 + 2] = &quot;g&quot;;
+print(nums); //1a3g
 
 //Literal building: flattening of other tables
 tab all = [abc, &quot;+&quot;, nums, [&quot;j&quot;, [&quot;k&quot;, &quot;l&quot;, abc], &quot;k&quot;]];
-print(all); //abcdef+123jklabcdefk
-
-//Numbers are tables as well: 2 is the same as [&quot;&quot;, &quot;&quot;], with empty strings and length 2.
-print(3); //Nothing will be seen (empty strings)
-
-//&lt;, &lt;=, &gt;, &gt;= operators: they compare length
-print([&quot;1&quot;] &gt; [&quot;a&quot;, &quot;b&quot;] ? &quot;true&quot; : &quot;false&quot;); //false
-print(4 &gt; [&quot;a&quot;, &quot;b&quot;] ? &quot;true&quot; : &quot;false&quot;); //true
+print(all); //abcdef+1a3gjklabcdefk
 
 //length: retuns a number table of the length: [&quot;a&quot;, &quot;b&quot;].length =&gt; [&quot;&quot;, &quot;&quot;] (2);
 print(2 == [&quot;a&quot;, &quot;b&quot;].length ? &quot;true&quot; : &quot;false&quot;); //true
@@ -192,7 +208,7 @@ while i &lt; 5{
     print(&quot;finish&quot;);
 }
 
-//Range access: index, length. Handles negative indexes, negative lengths and expressions
+//Range access: [index, length]. Handles negative indexes, negative lengths and expressions
 print(abc[0, 3]); //abc
 print(abc[1, 3]); //bcd
 print(abc[1, 300]); //Out of bounds, auto crops: bcdef
@@ -208,6 +224,7 @@ do{
     i += 1;
 }while i &lt; 6;
 
+//Visual separator
 print(&quot;next loop&quot;); //next loop
 
 i = 0;
@@ -255,7 +272,7 @@ print(decorate(abc)); //eeeeee
 //Function overloading
 print(fibonacci(10).decorate()); //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 
-print(fibonacci(20, 3)); //sorry
+print(fibonacci(20, 3)); //text here. lorem ipsum
 
 //stdlib includes a function called 'upper' to turn tables into uppercase. However, we declared a function called the same. See what happens when declaring the import:
 print(&quot;j&quot;.upper()); //oops
@@ -263,7 +280,7 @@ print(&quot;j&quot;.stdlib::upper()); //J
 print(&quot;j&quot;.local::upper()); //oops
 
 //Complex funcion usage + library functions
-print(join([getDate()[0, 3].join(&quot;/&quot;), getDate()[3, 3].join(&quot;:&quot;)], &quot; &quot;)); //Todays date
+print(join([getDate()[0, 3].reverse().join(&quot;/&quot;), getDate()[3, 3].join(&quot;:&quot;)], &quot; &quot;)); //Todays date
 
 //Exiting the script compeltely(not needed at the end, used for early exit, maybe even in a function)
 exit;
@@ -293,7 +310,7 @@ function fibonacci(n){
 }
 
 function fibonacci(n, k){
-    return &quot;sorry&quot;;
+    return &quot;text here. lorem ipsum&quot;;
 }
 
 //Self function

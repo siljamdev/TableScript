@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Table | TabScript </title>
+      <title>Class Table | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Table | TabScript ">
+      <meta name="title" content="Class Table | TableScript ">
       
-      
+      <meta name="description" content="Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself">
       <link rel="icon" href="../icon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../icon.svg" alt="TabScript">
-            TabScript
+            <img id="logo" class="svg" src="../icon.svg" alt="TableScript">
+            TableScript
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -89,7 +89,7 @@
 
 
   <h1 id="TabScript_Table" data-uid="TabScript.Table" class="text-break">
-Class Table  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class Table  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
   <dl><dt>Assembly</dt><dd>TableScript.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -153,10 +154,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table__ctor" data-uid="TabScript.Table.#ctor">
   Table()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initialize empty Table</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -179,10 +181,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table__ctor_System_Collections_Generic_List_System_String__" data-uid="TabScript.Table.#ctor(System.Collections.Generic.List{System.String})">
   Table(List&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initialize Table</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -210,10 +213,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table__ctor_System_Int32_" data-uid="TabScript.Table.#ctor(System.Int32)">
   Table(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initialize Table as number</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -239,12 +243,45 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <a id="TabScript_Table__ctor_" data-uid="TabScript.Table.#ctor*"></a>
 
-  <h3 id="TabScript_Table__ctor_System_String___" data-uid="TabScript.Table.#ctor(System.String[])">
-  Table(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_Table__ctor_System_String_" data-uid="TabScript.Table.#ctor(System.String)">
+  Table(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initialize table with single string</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Table(string s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TabScript_Table__ctor_" data-uid="TabScript.Table.#ctor*"></a>
+
+  <h3 id="TabScript_Table__ctor_System_String___" data-uid="TabScript.Table.#ctor(System.String[])">
+  Table(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialize table with strings</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -272,10 +309,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table__ctor_TabScript_Table_" data-uid="TabScript.Table.#ctor(TabScript.Table)">
   Table(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Clone Table</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -307,7 +345,7 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_False" data-uid="TabScript.Table.False">
   False
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -338,10 +376,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_IsNumber" data-uid="TabScript.Table.IsNumber">
   IsNumber
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>If it is internally represented as a number</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -369,14 +408,15 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_Item_System_Int32_" data-uid="TabScript.Table.Item(System.Int32)">
   this[int]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Careful! Unsafe</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string this[int index] { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string this[int index] { get; }</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -405,7 +445,7 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_Length" data-uid="TabScript.Table.Length">
   Length
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -436,7 +476,7 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_True" data-uid="TabScript.Table.True">
   True
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -467,10 +507,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_Truthy" data-uid="TabScript.Table.Truthy">
   Truthy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>If it is considered true</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -498,10 +539,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_contents" data-uid="TabScript.Table.contents">
   contents
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Full contents</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -529,14 +571,79 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 </h2>
 
 
+  <a id="TabScript_Table_Add_" data-uid="TabScript.Table.Add*"></a>
+
+  <h3 id="TabScript_Table_Add_System_String_" data-uid="TabScript.Table.Add(System.String)">
+  Add(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add to end</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TabScript_Table_Add_" data-uid="TabScript.Table.Add*"></a>
+
+  <h3 id="TabScript_Table_Add_TabScript_Table_" data-uid="TabScript.Table.Add(TabScript.Table)">
+  Add(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add to end</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(Table t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="TabScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="TabScript_Table_AddRange_" data-uid="TabScript.Table.AddRange*"></a>
 
   <h3 id="TabScript_Table_AddRange_TabScript_Table_" data-uid="TabScript.Table.AddRange(TabScript.Table)">
   AddRange(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L301"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Add to end</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -564,10 +671,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_AsString" data-uid="TabScript.Table.AsString">
   AsString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L401"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L531"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Table -&gt; string</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -595,7 +703,7 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_Clone" data-uid="TabScript.Table.Clone">
   Clone()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -626,10 +734,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_Contains_TabScript_Table_" data-uid="TabScript.Table.Contains(TabScript.Table)">
   Contains(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L440"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>If the Table contains all elements of the Table arg</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -662,10 +771,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_EqualTo_TabScript_Table_" data-uid="TabScript.Table.EqualTo(TabScript.Table)">
   EqualTo(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L379"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L503"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Checking for equality</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -698,10 +808,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_GetBool_System_Boolean_" data-uid="TabScript.Table.GetBool(System.Boolean)">
   GetBool(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L397"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L524"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns True or False</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -734,10 +845,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_GetElem_TabScript_TabIndex_" data-uid="TabScript.Table.GetElem(TabScript.TabIndex)">
   GetElem(TabIndex)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L159"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get Element</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -770,10 +882,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_GetRange_TabScript_TabIndex_TabScript_TabIndex_" data-uid="TabScript.Table.GetRange(TabScript.TabIndex,TabScript.TabIndex)">
   GetRange(TabIndex, TabIndex)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L201"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get multiple elements</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -804,14 +917,52 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
 
 
+  <a id="TabScript_Table_IndexOf_" data-uid="TabScript.Table.IndexOf*"></a>
+
+  <h3 id="TabScript_Table_IndexOf_System_String_" data-uid="TabScript.Table.IndexOf(System.String)">
+  IndexOf(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Find index of element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(string elem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elem</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="TabScript_Table_Product_" data-uid="TabScript.Table.Product*"></a>
 
   <h3 id="TabScript_Table_Product_TabScript_Table_" data-uid="TabScript.Table.Product(TabScript.Table)">
   Product(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L473"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Cartesian product</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -844,10 +995,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_RemoveAll_TabScript_Table_" data-uid="TabScript.Table.RemoveAll(TabScript.Table)">
   RemoveAll(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L319"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remove from Table all elements contained in arg Table</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -875,10 +1027,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_RemoveAt_System_Int32_" data-uid="TabScript.Table.RemoveAt(System.Int32)">
   RemoveAt(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L370"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remove from Table at index</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -906,10 +1059,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_RemoveSingle_TabScript_Table_" data-uid="TabScript.Table.RemoveSingle(TabScript.Table)">
   RemoveSingle(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L343"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remove from Table elements contained in arg Table, only once</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -933,14 +1087,47 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
 
 
+  <a id="TabScript_Table_Reversed_" data-uid="TabScript.Table.Reversed*"></a>
+
+  <h3 id="TabScript_Table_Reversed" data-uid="TabScript.Table.Reversed">
+  Reversed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L425"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reversed table</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Table Reversed()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="TabScript_Table_SetElem_" data-uid="TabScript.Table.SetElem*"></a>
 
   <h3 id="TabScript_Table_SetElem_TabScript_TabIndex_TabScript_Table_" data-uid="TabScript.Table.SetElem(TabScript.TabIndex,TabScript.Table)">
   SetElem(TabIndex, Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Set element to another Table</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -970,10 +1157,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_Shuffled" data-uid="TabScript.Table.Shuffled">
   Shuffled()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L403"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Randomly shuffled Table</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1001,10 +1189,11 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_SplitToChars" data-uid="TabScript.Table.SplitToChars">
   SplitToChars()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L396"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Table -&gt; Table of length 1 strings</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1032,10 +1221,10 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="TabScript_Table_ToString" data-uid="TabScript.Table.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Table.cs/#L538"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+  <div class="markdown level1 summary"><p>Represent in a coder-friendly way</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1047,8 +1236,7 @@ Class Table  <a class="header-action link-secondary" title="View source" href="h
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>A string that represents the current object.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 

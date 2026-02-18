@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class TabFunc | TabScript </title>
+      <title>Class TabFunc | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class TabFunc | TabScript ">
+      <meta name="title" content="Class TabFunc | TableScript ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../icon.svg" alt="TabScript">
-            TabScript
+            <img id="logo" class="svg" src="../icon.svg" alt="TableScript">
+            TableScript
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -160,8 +160,8 @@ Class TabFunc  <a class="header-action link-secondary" title="View source" href=
 
   <a id="TabScript_TabFunc__ctor_" data-uid="TabScript.TabFunc.#ctor*"></a>
 
-  <h3 id="TabScript_TabFunc__ctor_System_String_System_String_System_String___System_Boolean_System_Int32_" data-uid="TabScript.TabFunc.#ctor(System.String,System.String,System.String[],System.Boolean,System.Int32)">
-  TabFunc(string, string, string[], bool, int)
+  <h3 id="TabScript_TabFunc__ctor_System_String_System_String_System_String___System_Boolean_System_Boolean_System_String_System_Int32_" data-uid="TabScript.TabFunc.#ctor(System.String,System.String,System.String[],System.Boolean,System.Boolean,System.String,System.Int32)">
+  TabFunc(string, string, string[], bool, bool, string, int)
   <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TabFunc.cs/#L3"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -169,7 +169,7 @@ Class TabFunc  <a class="header-action link-secondary" title="View source" href=
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected TabFunc(string import, string identifier, string[] pars, bool self, int line)</code></pre>
+    <pre><code class="lang-csharp hljs">protected TabFunc(string import, string identifier, string[] pars, bool self, bool export, string filename, int line)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -181,6 +181,10 @@ Class TabFunc  <a class="header-action link-secondary" title="View source" href=
     <dt><code>pars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
     <dd></dd>
     <dt><code>self</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>export</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -222,6 +226,68 @@ Class TabFunc  <a class="header-action link-secondary" title="View source" href=
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TabScript_TabFunc_export_" data-uid="TabScript.TabFunc.export*"></a>
+
+  <h3 id="TabScript_TabFunc_export" data-uid="TabScript.TabFunc.export">
+  export
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TabFunc.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool export { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TabScript_TabFunc_filename_" data-uid="TabScript.TabFunc.filename*"></a>
+
+  <h3 id="TabScript_TabFunc_filename" data-uid="TabScript.TabFunc.filename">
+  filename
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TabFunc.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string filename { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -379,6 +445,86 @@ Class TabFunc  <a class="header-action link-secondary" title="View source" href=
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="TabScript_TabFunc_Matches_" data-uid="TabScript.TabFunc.Matches*"></a>
+
+  <h3 id="TabScript_TabFunc_Matches_System_String_System_String_System_Int32_" data-uid="TabScript.TabFunc.Matches(System.String,System.String,System.Int32)">
+  Matches(string, string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TabFunc.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Matches(string callImport, string callIdentifier, int callArity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callImport</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callIdentifier</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callArity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TabScript_TabFunc_SameSignature_" data-uid="TabScript.TabFunc.SameSignature*"></a>
+
+  <h3 id="TabScript_TabFunc_SameSignature_TabScript_TabFunc_" data-uid="TabScript.TabFunc.SameSignature(TabScript.TabFunc)">
+  SameSignature(TabFunc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TabFunc.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SameSignature(TabFunc other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="TabScript.TabFunc.html">TabFunc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
 
 
 

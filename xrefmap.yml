@@ -131,15 +131,33 @@ references:
   commentId: T:TabScript.FunctionExtStmt
   fullName: TabScript.FunctionExtStmt
   nameWithType: FunctionExtStmt
-- uid: TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table},System.Int32)
-  name: FunctionExtStmt(string, string[], Func<Table[], Table>, int)
-  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt__ctor_System_String_System_String___System_Func_TabScript_Table___TabScript_Table__System_Int32_
-  commentId: M:TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table},System.Int32)
-  name.vb: New(String, String(), Func(Of Table(), Table), Integer)
-  fullName: TabScript.FunctionExtStmt.FunctionExtStmt(string, string[], System.Func<TabScript.Table[], TabScript.Table>, int)
-  fullName.vb: TabScript.FunctionExtStmt.New(String, String(), System.Func(Of TabScript.Table(), TabScript.Table), Integer)
-  nameWithType: FunctionExtStmt.FunctionExtStmt(string, string[], Func<Table[], Table>, int)
-  nameWithType.vb: FunctionExtStmt.New(String, String(), Func(Of Table(), Table), Integer)
+- uid: TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table})
+  name: FunctionExtStmt(string, string[], Func<Table[], Table>)
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt__ctor_System_String_System_String___System_Func_TabScript_Table___TabScript_Table__
+  commentId: M:TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table})
+  name.vb: New(String, String(), Func(Of Table(), Table))
+  fullName: TabScript.FunctionExtStmt.FunctionExtStmt(string, string[], System.Func<TabScript.Table[], TabScript.Table>)
+  fullName.vb: TabScript.FunctionExtStmt.New(String, String(), System.Func(Of TabScript.Table(), TabScript.Table))
+  nameWithType: FunctionExtStmt.FunctionExtStmt(string, string[], Func<Table[], Table>)
+  nameWithType.vb: FunctionExtStmt.New(String, String(), Func(Of Table(), Table))
+- uid: TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table},System.String)
+  name: FunctionExtStmt(string, string[], Func<Table[], Table>, string)
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt__ctor_System_String_System_String___System_Func_TabScript_Table___TabScript_Table__System_String_
+  commentId: M:TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table},System.String)
+  name.vb: New(String, String(), Func(Of Table(), Table), String)
+  fullName: TabScript.FunctionExtStmt.FunctionExtStmt(string, string[], System.Func<TabScript.Table[], TabScript.Table>, string)
+  fullName.vb: TabScript.FunctionExtStmt.New(String, String(), System.Func(Of TabScript.Table(), TabScript.Table), String)
+  nameWithType: FunctionExtStmt.FunctionExtStmt(string, string[], Func<Table[], Table>, string)
+  nameWithType.vb: FunctionExtStmt.New(String, String(), Func(Of Table(), Table), String)
+- uid: TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table},System.String,System.Int32)
+  name: FunctionExtStmt(string, string[], Func<Table[], Table>, string, int)
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt__ctor_System_String_System_String___System_Func_TabScript_Table___TabScript_Table__System_String_System_Int32_
+  commentId: M:TabScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TabScript.Table[],TabScript.Table},System.String,System.Int32)
+  name.vb: New(String, String(), Func(Of Table(), Table), String, Integer)
+  fullName: TabScript.FunctionExtStmt.FunctionExtStmt(string, string[], System.Func<TabScript.Table[], TabScript.Table>, string, int)
+  fullName.vb: TabScript.FunctionExtStmt.New(String, String(), System.Func(Of TabScript.Table(), TabScript.Table), String, Integer)
+  nameWithType: FunctionExtStmt.FunctionExtStmt(string, string[], Func<Table[], Table>, string, int)
+  nameWithType.vb: FunctionExtStmt.New(String, String(), Func(Of Table(), Table), String, Integer)
 - uid: TabScript.FunctionExtStmt.#ctor*
   name: FunctionExtStmt
   href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt__ctor_
@@ -163,15 +181,15 @@ references:
   isSpec: "True"
   fullName: TabScript.FunctionExtStmt.ToString
   nameWithType: FunctionExtStmt.ToString
-- uid: TabScript.FunctionExtStmt.ToTabFunc(System.String)
-  name: ToTabFunc(string)
-  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_ToTabFunc_System_String_
-  commentId: M:TabScript.FunctionExtStmt.ToTabFunc(System.String)
-  name.vb: ToTabFunc(String)
-  fullName: TabScript.FunctionExtStmt.ToTabFunc(string)
-  fullName.vb: TabScript.FunctionExtStmt.ToTabFunc(String)
-  nameWithType: FunctionExtStmt.ToTabFunc(string)
-  nameWithType.vb: FunctionExtStmt.ToTabFunc(String)
+- uid: TabScript.FunctionExtStmt.ToTabFunc(System.String,System.String)
+  name: ToTabFunc(string, string)
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_ToTabFunc_System_String_System_String_
+  commentId: M:TabScript.FunctionExtStmt.ToTabFunc(System.String,System.String)
+  name.vb: ToTabFunc(String, String)
+  fullName: TabScript.FunctionExtStmt.ToTabFunc(string, string)
+  fullName.vb: TabScript.FunctionExtStmt.ToTabFunc(String, String)
+  nameWithType: FunctionExtStmt.ToTabFunc(string, string)
+  nameWithType.vb: FunctionExtStmt.ToTabFunc(String, String)
 - uid: TabScript.FunctionExtStmt.ToTabFunc*
   name: ToTabFunc
   href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_ToTabFunc_
@@ -192,6 +210,19 @@ references:
   isSpec: "True"
   fullName: TabScript.FunctionExtStmt.body
   nameWithType: FunctionExtStmt.body
+- uid: TabScript.FunctionExtStmt.description
+  name: description
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_description
+  commentId: P:TabScript.FunctionExtStmt.description
+  fullName: TabScript.FunctionExtStmt.description
+  nameWithType: FunctionExtStmt.description
+- uid: TabScript.FunctionExtStmt.description*
+  name: description
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_description_
+  commentId: Overload:TabScript.FunctionExtStmt.description
+  isSpec: "True"
+  fullName: TabScript.FunctionExtStmt.description
+  nameWithType: FunctionExtStmt.description
 - uid: TabScript.FunctionStmt
   name: FunctionStmt
   href: api/TabScript.FunctionStmt.html
@@ -217,15 +248,15 @@ references:
   fullName.vb: TabScript.FunctionStmt.New
   nameWithType: FunctionStmt.FunctionStmt
   nameWithType.vb: FunctionStmt.New
-- uid: TabScript.FunctionStmt.ToTabFunc(System.String)
-  name: ToTabFunc(string)
-  href: api/TabScript.FunctionStmt.html#TabScript_FunctionStmt_ToTabFunc_System_String_
-  commentId: M:TabScript.FunctionStmt.ToTabFunc(System.String)
-  name.vb: ToTabFunc(String)
-  fullName: TabScript.FunctionStmt.ToTabFunc(string)
-  fullName.vb: TabScript.FunctionStmt.ToTabFunc(String)
-  nameWithType: FunctionStmt.ToTabFunc(string)
-  nameWithType.vb: FunctionStmt.ToTabFunc(String)
+- uid: TabScript.FunctionStmt.ToTabFunc(System.String,System.String)
+  name: ToTabFunc(string, string)
+  href: api/TabScript.FunctionStmt.html#TabScript_FunctionStmt_ToTabFunc_System_String_System_String_
+  commentId: M:TabScript.FunctionStmt.ToTabFunc(System.String,System.String)
+  name.vb: ToTabFunc(String, String)
+  fullName: TabScript.FunctionStmt.ToTabFunc(string, string)
+  fullName.vb: TabScript.FunctionStmt.ToTabFunc(String, String)
+  nameWithType: FunctionStmt.ToTabFunc(string, string)
+  nameWithType.vb: FunctionStmt.ToTabFunc(String, String)
 - uid: TabScript.FunctionStmt.ToTabFunc*
   name: ToTabFunc
   href: api/TabScript.FunctionStmt.html#TabScript_FunctionStmt_ToTabFunc_
@@ -278,15 +309,28 @@ references:
   commentId: T:TabScript.IImportResolver
   fullName: TabScript.IImportResolver
   nameWithType: IImportResolver
-- uid: TabScript.IImportResolver.Resolve(System.String)
-  name: Resolve(string)
-  href: api/TabScript.IImportResolver.html#TabScript_IImportResolver_Resolve_System_String_
-  commentId: M:TabScript.IImportResolver.Resolve(System.String)
-  name.vb: Resolve(String)
-  fullName: TabScript.IImportResolver.Resolve(string)
-  fullName.vb: TabScript.IImportResolver.Resolve(String)
-  nameWithType: IImportResolver.Resolve(string)
-  nameWithType.vb: IImportResolver.Resolve(String)
+- uid: TabScript.IImportResolver.OnReport
+  name: OnReport
+  href: api/TabScript.IImportResolver.html#TabScript_IImportResolver_OnReport
+  commentId: P:TabScript.IImportResolver.OnReport
+  fullName: TabScript.IImportResolver.OnReport
+  nameWithType: IImportResolver.OnReport
+- uid: TabScript.IImportResolver.OnReport*
+  name: OnReport
+  href: api/TabScript.IImportResolver.html#TabScript_IImportResolver_OnReport_
+  commentId: Overload:TabScript.IImportResolver.OnReport
+  isSpec: "True"
+  fullName: TabScript.IImportResolver.OnReport
+  nameWithType: IImportResolver.OnReport
+- uid: TabScript.IImportResolver.Resolve(System.String,System.String)
+  name: Resolve(string, string)
+  href: api/TabScript.IImportResolver.html#TabScript_IImportResolver_Resolve_System_String_System_String_
+  commentId: M:TabScript.IImportResolver.Resolve(System.String,System.String)
+  name.vb: Resolve(String, String)
+  fullName: TabScript.IImportResolver.Resolve(string, string)
+  fullName.vb: TabScript.IImportResolver.Resolve(String, String)
+  nameWithType: IImportResolver.Resolve(string, string)
+  nameWithType.vb: IImportResolver.Resolve(String, String)
 - uid: TabScript.IImportResolver.Resolve*
   name: Resolve
   href: api/TabScript.IImportResolver.html#TabScript_IImportResolver_Resolve_
@@ -294,21 +338,43 @@ references:
   isSpec: "True"
   fullName: TabScript.IImportResolver.Resolve
   nameWithType: IImportResolver.Resolve
+- uid: TabScript.Library
+  name: Library
+  href: api/TabScript.Library.html
+  commentId: T:TabScript.Library
+  fullName: TabScript.Library
+  nameWithType: Library
+- uid: TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[])
+  name: BuildLibrary(string, (Delegate func, string description)[])
+  href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_Delegate_System_String____
+  commentId: M:TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[])
+  name.vb: BuildLibrary(String, (func As Delegate, description As String)())
+  fullName: TabScript.Library.BuildLibrary(string, (System.Delegate func, string description)[])
+  fullName.vb: TabScript.Library.BuildLibrary(String, (func As System.Delegate, description As String)())
+  nameWithType: Library.BuildLibrary(string, (Delegate func, string description)[])
+  nameWithType.vb: Library.BuildLibrary(String, (func As Delegate, description As String)())
+- uid: TabScript.Library.BuildLibrary*
+  name: BuildLibrary
+  href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_
+  commentId: Overload:TabScript.Library.BuildLibrary
+  isSpec: "True"
+  fullName: TabScript.Library.BuildLibrary
+  nameWithType: Library.BuildLibrary
 - uid: TabScript.ResolvedImport
   name: ResolvedImport
   href: api/TabScript.ResolvedImport.html
   commentId: T:TabScript.ResolvedImport
   fullName: TabScript.ResolvedImport
   nameWithType: ResolvedImport
-- uid: TabScript.ResolvedImport.#ctor(System.String[],TabScript.FunctionStmt[])
-  name: ResolvedImport(string[], FunctionStmt[])
-  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport__ctor_System_String___TabScript_FunctionStmt___
-  commentId: M:TabScript.ResolvedImport.#ctor(System.String[],TabScript.FunctionStmt[])
-  name.vb: New(String(), FunctionStmt())
-  fullName: TabScript.ResolvedImport.ResolvedImport(string[], TabScript.FunctionStmt[])
-  fullName.vb: TabScript.ResolvedImport.New(String(), TabScript.FunctionStmt())
-  nameWithType: ResolvedImport.ResolvedImport(string[], FunctionStmt[])
-  nameWithType.vb: ResolvedImport.New(String(), FunctionStmt())
+- uid: TabScript.ResolvedImport.#ctor(System.String,System.String[],TabScript.Stmt[],TabScript.FunctionStmt[])
+  name: ResolvedImport(string, string[], Stmt[], FunctionStmt[])
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport__ctor_System_String_System_String___TabScript_Stmt___TabScript_FunctionStmt___
+  commentId: M:TabScript.ResolvedImport.#ctor(System.String,System.String[],TabScript.Stmt[],TabScript.FunctionStmt[])
+  name.vb: New(String, String(), Stmt(), FunctionStmt())
+  fullName: TabScript.ResolvedImport.ResolvedImport(string, string[], TabScript.Stmt[], TabScript.FunctionStmt[])
+  fullName.vb: TabScript.ResolvedImport.New(String, String(), TabScript.Stmt(), TabScript.FunctionStmt())
+  nameWithType: ResolvedImport.ResolvedImport(string, string[], Stmt[], FunctionStmt[])
+  nameWithType.vb: ResolvedImport.New(String, String(), Stmt(), FunctionStmt())
 - uid: TabScript.ResolvedImport.#ctor*
   name: ResolvedImport
   href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport__ctor_
@@ -319,6 +385,45 @@ references:
   fullName.vb: TabScript.ResolvedImport.New
   nameWithType: ResolvedImport.ResolvedImport
   nameWithType.vb: ResolvedImport.New
+- uid: TabScript.ResolvedImport.ToString
+  name: ToString()
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_ToString
+  commentId: M:TabScript.ResolvedImport.ToString
+  fullName: TabScript.ResolvedImport.ToString()
+  nameWithType: ResolvedImport.ToString()
+- uid: TabScript.ResolvedImport.ToString*
+  name: ToString
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_ToString_
+  commentId: Overload:TabScript.ResolvedImport.ToString
+  isSpec: "True"
+  fullName: TabScript.ResolvedImport.ToString
+  nameWithType: ResolvedImport.ToString
+- uid: TabScript.ResolvedImport.body
+  name: body
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_body
+  commentId: P:TabScript.ResolvedImport.body
+  fullName: TabScript.ResolvedImport.body
+  nameWithType: ResolvedImport.body
+- uid: TabScript.ResolvedImport.body*
+  name: body
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_body_
+  commentId: Overload:TabScript.ResolvedImport.body
+  isSpec: "True"
+  fullName: TabScript.ResolvedImport.body
+  nameWithType: ResolvedImport.body
+- uid: TabScript.ResolvedImport.filename
+  name: filename
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_filename
+  commentId: P:TabScript.ResolvedImport.filename
+  fullName: TabScript.ResolvedImport.filename
+  nameWithType: ResolvedImport.filename
+- uid: TabScript.ResolvedImport.filename*
+  name: filename
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_filename_
+  commentId: Overload:TabScript.ResolvedImport.filename
+  isSpec: "True"
+  fullName: TabScript.ResolvedImport.filename
+  nameWithType: ResolvedImport.filename
 - uid: TabScript.ResolvedImport.functions
   name: functions
   href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_functions
@@ -332,19 +437,96 @@ references:
   isSpec: "True"
   fullName: TabScript.ResolvedImport.functions
   nameWithType: ResolvedImport.functions
-- uid: TabScript.ResolvedImport.furtherImports
-  name: furtherImports
-  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_furtherImports
-  commentId: P:TabScript.ResolvedImport.furtherImports
-  fullName: TabScript.ResolvedImport.furtherImports
-  nameWithType: ResolvedImport.furtherImports
-- uid: TabScript.ResolvedImport.furtherImports*
-  name: furtherImports
-  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_furtherImports_
-  commentId: Overload:TabScript.ResolvedImport.furtherImports
+- uid: TabScript.ResolvedImport.imports
+  name: imports
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_imports
+  commentId: P:TabScript.ResolvedImport.imports
+  fullName: TabScript.ResolvedImport.imports
+  nameWithType: ResolvedImport.imports
+- uid: TabScript.ResolvedImport.imports*
+  name: imports
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_imports_
+  commentId: Overload:TabScript.ResolvedImport.imports
   isSpec: "True"
-  fullName: TabScript.ResolvedImport.furtherImports
-  nameWithType: ResolvedImport.furtherImports
+  fullName: TabScript.ResolvedImport.imports
+  nameWithType: ResolvedImport.imports
+- uid: TabScript.Snippet
+  name: Snippet
+  href: api/TabScript.Snippet.html
+  commentId: T:TabScript.Snippet
+  fullName: TabScript.Snippet
+  nameWithType: Snippet
+- uid: TabScript.Snippet.#ctor(System.String,System.String,TabScript.Stmt[])
+  name: Snippet(string, string, Stmt[])
+  href: api/TabScript.Snippet.html#TabScript_Snippet__ctor_System_String_System_String_TabScript_Stmt___
+  commentId: M:TabScript.Snippet.#ctor(System.String,System.String,TabScript.Stmt[])
+  name.vb: New(String, String, Stmt())
+  fullName: TabScript.Snippet.Snippet(string, string, TabScript.Stmt[])
+  fullName.vb: TabScript.Snippet.New(String, String, TabScript.Stmt())
+  nameWithType: Snippet.Snippet(string, string, Stmt[])
+  nameWithType.vb: Snippet.New(String, String, Stmt())
+- uid: TabScript.Snippet.#ctor*
+  name: Snippet
+  href: api/TabScript.Snippet.html#TabScript_Snippet__ctor_
+  commentId: Overload:TabScript.Snippet.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TabScript.Snippet.Snippet
+  fullName.vb: TabScript.Snippet.New
+  nameWithType: Snippet.Snippet
+  nameWithType.vb: Snippet.New
+- uid: TabScript.Snippet.ToString
+  name: ToString()
+  href: api/TabScript.Snippet.html#TabScript_Snippet_ToString
+  commentId: M:TabScript.Snippet.ToString
+  fullName: TabScript.Snippet.ToString()
+  nameWithType: Snippet.ToString()
+- uid: TabScript.Snippet.ToString*
+  name: ToString
+  href: api/TabScript.Snippet.html#TabScript_Snippet_ToString_
+  commentId: Overload:TabScript.Snippet.ToString
+  isSpec: "True"
+  fullName: TabScript.Snippet.ToString
+  nameWithType: Snippet.ToString
+- uid: TabScript.Snippet.body
+  name: body
+  href: api/TabScript.Snippet.html#TabScript_Snippet_body
+  commentId: P:TabScript.Snippet.body
+  fullName: TabScript.Snippet.body
+  nameWithType: Snippet.body
+- uid: TabScript.Snippet.body*
+  name: body
+  href: api/TabScript.Snippet.html#TabScript_Snippet_body_
+  commentId: Overload:TabScript.Snippet.body
+  isSpec: "True"
+  fullName: TabScript.Snippet.body
+  nameWithType: Snippet.body
+- uid: TabScript.Snippet.filename
+  name: filename
+  href: api/TabScript.Snippet.html#TabScript_Snippet_filename
+  commentId: P:TabScript.Snippet.filename
+  fullName: TabScript.Snippet.filename
+  nameWithType: Snippet.filename
+- uid: TabScript.Snippet.filename*
+  name: filename
+  href: api/TabScript.Snippet.html#TabScript_Snippet_filename_
+  commentId: Overload:TabScript.Snippet.filename
+  isSpec: "True"
+  fullName: TabScript.Snippet.filename
+  nameWithType: Snippet.filename
+- uid: TabScript.Snippet.import
+  name: import
+  href: api/TabScript.Snippet.html#TabScript_Snippet_import
+  commentId: P:TabScript.Snippet.import
+  fullName: TabScript.Snippet.import
+  nameWithType: Snippet.import
+- uid: TabScript.Snippet.import*
+  name: import
+  href: api/TabScript.Snippet.html#TabScript_Snippet_import_
+  commentId: Overload:TabScript.Snippet.import
+  isSpec: "True"
+  fullName: TabScript.Snippet.import
+  nameWithType: Snippet.import
 - uid: TabScript.StandardImportResolver
   name: StandardImportResolver
   href: api/TabScript.StandardImportResolver.html
@@ -354,18 +536,25 @@ references:
 - uid: TabScript.StandardImportResolver.OnReport
   name: OnReport
   href: api/TabScript.StandardImportResolver.html#TabScript_StandardImportResolver_OnReport
-  commentId: F:TabScript.StandardImportResolver.OnReport
+  commentId: P:TabScript.StandardImportResolver.OnReport
   fullName: TabScript.StandardImportResolver.OnReport
   nameWithType: StandardImportResolver.OnReport
-- uid: TabScript.StandardImportResolver.Resolve(System.String)
-  name: Resolve(string)
-  href: api/TabScript.StandardImportResolver.html#TabScript_StandardImportResolver_Resolve_System_String_
-  commentId: M:TabScript.StandardImportResolver.Resolve(System.String)
-  name.vb: Resolve(String)
-  fullName: TabScript.StandardImportResolver.Resolve(string)
-  fullName.vb: TabScript.StandardImportResolver.Resolve(String)
-  nameWithType: StandardImportResolver.Resolve(string)
-  nameWithType.vb: StandardImportResolver.Resolve(String)
+- uid: TabScript.StandardImportResolver.OnReport*
+  name: OnReport
+  href: api/TabScript.StandardImportResolver.html#TabScript_StandardImportResolver_OnReport_
+  commentId: Overload:TabScript.StandardImportResolver.OnReport
+  isSpec: "True"
+  fullName: TabScript.StandardImportResolver.OnReport
+  nameWithType: StandardImportResolver.OnReport
+- uid: TabScript.StandardImportResolver.Resolve(System.String,System.String)
+  name: Resolve(string, string)
+  href: api/TabScript.StandardImportResolver.html#TabScript_StandardImportResolver_Resolve_System_String_System_String_
+  commentId: M:TabScript.StandardImportResolver.Resolve(System.String,System.String)
+  name.vb: Resolve(String, String)
+  fullName: TabScript.StandardImportResolver.Resolve(string, string)
+  fullName.vb: TabScript.StandardImportResolver.Resolve(String, String)
+  nameWithType: StandardImportResolver.Resolve(string, string)
+  nameWithType.vb: StandardImportResolver.Resolve(String, String)
 - uid: TabScript.StandardImportResolver.Resolve*
   name: Resolve
   href: api/TabScript.StandardImportResolver.html#TabScript_StandardImportResolver_Resolve_
@@ -379,324 +568,1180 @@ references:
   commentId: T:TabScript.StdLib
   fullName: TabScript.StdLib
   nameWithType: StdLib
-- uid: TabScript.StdLib.All
-  name: All
-  href: api/TabScript.StdLib.html#TabScript_StdLib_All
-  commentId: P:TabScript.StdLib.All
-  fullName: TabScript.StdLib.All
-  nameWithType: StdLib.All
-- uid: TabScript.StdLib.All*
-  name: All
-  href: api/TabScript.StdLib.html#TabScript_StdLib_All_
-  commentId: Overload:TabScript.StdLib.All
+- uid: TabScript.StdLib.AllFunctions
+  name: AllFunctions
+  href: api/TabScript.StdLib.html#TabScript_StdLib_AllFunctions
+  commentId: P:TabScript.StdLib.AllFunctions
+  fullName: TabScript.StdLib.AllFunctions
+  nameWithType: StdLib.AllFunctions
+- uid: TabScript.StdLib.AllFunctions*
+  name: AllFunctions
+  href: api/TabScript.StdLib.html#TabScript_StdLib_AllFunctions_
+  commentId: Overload:TabScript.StdLib.AllFunctions
   isSpec: "True"
-  fullName: TabScript.StdLib.All
-  nameWithType: StdLib.All
-- uid: TabScript.StdLib.Join
-  name: Join
-  href: api/TabScript.StdLib.html#TabScript_StdLib_Join
-  commentId: F:TabScript.StdLib.Join
-  fullName: TabScript.StdLib.Join
-  nameWithType: StdLib.Join
-- uid: TabScript.StdLib.deleteAll
+  fullName: TabScript.StdLib.AllFunctions
+  nameWithType: StdLib.AllFunctions
+- uid: TabScript.StdLib.AsImport
+  name: AsImport
+  href: api/TabScript.StdLib.html#TabScript_StdLib_AsImport
+  commentId: P:TabScript.StdLib.AsImport
+  fullName: TabScript.StdLib.AsImport
+  nameWithType: StdLib.AsImport
+- uid: TabScript.StdLib.AsImport*
+  name: AsImport
+  href: api/TabScript.StdLib.html#TabScript_StdLib_AsImport_
+  commentId: Overload:TabScript.StdLib.AsImport
+  isSpec: "True"
+  fullName: TabScript.StdLib.AsImport
+  nameWithType: StdLib.AsImport
+- uid: TabScript.StdLib.deleteAll(TabScript.Table,TabScript.Table)
+  name: deleteAll(Table, Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_deleteAll_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdLib.deleteAll(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdLib.deleteAll(TabScript.Table, TabScript.Table)
+  nameWithType: StdLib.deleteAll(Table, Table)
+- uid: TabScript.StdLib.deleteAll*
   name: deleteAll
-  href: api/TabScript.StdLib.html#TabScript_StdLib_deleteAll
-  commentId: F:TabScript.StdLib.deleteAll
+  href: api/TabScript.StdLib.html#TabScript_StdLib_deleteAll_
+  commentId: Overload:TabScript.StdLib.deleteAll
+  isSpec: "True"
   fullName: TabScript.StdLib.deleteAll
   nameWithType: StdLib.deleteAll
-- uid: TabScript.StdLib.deleteAt
+- uid: TabScript.StdLib.deleteAt(TabScript.Table,TabScript.Table)
+  name: deleteAt(Table, Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_deleteAt_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdLib.deleteAt(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdLib.deleteAt(TabScript.Table, TabScript.Table)
+  nameWithType: StdLib.deleteAt(Table, Table)
+- uid: TabScript.StdLib.deleteAt*
   name: deleteAt
-  href: api/TabScript.StdLib.html#TabScript_StdLib_deleteAt
-  commentId: F:TabScript.StdLib.deleteAt
+  href: api/TabScript.StdLib.html#TabScript_StdLib_deleteAt_
+  commentId: Overload:TabScript.StdLib.deleteAt
+  isSpec: "True"
   fullName: TabScript.StdLib.deleteAt
   nameWithType: StdLib.deleteAt
-- uid: TabScript.StdLib.error
+- uid: TabScript.StdLib.error(System.String)
+  name: error(string)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_error_System_String_
+  commentId: M:TabScript.StdLib.error(System.String)
+  name.vb: error(String)
+  fullName: TabScript.StdLib.error(string)
+  fullName.vb: TabScript.StdLib.error(String)
+  nameWithType: StdLib.error(string)
+  nameWithType.vb: StdLib.error(String)
+- uid: TabScript.StdLib.error*
   name: error
-  href: api/TabScript.StdLib.html#TabScript_StdLib_error
-  commentId: F:TabScript.StdLib.error
+  href: api/TabScript.StdLib.html#TabScript_StdLib_error_
+  commentId: Overload:TabScript.StdLib.error
+  isSpec: "True"
   fullName: TabScript.StdLib.error
   nameWithType: StdLib.error
 - uid: TabScript.StdLib.getDate
-  name: getDate
+  name: getDate()
   href: api/TabScript.StdLib.html#TabScript_StdLib_getDate
-  commentId: F:TabScript.StdLib.getDate
+  commentId: M:TabScript.StdLib.getDate
+  fullName: TabScript.StdLib.getDate()
+  nameWithType: StdLib.getDate()
+- uid: TabScript.StdLib.getDate*
+  name: getDate
+  href: api/TabScript.StdLib.html#TabScript_StdLib_getDate_
+  commentId: Overload:TabScript.StdLib.getDate
+  isSpec: "True"
   fullName: TabScript.StdLib.getDate
   nameWithType: StdLib.getDate
 - uid: TabScript.StdLib.getOS
-  name: getOS
+  name: getOS()
   href: api/TabScript.StdLib.html#TabScript_StdLib_getOS
-  commentId: F:TabScript.StdLib.getOS
+  commentId: M:TabScript.StdLib.getOS
+  fullName: TabScript.StdLib.getOS()
+  nameWithType: StdLib.getOS()
+- uid: TabScript.StdLib.getOS*
+  name: getOS
+  href: api/TabScript.StdLib.html#TabScript_StdLib_getOS_
+  commentId: Overload:TabScript.StdLib.getOS
+  isSpec: "True"
   fullName: TabScript.StdLib.getOS
   nameWithType: StdLib.getOS
-- uid: TabScript.StdLib.input
+- uid: TabScript.StdLib.indexOf(TabScript.Table,System.String)
+  name: indexOf(Table, string)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_indexOf_TabScript_Table_System_String_
+  commentId: M:TabScript.StdLib.indexOf(TabScript.Table,System.String)
+  name.vb: indexOf(Table, String)
+  fullName: TabScript.StdLib.indexOf(TabScript.Table, string)
+  fullName.vb: TabScript.StdLib.indexOf(TabScript.Table, String)
+  nameWithType: StdLib.indexOf(Table, string)
+  nameWithType.vb: StdLib.indexOf(Table, String)
+- uid: TabScript.StdLib.indexOf*
+  name: indexOf
+  href: api/TabScript.StdLib.html#TabScript_StdLib_indexOf_
+  commentId: Overload:TabScript.StdLib.indexOf
+  isSpec: "True"
+  fullName: TabScript.StdLib.indexOf
+  nameWithType: StdLib.indexOf
+- uid: TabScript.StdLib.input(System.String)
+  name: input(string)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_input_System_String_
+  commentId: M:TabScript.StdLib.input(System.String)
+  name.vb: input(String)
+  fullName: TabScript.StdLib.input(string)
+  fullName.vb: TabScript.StdLib.input(String)
+  nameWithType: StdLib.input(string)
+  nameWithType.vb: StdLib.input(String)
+- uid: TabScript.StdLib.input*
   name: input
-  href: api/TabScript.StdLib.html#TabScript_StdLib_input
-  commentId: F:TabScript.StdLib.input
+  href: api/TabScript.StdLib.html#TabScript_StdLib_input_
+  commentId: Overload:TabScript.StdLib.input
+  isSpec: "True"
   fullName: TabScript.StdLib.input
   nameWithType: StdLib.input
-- uid: TabScript.StdLib.lower
+- uid: TabScript.StdLib.join(TabScript.Table,System.String)
+  name: join(Table, string)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_join_TabScript_Table_System_String_
+  commentId: M:TabScript.StdLib.join(TabScript.Table,System.String)
+  name.vb: join(Table, String)
+  fullName: TabScript.StdLib.join(TabScript.Table, string)
+  fullName.vb: TabScript.StdLib.join(TabScript.Table, String)
+  nameWithType: StdLib.join(Table, string)
+  nameWithType.vb: StdLib.join(Table, String)
+- uid: TabScript.StdLib.join*
+  name: join
+  href: api/TabScript.StdLib.html#TabScript_StdLib_join_
+  commentId: Overload:TabScript.StdLib.join
+  isSpec: "True"
+  fullName: TabScript.StdLib.join
+  nameWithType: StdLib.join
+- uid: TabScript.StdLib.lower(TabScript.Table)
+  name: lower(Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_lower_TabScript_Table_
+  commentId: M:TabScript.StdLib.lower(TabScript.Table)
+  fullName: TabScript.StdLib.lower(TabScript.Table)
+  nameWithType: StdLib.lower(Table)
+- uid: TabScript.StdLib.lower*
   name: lower
-  href: api/TabScript.StdLib.html#TabScript_StdLib_lower
-  commentId: F:TabScript.StdLib.lower
+  href: api/TabScript.StdLib.html#TabScript_StdLib_lower_
+  commentId: Overload:TabScript.StdLib.lower
+  isSpec: "True"
   fullName: TabScript.StdLib.lower
   nameWithType: StdLib.lower
-- uid: TabScript.StdLib.print
+- uid: TabScript.StdLib.print(System.String)
+  name: print(string)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_print_System_String_
+  commentId: M:TabScript.StdLib.print(System.String)
+  name.vb: print(String)
+  fullName: TabScript.StdLib.print(string)
+  fullName.vb: TabScript.StdLib.print(String)
+  nameWithType: StdLib.print(string)
+  nameWithType.vb: StdLib.print(String)
+- uid: TabScript.StdLib.print*
   name: print
-  href: api/TabScript.StdLib.html#TabScript_StdLib_print
-  commentId: F:TabScript.StdLib.print
+  href: api/TabScript.StdLib.html#TabScript_StdLib_print_
+  commentId: Overload:TabScript.StdLib.print
+  isSpec: "True"
   fullName: TabScript.StdLib.print
   nameWithType: StdLib.print
-- uid: TabScript.StdLib.repeat
+- uid: TabScript.StdLib.repeat(TabScript.Table,System.Int32)
+  name: repeat(Table, int)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_repeat_TabScript_Table_System_Int32_
+  commentId: M:TabScript.StdLib.repeat(TabScript.Table,System.Int32)
+  name.vb: repeat(Table, Integer)
+  fullName: TabScript.StdLib.repeat(TabScript.Table, int)
+  fullName.vb: TabScript.StdLib.repeat(TabScript.Table, Integer)
+  nameWithType: StdLib.repeat(Table, int)
+  nameWithType.vb: StdLib.repeat(Table, Integer)
+- uid: TabScript.StdLib.repeat*
   name: repeat
-  href: api/TabScript.StdLib.html#TabScript_StdLib_repeat
-  commentId: F:TabScript.StdLib.repeat
+  href: api/TabScript.StdLib.html#TabScript_StdLib_repeat_
+  commentId: Overload:TabScript.StdLib.repeat
+  isSpec: "True"
   fullName: TabScript.StdLib.repeat
   nameWithType: StdLib.repeat
-- uid: TabScript.StdLib.replace
+- uid: TabScript.StdLib.replace(TabScript.Table,TabScript.Table,TabScript.Table)
+  name: replace(Table, Table, Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_replace_TabScript_Table_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdLib.replace(TabScript.Table,TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdLib.replace(TabScript.Table, TabScript.Table, TabScript.Table)
+  nameWithType: StdLib.replace(Table, Table, Table)
+- uid: TabScript.StdLib.replace*
   name: replace
-  href: api/TabScript.StdLib.html#TabScript_StdLib_replace
-  commentId: F:TabScript.StdLib.replace
+  href: api/TabScript.StdLib.html#TabScript_StdLib_replace_
+  commentId: Overload:TabScript.StdLib.replace
+  isSpec: "True"
   fullName: TabScript.StdLib.replace
   nameWithType: StdLib.replace
-- uid: TabScript.StdLib.shuffle
+- uid: TabScript.StdLib.reverse(TabScript.Table)
+  name: reverse(Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_reverse_TabScript_Table_
+  commentId: M:TabScript.StdLib.reverse(TabScript.Table)
+  fullName: TabScript.StdLib.reverse(TabScript.Table)
+  nameWithType: StdLib.reverse(Table)
+- uid: TabScript.StdLib.reverse*
+  name: reverse
+  href: api/TabScript.StdLib.html#TabScript_StdLib_reverse_
+  commentId: Overload:TabScript.StdLib.reverse
+  isSpec: "True"
+  fullName: TabScript.StdLib.reverse
+  nameWithType: StdLib.reverse
+- uid: TabScript.StdLib.shuffle(TabScript.Table)
+  name: shuffle(Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_shuffle_TabScript_Table_
+  commentId: M:TabScript.StdLib.shuffle(TabScript.Table)
+  fullName: TabScript.StdLib.shuffle(TabScript.Table)
+  nameWithType: StdLib.shuffle(Table)
+- uid: TabScript.StdLib.shuffle*
   name: shuffle
-  href: api/TabScript.StdLib.html#TabScript_StdLib_shuffle
-  commentId: F:TabScript.StdLib.shuffle
+  href: api/TabScript.StdLib.html#TabScript_StdLib_shuffle_
+  commentId: Overload:TabScript.StdLib.shuffle
+  isSpec: "True"
   fullName: TabScript.StdLib.shuffle
   nameWithType: StdLib.shuffle
-- uid: TabScript.StdLib.split
+- uid: TabScript.StdLib.sleep(System.Int32)
+  name: sleep(int)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_sleep_System_Int32_
+  commentId: M:TabScript.StdLib.sleep(System.Int32)
+  name.vb: sleep(Integer)
+  fullName: TabScript.StdLib.sleep(int)
+  fullName.vb: TabScript.StdLib.sleep(Integer)
+  nameWithType: StdLib.sleep(int)
+  nameWithType.vb: StdLib.sleep(Integer)
+- uid: TabScript.StdLib.sleep*
+  name: sleep
+  href: api/TabScript.StdLib.html#TabScript_StdLib_sleep_
+  commentId: Overload:TabScript.StdLib.sleep
+  isSpec: "True"
+  fullName: TabScript.StdLib.sleep
+  nameWithType: StdLib.sleep
+- uid: TabScript.StdLib.split(TabScript.Table,TabScript.Table)
+  name: split(Table, Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_split_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdLib.split(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdLib.split(TabScript.Table, TabScript.Table)
+  nameWithType: StdLib.split(Table, Table)
+- uid: TabScript.StdLib.split*
   name: split
-  href: api/TabScript.StdLib.html#TabScript_StdLib_split
-  commentId: F:TabScript.StdLib.split
+  href: api/TabScript.StdLib.html#TabScript_StdLib_split_
+  commentId: Overload:TabScript.StdLib.split
+  isSpec: "True"
   fullName: TabScript.StdLib.split
   nameWithType: StdLib.split
-- uid: TabScript.StdLib.trim
+- uid: TabScript.StdLib.trim(TabScript.Table)
+  name: trim(Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_trim_TabScript_Table_
+  commentId: M:TabScript.StdLib.trim(TabScript.Table)
+  fullName: TabScript.StdLib.trim(TabScript.Table)
+  nameWithType: StdLib.trim(Table)
+- uid: TabScript.StdLib.trim*
   name: trim
-  href: api/TabScript.StdLib.html#TabScript_StdLib_trim
-  commentId: F:TabScript.StdLib.trim
+  href: api/TabScript.StdLib.html#TabScript_StdLib_trim_
+  commentId: Overload:TabScript.StdLib.trim
+  isSpec: "True"
   fullName: TabScript.StdLib.trim
   nameWithType: StdLib.trim
-- uid: TabScript.StdLib.upper
+- uid: TabScript.StdLib.upper(TabScript.Table)
+  name: upper(Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_upper_TabScript_Table_
+  commentId: M:TabScript.StdLib.upper(TabScript.Table)
+  fullName: TabScript.StdLib.upper(TabScript.Table)
+  nameWithType: StdLib.upper(Table)
+- uid: TabScript.StdLib.upper*
   name: upper
-  href: api/TabScript.StdLib.html#TabScript_StdLib_upper
-  commentId: F:TabScript.StdLib.upper
+  href: api/TabScript.StdLib.html#TabScript_StdLib_upper_
+  commentId: Overload:TabScript.StdLib.upper
+  isSpec: "True"
   fullName: TabScript.StdLib.upper
   nameWithType: StdLib.upper
+- uid: TabScript.StdList
+  name: StdList
+  href: api/TabScript.StdList.html
+  commentId: T:TabScript.StdList
+  fullName: TabScript.StdList
+  nameWithType: StdList
+- uid: TabScript.StdList.AllFunctions
+  name: AllFunctions
+  href: api/TabScript.StdList.html#TabScript_StdList_AllFunctions
+  commentId: P:TabScript.StdList.AllFunctions
+  fullName: TabScript.StdList.AllFunctions
+  nameWithType: StdList.AllFunctions
+- uid: TabScript.StdList.AllFunctions*
+  name: AllFunctions
+  href: api/TabScript.StdList.html#TabScript_StdList_AllFunctions_
+  commentId: Overload:TabScript.StdList.AllFunctions
+  isSpec: "True"
+  fullName: TabScript.StdList.AllFunctions
+  nameWithType: StdList.AllFunctions
+- uid: TabScript.StdList.AsImport
+  name: AsImport
+  href: api/TabScript.StdList.html#TabScript_StdList_AsImport
+  commentId: P:TabScript.StdList.AsImport
+  fullName: TabScript.StdList.AsImport
+  nameWithType: StdList.AsImport
+- uid: TabScript.StdList.AsImport*
+  name: AsImport
+  href: api/TabScript.StdList.html#TabScript_StdList_AsImport_
+  commentId: Overload:TabScript.StdList.AsImport
+  isSpec: "True"
+  fullName: TabScript.StdList.AsImport
+  nameWithType: StdList.AsImport
+- uid: TabScript.StdList.Build(TabScript.Table[])
+  name: Build(Table[])
+  href: api/TabScript.StdList.html#TabScript_StdList_Build_TabScript_Table___
+  commentId: M:TabScript.StdList.Build(TabScript.Table[])
+  name.vb: Build(Table())
+  fullName: TabScript.StdList.Build(TabScript.Table[])
+  fullName.vb: TabScript.StdList.Build(TabScript.Table())
+  nameWithType: StdList.Build(Table[])
+  nameWithType.vb: StdList.Build(Table())
+- uid: TabScript.StdList.Build*
+  name: Build
+  href: api/TabScript.StdList.html#TabScript_StdList_Build_
+  commentId: Overload:TabScript.StdList.Build
+  isSpec: "True"
+  fullName: TabScript.StdList.Build
+  nameWithType: StdList.Build
+- uid: TabScript.StdList.Extract(TabScript.Table)
+  name: Extract(Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_Extract_TabScript_Table_
+  commentId: M:TabScript.StdList.Extract(TabScript.Table)
+  fullName: TabScript.StdList.Extract(TabScript.Table)
+  nameWithType: StdList.Extract(Table)
+- uid: TabScript.StdList.Extract*
+  name: Extract
+  href: api/TabScript.StdList.html#TabScript_StdList_Extract_
+  commentId: Overload:TabScript.StdList.Extract
+  isSpec: "True"
+  fullName: TabScript.StdList.Extract
+  nameWithType: StdList.Extract
+- uid: TabScript.StdList.Merge(TabScript.Table[])
+  name: Merge(params Table[])
+  href: api/TabScript.StdList.html#TabScript_StdList_Merge_TabScript_Table___
+  commentId: M:TabScript.StdList.Merge(TabScript.Table[])
+  name.vb: Merge(ParamArray Table())
+  fullName: TabScript.StdList.Merge(params TabScript.Table[])
+  fullName.vb: TabScript.StdList.Merge(ParamArray TabScript.Table())
+  nameWithType: StdList.Merge(params Table[])
+  nameWithType.vb: StdList.Merge(ParamArray Table())
+- uid: TabScript.StdList.Merge*
+  name: Merge
+  href: api/TabScript.StdList.html#TabScript_StdList_Merge_
+  commentId: Overload:TabScript.StdList.Merge
+  isSpec: "True"
+  fullName: TabScript.StdList.Merge
+  nameWithType: StdList.Merge
+- uid: TabScript.StdList.addTab(TabScript.Table,TabScript.Table)
+  name: addTab(Table, Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_addTab_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdList.addTab(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdList.addTab(TabScript.Table, TabScript.Table)
+  nameWithType: StdList.addTab(Table, Table)
+- uid: TabScript.StdList.addTab*
+  name: addTab
+  href: api/TabScript.StdList.html#TabScript_StdList_addTab_
+  commentId: Overload:TabScript.StdList.addTab
+  isSpec: "True"
+  fullName: TabScript.StdList.addTab
+  nameWithType: StdList.addTab
+- uid: TabScript.StdList.containsTab(TabScript.Table,TabScript.Table)
+  name: containsTab(Table, Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_containsTab_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdList.containsTab(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdList.containsTab(TabScript.Table, TabScript.Table)
+  nameWithType: StdList.containsTab(Table, Table)
+- uid: TabScript.StdList.containsTab*
+  name: containsTab
+  href: api/TabScript.StdList.html#TabScript_StdList_containsTab_
+  commentId: Overload:TabScript.StdList.containsTab
+  isSpec: "True"
+  fullName: TabScript.StdList.containsTab
+  nameWithType: StdList.containsTab
+- uid: TabScript.StdList.delTab(TabScript.Table,System.Int32)
+  name: delTab(Table, int)
+  href: api/TabScript.StdList.html#TabScript_StdList_delTab_TabScript_Table_System_Int32_
+  commentId: M:TabScript.StdList.delTab(TabScript.Table,System.Int32)
+  name.vb: delTab(Table, Integer)
+  fullName: TabScript.StdList.delTab(TabScript.Table, int)
+  fullName.vb: TabScript.StdList.delTab(TabScript.Table, Integer)
+  nameWithType: StdList.delTab(Table, int)
+  nameWithType.vb: StdList.delTab(Table, Integer)
+- uid: TabScript.StdList.delTab*
+  name: delTab
+  href: api/TabScript.StdList.html#TabScript_StdList_delTab_
+  commentId: Overload:TabScript.StdList.delTab
+  isSpec: "True"
+  fullName: TabScript.StdList.delTab
+  nameWithType: StdList.delTab
+- uid: TabScript.StdList.flattenLst(TabScript.Table)
+  name: flattenLst(Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_flattenLst_TabScript_Table_
+  commentId: M:TabScript.StdList.flattenLst(TabScript.Table)
+  fullName: TabScript.StdList.flattenLst(TabScript.Table)
+  nameWithType: StdList.flattenLst(Table)
+- uid: TabScript.StdList.flattenLst*
+  name: flattenLst
+  href: api/TabScript.StdList.html#TabScript_StdList_flattenLst_
+  commentId: Overload:TabScript.StdList.flattenLst
+  isSpec: "True"
+  fullName: TabScript.StdList.flattenLst
+  nameWithType: StdList.flattenLst
+- uid: TabScript.StdList.getTab(TabScript.Table,System.Int32)
+  name: getTab(Table, int)
+  href: api/TabScript.StdList.html#TabScript_StdList_getTab_TabScript_Table_System_Int32_
+  commentId: M:TabScript.StdList.getTab(TabScript.Table,System.Int32)
+  name.vb: getTab(Table, Integer)
+  fullName: TabScript.StdList.getTab(TabScript.Table, int)
+  fullName.vb: TabScript.StdList.getTab(TabScript.Table, Integer)
+  nameWithType: StdList.getTab(Table, int)
+  nameWithType.vb: StdList.getTab(Table, Integer)
+- uid: TabScript.StdList.getTab*
+  name: getTab
+  href: api/TabScript.StdList.html#TabScript_StdList_getTab_
+  commentId: Overload:TabScript.StdList.getTab
+  isSpec: "True"
+  fullName: TabScript.StdList.getTab
+  nameWithType: StdList.getTab
+- uid: TabScript.StdList.getTabElem(TabScript.Table,System.Int32,System.Int32)
+  name: getTabElem(Table, int, int)
+  href: api/TabScript.StdList.html#TabScript_StdList_getTabElem_TabScript_Table_System_Int32_System_Int32_
+  commentId: M:TabScript.StdList.getTabElem(TabScript.Table,System.Int32,System.Int32)
+  name.vb: getTabElem(Table, Integer, Integer)
+  fullName: TabScript.StdList.getTabElem(TabScript.Table, int, int)
+  fullName.vb: TabScript.StdList.getTabElem(TabScript.Table, Integer, Integer)
+  nameWithType: StdList.getTabElem(Table, int, int)
+  nameWithType.vb: StdList.getTabElem(Table, Integer, Integer)
+- uid: TabScript.StdList.getTabElem*
+  name: getTabElem
+  href: api/TabScript.StdList.html#TabScript_StdList_getTabElem_
+  commentId: Overload:TabScript.StdList.getTabElem
+  isSpec: "True"
+  fullName: TabScript.StdList.getTabElem
+  nameWithType: StdList.getTabElem
+- uid: TabScript.StdList.indexOfTab(TabScript.Table,TabScript.Table)
+  name: indexOfTab(Table, Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_indexOfTab_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdList.indexOfTab(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdList.indexOfTab(TabScript.Table, TabScript.Table)
+  nameWithType: StdList.indexOfTab(Table, Table)
+- uid: TabScript.StdList.indexOfTab*
+  name: indexOfTab
+  href: api/TabScript.StdList.html#TabScript_StdList_indexOfTab_
+  commentId: Overload:TabScript.StdList.indexOfTab
+  isSpec: "True"
+  fullName: TabScript.StdList.indexOfTab
+  nameWithType: StdList.indexOfTab
+- uid: TabScript.StdList.insertTab(TabScript.Table,System.Int32,TabScript.Table)
+  name: insertTab(Table, int, Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_insertTab_TabScript_Table_System_Int32_TabScript_Table_
+  commentId: M:TabScript.StdList.insertTab(TabScript.Table,System.Int32,TabScript.Table)
+  name.vb: insertTab(Table, Integer, Table)
+  fullName: TabScript.StdList.insertTab(TabScript.Table, int, TabScript.Table)
+  fullName.vb: TabScript.StdList.insertTab(TabScript.Table, Integer, TabScript.Table)
+  nameWithType: StdList.insertTab(Table, int, Table)
+  nameWithType.vb: StdList.insertTab(Table, Integer, Table)
+- uid: TabScript.StdList.insertTab*
+  name: insertTab
+  href: api/TabScript.StdList.html#TabScript_StdList_insertTab_
+  commentId: Overload:TabScript.StdList.insertTab
+  isSpec: "True"
+  fullName: TabScript.StdList.insertTab
+  nameWithType: StdList.insertTab
+- uid: TabScript.StdList.isLst(TabScript.Table)
+  name: isLst(Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_isLst_TabScript_Table_
+  commentId: M:TabScript.StdList.isLst(TabScript.Table)
+  fullName: TabScript.StdList.isLst(TabScript.Table)
+  nameWithType: StdList.isLst(Table)
+- uid: TabScript.StdList.isLst*
+  name: isLst
+  href: api/TabScript.StdList.html#TabScript_StdList_isLst_
+  commentId: Overload:TabScript.StdList.isLst
+  isSpec: "True"
+  fullName: TabScript.StdList.isLst
+  nameWithType: StdList.isLst
+- uid: TabScript.StdList.lstLen(TabScript.Table)
+  name: lstLen(Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_lstLen_TabScript_Table_
+  commentId: M:TabScript.StdList.lstLen(TabScript.Table)
+  fullName: TabScript.StdList.lstLen(TabScript.Table)
+  nameWithType: StdList.lstLen(Table)
+- uid: TabScript.StdList.lstLen*
+  name: lstLen
+  href: api/TabScript.StdList.html#TabScript_StdList_lstLen_
+  commentId: Overload:TabScript.StdList.lstLen
+  isSpec: "True"
+  fullName: TabScript.StdList.lstLen
+  nameWithType: StdList.lstLen
+- uid: TabScript.StdList.mergeLst(TabScript.Table,TabScript.Table)
+  name: mergeLst(Table, Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_mergeLst_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StdList.mergeLst(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StdList.mergeLst(TabScript.Table, TabScript.Table)
+  nameWithType: StdList.mergeLst(Table, Table)
+- uid: TabScript.StdList.mergeLst*
+  name: mergeLst
+  href: api/TabScript.StdList.html#TabScript_StdList_mergeLst_
+  commentId: Overload:TabScript.StdList.mergeLst
+  isSpec: "True"
+  fullName: TabScript.StdList.mergeLst
+  nameWithType: StdList.mergeLst
+- uid: TabScript.StdList.newLst
+  name: newLst()
+  href: api/TabScript.StdList.html#TabScript_StdList_newLst
+  commentId: M:TabScript.StdList.newLst
+  fullName: TabScript.StdList.newLst()
+  nameWithType: StdList.newLst()
+- uid: TabScript.StdList.newLst*
+  name: newLst
+  href: api/TabScript.StdList.html#TabScript_StdList_newLst_
+  commentId: Overload:TabScript.StdList.newLst
+  isSpec: "True"
+  fullName: TabScript.StdList.newLst
+  nameWithType: StdList.newLst
+- uid: TabScript.StdList.setTab(TabScript.Table,System.Int32,TabScript.Table)
+  name: setTab(Table, int, Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_setTab_TabScript_Table_System_Int32_TabScript_Table_
+  commentId: M:TabScript.StdList.setTab(TabScript.Table,System.Int32,TabScript.Table)
+  name.vb: setTab(Table, Integer, Table)
+  fullName: TabScript.StdList.setTab(TabScript.Table, int, TabScript.Table)
+  fullName.vb: TabScript.StdList.setTab(TabScript.Table, Integer, TabScript.Table)
+  nameWithType: StdList.setTab(Table, int, Table)
+  nameWithType.vb: StdList.setTab(Table, Integer, Table)
+- uid: TabScript.StdList.setTab*
+  name: setTab
+  href: api/TabScript.StdList.html#TabScript_StdList_setTab_
+  commentId: Overload:TabScript.StdList.setTab
+  isSpec: "True"
+  fullName: TabScript.StdList.setTab
+  nameWithType: StdList.setTab
+- uid: TabScript.StdList.setTabElem(TabScript.Table,System.Int32,System.Int32,TabScript.Table)
+  name: setTabElem(Table, int, int, Table)
+  href: api/TabScript.StdList.html#TabScript_StdList_setTabElem_TabScript_Table_System_Int32_System_Int32_TabScript_Table_
+  commentId: M:TabScript.StdList.setTabElem(TabScript.Table,System.Int32,System.Int32,TabScript.Table)
+  name.vb: setTabElem(Table, Integer, Integer, Table)
+  fullName: TabScript.StdList.setTabElem(TabScript.Table, int, int, TabScript.Table)
+  fullName.vb: TabScript.StdList.setTabElem(TabScript.Table, Integer, Integer, TabScript.Table)
+  nameWithType: StdList.setTabElem(Table, int, int, Table)
+  nameWithType.vb: StdList.setTabElem(Table, Integer, Integer, Table)
+- uid: TabScript.StdList.setTabElem*
+  name: setTabElem
+  href: api/TabScript.StdList.html#TabScript_StdList_setTabElem_
+  commentId: Overload:TabScript.StdList.setTabElem
+  isSpec: "True"
+  fullName: TabScript.StdList.setTabElem
+  nameWithType: StdList.setTabElem
+- uid: TabScript.StdList.tabLen(TabScript.Table,System.Int32)
+  name: tabLen(Table, int)
+  href: api/TabScript.StdList.html#TabScript_StdList_tabLen_TabScript_Table_System_Int32_
+  commentId: M:TabScript.StdList.tabLen(TabScript.Table,System.Int32)
+  name.vb: tabLen(Table, Integer)
+  fullName: TabScript.StdList.tabLen(TabScript.Table, int)
+  fullName.vb: TabScript.StdList.tabLen(TabScript.Table, Integer)
+  nameWithType: StdList.tabLen(Table, int)
+  nameWithType.vb: StdList.tabLen(Table, Integer)
+- uid: TabScript.StdList.tabLen*
+  name: tabLen
+  href: api/TabScript.StdList.html#TabScript_StdList_tabLen_
+  commentId: Overload:TabScript.StdList.tabLen
+  isSpec: "True"
+  fullName: TabScript.StdList.tabLen
+  nameWithType: StdList.tabLen
 - uid: TabScript.StdNum
   name: StdNum
   href: api/TabScript.StdNum.html
   commentId: T:TabScript.StdNum
   fullName: TabScript.StdNum
   nameWithType: StdNum
-- uid: TabScript.StdNum.All
-  name: All
-  href: api/TabScript.StdNum.html#TabScript_StdNum_All
-  commentId: P:TabScript.StdNum.All
-  fullName: TabScript.StdNum.All
-  nameWithType: StdNum.All
-- uid: TabScript.StdNum.All*
-  name: All
-  href: api/TabScript.StdNum.html#TabScript_StdNum_All_
-  commentId: Overload:TabScript.StdNum.All
+- uid: TabScript.StdNum.AllFunctions
+  name: AllFunctions
+  href: api/TabScript.StdNum.html#TabScript_StdNum_AllFunctions
+  commentId: P:TabScript.StdNum.AllFunctions
+  fullName: TabScript.StdNum.AllFunctions
+  nameWithType: StdNum.AllFunctions
+- uid: TabScript.StdNum.AllFunctions*
+  name: AllFunctions
+  href: api/TabScript.StdNum.html#TabScript_StdNum_AllFunctions_
+  commentId: Overload:TabScript.StdNum.AllFunctions
   isSpec: "True"
-  fullName: TabScript.StdNum.All
-  nameWithType: StdNum.All
-- uid: TabScript.StdNum.abs
+  fullName: TabScript.StdNum.AllFunctions
+  nameWithType: StdNum.AllFunctions
+- uid: TabScript.StdNum.AsImport
+  name: AsImport
+  href: api/TabScript.StdNum.html#TabScript_StdNum_AsImport
+  commentId: P:TabScript.StdNum.AsImport
+  fullName: TabScript.StdNum.AsImport
+  nameWithType: StdNum.AsImport
+- uid: TabScript.StdNum.AsImport*
+  name: AsImport
+  href: api/TabScript.StdNum.html#TabScript_StdNum_AsImport_
+  commentId: Overload:TabScript.StdNum.AsImport
+  isSpec: "True"
+  fullName: TabScript.StdNum.AsImport
+  nameWithType: StdNum.AsImport
+- uid: TabScript.StdNum.abs(System.String)
+  name: abs(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_abs_System_String_
+  commentId: M:TabScript.StdNum.abs(System.String)
+  name.vb: abs(String)
+  fullName: TabScript.StdNum.abs(string)
+  fullName.vb: TabScript.StdNum.abs(String)
+  nameWithType: StdNum.abs(string)
+  nameWithType.vb: StdNum.abs(String)
+- uid: TabScript.StdNum.abs*
   name: abs
-  href: api/TabScript.StdNum.html#TabScript_StdNum_abs
-  commentId: F:TabScript.StdNum.abs
+  href: api/TabScript.StdNum.html#TabScript_StdNum_abs_
+  commentId: Overload:TabScript.StdNum.abs
+  isSpec: "True"
   fullName: TabScript.StdNum.abs
   nameWithType: StdNum.abs
-- uid: TabScript.StdNum.acos
+- uid: TabScript.StdNum.acos(System.String)
+  name: acos(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_acos_System_String_
+  commentId: M:TabScript.StdNum.acos(System.String)
+  name.vb: acos(String)
+  fullName: TabScript.StdNum.acos(string)
+  fullName.vb: TabScript.StdNum.acos(String)
+  nameWithType: StdNum.acos(string)
+  nameWithType.vb: StdNum.acos(String)
+- uid: TabScript.StdNum.acos*
   name: acos
-  href: api/TabScript.StdNum.html#TabScript_StdNum_acos
-  commentId: F:TabScript.StdNum.acos
+  href: api/TabScript.StdNum.html#TabScript_StdNum_acos_
+  commentId: Overload:TabScript.StdNum.acos
+  isSpec: "True"
   fullName: TabScript.StdNum.acos
   nameWithType: StdNum.acos
-- uid: TabScript.StdNum.asin
+- uid: TabScript.StdNum.asin(System.String)
+  name: asin(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_asin_System_String_
+  commentId: M:TabScript.StdNum.asin(System.String)
+  name.vb: asin(String)
+  fullName: TabScript.StdNum.asin(string)
+  fullName.vb: TabScript.StdNum.asin(String)
+  nameWithType: StdNum.asin(string)
+  nameWithType.vb: StdNum.asin(String)
+- uid: TabScript.StdNum.asin*
   name: asin
-  href: api/TabScript.StdNum.html#TabScript_StdNum_asin
-  commentId: F:TabScript.StdNum.asin
+  href: api/TabScript.StdNum.html#TabScript_StdNum_asin_
+  commentId: Overload:TabScript.StdNum.asin
+  isSpec: "True"
   fullName: TabScript.StdNum.asin
   nameWithType: StdNum.asin
-- uid: TabScript.StdNum.atan
+- uid: TabScript.StdNum.atan(System.String)
+  name: atan(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_atan_System_String_
+  commentId: M:TabScript.StdNum.atan(System.String)
+  name.vb: atan(String)
+  fullName: TabScript.StdNum.atan(string)
+  fullName.vb: TabScript.StdNum.atan(String)
+  nameWithType: StdNum.atan(string)
+  nameWithType.vb: StdNum.atan(String)
+- uid: TabScript.StdNum.atan*
   name: atan
-  href: api/TabScript.StdNum.html#TabScript_StdNum_atan
-  commentId: F:TabScript.StdNum.atan
+  href: api/TabScript.StdNum.html#TabScript_StdNum_atan_
+  commentId: Overload:TabScript.StdNum.atan
+  isSpec: "True"
   fullName: TabScript.StdNum.atan
   nameWithType: StdNum.atan
-- uid: TabScript.StdNum.ceil
+- uid: TabScript.StdNum.ceil(System.String)
+  name: ceil(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_ceil_System_String_
+  commentId: M:TabScript.StdNum.ceil(System.String)
+  name.vb: ceil(String)
+  fullName: TabScript.StdNum.ceil(string)
+  fullName.vb: TabScript.StdNum.ceil(String)
+  nameWithType: StdNum.ceil(string)
+  nameWithType.vb: StdNum.ceil(String)
+- uid: TabScript.StdNum.ceil*
   name: ceil
-  href: api/TabScript.StdNum.html#TabScript_StdNum_ceil
-  commentId: F:TabScript.StdNum.ceil
+  href: api/TabScript.StdNum.html#TabScript_StdNum_ceil_
+  commentId: Overload:TabScript.StdNum.ceil
+  isSpec: "True"
   fullName: TabScript.StdNum.ceil
   nameWithType: StdNum.ceil
-- uid: TabScript.StdNum.clamp
+- uid: TabScript.StdNum.clamp(System.String,System.String,System.String)
+  name: clamp(string, string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_clamp_System_String_System_String_System_String_
+  commentId: M:TabScript.StdNum.clamp(System.String,System.String,System.String)
+  name.vb: clamp(String, String, String)
+  fullName: TabScript.StdNum.clamp(string, string, string)
+  fullName.vb: TabScript.StdNum.clamp(String, String, String)
+  nameWithType: StdNum.clamp(string, string, string)
+  nameWithType.vb: StdNum.clamp(String, String, String)
+- uid: TabScript.StdNum.clamp*
   name: clamp
-  href: api/TabScript.StdNum.html#TabScript_StdNum_clamp
-  commentId: F:TabScript.StdNum.clamp
+  href: api/TabScript.StdNum.html#TabScript_StdNum_clamp_
+  commentId: Overload:TabScript.StdNum.clamp
+  isSpec: "True"
   fullName: TabScript.StdNum.clamp
   nameWithType: StdNum.clamp
-- uid: TabScript.StdNum.cos
+- uid: TabScript.StdNum.cos(System.String)
+  name: cos(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_cos_System_String_
+  commentId: M:TabScript.StdNum.cos(System.String)
+  name.vb: cos(String)
+  fullName: TabScript.StdNum.cos(string)
+  fullName.vb: TabScript.StdNum.cos(String)
+  nameWithType: StdNum.cos(string)
+  nameWithType.vb: StdNum.cos(String)
+- uid: TabScript.StdNum.cos*
   name: cos
-  href: api/TabScript.StdNum.html#TabScript_StdNum_cos
-  commentId: F:TabScript.StdNum.cos
+  href: api/TabScript.StdNum.html#TabScript_StdNum_cos_
+  commentId: Overload:TabScript.StdNum.cos
+  isSpec: "True"
   fullName: TabScript.StdNum.cos
   nameWithType: StdNum.cos
-- uid: TabScript.StdNum.div
+- uid: TabScript.StdNum.div(System.String,System.String)
+  name: div(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_div_System_String_System_String_
+  commentId: M:TabScript.StdNum.div(System.String,System.String)
+  name.vb: div(String, String)
+  fullName: TabScript.StdNum.div(string, string)
+  fullName.vb: TabScript.StdNum.div(String, String)
+  nameWithType: StdNum.div(string, string)
+  nameWithType.vb: StdNum.div(String, String)
+- uid: TabScript.StdNum.div*
   name: div
-  href: api/TabScript.StdNum.html#TabScript_StdNum_div
-  commentId: F:TabScript.StdNum.div
+  href: api/TabScript.StdNum.html#TabScript_StdNum_div_
+  commentId: Overload:TabScript.StdNum.div
+  isSpec: "True"
   fullName: TabScript.StdNum.div
   nameWithType: StdNum.div
-- uid: TabScript.StdNum.exp
+- uid: TabScript.StdNum.exp(System.String)
+  name: exp(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_exp_System_String_
+  commentId: M:TabScript.StdNum.exp(System.String)
+  name.vb: exp(String)
+  fullName: TabScript.StdNum.exp(string)
+  fullName.vb: TabScript.StdNum.exp(String)
+  nameWithType: StdNum.exp(string)
+  nameWithType.vb: StdNum.exp(String)
+- uid: TabScript.StdNum.exp*
   name: exp
-  href: api/TabScript.StdNum.html#TabScript_StdNum_exp
-  commentId: F:TabScript.StdNum.exp
+  href: api/TabScript.StdNum.html#TabScript_StdNum_exp_
+  commentId: Overload:TabScript.StdNum.exp
+  isSpec: "True"
   fullName: TabScript.StdNum.exp
   nameWithType: StdNum.exp
-- uid: TabScript.StdNum.floor
+- uid: TabScript.StdNum.floor(System.String)
+  name: floor(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_floor_System_String_
+  commentId: M:TabScript.StdNum.floor(System.String)
+  name.vb: floor(String)
+  fullName: TabScript.StdNum.floor(string)
+  fullName.vb: TabScript.StdNum.floor(String)
+  nameWithType: StdNum.floor(string)
+  nameWithType.vb: StdNum.floor(String)
+- uid: TabScript.StdNum.floor*
   name: floor
-  href: api/TabScript.StdNum.html#TabScript_StdNum_floor
-  commentId: F:TabScript.StdNum.floor
+  href: api/TabScript.StdNum.html#TabScript_StdNum_floor_
+  commentId: Overload:TabScript.StdNum.floor
+  isSpec: "True"
   fullName: TabScript.StdNum.floor
   nameWithType: StdNum.floor
-- uid: TabScript.StdNum.fract
+- uid: TabScript.StdNum.fract(System.String)
+  name: fract(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_fract_System_String_
+  commentId: M:TabScript.StdNum.fract(System.String)
+  name.vb: fract(String)
+  fullName: TabScript.StdNum.fract(string)
+  fullName.vb: TabScript.StdNum.fract(String)
+  nameWithType: StdNum.fract(string)
+  nameWithType.vb: StdNum.fract(String)
+- uid: TabScript.StdNum.fract*
   name: fract
-  href: api/TabScript.StdNum.html#TabScript_StdNum_fract
-  commentId: F:TabScript.StdNum.fract
+  href: api/TabScript.StdNum.html#TabScript_StdNum_fract_
+  commentId: Overload:TabScript.StdNum.fract
+  isSpec: "True"
   fullName: TabScript.StdNum.fract
   nameWithType: StdNum.fract
+- uid: TabScript.StdNum.getE
+  name: getE()
+  href: api/TabScript.StdNum.html#TabScript_StdNum_getE
+  commentId: M:TabScript.StdNum.getE
+  fullName: TabScript.StdNum.getE()
+  nameWithType: StdNum.getE()
+- uid: TabScript.StdNum.getE*
+  name: getE
+  href: api/TabScript.StdNum.html#TabScript_StdNum_getE_
+  commentId: Overload:TabScript.StdNum.getE
+  isSpec: "True"
+  fullName: TabScript.StdNum.getE
+  nameWithType: StdNum.getE
 - uid: TabScript.StdNum.getPi
-  name: getPi
+  name: getPi()
   href: api/TabScript.StdNum.html#TabScript_StdNum_getPi
-  commentId: F:TabScript.StdNum.getPi
+  commentId: M:TabScript.StdNum.getPi
+  fullName: TabScript.StdNum.getPi()
+  nameWithType: StdNum.getPi()
+- uid: TabScript.StdNum.getPi*
+  name: getPi
+  href: api/TabScript.StdNum.html#TabScript_StdNum_getPi_
+  commentId: Overload:TabScript.StdNum.getPi
+  isSpec: "True"
   fullName: TabScript.StdNum.getPi
   nameWithType: StdNum.getPi
-- uid: TabScript.StdNum.greater
+- uid: TabScript.StdNum.greater(System.String,System.String)
+  name: greater(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_greater_System_String_System_String_
+  commentId: M:TabScript.StdNum.greater(System.String,System.String)
+  name.vb: greater(String, String)
+  fullName: TabScript.StdNum.greater(string, string)
+  fullName.vb: TabScript.StdNum.greater(String, String)
+  nameWithType: StdNum.greater(string, string)
+  nameWithType.vb: StdNum.greater(String, String)
+- uid: TabScript.StdNum.greater*
   name: greater
-  href: api/TabScript.StdNum.html#TabScript_StdNum_greater
-  commentId: F:TabScript.StdNum.greater
+  href: api/TabScript.StdNum.html#TabScript_StdNum_greater_
+  commentId: Overload:TabScript.StdNum.greater
+  isSpec: "True"
   fullName: TabScript.StdNum.greater
   nameWithType: StdNum.greater
-- uid: TabScript.StdNum.greaterEq
+- uid: TabScript.StdNum.greaterEq(System.String,System.String)
+  name: greaterEq(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_greaterEq_System_String_System_String_
+  commentId: M:TabScript.StdNum.greaterEq(System.String,System.String)
+  name.vb: greaterEq(String, String)
+  fullName: TabScript.StdNum.greaterEq(string, string)
+  fullName.vb: TabScript.StdNum.greaterEq(String, String)
+  nameWithType: StdNum.greaterEq(string, string)
+  nameWithType.vb: StdNum.greaterEq(String, String)
+- uid: TabScript.StdNum.greaterEq*
   name: greaterEq
-  href: api/TabScript.StdNum.html#TabScript_StdNum_greaterEq
-  commentId: F:TabScript.StdNum.greaterEq
+  href: api/TabScript.StdNum.html#TabScript_StdNum_greaterEq_
+  commentId: Overload:TabScript.StdNum.greaterEq
+  isSpec: "True"
   fullName: TabScript.StdNum.greaterEq
   nameWithType: StdNum.greaterEq
-- uid: TabScript.StdNum.less
+- uid: TabScript.StdNum.less(System.String,System.String)
+  name: less(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_less_System_String_System_String_
+  commentId: M:TabScript.StdNum.less(System.String,System.String)
+  name.vb: less(String, String)
+  fullName: TabScript.StdNum.less(string, string)
+  fullName.vb: TabScript.StdNum.less(String, String)
+  nameWithType: StdNum.less(string, string)
+  nameWithType.vb: StdNum.less(String, String)
+- uid: TabScript.StdNum.less*
   name: less
-  href: api/TabScript.StdNum.html#TabScript_StdNum_less
-  commentId: F:TabScript.StdNum.less
+  href: api/TabScript.StdNum.html#TabScript_StdNum_less_
+  commentId: Overload:TabScript.StdNum.less
+  isSpec: "True"
   fullName: TabScript.StdNum.less
   nameWithType: StdNum.less
-- uid: TabScript.StdNum.lessEq
+- uid: TabScript.StdNum.lessEq(System.String,System.String)
+  name: lessEq(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_lessEq_System_String_System_String_
+  commentId: M:TabScript.StdNum.lessEq(System.String,System.String)
+  name.vb: lessEq(String, String)
+  fullName: TabScript.StdNum.lessEq(string, string)
+  fullName.vb: TabScript.StdNum.lessEq(String, String)
+  nameWithType: StdNum.lessEq(string, string)
+  nameWithType.vb: StdNum.lessEq(String, String)
+- uid: TabScript.StdNum.lessEq*
   name: lessEq
-  href: api/TabScript.StdNum.html#TabScript_StdNum_lessEq
-  commentId: F:TabScript.StdNum.lessEq
+  href: api/TabScript.StdNum.html#TabScript_StdNum_lessEq_
+  commentId: Overload:TabScript.StdNum.lessEq
+  isSpec: "True"
   fullName: TabScript.StdNum.lessEq
   nameWithType: StdNum.lessEq
-- uid: TabScript.StdNum.ln
+- uid: TabScript.StdNum.ln(System.String)
+  name: ln(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_ln_System_String_
+  commentId: M:TabScript.StdNum.ln(System.String)
+  name.vb: ln(String)
+  fullName: TabScript.StdNum.ln(string)
+  fullName.vb: TabScript.StdNum.ln(String)
+  nameWithType: StdNum.ln(string)
+  nameWithType.vb: StdNum.ln(String)
+- uid: TabScript.StdNum.ln*
   name: ln
-  href: api/TabScript.StdNum.html#TabScript_StdNum_ln
-  commentId: F:TabScript.StdNum.ln
+  href: api/TabScript.StdNum.html#TabScript_StdNum_ln_
+  commentId: Overload:TabScript.StdNum.ln
+  isSpec: "True"
   fullName: TabScript.StdNum.ln
   nameWithType: StdNum.ln
-- uid: TabScript.StdNum.log
+- uid: TabScript.StdNum.log(System.String)
+  name: log(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_log_System_String_
+  commentId: M:TabScript.StdNum.log(System.String)
+  name.vb: log(String)
+  fullName: TabScript.StdNum.log(string)
+  fullName.vb: TabScript.StdNum.log(String)
+  nameWithType: StdNum.log(string)
+  nameWithType.vb: StdNum.log(String)
+- uid: TabScript.StdNum.log*
   name: log
-  href: api/TabScript.StdNum.html#TabScript_StdNum_log
-  commentId: F:TabScript.StdNum.log
+  href: api/TabScript.StdNum.html#TabScript_StdNum_log_
+  commentId: Overload:TabScript.StdNum.log
+  isSpec: "True"
   fullName: TabScript.StdNum.log
   nameWithType: StdNum.log
-- uid: TabScript.StdNum.max
+- uid: TabScript.StdNum.max(System.String,System.String)
+  name: max(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_max_System_String_System_String_
+  commentId: M:TabScript.StdNum.max(System.String,System.String)
+  name.vb: max(String, String)
+  fullName: TabScript.StdNum.max(string, string)
+  fullName.vb: TabScript.StdNum.max(String, String)
+  nameWithType: StdNum.max(string, string)
+  nameWithType.vb: StdNum.max(String, String)
+- uid: TabScript.StdNum.max*
   name: max
-  href: api/TabScript.StdNum.html#TabScript_StdNum_max
-  commentId: F:TabScript.StdNum.max
+  href: api/TabScript.StdNum.html#TabScript_StdNum_max_
+  commentId: Overload:TabScript.StdNum.max
+  isSpec: "True"
   fullName: TabScript.StdNum.max
   nameWithType: StdNum.max
-- uid: TabScript.StdNum.min
+- uid: TabScript.StdNum.min(System.String,System.String)
+  name: min(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_min_System_String_System_String_
+  commentId: M:TabScript.StdNum.min(System.String,System.String)
+  name.vb: min(String, String)
+  fullName: TabScript.StdNum.min(string, string)
+  fullName.vb: TabScript.StdNum.min(String, String)
+  nameWithType: StdNum.min(string, string)
+  nameWithType.vb: StdNum.min(String, String)
+- uid: TabScript.StdNum.min*
   name: min
-  href: api/TabScript.StdNum.html#TabScript_StdNum_min
-  commentId: F:TabScript.StdNum.min
+  href: api/TabScript.StdNum.html#TabScript_StdNum_min_
+  commentId: Overload:TabScript.StdNum.min
+  isSpec: "True"
   fullName: TabScript.StdNum.min
   nameWithType: StdNum.min
-- uid: TabScript.StdNum.mod
+- uid: TabScript.StdNum.mod(System.String,System.String)
+  name: mod(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_mod_System_String_System_String_
+  commentId: M:TabScript.StdNum.mod(System.String,System.String)
+  name.vb: mod(String, String)
+  fullName: TabScript.StdNum.mod(string, string)
+  fullName.vb: TabScript.StdNum.mod(String, String)
+  nameWithType: StdNum.mod(string, string)
+  nameWithType.vb: StdNum.mod(String, String)
+- uid: TabScript.StdNum.mod*
   name: mod
-  href: api/TabScript.StdNum.html#TabScript_StdNum_mod
-  commentId: F:TabScript.StdNum.mod
+  href: api/TabScript.StdNum.html#TabScript_StdNum_mod_
+  commentId: Overload:TabScript.StdNum.mod
+  isSpec: "True"
   fullName: TabScript.StdNum.mod
   nameWithType: StdNum.mod
-- uid: TabScript.StdNum.mult
+- uid: TabScript.StdNum.mult(System.String,System.String)
+  name: mult(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_mult_System_String_System_String_
+  commentId: M:TabScript.StdNum.mult(System.String,System.String)
+  name.vb: mult(String, String)
+  fullName: TabScript.StdNum.mult(string, string)
+  fullName.vb: TabScript.StdNum.mult(String, String)
+  nameWithType: StdNum.mult(string, string)
+  nameWithType.vb: StdNum.mult(String, String)
+- uid: TabScript.StdNum.mult*
   name: mult
-  href: api/TabScript.StdNum.html#TabScript_StdNum_mult
-  commentId: F:TabScript.StdNum.mult
+  href: api/TabScript.StdNum.html#TabScript_StdNum_mult_
+  commentId: Overload:TabScript.StdNum.mult
+  isSpec: "True"
   fullName: TabScript.StdNum.mult
   nameWithType: StdNum.mult
-- uid: TabScript.StdNum.pow
+- uid: TabScript.StdNum.pow(System.String,System.String)
+  name: pow(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_pow_System_String_System_String_
+  commentId: M:TabScript.StdNum.pow(System.String,System.String)
+  name.vb: pow(String, String)
+  fullName: TabScript.StdNum.pow(string, string)
+  fullName.vb: TabScript.StdNum.pow(String, String)
+  nameWithType: StdNum.pow(string, string)
+  nameWithType.vb: StdNum.pow(String, String)
+- uid: TabScript.StdNum.pow*
   name: pow
-  href: api/TabScript.StdNum.html#TabScript_StdNum_pow
-  commentId: F:TabScript.StdNum.pow
+  href: api/TabScript.StdNum.html#TabScript_StdNum_pow_
+  commentId: Overload:TabScript.StdNum.pow
+  isSpec: "True"
   fullName: TabScript.StdNum.pow
   nameWithType: StdNum.pow
-- uid: TabScript.StdNum.round
+- uid: TabScript.StdNum.rand(System.String,System.String)
+  name: rand(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_rand_System_String_System_String_
+  commentId: M:TabScript.StdNum.rand(System.String,System.String)
+  name.vb: rand(String, String)
+  fullName: TabScript.StdNum.rand(string, string)
+  fullName.vb: TabScript.StdNum.rand(String, String)
+  nameWithType: StdNum.rand(string, string)
+  nameWithType.vb: StdNum.rand(String, String)
+- uid: TabScript.StdNum.rand*
+  name: rand
+  href: api/TabScript.StdNum.html#TabScript_StdNum_rand_
+  commentId: Overload:TabScript.StdNum.rand
+  isSpec: "True"
+  fullName: TabScript.StdNum.rand
+  nameWithType: StdNum.rand
+- uid: TabScript.StdNum.range(System.String,System.String,System.String)
+  name: range(string, string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_range_System_String_System_String_System_String_
+  commentId: M:TabScript.StdNum.range(System.String,System.String,System.String)
+  name.vb: range(String, String, String)
+  fullName: TabScript.StdNum.range(string, string, string)
+  fullName.vb: TabScript.StdNum.range(String, String, String)
+  nameWithType: StdNum.range(string, string, string)
+  nameWithType.vb: StdNum.range(String, String, String)
+- uid: TabScript.StdNum.range*
+  name: range
+  href: api/TabScript.StdNum.html#TabScript_StdNum_range_
+  commentId: Overload:TabScript.StdNum.range
+  isSpec: "True"
+  fullName: TabScript.StdNum.range
+  nameWithType: StdNum.range
+- uid: TabScript.StdNum.round(System.String)
+  name: round(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_round_System_String_
+  commentId: M:TabScript.StdNum.round(System.String)
+  name.vb: round(String)
+  fullName: TabScript.StdNum.round(string)
+  fullName.vb: TabScript.StdNum.round(String)
+  nameWithType: StdNum.round(string)
+  nameWithType.vb: StdNum.round(String)
+- uid: TabScript.StdNum.round*
   name: round
-  href: api/TabScript.StdNum.html#TabScript_StdNum_round
-  commentId: F:TabScript.StdNum.round
+  href: api/TabScript.StdNum.html#TabScript_StdNum_round_
+  commentId: Overload:TabScript.StdNum.round
+  isSpec: "True"
   fullName: TabScript.StdNum.round
   nameWithType: StdNum.round
-- uid: TabScript.StdNum.sign
+- uid: TabScript.StdNum.sign(System.String)
+  name: sign(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sign_System_String_
+  commentId: M:TabScript.StdNum.sign(System.String)
+  name.vb: sign(String)
+  fullName: TabScript.StdNum.sign(string)
+  fullName.vb: TabScript.StdNum.sign(String)
+  nameWithType: StdNum.sign(string)
+  nameWithType.vb: StdNum.sign(String)
+- uid: TabScript.StdNum.sign*
   name: sign
-  href: api/TabScript.StdNum.html#TabScript_StdNum_sign
-  commentId: F:TabScript.StdNum.sign
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sign_
+  commentId: Overload:TabScript.StdNum.sign
+  isSpec: "True"
   fullName: TabScript.StdNum.sign
   nameWithType: StdNum.sign
-- uid: TabScript.StdNum.sin
+- uid: TabScript.StdNum.sin(System.String)
+  name: sin(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sin_System_String_
+  commentId: M:TabScript.StdNum.sin(System.String)
+  name.vb: sin(String)
+  fullName: TabScript.StdNum.sin(string)
+  fullName.vb: TabScript.StdNum.sin(String)
+  nameWithType: StdNum.sin(string)
+  nameWithType.vb: StdNum.sin(String)
+- uid: TabScript.StdNum.sin*
   name: sin
-  href: api/TabScript.StdNum.html#TabScript_StdNum_sin
-  commentId: F:TabScript.StdNum.sin
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sin_
+  commentId: Overload:TabScript.StdNum.sin
+  isSpec: "True"
   fullName: TabScript.StdNum.sin
   nameWithType: StdNum.sin
-- uid: TabScript.StdNum.sqrt
+- uid: TabScript.StdNum.sqrt(System.String)
+  name: sqrt(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sqrt_System_String_
+  commentId: M:TabScript.StdNum.sqrt(System.String)
+  name.vb: sqrt(String)
+  fullName: TabScript.StdNum.sqrt(string)
+  fullName.vb: TabScript.StdNum.sqrt(String)
+  nameWithType: StdNum.sqrt(string)
+  nameWithType.vb: StdNum.sqrt(String)
+- uid: TabScript.StdNum.sqrt*
   name: sqrt
-  href: api/TabScript.StdNum.html#TabScript_StdNum_sqrt
-  commentId: F:TabScript.StdNum.sqrt
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sqrt_
+  commentId: Overload:TabScript.StdNum.sqrt
+  isSpec: "True"
   fullName: TabScript.StdNum.sqrt
   nameWithType: StdNum.sqrt
-- uid: TabScript.StdNum.sub
+- uid: TabScript.StdNum.sub(System.String,System.String)
+  name: sub(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sub_System_String_System_String_
+  commentId: M:TabScript.StdNum.sub(System.String,System.String)
+  name.vb: sub(String, String)
+  fullName: TabScript.StdNum.sub(string, string)
+  fullName.vb: TabScript.StdNum.sub(String, String)
+  nameWithType: StdNum.sub(string, string)
+  nameWithType.vb: StdNum.sub(String, String)
+- uid: TabScript.StdNum.sub*
   name: sub
-  href: api/TabScript.StdNum.html#TabScript_StdNum_sub
-  commentId: F:TabScript.StdNum.sub
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sub_
+  commentId: Overload:TabScript.StdNum.sub
+  isSpec: "True"
   fullName: TabScript.StdNum.sub
   nameWithType: StdNum.sub
-- uid: TabScript.StdNum.sum
+- uid: TabScript.StdNum.sum(System.String,System.String)
+  name: sum(string, string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sum_System_String_System_String_
+  commentId: M:TabScript.StdNum.sum(System.String,System.String)
+  name.vb: sum(String, String)
+  fullName: TabScript.StdNum.sum(string, string)
+  fullName.vb: TabScript.StdNum.sum(String, String)
+  nameWithType: StdNum.sum(string, string)
+  nameWithType.vb: StdNum.sum(String, String)
+- uid: TabScript.StdNum.sum*
   name: sum
-  href: api/TabScript.StdNum.html#TabScript_StdNum_sum
-  commentId: F:TabScript.StdNum.sum
+  href: api/TabScript.StdNum.html#TabScript_StdNum_sum_
+  commentId: Overload:TabScript.StdNum.sum
+  isSpec: "True"
   fullName: TabScript.StdNum.sum
   nameWithType: StdNum.sum
-- uid: TabScript.StdNum.tan
+- uid: TabScript.StdNum.tan(System.String)
+  name: tan(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_tan_System_String_
+  commentId: M:TabScript.StdNum.tan(System.String)
+  name.vb: tan(String)
+  fullName: TabScript.StdNum.tan(string)
+  fullName.vb: TabScript.StdNum.tan(String)
+  nameWithType: StdNum.tan(string)
+  nameWithType.vb: StdNum.tan(String)
+- uid: TabScript.StdNum.tan*
   name: tan
-  href: api/TabScript.StdNum.html#TabScript_StdNum_tan
-  commentId: F:TabScript.StdNum.tan
+  href: api/TabScript.StdNum.html#TabScript_StdNum_tan_
+  commentId: Overload:TabScript.StdNum.tan
+  isSpec: "True"
   fullName: TabScript.StdNum.tan
   nameWithType: StdNum.tan
-- uid: TabScript.StdNum.toLen
+- uid: TabScript.StdNum.toLen(System.String)
+  name: toLen(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_toLen_System_String_
+  commentId: M:TabScript.StdNum.toLen(System.String)
+  name.vb: toLen(String)
+  fullName: TabScript.StdNum.toLen(string)
+  fullName.vb: TabScript.StdNum.toLen(String)
+  nameWithType: StdNum.toLen(string)
+  nameWithType.vb: StdNum.toLen(String)
+- uid: TabScript.StdNum.toLen*
   name: toLen
-  href: api/TabScript.StdNum.html#TabScript_StdNum_toLen
-  commentId: F:TabScript.StdNum.toLen
+  href: api/TabScript.StdNum.html#TabScript_StdNum_toLen_
+  commentId: Overload:TabScript.StdNum.toLen
+  isSpec: "True"
   fullName: TabScript.StdNum.toLen
   nameWithType: StdNum.toLen
-- uid: TabScript.StdNum.toNum
+- uid: TabScript.StdNum.toNum(System.Int32)
+  name: toNum(int)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_toNum_System_Int32_
+  commentId: M:TabScript.StdNum.toNum(System.Int32)
+  name.vb: toNum(Integer)
+  fullName: TabScript.StdNum.toNum(int)
+  fullName.vb: TabScript.StdNum.toNum(Integer)
+  nameWithType: StdNum.toNum(int)
+  nameWithType.vb: StdNum.toNum(Integer)
+- uid: TabScript.StdNum.toNum*
   name: toNum
-  href: api/TabScript.StdNum.html#TabScript_StdNum_toNum
-  commentId: F:TabScript.StdNum.toNum
+  href: api/TabScript.StdNum.html#TabScript_StdNum_toNum_
+  commentId: Overload:TabScript.StdNum.toNum
+  isSpec: "True"
   fullName: TabScript.StdNum.toNum
   nameWithType: StdNum.toNum
-- uid: TabScript.StdNum.trunc
+- uid: TabScript.StdNum.trunc(System.String)
+  name: trunc(string)
+  href: api/TabScript.StdNum.html#TabScript_StdNum_trunc_System_String_
+  commentId: M:TabScript.StdNum.trunc(System.String)
+  name.vb: trunc(String)
+  fullName: TabScript.StdNum.trunc(string)
+  fullName.vb: TabScript.StdNum.trunc(String)
+  nameWithType: StdNum.trunc(string)
+  nameWithType.vb: StdNum.trunc(String)
+- uid: TabScript.StdNum.trunc*
   name: trunc
-  href: api/TabScript.StdNum.html#TabScript_StdNum_trunc
-  commentId: F:TabScript.StdNum.trunc
+  href: api/TabScript.StdNum.html#TabScript_StdNum_trunc_
+  commentId: Overload:TabScript.StdNum.trunc
+  isSpec: "True"
   fullName: TabScript.StdNum.trunc
   nameWithType: StdNum.trunc
 - uid: TabScript.Stmt
@@ -743,15 +1788,15 @@ references:
   commentId: T:TabScript.TabFunc
   fullName: TabScript.TabFunc
   nameWithType: TabFunc
-- uid: TabScript.TabFunc.#ctor(System.String,System.String,System.String[],System.Boolean,System.Int32)
-  name: TabFunc(string, string, string[], bool, int)
-  href: api/TabScript.TabFunc.html#TabScript_TabFunc__ctor_System_String_System_String_System_String___System_Boolean_System_Int32_
-  commentId: M:TabScript.TabFunc.#ctor(System.String,System.String,System.String[],System.Boolean,System.Int32)
-  name.vb: New(String, String, String(), Boolean, Integer)
-  fullName: TabScript.TabFunc.TabFunc(string, string, string[], bool, int)
-  fullName.vb: TabScript.TabFunc.New(String, String, String(), Boolean, Integer)
-  nameWithType: TabFunc.TabFunc(string, string, string[], bool, int)
-  nameWithType.vb: TabFunc.New(String, String, String(), Boolean, Integer)
+- uid: TabScript.TabFunc.#ctor(System.String,System.String,System.String[],System.Boolean,System.Boolean,System.String,System.Int32)
+  name: TabFunc(string, string, string[], bool, bool, string, int)
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc__ctor_System_String_System_String_System_String___System_Boolean_System_Boolean_System_String_System_Int32_
+  commentId: M:TabScript.TabFunc.#ctor(System.String,System.String,System.String[],System.Boolean,System.Boolean,System.String,System.Int32)
+  name.vb: New(String, String, String(), Boolean, Boolean, String, Integer)
+  fullName: TabScript.TabFunc.TabFunc(string, string, string[], bool, bool, string, int)
+  fullName.vb: TabScript.TabFunc.New(String, String, String(), Boolean, Boolean, String, Integer)
+  nameWithType: TabFunc.TabFunc(string, string, string[], bool, bool, string, int)
+  nameWithType.vb: TabFunc.New(String, String, String(), Boolean, Boolean, String, Integer)
 - uid: TabScript.TabFunc.#ctor*
   name: TabFunc
   href: api/TabScript.TabFunc.html#TabScript_TabFunc__ctor_
@@ -762,6 +1807,35 @@ references:
   fullName.vb: TabScript.TabFunc.New
   nameWithType: TabFunc.TabFunc
   nameWithType.vb: TabFunc.New
+- uid: TabScript.TabFunc.Matches(System.String,System.String,System.Int32)
+  name: Matches(string, string, int)
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_Matches_System_String_System_String_System_Int32_
+  commentId: M:TabScript.TabFunc.Matches(System.String,System.String,System.Int32)
+  name.vb: Matches(String, String, Integer)
+  fullName: TabScript.TabFunc.Matches(string, string, int)
+  fullName.vb: TabScript.TabFunc.Matches(String, String, Integer)
+  nameWithType: TabFunc.Matches(string, string, int)
+  nameWithType.vb: TabFunc.Matches(String, String, Integer)
+- uid: TabScript.TabFunc.Matches*
+  name: Matches
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_Matches_
+  commentId: Overload:TabScript.TabFunc.Matches
+  isSpec: "True"
+  fullName: TabScript.TabFunc.Matches
+  nameWithType: TabFunc.Matches
+- uid: TabScript.TabFunc.SameSignature(TabScript.TabFunc)
+  name: SameSignature(TabFunc)
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_SameSignature_TabScript_TabFunc_
+  commentId: M:TabScript.TabFunc.SameSignature(TabScript.TabFunc)
+  fullName: TabScript.TabFunc.SameSignature(TabScript.TabFunc)
+  nameWithType: TabFunc.SameSignature(TabFunc)
+- uid: TabScript.TabFunc.SameSignature*
+  name: SameSignature
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_SameSignature_
+  commentId: Overload:TabScript.TabFunc.SameSignature
+  isSpec: "True"
+  fullName: TabScript.TabFunc.SameSignature
+  nameWithType: TabFunc.SameSignature
 - uid: TabScript.TabFunc.arity
   name: arity
   href: api/TabScript.TabFunc.html#TabScript_TabFunc_arity
@@ -775,6 +1849,32 @@ references:
   isSpec: "True"
   fullName: TabScript.TabFunc.arity
   nameWithType: TabFunc.arity
+- uid: TabScript.TabFunc.export
+  name: export
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_export
+  commentId: P:TabScript.TabFunc.export
+  fullName: TabScript.TabFunc.export
+  nameWithType: TabFunc.export
+- uid: TabScript.TabFunc.export*
+  name: export
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_export_
+  commentId: Overload:TabScript.TabFunc.export
+  isSpec: "True"
+  fullName: TabScript.TabFunc.export
+  nameWithType: TabFunc.export
+- uid: TabScript.TabFunc.filename
+  name: filename
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_filename
+  commentId: P:TabScript.TabFunc.filename
+  fullName: TabScript.TabFunc.filename
+  nameWithType: TabFunc.filename
+- uid: TabScript.TabFunc.filename*
+  name: filename
+  href: api/TabScript.TabFunc.html#TabScript_TabFunc_filename_
+  commentId: Overload:TabScript.TabFunc.filename
+  isSpec: "True"
+  fullName: TabScript.TabFunc.filename
+  nameWithType: TabFunc.filename
 - uid: TabScript.TabFunc.identifier
   name: identifier
   href: api/TabScript.TabFunc.html#TabScript_TabFunc_identifier
@@ -855,15 +1955,6 @@ references:
   fullName.vb: TabScript.TabIndex.New(TabScript.TabIndexMode, Integer)
   nameWithType: TabIndex.TabIndex(TabIndexMode, int)
   nameWithType.vb: TabIndex.New(TabIndexMode, Integer)
-- uid: TabScript.TabIndex.#ctor(TabScript.Token)
-  name: TabIndex(Token)
-  href: api/TabScript.TabIndex.html#TabScript_TabIndex__ctor_TabScript_Token_
-  commentId: M:TabScript.TabIndex.#ctor(TabScript.Token)
-  name.vb: New(Token)
-  fullName: TabScript.TabIndex.TabIndex(TabScript.Token)
-  fullName.vb: TabScript.TabIndex.New(TabScript.Token)
-  nameWithType: TabIndex.TabIndex(Token)
-  nameWithType.vb: TabIndex.New(Token)
 - uid: TabScript.TabIndex.#ctor*
   name: TabIndex
   href: api/TabScript.TabIndex.html#TabScript_TabIndex__ctor_
@@ -970,6 +2061,15 @@ references:
   fullName.vb: TabScript.Table.New(Integer)
   nameWithType: Table.Table(int)
   nameWithType.vb: Table.New(Integer)
+- uid: TabScript.Table.#ctor(System.String)
+  name: Table(string)
+  href: api/TabScript.Table.html#TabScript_Table__ctor_System_String_
+  commentId: M:TabScript.Table.#ctor(System.String)
+  name.vb: New(String)
+  fullName: TabScript.Table.Table(string)
+  fullName.vb: TabScript.Table.New(String)
+  nameWithType: Table.Table(string)
+  nameWithType.vb: Table.New(String)
 - uid: TabScript.Table.#ctor(System.String[])
   name: Table(params string[])
   href: api/TabScript.Table.html#TabScript_Table__ctor_System_String___
@@ -998,6 +2098,28 @@ references:
   fullName.vb: TabScript.Table.New
   nameWithType: Table.Table
   nameWithType.vb: Table.New
+- uid: TabScript.Table.Add(System.String)
+  name: Add(string)
+  href: api/TabScript.Table.html#TabScript_Table_Add_System_String_
+  commentId: M:TabScript.Table.Add(System.String)
+  name.vb: Add(String)
+  fullName: TabScript.Table.Add(string)
+  fullName.vb: TabScript.Table.Add(String)
+  nameWithType: Table.Add(string)
+  nameWithType.vb: Table.Add(String)
+- uid: TabScript.Table.Add(TabScript.Table)
+  name: Add(Table)
+  href: api/TabScript.Table.html#TabScript_Table_Add_TabScript_Table_
+  commentId: M:TabScript.Table.Add(TabScript.Table)
+  fullName: TabScript.Table.Add(TabScript.Table)
+  nameWithType: Table.Add(Table)
+- uid: TabScript.Table.Add*
+  name: Add
+  href: api/TabScript.Table.html#TabScript_Table_Add_
+  commentId: Overload:TabScript.Table.Add
+  isSpec: "True"
+  fullName: TabScript.Table.Add
+  nameWithType: Table.Add
 - uid: TabScript.Table.AddRange(TabScript.Table)
   name: AddRange(Table)
   href: api/TabScript.Table.html#TabScript_Table_AddRange_TabScript_Table_
@@ -1118,6 +2240,22 @@ references:
   isSpec: "True"
   fullName: TabScript.Table.GetRange
   nameWithType: Table.GetRange
+- uid: TabScript.Table.IndexOf(System.String)
+  name: IndexOf(string)
+  href: api/TabScript.Table.html#TabScript_Table_IndexOf_System_String_
+  commentId: M:TabScript.Table.IndexOf(System.String)
+  name.vb: IndexOf(String)
+  fullName: TabScript.Table.IndexOf(string)
+  fullName.vb: TabScript.Table.IndexOf(String)
+  nameWithType: Table.IndexOf(string)
+  nameWithType.vb: Table.IndexOf(String)
+- uid: TabScript.Table.IndexOf*
+  name: IndexOf
+  href: api/TabScript.Table.html#TabScript_Table_IndexOf_
+  commentId: Overload:TabScript.Table.IndexOf
+  isSpec: "True"
+  fullName: TabScript.Table.IndexOf
+  nameWithType: Table.IndexOf
 - uid: TabScript.Table.IsNumber
   name: IsNumber
   href: api/TabScript.Table.html#TabScript_Table_IsNumber
@@ -1218,6 +2356,19 @@ references:
   isSpec: "True"
   fullName: TabScript.Table.RemoveSingle
   nameWithType: Table.RemoveSingle
+- uid: TabScript.Table.Reversed
+  name: Reversed()
+  href: api/TabScript.Table.html#TabScript_Table_Reversed
+  commentId: M:TabScript.Table.Reversed
+  fullName: TabScript.Table.Reversed()
+  nameWithType: Table.Reversed()
+- uid: TabScript.Table.Reversed*
+  name: Reversed
+  href: api/TabScript.Table.html#TabScript_Table_Reversed_
+  commentId: Overload:TabScript.Table.Reversed
+  isSpec: "True"
+  fullName: TabScript.Table.Reversed
+  nameWithType: Table.Reversed
 - uid: TabScript.Table.SetElem(TabScript.TabIndex,TabScript.Table)
   name: SetElem(TabIndex, Table)
   href: api/TabScript.Table.html#TabScript_Table_SetElem_TabScript_TabIndex_TabScript_Table_
@@ -1315,24 +2466,33 @@ references:
   commentId: T:TabScript.TableScript
   fullName: TabScript.TableScript
   nameWithType: TableScript
-- uid: TabScript.TableScript.FromSource(System.String)
-  name: FromSource(string)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_
-  commentId: M:TabScript.TableScript.FromSource(System.String)
-  name.vb: FromSource(String)
-  fullName: TabScript.TableScript.FromSource(string)
-  fullName.vb: TabScript.TableScript.FromSource(String)
-  nameWithType: TableScript.FromSource(string)
-  nameWithType.vb: TableScript.FromSource(String)
-- uid: TabScript.TableScript.FromSource(System.String,TabScript.IImportResolver,System.Action{TabScriptException})
-  name: FromSource(string, IImportResolver, Action<TabScriptException>)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_TabScript_IImportResolver_System_Action_TabScriptException__
-  commentId: M:TabScript.TableScript.FromSource(System.String,TabScript.IImportResolver,System.Action{TabScriptException})
-  name.vb: FromSource(String, IImportResolver, Action(Of TabScriptException))
-  fullName: TabScript.TableScript.FromSource(string, TabScript.IImportResolver, System.Action<TabScriptException>)
-  fullName.vb: TabScript.TableScript.FromSource(String, TabScript.IImportResolver, System.Action(Of TabScriptException))
-  nameWithType: TableScript.FromSource(string, IImportResolver, Action<TabScriptException>)
-  nameWithType.vb: TableScript.FromSource(String, IImportResolver, Action(Of TabScriptException))
+- uid: TabScript.TableScript.FromSource(System.String,System.String)
+  name: FromSource(string, string)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_
+  commentId: M:TabScript.TableScript.FromSource(System.String,System.String)
+  name.vb: FromSource(String, String)
+  fullName: TabScript.TableScript.FromSource(string, string)
+  fullName.vb: TabScript.TableScript.FromSource(String, String)
+  nameWithType: TableScript.FromSource(string, string)
+  nameWithType.vb: TableScript.FromSource(String, String)
+- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver)
+  name: FromSource(string, string, IImportResolver)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_
+  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver)
+  name.vb: FromSource(String, String, IImportResolver)
+  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver)
+  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver)
+  nameWithType: TableScript.FromSource(string, string, IImportResolver)
+  nameWithType.vb: TableScript.FromSource(String, String, IImportResolver)
+- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScriptException})
+  name: FromSource(string, string, IImportResolver, Action<TabScriptException>)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScriptException__
+  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScriptException})
+  name.vb: FromSource(String, String, IImportResolver, Action(Of TabScriptException))
+  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver, System.Action<TabScriptException>)
+  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver, System.Action(Of TabScriptException))
+  nameWithType: TableScript.FromSource(string, string, IImportResolver, Action<TabScriptException>)
+  nameWithType.vb: TableScript.FromSource(String, String, IImportResolver, Action(Of TabScriptException))
 - uid: TabScript.TableScript.FromSource*
   name: FromSource
   href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_
@@ -1346,6 +2506,15 @@ references:
   commentId: F:TabScript.TableScript.OnReport
   fullName: TabScript.TableScript.OnReport
   nameWithType: TableScript.OnReport
+- uid: TabScript.TableScript.Run(System.Collections.Generic.IEnumerable{System.String})
+  name: Run(IEnumerable<string>)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_Run_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:TabScript.TableScript.Run(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Run(IEnumerable(Of String))
+  fullName: TabScript.TableScript.Run(System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: TabScript.TableScript.Run(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: TableScript.Run(IEnumerable<string>)
+  nameWithType.vb: TableScript.Run(IEnumerable(Of String))
 - uid: TabScript.TableScript.Run(TabScript.Table)
   name: Run(Table)
   href: api/TabScript.TableScript.html#TabScript_TableScript_Run_TabScript_Table_
@@ -1359,6 +2528,31 @@ references:
   isSpec: "True"
   fullName: TabScript.TableScript.Run
   nameWithType: TableScript.Run
+- uid: TabScript.TableScript.SourceAsImport(System.String,System.String)
+  name: SourceAsImport(string, string)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_SourceAsImport_System_String_System_String_
+  commentId: M:TabScript.TableScript.SourceAsImport(System.String,System.String)
+  name.vb: SourceAsImport(String, String)
+  fullName: TabScript.TableScript.SourceAsImport(string, string)
+  fullName.vb: TabScript.TableScript.SourceAsImport(String, String)
+  nameWithType: TableScript.SourceAsImport(string, string)
+  nameWithType.vb: TableScript.SourceAsImport(String, String)
+- uid: TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScriptException})
+  name: SourceAsImport(string, string, Action<TabScriptException>)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_SourceAsImport_System_String_System_String_System_Action_TabScriptException__
+  commentId: M:TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScriptException})
+  name.vb: SourceAsImport(String, String, Action(Of TabScriptException))
+  fullName: TabScript.TableScript.SourceAsImport(string, string, System.Action<TabScriptException>)
+  fullName.vb: TabScript.TableScript.SourceAsImport(String, String, System.Action(Of TabScriptException))
+  nameWithType: TableScript.SourceAsImport(string, string, Action<TabScriptException>)
+  nameWithType.vb: TableScript.SourceAsImport(String, String, Action(Of TabScriptException))
+- uid: TabScript.TableScript.SourceAsImport*
+  name: SourceAsImport
+  href: api/TabScript.TableScript.html#TabScript_TableScript_SourceAsImport_
+  commentId: Overload:TabScript.TableScript.SourceAsImport
+  isSpec: "True"
+  fullName: TabScript.TableScript.SourceAsImport
+  nameWithType: TableScript.SourceAsImport
 - uid: TabScript.TableScript.ToString
   name: ToString()
   href: api/TabScript.TableScript.html#TabScript_TableScript_ToString
@@ -1372,6 +2566,19 @@ references:
   isSpec: "True"
   fullName: TabScript.TableScript.ToString
   nameWithType: TableScript.ToString
+- uid: TabScript.TableScript.body
+  name: body
+  href: api/TabScript.TableScript.html#TabScript_TableScript_body
+  commentId: P:TabScript.TableScript.body
+  fullName: TabScript.TableScript.body
+  nameWithType: TableScript.body
+- uid: TabScript.TableScript.body*
+  name: body
+  href: api/TabScript.TableScript.html#TabScript_TableScript_body_
+  commentId: Overload:TabScript.TableScript.body
+  isSpec: "True"
+  fullName: TabScript.TableScript.body
+  nameWithType: TableScript.body
 - uid: TabScript.TableScript.functions
   name: functions
   href: api/TabScript.TableScript.html#TabScript_TableScript_functions
@@ -1385,19 +2592,6 @@ references:
   isSpec: "True"
   fullName: TabScript.TableScript.functions
   nameWithType: TableScript.functions
-- uid: TabScript.TableScript.topLevel
-  name: topLevel
-  href: api/TabScript.TableScript.html#TabScript_TableScript_topLevel
-  commentId: P:TabScript.TableScript.topLevel
-  fullName: TabScript.TableScript.topLevel
-  nameWithType: TableScript.topLevel
-- uid: TabScript.TableScript.topLevel*
-  name: topLevel
-  href: api/TabScript.TableScript.html#TabScript_TableScript_topLevel_
-  commentId: Overload:TabScript.TableScript.topLevel
-  isSpec: "True"
-  fullName: TabScript.TableScript.topLevel
-  nameWithType: TableScript.topLevel
 - uid: TabScript.Token
   name: Token
   href: api/TabScript.Token.html
@@ -1646,6 +2840,12 @@ references:
   commentId: F:TabScript.TokenType.Exit
   fullName: TabScript.TokenType.Exit
   nameWithType: TokenType.Exit
+- uid: TabScript.TokenType.Export
+  name: Export
+  href: api/TabScript.TokenType.html#TabScript_TokenType_Export
+  commentId: F:TabScript.TokenType.Export
+  fullName: TabScript.TokenType.Export
+  nameWithType: TokenType.Export
 - uid: TabScript.TokenType.Foreach
   name: Foreach
   href: api/TabScript.TokenType.html#TabScript_TokenType_Foreach

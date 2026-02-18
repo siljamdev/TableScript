@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace TabScript | TableScript </title>
+      <title>StdList tutorial | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace TabScript | TableScript ">
+      <meta name="title" content="StdList tutorial | TableScript ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/stdlist.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -39,7 +39,7 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -84,106 +84,97 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="TabScript">
+        <article data-uid="">
+<h1 id="stdlist-tutorial">StdList tutorial</h1>
 
-  <h1 id="TabScript" data-uid="TabScript" class="text-break">Namespace TabScript</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
+<p>Lists are several tables expressed as one, compacted together.<br>
+Here is a program going over most of the features of stdlist:</p>
+<pre><code>// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
 
-    <h3 id="classes">
-Classes
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.FunctionExtStmt.html">FunctionExtStmt</a></dt>
-      <dd><p>External function as a statement</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.FunctionStmt.html">FunctionStmt</a></dt>
-      <dd><p>Statement that represents a function</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.Library.html">Library</a></dt>
-      <dd><p>The purpose of this class is to transform C# libraries into available functions for TableScript</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.ResolvedImport.html">ResolvedImport</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.Snippet.html">Snippet</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.StandardImportResolver.html">StandardImportResolver</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.StdLib.html">StdLib</a></dt>
-      <dd><p>Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.
-All functions have the same name in the code and in here</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.StdList.html">StdList</a></dt>
-      <dd><p>Lists are several tables expressed as one, compacted together.
-All functions have the same name in the code and in here</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.StdNum.html">StdNum</a></dt>
-      <dd><p>Numbers are <code>double</code>, and are stored in its string representation
-All functions have the same name in the code and in here</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.Stmt.html">Stmt</a></dt>
-      <dd><p>Statements that form programs</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.TabFunc.html">TabFunc</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.Table.html">Table</a></dt>
-      <dd><p>Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
-      <dd></dd>
-    </dl>
-    <h3 id="structs">
-Structs
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.TabIndex.html">TabIndex</a></dt>
-      <dd><p>Represents an Index for a Table</p>
-</dd>
-    </dl>
-    <h3 id="interfaces">
-Interfaces
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
-      <dd></dd>
-    </dl>
-    <h3 id="enums">
-Enums
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="TabScript.TabIndexMode.html">TabIndexMode</a></dt>
-      <dd></dd>
-    </dl>
+import stdlib;
+import stdnum;
+import stdlist;
 
+//StdList tutorial. Lists are several tables expressed as one, compacted together.
 
+tab lst1 = [&quot;aa&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;t0e0&quot;, &quot;t1e0&quot;, &quot;t1e1&quot;]; //Internal format used
+printLst(lst1);
+
+tab lst2 = newLst(); //New empty list
+lst2 = lst2.addTab([&quot;h&quot;, &quot;g&quot;]);
+lst2 = lst2.addTab([&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;]);
+lst2 = lst2.addTab([]);
+printLst(lst2);
+
+tab lst3 = mergeLst(lst1, lst2);
+printLst(lst3);
+
+tab lst4 = lst3;
+lst4 = lst4.delTab(4);
+lst4 = lst4.delTab(2);
+lst4 = lst4.setTab(2, &quot;help&quot;%);
+lst4 = lst4.setTabElem(2, 3, &quot;7&quot;);
+printLst(lst4);
+
+print(lst4.flattenLst().decor()); //Flattened all tables of the list
+
+tab lst5 = newLst();
+lst5 = lst5.addTab([&quot;b&quot;, &quot;g&quot;]);
+lst5 = lst5.addTab([&quot;b&quot;, &quot;h&quot;]);
+lst5 = lst5.addTab([&quot;b&quot;, &quot;f&quot;]);
+lst5 = lst5.insertTab(1, [&quot;ñ&quot;, &quot;k&quot;]);
+printLst(lst5);
+print(tf(lst5.containsTab([&quot;b&quot;, &quot;h&quot;]))); //true
+print(lst5.indexOfTab([&quot;b&quot;, &quot;h&quot;]).toNum());
+
+//Helper function
+function tf(self){
+    return self ? &quot;true&quot; : &quot;false&quot;;
+}
+
+//Helper function
+function decor(self){
+    return &quot;[&quot; + self.join(&quot;, &quot;) + &quot;]&quot;;
+}
+
+//Function to print a list
+function printLst(self){
+    print(&quot;&quot;); //Separator
+    print(self.decor());
+    tab isLst = self.isLst();
+    
+    print(&quot;Is list: &quot; + tf(isLst));
+    
+    if(!isLst){
+        return; //Exit if its not a list
+    }
+    
+    tab len = self.lstLen();
+    
+    print(&quot;List length: &quot; + len.toNum());
+    
+    tab i = 0;
+    while(i &lt; len){ //Printing all tables
+        tab tablen = self.tabLen(i);
+        print(&quot;Table &quot; + i.toNum() + &quot; length: &quot; + tablen.toNum());
+        print(&quot;Table &quot; + i.toNum() + &quot;: &quot; + self.getTab(i).decor());
+        
+        tab j = 0;
+        while(j &lt; tablen){ //Printing all elements inside table
+            print(&quot;Table &quot; + i.toNum() + &quot; element &quot; + j.toNum() + &quot;: &quot; + self.getTabElem(i, j));
+            
+            j += 1;
+        }
+        
+        i += 1;
+    }
+}
+</code></pre>
 </article>
 
 
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
 
       </div>
 

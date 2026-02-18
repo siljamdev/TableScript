@@ -70,7 +70,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.FunctionExtStmt",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/TabScript.FunctionExtStmt.yml\" sourcestartlinenumber=\"1\">External function as a statement</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -84,7 +84,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.FunctionStmt",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/TabScript.FunctionStmt.yml\" sourcestartlinenumber=\"1\">Statement that represents a function</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -102,6 +102,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Library.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Library.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Library",
+      "Summary": "<p sourcefile=\"api/TabScript.Library.yml\" sourcestartlinenumber=\"1\">The purpose of this class is to transform C# libraries into available functions for TableScript</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TabScript.ResolvedImport.yml",
       "output": {
         ".html": {
@@ -112,6 +126,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.ResolvedImport",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Snippet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Snippet.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Snippet",
       "Summary": null
     },
     {
@@ -140,7 +168,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.StdLib",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/TabScript.StdLib.yml\" sourcestartlinenumber=\"1\">Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StdList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StdList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StdList",
+      "Summary": "<p sourcefile=\"api/TabScript.StdList.yml\" sourcestartlinenumber=\"1\">Lists are several tables expressed as one, compacted together.\nAll functions have the same name in the code and in here</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -154,7 +196,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.StdNum",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/TabScript.StdNum.yml\" sourcestartlinenumber=\"1\">Numbers are <code sourcefile=\"api/TabScript.StdNum.yml\" sourcestartlinenumber=\"1\">double</code>, and are stored in its string representation\nAll functions have the same name in the code and in here</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -168,7 +210,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.Stmt",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/TabScript.Stmt.yml\" sourcestartlinenumber=\"1\">Statements that form programs</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -196,7 +238,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.TabIndex",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/TabScript.TabIndex.yml\" sourcestartlinenumber=\"1\">Represents an Index for a Table</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -224,7 +266,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.Table",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/TabScript.Table.yml\" sourcestartlinenumber=\"1\">Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -311,6 +353,36 @@
       "output": {
         ".html": {
           "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/libraries.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/libraries.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/multifiles.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/multifiles.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/stdlist.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/stdlist.html"
         }
       },
       "version": ""

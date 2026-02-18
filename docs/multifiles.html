@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Introduction | TableScript </title>
+      <title>Multiple Files | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Introduction | TableScript ">
+      <meta name="title" content="Multiple Files | TableScript ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/introduction.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/multifiles.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,18 +85,38 @@
         </div>
 
         <article data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="multiple-files">Multiple Files</h1>
 
-<p>Using the scripting language without any aditional features is very straightforward:</p>
+<p>Combining multiple files helps you to organize your code. How can we make it possible?<br>
+As we saw previously, we can use a custom <a href="../api/TabScript.IImportResolver.html">IImportResolver</a>.<br>
+In this example, we will implement a Resolver on top of the Standard Resolver that can resolve files and merge them together.<br>
+This is the custom IImportResolver:</p>
+<pre><code class="lang-cs">using TabScript;
+
+class CustomImportResolver : StandardImportResolver{
+	string path; //Keep the path
+	
+	public CustomImportResolver(string p){
+		path = p;
+	}
+	
+	public override ResolvedImport Resolve(string import, string callingFilename){
+		if(File.Exists(path + &quot;/&quot; + import)){
+			return TableScript.SourceAsImport(path + &quot;/&quot; + import, File.ReadAllText(path + &quot;/&quot; + import), OnReport);
+		}
+		return base.Resolve(import, callingFilename); //Safely handle anything that wasnt recognized
+	}
+}
+</code></pre>
+<p>Then, we just need the Main method:</p>
 <pre><code class="lang-cs">using TabScript;
 
 class Program{
 	static void Main(){
-		//Get source
-		string src = File.ReadAllText(&quot;program.tbs&quot;);
+		string path = &quot;program.tbs&quot;; //Local path
 		
 		try{
-			TableScript script = TableScript.FromSource(&quot;program.tbs&quot;, src);
+			TableScript script = TableScript.FromSource(path, File.ReadAllText(path), new CustomImportResolver(&quot;.&quot;));
 			
 			script.Run();
 		}catch(TabScriptException ex){
@@ -105,9 +125,82 @@ class Program{
 	}
 }
 </code></pre>
-<p>You can use a custom <a href="../api/TabScript.IImportResolver.html">IImportResolver</a> to add features in the form of imports.<br>
-We will explore this feature further in the next tutorial</p>
+<p>When doing this, the functions marked <code>export</code> of the second file will be available for use.<br>
+Here is an example of a two-file program, intentionally complicated to show what can and cannot be done.</p>
+<pre><code>// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
 
+import stdlib; //Nothing happens for duplicated imports
+import &quot;multifiles2.tbs&quot;; //Import the other file. Cyclic imports is not something to worry about
+
+tab a = &quot;Hello world&quot;; //Global variable
+
+tab b = &quot;Greetings!&quot;; //Global variable
+
+print(greet()); //Greetings!
+print(greet2()); //I have always been ready to greet you
+print(greet3()); //I have always been ready to greet you
+print(greet4()); //I have always been ready to greet you
+print(greet5()); //I have always been ready to greet you
+print(greet6()); //Greetings
+print(bye());
+
+function fun(){
+    return b; //Accessing local variables
+}
+
+export function greet(){
+    return fun(); //Can access function that isnt export
+}
+</code></pre><pre><code>import stdlib; //Nothing happens for duplicated imports
+import &quot;multifiles1.tbs&quot;; //Import the other file. Cyclic imports is not something to worry about
+import stdnum; //Only in this file
+
+tab a = &quot;I have always been&quot;; //Global variable
+
+tab b = &quot; ready to greet you&quot;; //Global variable
+
+print(&quot;Welcome!&quot;); //This wont execute. Of the main body of imported scripts, only variable declarations are kept
+
+//Returns &quot;I have always been&quot;, &quot;ready to greet you&quot;
+function fun(){
+    return a + b; //Accessing local variables
+}
+
+//same name as function in other file
+export function greet(){
+    return fun(); //Can access function that isnt export
+}
+
+export function greet2(){
+    return local::fun(); //Accesses local function
+}
+
+export function greet3(){
+    return greet(); //Accesses the local function, locals are prioritised if unspecified import
+}
+
+export function greet4(){
+    return local::greet(); //Accesses local function
+}
+
+export function greet5(){
+    return multifiles2_tbs::greet(); //Accesses local function with its import name
+}
+
+export function greet6(){
+    return multifiles1_tbs::greet(); //Accesses the function in the other file specifying the import
+}
+
+export function bye(){
+    //Stdnum is only available in this file
+    if stdnum::greater(stdnum::rand(&quot;0&quot;, &quot;1&quot;), &quot;0.5&quot;){
+        print(&quot;Sad to see you go!&quot;);
+    }else{
+        print(&quot;Bye!&quot;);
+    }
+}
+</code></pre>
 </article>
 
 

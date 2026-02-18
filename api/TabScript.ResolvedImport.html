@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ResolvedImport | TabScript </title>
+      <title>Class ResolvedImport | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ResolvedImport | TabScript ">
+      <meta name="title" content="Class ResolvedImport | TableScript ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../icon.svg" alt="TabScript">
-            TabScript
+            <img id="logo" class="svg" src="../icon.svg" alt="TableScript">
+            TableScript
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -89,7 +89,7 @@
 
 
   <h1 id="TabScript_ResolvedImport" data-uid="TabScript.ResolvedImport" class="text-break">
-Class ResolvedImport  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L58"><i class="bi bi-code-slash"></i></a>
+Class ResolvedImport  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -144,9 +144,6 @@ Class ResolvedImport  <a class="header-action link-secondary" title="View source
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
   </dd></dl>
 
 
@@ -160,21 +157,25 @@ Class ResolvedImport  <a class="header-action link-secondary" title="View source
 
   <a id="TabScript_ResolvedImport__ctor_" data-uid="TabScript.ResolvedImport.#ctor*"></a>
 
-  <h3 id="TabScript_ResolvedImport__ctor_System_String___TabScript_FunctionStmt___" data-uid="TabScript.ResolvedImport.#ctor(System.String[],TabScript.FunctionStmt[])">
-  ResolvedImport(string[], FunctionStmt[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_ResolvedImport__ctor_System_String_System_String___TabScript_Stmt___TabScript_FunctionStmt___" data-uid="TabScript.ResolvedImport.#ctor(System.String,System.String[],TabScript.Stmt[],TabScript.FunctionStmt[])">
+  ResolvedImport(string, string[], Stmt[], FunctionStmt[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ResolvedImport(string[] furtherImports, FunctionStmt[] functions)</code></pre>
+    <pre><code class="lang-csharp hljs">public ResolvedImport(string filename, string[] imports, Stmt[] body, FunctionStmt[] functions)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>furtherImports</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>imports</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+    <dt><code>body</code> <a class="xref" href="TabScript.Stmt.html">Stmt</a>[]</dt>
     <dd></dd>
     <dt><code>functions</code> <a class="xref" href="TabScript.FunctionStmt.html">FunctionStmt</a>[]</dt>
     <dd></dd>
@@ -195,11 +196,73 @@ Class ResolvedImport  <a class="header-action link-secondary" title="View source
 </h2>
 
 
+  <a id="TabScript_ResolvedImport_body_" data-uid="TabScript.ResolvedImport.body*"></a>
+
+  <h3 id="TabScript_ResolvedImport_body" data-uid="TabScript.ResolvedImport.body">
+  body
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Stmt[] body { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.Stmt.html">Stmt</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TabScript_ResolvedImport_filename_" data-uid="TabScript.ResolvedImport.filename*"></a>
+
+  <h3 id="TabScript_ResolvedImport_filename" data-uid="TabScript.ResolvedImport.filename">
+  filename
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string filename { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="TabScript_ResolvedImport_functions_" data-uid="TabScript.ResolvedImport.functions*"></a>
 
   <h3 id="TabScript_ResolvedImport_functions" data-uid="TabScript.ResolvedImport.functions">
   functions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -226,18 +289,18 @@ Class ResolvedImport  <a class="header-action link-secondary" title="View source
 
 
 
-  <a id="TabScript_ResolvedImport_furtherImports_" data-uid="TabScript.ResolvedImport.furtherImports*"></a>
+  <a id="TabScript_ResolvedImport_imports_" data-uid="TabScript.ResolvedImport.imports*"></a>
 
-  <h3 id="TabScript_ResolvedImport_furtherImports" data-uid="TabScript.ResolvedImport.furtherImports">
-  furtherImports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_ResolvedImport_imports" data-uid="TabScript.ResolvedImport.imports">
+  imports
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string[] furtherImports { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string[] imports { get; init; }</code></pre>
   </div>
 
 
@@ -249,6 +312,43 @@ Class ResolvedImport  <a class="header-action link-secondary" title="View source
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="TabScript_ResolvedImport_ToString_" data-uid="TabScript.ResolvedImport.ToString*"></a>
+
+  <h3 id="TabScript_ResolvedImport_ToString" data-uid="TabScript.ResolvedImport.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Resolver.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
 
 
 
