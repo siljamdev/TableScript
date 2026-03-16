@@ -17,7 +17,7 @@ public static class Library{
 	static FunctionExtStmt Wrap(Delegate d, string desc){
 		MethodInfo method = d.Method;
 		
-		if(!method.IsStatic || !method.IsPublic){
+		if(!method.IsPublic){
 			return null;
 		}
 		
@@ -68,28 +68,30 @@ public static class Library{
 		
 		Expression callExpression;
 		
+		Expression instance = method.IsStatic ? null : Expression.Constant(d.Target);
+		
 		if(returnsVoid){
 			callExpression = Expression.Block(
-				Expression.Call(method, callArgs),
+				Expression.Call(instance, method, callArgs),
 				Expression.Constant(new Table(0))
 			);
 		}else if(returnsString){
 			callExpression = Expression.New(
 				stringCtor,
-				Expression.Call(method, callArgs)
+				Expression.Call(instance, method, callArgs)
 			);
 		}else if(returnsBool){
 			callExpression = Expression.Call(
 				getBoolMethod,
-				Expression.Call(method, callArgs)
+				Expression.Call(instance, method, callArgs)
 			);
 		}else if(returnsInt){
 			callExpression = Expression.New(
 				intCtor,
-				Expression.Call(method, callArgs)
+				Expression.Call(instance, method, callArgs)
 			);
 		}else{
-			callExpression = Expression.Call(method, callArgs);
+			callExpression = Expression.Call(instance, method, callArgs);
 		}
 		
 		Expression<Func<Table[], Table>> lambda = Expression.Lambda<Func<Table[], Table>>(callExpression, argsParam);

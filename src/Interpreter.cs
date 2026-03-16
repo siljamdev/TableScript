@@ -21,6 +21,8 @@ class Interpreter{
 	TabFunc[] functions;
 	Stmt[] mainBody;
 	
+	internal bool interpreted = false;
+	
 	public Interpreter(TableScript t){
 		globals = new List<Table>();
 		globals.Add(new Table()); //args
@@ -43,6 +45,26 @@ class Interpreter{
 				break;
 			}
 		}
+		
+		interpreted = true;
+	}
+	
+	//Only call after Interpreting
+	public Table CallFunction(string import, string identifier, params Table[] functionArgs){
+		if(!interpreted){
+			throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Cannot call a function before having run the script");
+		}
+		
+		int fxIndex = Array.FindIndex(functions, f => f.Matches(import, identifier, functionArgs.Length)); //Match in available functions
+		if(fxIndex == -1){
+			throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "No function available with '" + (import == null ? "" : import + "::") + identifier + "' as identifier and " + functionArgs.Length + " parameters");
+		}
+		
+		breakingLoop = false;
+		continuingLoop = false;
+		exiting = false;
+		
+		return callFunc(new OptCallExpr(fxIndex, functionArgs.Select(a => new LiteralExpr(a)).ToArray()));
 	}
 	
 	void Interpret(Stmt s){

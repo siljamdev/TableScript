@@ -8,10 +8,14 @@ public class TableScript{
 	
 	public Action<TabScriptException> OnReport;
 	
+	Interpreter i;
+	
 	internal TableScript(Snippet bod, TabFunc[] funcs, Action<TabScriptException> report = null){
 		body = bod;
 		functions = funcs;
 		OnReport = report;
+		
+		i = new Interpreter(this);
 	}
 	
 	public void Run(IEnumerable<string> args){
@@ -19,12 +23,26 @@ public class TableScript{
 	}
 	
 	public void Run(Table args = null){
-		Interpreter i = new Interpreter(this);
+		if(i.interpreted){
+			i = new Interpreter(this);
+		}
 		
 		try{
 			i.Interpret(args ?? new Table());
 		}catch(TabScriptException ex){
 			OnReport(ex);
+		}
+	}
+	
+	/// <summary>
+	/// Always call after running!
+	/// </summary>
+	public Table CallFunction(string import, string identifier, params Table[] args){
+		try{
+			return i.CallFunction(import, identifier, args ?? Array.Empty<Table>());
+		}catch(TabScriptException ex){
+			OnReport(ex);
+			return new Table(0);
 		}
 	}
 	

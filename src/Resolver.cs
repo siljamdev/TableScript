@@ -26,7 +26,7 @@ class Resolver{
 		string mainImportFull = validFullImport(parsed.filename);
 		string mainImport = validImportName(mainImportFull);
 		
-		Snippet main = new Snippet(parsed.filename, mainImport, parsed.body ?? Array.Empty<Stmt>());
+		Snippet main = parsed.getAsSnippet(mainImport, false);
 		
 		fs.AddRange(parsed.functions.Select(s => s.ToTabFunc(mainImport, parsed.filename)));
 		
@@ -47,9 +47,8 @@ class Resolver{
 			
 			ResolvedImport rim = impres.Resolve(currImportFull, toImport[i].filename);
 			
-			Stmt[] varDecls = rim.body == null ? Array.Empty<Stmt>() : rim.body.Where(s => s is VarDeclStmt).ToArray(); //Only variable declarations
-			if(varDecls.Length > 0){
-				Snippet curr = new Snippet(rim.filename, currImport, varDecls);
+			Snippet curr = rim.getAsSnippet(currImport, true);
+			if(curr != null){
 				snippets.Add(curr);
 			}
 			
@@ -101,6 +100,19 @@ class Resolver{
 public record ResolvedImport(string filename, string[] imports, Stmt[] body, FunctionStmt[] functions){
 	public override string ToString(){
 		return filename + (body != null ? ("\n" + string.Join("\n", body.Select(s => s.ToString()))) : "") + (functions != null ? ("\n" + string.Join("\n", functions.Select(f => f.ToString()))) : "");
+	}
+	
+	public Snippet getAsSnippet(string import, bool onlyVars){
+		if(onlyVars){
+			Stmt[] varDecls = body == null ? Array.Empty<Stmt>() : body.Where(s => s is VarDeclStmt).ToArray(); //Only variable declarations
+			if(varDecls.Length > 0){
+				return new Snippet(filename, import, varDecls);
+			}else{
+				return null;
+			}
+		}else{
+			return new Snippet(filename, import, body ?? Array.Empty<Stmt>());
+		}
 	}
 }
 
