@@ -437,6 +437,22 @@ references:
   isSpec: "True"
   fullName: TabScript.ResolvedImport.functions
   nameWithType: ResolvedImport.functions
+- uid: TabScript.ResolvedImport.getAsSnippet(System.String,System.Boolean)
+  name: getAsSnippet(string, bool)
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_getAsSnippet_System_String_System_Boolean_
+  commentId: M:TabScript.ResolvedImport.getAsSnippet(System.String,System.Boolean)
+  name.vb: getAsSnippet(String, Boolean)
+  fullName: TabScript.ResolvedImport.getAsSnippet(string, bool)
+  fullName.vb: TabScript.ResolvedImport.getAsSnippet(String, Boolean)
+  nameWithType: ResolvedImport.getAsSnippet(string, bool)
+  nameWithType.vb: ResolvedImport.getAsSnippet(String, Boolean)
+- uid: TabScript.ResolvedImport.getAsSnippet*
+  name: getAsSnippet
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_getAsSnippet_
+  commentId: Overload:TabScript.ResolvedImport.getAsSnippet
+  isSpec: "True"
+  fullName: TabScript.ResolvedImport.getAsSnippet
+  nameWithType: ResolvedImport.getAsSnippet
 - uid: TabScript.ResolvedImport.imports
   name: imports
   href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_imports
@@ -2466,6 +2482,22 @@ references:
   commentId: T:TabScript.TableScript
   fullName: TabScript.TableScript
   nameWithType: TableScript
+- uid: TabScript.TableScript.CallFunction(System.String,System.String,TabScript.Table[])
+  name: CallFunction(string, string, params Table[])
+  href: api/TabScript.TableScript.html#TabScript_TableScript_CallFunction_System_String_System_String_TabScript_Table___
+  commentId: M:TabScript.TableScript.CallFunction(System.String,System.String,TabScript.Table[])
+  name.vb: CallFunction(String, String, ParamArray Table())
+  fullName: TabScript.TableScript.CallFunction(string, string, params TabScript.Table[])
+  fullName.vb: TabScript.TableScript.CallFunction(String, String, ParamArray TabScript.Table())
+  nameWithType: TableScript.CallFunction(string, string, params Table[])
+  nameWithType.vb: TableScript.CallFunction(String, String, ParamArray Table())
+- uid: TabScript.TableScript.CallFunction*
+  name: CallFunction
+  href: api/TabScript.TableScript.html#TabScript_TableScript_CallFunction_
+  commentId: Overload:TabScript.TableScript.CallFunction
+  isSpec: "True"
+  fullName: TabScript.TableScript.CallFunction
+  nameWithType: TableScript.CallFunction
 - uid: TabScript.TableScript.FromSource(System.String,System.String)
   name: FromSource(string, string)
   href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_
