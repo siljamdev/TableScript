@@ -1,5 +1,7 @@
 using System;
 
+namespace TabScript;
+
 public class TabScriptException : Exception{
 	public TabScriptErrorType type {get; private init;}
 	public string filename {get; private init;}
