@@ -48,7 +48,7 @@ class Lexer{
 		tokens.Add(new Token(TokenType.EOF, null, null, 0, line));
 		
 		if(hadError){
-			throw new TabScriptException(TabScriptErrorType.Lexer, filename, -1, "Errors present: Unable to continue");
+			OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Lexer, filename, -1, "Errors present: Unable to continue"));
 			return null;
 		}
 		

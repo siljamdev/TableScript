@@ -19,7 +19,7 @@ public class TableScript{
 	}
 	
 	public void Run(IEnumerable<string> args){
-		Run(new Table(new List<string>(args)));
+		Run(new Table(new List<string>(args ?? Enumerable.Empty<string>())));
 	}
 	
 	public void Run(Table args = null){

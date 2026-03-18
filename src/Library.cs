@@ -17,10 +17,6 @@ public static class Library{
 	static FunctionExtStmt Wrap(Delegate d, string desc){
 		MethodInfo method = d.Method;
 		
-		if(!method.IsPublic){
-			return null;
-		}
-		
 		ParameterInfo[] parameters = method.GetParameters();
 		
 		foreach(ParameterInfo p in parameters){

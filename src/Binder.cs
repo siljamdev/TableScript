@@ -103,7 +103,7 @@ class Binder{
 		}
 		
 		if(hadError){			
-			throw new TabScriptException(TabScriptErrorType.Binder, main.filename, -1, "Errors present: Unable to continue");
+			OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Binder, main.filename, -1, "Errors present: Unable to continue"));
 			return null;
 		}else{
 			return new TableScript(new Snippet(main.filename, main.import, body.ToArray()), funcsFinalCopy);

@@ -30,7 +30,7 @@ class Parser{
 		FunctionStmt[] funcs = funcDefinitions();
 		
 		if(hadError){
-			throw new TabScriptException(TabScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue");
+			OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue"));
 			return null;
 		}else{
 			return new ResolvedImport(filename, im, top, funcs);
