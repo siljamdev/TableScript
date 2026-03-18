@@ -2044,6 +2044,138 @@ references:
   commentId: F:TabScript.TabIndexMode.Random
   fullName: TabScript.TabIndexMode.Random
   nameWithType: TabIndexMode.Random
+- uid: TabScript.TabScriptErrorType
+  name: TabScriptErrorType
+  href: api/TabScript.TabScriptErrorType.html
+  commentId: T:TabScript.TabScriptErrorType
+  fullName: TabScript.TabScriptErrorType
+  nameWithType: TabScriptErrorType
+- uid: TabScript.TabScriptErrorType.Binder
+  name: Binder
+  href: api/TabScript.TabScriptErrorType.html#TabScript_TabScriptErrorType_Binder
+  commentId: F:TabScript.TabScriptErrorType.Binder
+  fullName: TabScript.TabScriptErrorType.Binder
+  nameWithType: TabScriptErrorType.Binder
+- uid: TabScript.TabScriptErrorType.Lexer
+  name: Lexer
+  href: api/TabScript.TabScriptErrorType.html#TabScript_TabScriptErrorType_Lexer
+  commentId: F:TabScript.TabScriptErrorType.Lexer
+  fullName: TabScript.TabScriptErrorType.Lexer
+  nameWithType: TabScriptErrorType.Lexer
+- uid: TabScript.TabScriptErrorType.Optimizer
+  name: Optimizer
+  href: api/TabScript.TabScriptErrorType.html#TabScript_TabScriptErrorType_Optimizer
+  commentId: F:TabScript.TabScriptErrorType.Optimizer
+  fullName: TabScript.TabScriptErrorType.Optimizer
+  nameWithType: TabScriptErrorType.Optimizer
+- uid: TabScript.TabScriptErrorType.Parser
+  name: Parser
+  href: api/TabScript.TabScriptErrorType.html#TabScript_TabScriptErrorType_Parser
+  commentId: F:TabScript.TabScriptErrorType.Parser
+  fullName: TabScript.TabScriptErrorType.Parser
+  nameWithType: TabScriptErrorType.Parser
+- uid: TabScript.TabScriptErrorType.Resolver
+  name: Resolver
+  href: api/TabScript.TabScriptErrorType.html#TabScript_TabScriptErrorType_Resolver
+  commentId: F:TabScript.TabScriptErrorType.Resolver
+  fullName: TabScript.TabScriptErrorType.Resolver
+  nameWithType: TabScriptErrorType.Resolver
+- uid: TabScript.TabScriptErrorType.Runtime
+  name: Runtime
+  href: api/TabScript.TabScriptErrorType.html#TabScript_TabScriptErrorType_Runtime
+  commentId: F:TabScript.TabScriptErrorType.Runtime
+  fullName: TabScript.TabScriptErrorType.Runtime
+  nameWithType: TabScriptErrorType.Runtime
+- uid: TabScript.TabScriptException
+  name: TabScriptException
+  href: api/TabScript.TabScriptException.html
+  commentId: T:TabScript.TabScriptException
+  fullName: TabScript.TabScriptException
+  nameWithType: TabScriptException
+- uid: TabScript.TabScriptException.#ctor(TabScript.TabScriptErrorType,System.String,System.Int32,System.String)
+  name: TabScriptException(TabScriptErrorType, string, int, string)
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException__ctor_TabScript_TabScriptErrorType_System_String_System_Int32_System_String_
+  commentId: M:TabScript.TabScriptException.#ctor(TabScript.TabScriptErrorType,System.String,System.Int32,System.String)
+  name.vb: New(TabScriptErrorType, String, Integer, String)
+  fullName: TabScript.TabScriptException.TabScriptException(TabScript.TabScriptErrorType, string, int, string)
+  fullName.vb: TabScript.TabScriptException.New(TabScript.TabScriptErrorType, String, Integer, String)
+  nameWithType: TabScriptException.TabScriptException(TabScriptErrorType, string, int, string)
+  nameWithType.vb: TabScriptException.New(TabScriptErrorType, String, Integer, String)
+- uid: TabScript.TabScriptException.#ctor*
+  name: TabScriptException
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException__ctor_
+  commentId: Overload:TabScript.TabScriptException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TabScript.TabScriptException.TabScriptException
+  fullName.vb: TabScript.TabScriptException.New
+  nameWithType: TabScriptException.TabScriptException
+  nameWithType.vb: TabScriptException.New
+- uid: TabScript.TabScriptException.ToShortString
+  name: ToShortString()
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_ToShortString
+  commentId: M:TabScript.TabScriptException.ToShortString
+  fullName: TabScript.TabScriptException.ToShortString()
+  nameWithType: TabScriptException.ToShortString()
+- uid: TabScript.TabScriptException.ToShortString*
+  name: ToShortString
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_ToShortString_
+  commentId: Overload:TabScript.TabScriptException.ToShortString
+  isSpec: "True"
+  fullName: TabScript.TabScriptException.ToShortString
+  nameWithType: TabScriptException.ToShortString
+- uid: TabScript.TabScriptException.ToString
+  name: ToString()
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_ToString
+  commentId: M:TabScript.TabScriptException.ToString
+  fullName: TabScript.TabScriptException.ToString()
+  nameWithType: TabScriptException.ToString()
+- uid: TabScript.TabScriptException.ToString*
+  name: ToString
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_ToString_
+  commentId: Overload:TabScript.TabScriptException.ToString
+  isSpec: "True"
+  fullName: TabScript.TabScriptException.ToString
+  nameWithType: TabScriptException.ToString
+- uid: TabScript.TabScriptException.filename
+  name: filename
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_filename
+  commentId: P:TabScript.TabScriptException.filename
+  fullName: TabScript.TabScriptException.filename
+  nameWithType: TabScriptException.filename
+- uid: TabScript.TabScriptException.filename*
+  name: filename
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_filename_
+  commentId: Overload:TabScript.TabScriptException.filename
+  isSpec: "True"
+  fullName: TabScript.TabScriptException.filename
+  nameWithType: TabScriptException.filename
+- uid: TabScript.TabScriptException.line
+  name: line
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_line
+  commentId: P:TabScript.TabScriptException.line
+  fullName: TabScript.TabScriptException.line
+  nameWithType: TabScriptException.line
+- uid: TabScript.TabScriptException.line*
+  name: line
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_line_
+  commentId: Overload:TabScript.TabScriptException.line
+  isSpec: "True"
+  fullName: TabScript.TabScriptException.line
+  nameWithType: TabScriptException.line
+- uid: TabScript.TabScriptException.type
+  name: type
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_type
+  commentId: P:TabScript.TabScriptException.type
+  fullName: TabScript.TabScriptException.type
+  nameWithType: TabScriptException.type
+- uid: TabScript.TabScriptException.type*
+  name: type
+  href: api/TabScript.TabScriptException.html#TabScript_TabScriptException_type_
+  commentId: Overload:TabScript.TabScriptException.type
+  isSpec: "True"
+  fullName: TabScript.TabScriptException.type
+  nameWithType: TabScriptException.type
 - uid: TabScript.Table
   name: Table
   href: api/TabScript.Table.html
@@ -2516,13 +2648,13 @@ references:
   fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver)
   nameWithType: TableScript.FromSource(string, string, IImportResolver)
   nameWithType.vb: TableScript.FromSource(String, String, IImportResolver)
-- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScriptException})
+- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
   name: FromSource(string, string, IImportResolver, Action<TabScriptException>)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScriptException__
-  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScriptException})
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__
+  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
   name.vb: FromSource(String, String, IImportResolver, Action(Of TabScriptException))
-  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver, System.Action<TabScriptException>)
-  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver, System.Action(Of TabScriptException))
+  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver, System.Action<TabScript.TabScriptException>)
+  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver, System.Action(Of TabScript.TabScriptException))
   nameWithType: TableScript.FromSource(string, string, IImportResolver, Action<TabScriptException>)
   nameWithType.vb: TableScript.FromSource(String, String, IImportResolver, Action(Of TabScriptException))
 - uid: TabScript.TableScript.FromSource*
@@ -2569,13 +2701,13 @@ references:
   fullName.vb: TabScript.TableScript.SourceAsImport(String, String)
   nameWithType: TableScript.SourceAsImport(string, string)
   nameWithType.vb: TableScript.SourceAsImport(String, String)
-- uid: TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScriptException})
+- uid: TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScript.TabScriptException})
   name: SourceAsImport(string, string, Action<TabScriptException>)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_SourceAsImport_System_String_System_String_System_Action_TabScriptException__
-  commentId: M:TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScriptException})
+  href: api/TabScript.TableScript.html#TabScript_TableScript_SourceAsImport_System_String_System_String_System_Action_TabScript_TabScriptException__
+  commentId: M:TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScript.TabScriptException})
   name.vb: SourceAsImport(String, String, Action(Of TabScriptException))
-  fullName: TabScript.TableScript.SourceAsImport(string, string, System.Action<TabScriptException>)
-  fullName.vb: TabScript.TableScript.SourceAsImport(String, String, System.Action(Of TabScriptException))
+  fullName: TabScript.TableScript.SourceAsImport(string, string, System.Action<TabScript.TabScriptException>)
+  fullName.vb: TabScript.TableScript.SourceAsImport(String, String, System.Action(Of TabScript.TabScriptException))
   nameWithType: TableScript.SourceAsImport(string, string, Action<TabScriptException>)
   nameWithType.vb: TableScript.SourceAsImport(String, String, Action(Of TabScriptException))
 - uid: TabScript.TableScript.SourceAsImport*

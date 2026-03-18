@@ -79,6 +79,16 @@
     "title": "Enum TabIndexMode | TableScript",
     "summary": "Enum TabIndexMode Namespace TabScript Assembly TableScript.dll public enum TabIndexMode : byte Fields Length = 2 Number = 0 Random = 1"
   },
+  "api/TabScript.TabScriptErrorType.html": {
+    "href": "api/TabScript.TabScriptErrorType.html",
+    "title": "Enum TabScriptErrorType | TableScript",
+    "summary": "Enum TabScriptErrorType Namespace TabScript Assembly TableScript.dll public enum TabScriptErrorType Fields Binder = 3 Lexer = 0 Optimizer = 4 Parser = 1 Resolver = 2 Runtime = 5"
+  },
+  "api/TabScript.TabScriptException.html": {
+    "href": "api/TabScript.TabScriptException.html",
+    "title": "Class TabScriptException | TableScript",
+    "summary": "Class TabScriptException Namespace TabScript Assembly TableScript.dll public class TabScriptException : Exception, ISerializable Inheritance object Exception TabScriptException Implements ISerializable Inherited Members Exception.GetBaseException() Exception.GetObjectData(SerializationInfo, StreamingContext) Exception.GetType() Exception.Data Exception.HelpLink Exception.HResult Exception.InnerException Exception.Message Exception.Source Exception.StackTrace Exception.TargetSite Exception.SerializeObjectState object.Equals(object) object.Equals(object, object) object.GetHashCode() object.MemberwiseClone() object.ReferenceEquals(object, object) Constructors TabScriptException(TabScriptErrorType, string, int, string) public TabScriptException(TabScriptErrorType t, string f, int l, string message) Parameters t TabScriptErrorType f string l int message string Properties filename public string filename { get; } Property Value string line public int line { get; } Property Value int type public TabScriptErrorType type { get; } Property Value TabScriptErrorType Methods ToShortString() public string ToShortString() Returns string ToString() Creates and returns a string representation of the current exception. public override string ToString() Returns string A string representation of the current exception."
+  },
   "api/TabScript.Table.html": {
     "href": "api/TabScript.Table.html",
     "title": "Class Table | TableScript",
@@ -102,7 +112,7 @@
   "api/TabScript.html": {
     "href": "api/TabScript.html",
     "title": "Namespace TabScript | TableScript",
-    "summary": "Namespace TabScript Classes FunctionExtStmt External function as a statement FunctionStmt Statement that represents a function Library The purpose of this class is to transform C# libraries into available functions for TableScript ResolvedImport Snippet StandardImportResolver StdLib Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed. All functions have the same name in the code and in here StdList Lists are several tables expressed as one, compacted together. All functions have the same name in the code and in here StdNum Numbers are double, and are stored in its string representation All functions have the same name in the code and in here Stmt Statements that form programs TabFunc Table Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself TableScript Structs TabIndex Represents an Index for a Table Interfaces IImportResolver Enums TabIndexMode"
+    "summary": "Namespace TabScript Classes FunctionExtStmt External function as a statement FunctionStmt Statement that represents a function Library The purpose of this class is to transform C# libraries into available functions for TableScript ResolvedImport Snippet StandardImportResolver StdLib Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed. All functions have the same name in the code and in here StdList Lists are several tables expressed as one, compacted together. All functions have the same name in the code and in here StdNum Numbers are double, and are stored in its string representation All functions have the same name in the code and in here Stmt Statements that form programs TabFunc TabScriptException Table Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself TableScript Structs TabIndex Represents an Index for a Table Interfaces IImportResolver Enums TabIndexMode TabScriptErrorType"
   },
   "docs/example.html": {
     "href": "docs/example.html",

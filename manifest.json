@@ -256,6 +256,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabScriptErrorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabScriptErrorType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabScriptErrorType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabScriptException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabScriptException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabScriptException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TabScript.Table.yml",
       "output": {
         ".html": {
