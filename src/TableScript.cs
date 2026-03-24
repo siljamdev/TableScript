@@ -101,6 +101,9 @@ public class TableScript{
 		Binder bin = new Binder(resolved);
 		bin.OnReport = report;
 		TableScript binded = bin.Bind();
+		if(binded == null){
+			return null;
+		}
 		
 		Optimizer opt = new Optimizer(binded);
 		TableScript runnable = opt.Optimize();
@@ -134,6 +137,9 @@ public class TableScript{
 		Binder bin = new Binder(resolved);
 		bin.OnReport = report;
 		TableScript binded = bin.Bind();
+		if(binded == null){
+			return null;
+		}
 		
 		Optimizer opt = new Optimizer(binded);
 		TableScript runnable = opt.Optimize();
