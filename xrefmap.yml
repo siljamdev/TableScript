@@ -755,6 +755,19 @@ references:
   isSpec: "True"
   fullName: TabScript.StdLib.print
   nameWithType: StdLib.print
+- uid: TabScript.StdLib.removeQuotes(TabScript.Table)
+  name: removeQuotes(Table)
+  href: api/TabScript.StdLib.html#TabScript_StdLib_removeQuotes_TabScript_Table_
+  commentId: M:TabScript.StdLib.removeQuotes(TabScript.Table)
+  fullName: TabScript.StdLib.removeQuotes(TabScript.Table)
+  nameWithType: StdLib.removeQuotes(Table)
+- uid: TabScript.StdLib.removeQuotes*
+  name: removeQuotes
+  href: api/TabScript.StdLib.html#TabScript_StdLib_removeQuotes_
+  commentId: Overload:TabScript.StdLib.removeQuotes
+  isSpec: "True"
+  fullName: TabScript.StdLib.removeQuotes
+  nameWithType: StdLib.removeQuotes
 - uid: TabScript.StdLib.repeat(TabScript.Table,System.Int32)
   name: repeat(Table, int)
   href: api/TabScript.StdLib.html#TabScript_StdLib_repeat_TabScript_Table_System_Int32_
@@ -898,14 +911,14 @@ references:
   fullName: TabScript.StdList.AsImport
   nameWithType: StdList.AsImport
 - uid: TabScript.StdList.Build(TabScript.Table[])
-  name: Build(Table[])
+  name: Build(params Table[])
   href: api/TabScript.StdList.html#TabScript_StdList_Build_TabScript_Table___
   commentId: M:TabScript.StdList.Build(TabScript.Table[])
-  name.vb: Build(Table())
-  fullName: TabScript.StdList.Build(TabScript.Table[])
-  fullName.vb: TabScript.StdList.Build(TabScript.Table())
-  nameWithType: StdList.Build(Table[])
-  nameWithType.vb: StdList.Build(Table())
+  name.vb: Build(ParamArray Table())
+  fullName: TabScript.StdList.Build(params TabScript.Table[])
+  fullName.vb: TabScript.StdList.Build(ParamArray TabScript.Table())
+  nameWithType: StdList.Build(params Table[])
+  nameWithType.vb: StdList.Build(ParamArray Table())
 - uid: TabScript.StdList.Build*
   name: Build
   href: api/TabScript.StdList.html#TabScript_StdList_Build_
@@ -2630,6 +2643,34 @@ references:
   isSpec: "True"
   fullName: TabScript.TableScript.CallFunction
   nameWithType: TableScript.CallFunction
+- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport)
+  name: FromImport(ResolvedImport)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_
+  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport)
+  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport)
+  nameWithType: TableScript.FromImport(ResolvedImport)
+- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver)
+  name: FromImport(ResolvedImport, IImportResolver)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_
+  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver)
+  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver)
+  nameWithType: TableScript.FromImport(ResolvedImport, IImportResolver)
+- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
+  name: FromImport(ResolvedImport, IImportResolver, Action<TabScriptException>)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__
+  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
+  name.vb: FromImport(ResolvedImport, IImportResolver, Action(Of TabScriptException))
+  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, System.Action<TabScript.TabScriptException>)
+  fullName.vb: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, System.Action(Of TabScript.TabScriptException))
+  nameWithType: TableScript.FromImport(ResolvedImport, IImportResolver, Action<TabScriptException>)
+  nameWithType.vb: TableScript.FromImport(ResolvedImport, IImportResolver, Action(Of TabScriptException))
+- uid: TabScript.TableScript.FromImport*
+  name: FromImport
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_
+  commentId: Overload:TabScript.TableScript.FromImport
+  isSpec: "True"
+  fullName: TabScript.TableScript.FromImport
+  nameWithType: TableScript.FromImport
 - uid: TabScript.TableScript.FromSource(System.String,System.String)
   name: FromSource(string, string)
   href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_

@@ -253,7 +253,7 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_CallFunction_System_String_System_String_TabScript_Table___" data-uid="TabScript.TableScript.CallFunction(System.String,System.String,TabScript.Table[])">
   CallFunction(string, string, params Table[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Always call after running!</p>
@@ -290,14 +290,132 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <a id="TabScript_TableScript_FromImport_" data-uid="TabScript.TableScript.FromImport*"></a>
+
+  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport)">
+  FromImport(ResolvedImport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate from import. Will use a default StandardImportResolver</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>import</code> <a class="xref" href="TabScript.ResolvedImport.html">ResolvedImport</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TabScript_TableScript_FromImport_" data-uid="TabScript.TableScript.FromImport*"></a>
+
+  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver)">
+  FromImport(ResolvedImport, IImportResolver)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate from import</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import, IImportResolver ir)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>import</code> <a class="xref" href="TabScript.ResolvedImport.html">ResolvedImport</a></dt>
+    <dd></dd>
+    <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TabScript_TableScript_FromImport_" data-uid="TabScript.TableScript.FromImport*"></a>
+
+  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})">
+  FromImport(ResolvedImport, IImportResolver, Action&lt;TabScriptException&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate from import.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action&lt;TabScriptException&gt; report)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>import</code> <a class="xref" href="TabScript.ResolvedImport.html">ResolvedImport</a></dt>
+    <dd></dd>
+    <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
+    <dd></dd>
+    <dt><code>report</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="TabScript.TabScriptException.html">TabScriptException</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="TabScript_TableScript_FromSource_" data-uid="TabScript.TableScript.FromSource*"></a>
 
   <h3 id="TabScript_TableScript_FromSource_System_String_System_String_" data-uid="TabScript.TableScript.FromSource(System.String,System.String)">
   FromSource(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generate from source. Will use a default StandardImportResolver</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -332,10 +450,11 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_" data-uid="TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver)">
   FromSource(string, string, IImportResolver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generate from source</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -372,10 +491,11 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__" data-uid="TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})">
   FromSource(string, string, IImportResolver, Action&lt;TabScriptException&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generate from source</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -414,10 +534,11 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_Run_System_Collections_Generic_IEnumerable_System_String__" data-uid="TabScript.TableScript.Run(System.Collections.Generic.IEnumerable{System.String})">
   Run(IEnumerable&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Run the script</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -445,10 +566,11 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_Run_TabScript_Table_" data-uid="TabScript.TableScript.Run(TabScript.Table)">
   Run(Table)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Run the script</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -476,10 +598,11 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_SourceAsImport_System_String_System_String_" data-uid="TabScript.TableScript.SourceAsImport(System.String,System.String)">
   SourceAsImport(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generate an import from source</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -514,10 +637,11 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_SourceAsImport_System_String_System_String_System_Action_TabScript_TabScriptException__" data-uid="TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScript.TabScriptException})">
   SourceAsImport(string, string, Action&lt;TabScriptException&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L155"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generate an import from source</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -554,7 +678,7 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_ToString" data-uid="TabScript.TableScript.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
