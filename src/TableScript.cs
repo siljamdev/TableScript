@@ -18,10 +18,16 @@ public class TableScript{
 		i = new Interpreter(this);
 	}
 	
+	/// <summary>
+	/// Run the script
+	/// </summary>
 	public void Run(IEnumerable<string> args){
 		Run(new Table(new List<string>(args ?? Enumerable.Empty<string>())));
 	}
 	
+	/// <summary>
+	/// Run the script
+	/// </summary>
 	public void Run(Table args = null){
 		if(i.interpreted){
 			i = new Interpreter(this);
@@ -56,14 +62,23 @@ public class TableScript{
 		Console.Error.WriteLine(tsex.ToShortString());
 	}
 	
+	/// <summary>
+	/// Generate from source. Will use a default StandardImportResolver
+	/// </summary>
 	public static TableScript FromSource(string filename, string src){
 		return FromSource(filename, src, new StandardImportResolver(), defaultReport);
 	}
 	
+	/// <summary>
+	/// Generate from source
+	/// </summary>
 	public static TableScript FromSource(string filename, string src, IImportResolver ir){
 		return FromSource(filename, src, ir, defaultReport);
 	}
 	
+	/// <summary>
+	/// Generate from source
+	/// </summary>
 	public static TableScript FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;
@@ -94,10 +109,49 @@ public class TableScript{
 		return runnable;
 	}
 	
+	/// <summary>
+	/// Generate from import. Will use a default StandardImportResolver
+	/// </summary>
+	public static TableScript FromImport(ResolvedImport import){
+		return FromImport(import, new StandardImportResolver(), defaultReport);
+	}
+	
+	/// <summary>
+	/// Generate from import 
+	/// </summary>
+	public static TableScript FromImport(ResolvedImport import, IImportResolver ir){
+		return FromImport(import, ir, defaultReport);
+	}
+	
+	/// <summary>
+	/// Generate from import. 
+	/// </summary>
+	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report){
+		Resolver res = new Resolver(ir);
+		res.OnReport = report;
+		ResolvedScript resolved = res.Resolve(import);
+		
+		Binder bin = new Binder(resolved);
+		bin.OnReport = report;
+		TableScript binded = bin.Bind();
+		
+		Optimizer opt = new Optimizer(binded);
+		TableScript runnable = opt.Optimize();
+		runnable.OnReport = report;
+		
+		return runnable;
+	}
+	
+	/// <summary>
+	/// Generate an import from source
+	/// </summary>
 	public static ResolvedImport SourceAsImport(string filename, string src){
 		return SourceAsImport(filename, src, defaultReport);
 	}
 	
+	/// <summary>
+	/// Generate an import from source
+	/// </summary>
 	public static ResolvedImport SourceAsImport(string filename, string src, Action<TabScriptException> report){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;

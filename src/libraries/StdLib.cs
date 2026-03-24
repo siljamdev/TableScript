@@ -19,6 +19,7 @@ public static class StdLib{
 		(upper, "Transform all elements to uppercase"),
 		(lower, "Transform all elements to lowercase"),
 		(trim, "Trim whitespace from all elements"),
+		(removeQuotes, "Remove surrounding double quotes (\") from all elements"),
 		(deleteAll, "Delete all matching elements from a table"),
 		(deleteAt, "Delete element at an index"),
 		(reverse, "Reverse the order of a table"),
@@ -132,6 +133,13 @@ public static class StdLib{
 	}
 	
 	/// <summary>
+	/// Remove surrounding double quotes (") from all elements
+	/// </summary>
+	public static Table removeQuotes(Table self){
+		return new Table(self.contents.Select(h => removeQ(h)).ToArray());
+	}
+	
+	/// <summary>
 	/// Delete all matching elements from a table
 	/// </summary>
 	public static Table deleteAll(Table self, Table toDel){
@@ -194,5 +202,21 @@ public static class StdLib{
 	/// </summary>
 	public static void sleep(int ms){
 		Thread.Sleep(ms);
+	}
+	
+	//remove surrounding quotes
+	static string removeQ(string p){
+		p = p.Trim();
+		
+		if(p.Length < 1){
+			return p;
+		}
+		if(p[0] == '\"' && p[p.Length - 1] == '\"'){
+			if(p.Length < 2){
+				return "";
+			}
+			return p.Substring(1, p.Length - 2);
+		}
+		return p;
 	}
 }

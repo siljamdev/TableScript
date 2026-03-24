@@ -358,7 +358,7 @@ public static class StdList{
 	/// <summary>
 	/// Tables -> List
 	/// </summary>
-	public static Table Build(Table[] t){
+	public static Table Build(params Table[] t){
 		Table lst = new Table();
 		lst.Add(new string(lenChar, t.Length));
 		foreach(Table tab in t){
@@ -371,7 +371,7 @@ public static class StdList{
 	}
 	
 	/// <summary>
-	/// Tables -> List
+	/// Lists -> List
 	/// </summary>
 	public static Table Merge(params Table[] lsts){
 		return Build(lsts.SelectMany(l => Extract(l)).ToArray());
