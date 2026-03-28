@@ -1,0 +1,516 @@
+{
+  "source_base_path": "D:/treespace/TableScript/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "icon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.BlockStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.BlockStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.BlockStmt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.FunctionDefStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.FunctionDefStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.FunctionDefStmt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.FunctionExtStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.FunctionExtStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.FunctionExtStmt",
+      "Summary": "<p sourcefile=\"api/TabScript.FunctionExtStmt.yml\" sourcestartlinenumber=\"1\">External function as a statement</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.FunctionStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.FunctionStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.FunctionStmt",
+      "Summary": "<p sourcefile=\"api/TabScript.FunctionStmt.yml\" sourcestartlinenumber=\"1\">Statement that represents a function</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.IImportResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.IImportResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.IImportResolver",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Library.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Library.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Library",
+      "Summary": "<p sourcefile=\"api/TabScript.Library.yml\" sourcestartlinenumber=\"1\">The purpose of this class is to transform C# libraries into available functions for TableScript</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.ResolvedImport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.ResolvedImport.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.ResolvedImport",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Snippet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Snippet.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Snippet",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardImportResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardImportResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardImportResolver",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.StdLib.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.StdLib.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries.StdLib",
+      "Summary": "<p sourcefile=\"api/TabScript.StandardLibraries.StdLib.yml\" sourcestartlinenumber=\"1\">Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.StdList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.StdList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries.StdList",
+      "Summary": "<p sourcefile=\"api/TabScript.StandardLibraries.StdList.yml\" sourcestartlinenumber=\"1\">Lists are several tables expressed as one, compacted together.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.StdNum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.StdNum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries.StdNum",
+      "Summary": "<p sourcefile=\"api/TabScript.StandardLibraries.StdNum.yml\" sourcestartlinenumber=\"1\">Numbers are <code sourcefile=\"api/TabScript.StandardLibraries.StdNum.yml\" sourcestartlinenumber=\"1\">double</code>, and are stored in its string representation\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StdLib.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StdLib.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StdLib",
+      "Summary": "<p sourcefile=\"api/TabScript.StdLib.yml\" sourcestartlinenumber=\"1\">Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StdList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StdList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StdList",
+      "Summary": "<p sourcefile=\"api/TabScript.StdList.yml\" sourcestartlinenumber=\"1\">Lists are several tables expressed as one, compacted together.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StdNum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StdNum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StdNum",
+      "Summary": "<p sourcefile=\"api/TabScript.StdNum.yml\" sourcestartlinenumber=\"1\">Numbers are <code sourcefile=\"api/TabScript.StdNum.yml\" sourcestartlinenumber=\"1\">double</code>, and are stored in its string representation\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Stmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Stmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Stmt",
+      "Summary": "<p sourcefile=\"api/TabScript.Stmt.yml\" sourcestartlinenumber=\"1\">Statements that form programs</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabFunc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabFunc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabFunc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabIndex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabIndex.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabIndex",
+      "Summary": "<p sourcefile=\"api/TabScript.TabIndex.yml\" sourcestartlinenumber=\"1\">Represents an Index for a Table</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabIndexMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabIndexMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabIndexMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabScriptErrorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabScriptErrorType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabScriptErrorType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TabScriptException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TabScriptException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TabScriptException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Table.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Table.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Table",
+      "Summary": "<p sourcefile=\"api/TabScript.Table.yml\" sourcestartlinenumber=\"1\">Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TableScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TableScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TableScript",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.Token.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.Token.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.Token",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.TokenType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.TokenType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.TokenType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/example.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/example.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/libraries.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/libraries.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/multifiles.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/multifiles.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/stdlist.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/stdlist.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
