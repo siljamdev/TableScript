@@ -158,6 +158,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.StdLib.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.StdLib.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries.StdLib",
+      "Summary": "<p sourcefile=\"api/TabScript.StandardLibraries.StdLib.yml\" sourcestartlinenumber=\"1\">Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.StdList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.StdList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries.StdList",
+      "Summary": "<p sourcefile=\"api/TabScript.StandardLibraries.StdList.yml\" sourcestartlinenumber=\"1\">Lists are several tables expressed as one, compacted together.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.StdNum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.StdNum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries.StdNum",
+      "Summary": "<p sourcefile=\"api/TabScript.StandardLibraries.StdNum.yml\" sourcestartlinenumber=\"1\">Numbers are <code sourcefile=\"api/TabScript.StandardLibraries.StdNum.yml\" sourcestartlinenumber=\"1\">double</code>, and are stored in its string representation\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TabScript.StandardLibraries.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TabScript.StandardLibraries.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TabScript.StandardLibraries",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TabScript.StdLib.yml",
       "output": {
         ".html": {
