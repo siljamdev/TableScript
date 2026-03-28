@@ -32,34 +32,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TabScript.BlockStmt.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TabScript.BlockStmt.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TabScript.BlockStmt",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TabScript.FunctionDefStmt.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TabScript.FunctionDefStmt.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TabScript.FunctionDefStmt",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/TabScript.FunctionExtStmt.yml",
       "output": {
         ".html": {
@@ -214,48 +186,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TabScript.StdLib.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TabScript.StdLib.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TabScript.StdLib",
-      "Summary": "<p sourcefile=\"api/TabScript.StdLib.yml\" sourcestartlinenumber=\"1\">Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.\nAll functions have the same name in the code and in here</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TabScript.StdList.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TabScript.StdList.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TabScript.StdList",
-      "Summary": "<p sourcefile=\"api/TabScript.StdList.yml\" sourcestartlinenumber=\"1\">Lists are several tables expressed as one, compacted together.\nAll functions have the same name in the code and in here</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TabScript.StdNum.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TabScript.StdNum.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TabScript.StdNum",
-      "Summary": "<p sourcefile=\"api/TabScript.StdNum.yml\" sourcestartlinenumber=\"1\">Numbers are <code sourcefile=\"api/TabScript.StdNum.yml\" sourcestartlinenumber=\"1\">double</code>, and are stored in its string representation\nAll functions have the same name in the code and in here</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/TabScript.Stmt.yml",
       "output": {
         ".html": {
@@ -364,34 +294,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TabScript.TableScript",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TabScript.Token.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TabScript.Token.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TabScript.Token",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TabScript.TokenType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TabScript.TokenType.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TabScript.TokenType",
       "Summary": null
     },
     {
