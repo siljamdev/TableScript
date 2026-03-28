@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript;
+namespace TabScript.StandardLibraries;
 
 /// <summary>
 /// Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.
@@ -122,7 +122,7 @@ public static class StdLib{
 	/// Transform all elements to lowercase
 	/// </summary>
 	public static Table lower(Table self){
-		return new Table(self.contents.Select(h => h.ToUpper()).ToArray());
+		return new Table(self.contents.Select(h => h.ToLower()).ToArray());
 	}
 	
 	/// <summary>

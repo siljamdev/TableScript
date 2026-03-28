@@ -158,10 +158,11 @@ class Interpreter{
 				Table pool = eval(ft.pool);
 				
 				scopes.Push(new List<Table>());
-				currentScope.Add(new Table(0));
+				currentScope.Add(new Table(0)); //Iteration variable
 				
 				for(int i = 0; i < pool.Length; i++){
-					currentScope[0] = new Table(pool[i]);
+					currentScope.Clear();
+					currentScope.Add(new Table(pool[i]));
 					
 					foreach(Stmt g in ft.body.inner){
 						if(breakingLoop || continuingLoop || returnVal != null || exiting){

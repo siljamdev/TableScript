@@ -1,3 +1,5 @@
+using TabScript.StandardLibraries;
+
 namespace TabScript;
 
 public interface IImportResolver{

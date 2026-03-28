@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript;
+namespace TabScript.StandardLibraries;
 
 /// <summary>
 /// Lists are several tables expressed as one, compacted together.
