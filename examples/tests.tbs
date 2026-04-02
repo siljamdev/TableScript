@@ -18,8 +18,7 @@ doTest(doTest2());
 doTest(forTest());
 doTest(forTest2());
 doTest(foreachTest());
-
-input("Press enter to continue...");
+doTest(dollarTest());
 
 function doTest(result){
 	testCounter += 1;
@@ -150,4 +149,12 @@ function foreachTest(){
 	}
 	
 	return a == ["a", "a", "b", "b", "c", "c"];
+}
+
+function dollarTest(){
+	tab a = "test";
+	tab b = ["number", "test"];
+	tab c = $"hello! this is a {a} and also a {b + "c"}";
+	
+	return c == "hello! this is a test and also a numbertestc";
 }

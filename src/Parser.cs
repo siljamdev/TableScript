@@ -30,8 +30,7 @@ class Parser{
 		FunctionStmt[] funcs = funcDefinitions();
 		
 		if(hadError){
-			OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue"));
-			return null;
+			throw new TabScriptException(TabScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue");
 		}else{
 			return new ResolvedImport(filename, im, top, funcs);
 		}
@@ -168,7 +167,7 @@ class Parser{
 	Stmt assignment(){
 		Expr e = expression();
 		
-		if(match(TokenType.Equal) || match(TokenType.PlusEqual) || match(TokenType.MinusEqual)){
+		if(match(TokenType.Equal) || match(TokenType.PlusEqual) || match(TokenType.MinusEqual) || match(TokenType.StarEqual)){
 			Token assig = prev;
 			
 			if(e is VariableExpr v){
@@ -179,6 +178,8 @@ class Parser{
 					val = new BinaryExpr(e, TokenType.Plus, val);
 				}else if(assig.type == TokenType.MinusEqual){
 					val = new BinaryExpr(e, TokenType.Minus, val);
+				}else if(assig.type == TokenType.StarEqual){
+					val = new BinaryExpr(e, TokenType.Star, val);
 				}
 				
 				return new TabAssignStmt(v.identifier, val, assig.line);
@@ -193,6 +194,11 @@ class Parser{
 				
 				if(assig.type == TokenType.MinusEqual){
 					error("Cannot use '-=' when assigning to elements", assig);
+					return null;
+				}
+				
+				if(assig.type == TokenType.StarEqual){
+					error("Cannot use '*=' when assigning to elements", assig);
 					return null;
 				}
 				
@@ -590,7 +596,8 @@ class Parser{
 			}
 		}
 		
-		return new DollarExpr(parts.ToArray());
+		//return new DollarExpr(parts.ToArray());
+		return new UnaryExpr(TokenType.Caret, new BuildLiteralExpr(parts.ToArray()));
 	}
 	
 	bool match(TokenType t){

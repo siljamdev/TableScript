@@ -48,11 +48,10 @@ class Lexer{
 		tokens.Add(new Token(TokenType.EOF, null, null, 0, line));
 		
 		if(hadError){
-			OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Lexer, filename, -1, "Errors present: Unable to continue"));
-			return null;
+			throw new TabScriptException(TabScriptErrorType.Lexer, filename, -1, "Errors present: Unable to continue");
+		}else{
+			return new TokenList(filename, tokens.ToArray());
 		}
-		
-		return new TokenList(filename, tokens.ToArray());
 	}
 	
 	void ScanNext(){
@@ -101,7 +100,7 @@ class Lexer{
 			break;
 			
 			case '*':
-				tokens.Add(create(TokenType.Star));
+				tokens.Add(create(match('=') ? TokenType.StarEqual : TokenType.Star));
 			break;
 			
 			case '^':

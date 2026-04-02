@@ -263,20 +263,6 @@ class Optimizer{
 					return new BuildLiteralExpr(j.ToArray());
 				}
 			
-			case DollarExpr r:
-				Expr[] n2 = r.parts.Select(h => Optimize(h)).ToArray();
-				
-				if(!n2.All(h => h is LiteralExpr)){
-					return new DollarExpr(n2);
-				}
-				
-				string t2 = "";
-				
-				foreach(Expr xx in n2){
-					t2 += ((LiteralExpr) xx).val.AsString();
-				}
-				return new LiteralExpr(new Table(t2));
-			
 			case OptCallExpr c:
 				Expr[] n3 = c.args.Select(h => Optimize(h)).ToArray();
 				

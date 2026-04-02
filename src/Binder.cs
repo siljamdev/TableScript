@@ -103,8 +103,7 @@ class Binder{
 		}
 		
 		if(hadError){			
-			OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Binder, main.filename, -1, "Errors present: Unable to continue"));
-			return null;
+			throw new TabScriptException(TabScriptErrorType.Binder, main.filename, -1, "Errors present: Unable to continue");
 		}else{
 			return new TableScript(new Snippet(main.filename, main.import, body.ToArray()), funcsFinalCopy);
 		}
@@ -351,10 +350,6 @@ class Binder{
 			case BuildLiteralExpr d:
 				Expr[] n = d.parts.Select(h => Bind(h, line)).ToArray();
 				return new BuildLiteralExpr(n);
-			
-			case DollarExpr r:
-				Expr[] n2 = r.parts.Select(h => Bind(h, line)).ToArray();
-				return new DollarExpr(n2);
 			
 			default:
 				return p;

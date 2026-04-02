@@ -75,12 +75,6 @@ record VariableExpr(string identifier) : Expr{
 	}
 }
 
-record DollarExpr(Expr[] parts) : Expr{
-	public override string ToString(){
-		return "$\"" + string.Join(" ", parts.Select(p => p.ToString())) + "\"";
-	}
-}
-
 #region optimized
 record OptCallExpr(int index, Expr[] args) : Expr{
 	public override string ToString(){

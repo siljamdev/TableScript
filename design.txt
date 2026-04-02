@@ -21,7 +21,7 @@ varDecl => "tab" IDENTIFIER ("=" expression)? ";"
 
 assignment => tabAssignment | elemAssignment
 
-tabAssignment => IDENTIFIER ("=" | "+=" | "-=") expression ";"
+tabAssignment => IDENTIFIER ("=" | "+=" | "-=" | "*=") expression ";"
 
 elemAssignment => IDENTIFIER "." (NUMBER | "random") ("=" | "+=") expression ";"
 

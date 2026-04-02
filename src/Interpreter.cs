@@ -298,13 +298,6 @@ class Interpreter{
 				}
 				return t;
 			
-			case DollarExpr l:
-				string t2 = "";
-				foreach(Expr xx in l.parts){
-					t2 += eval(xx).AsString();
-				}
-				return new Table(t2);
-			
 			case OptCallExpr c:
 				return callFunc(c);
 			

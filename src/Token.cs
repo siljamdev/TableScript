@@ -42,6 +42,7 @@ record Token(TokenType type, string lex, string obj, int num, int line){
 			TokenType.Equal    => "=",
 			TokenType.PlusEqual    => "+=",
 			TokenType.MinusEqual    => "-=",
+			TokenType.StarEqual    => "*=",
 			TokenType.DobEqual => "==",
 			TokenType.Greater  => ">",
 			TokenType.GreaterEqual => ">=",
@@ -79,6 +80,7 @@ enum TokenType{
 	ExclamationEqual,
 	Equal,
 	PlusEqual, MinusEqual,
+	StarEqual,
 	DobEqual,
 	
 	Greater,

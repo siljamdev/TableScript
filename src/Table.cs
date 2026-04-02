@@ -380,6 +380,18 @@ public class Table{
 	}
 	
 	/// <summary>
+	/// Remove from Table all empty elements
+	/// </summary>
+	public void RemoveEmpty(){
+		if(isSpecial){
+			specialLen = 0;
+			return;
+		}
+		
+		tab.RemoveAll(h => h == "");
+	}
+	
+	/// <summary>
 	/// Find index of element
 	/// </summary>
 	public int IndexOf(string elem){

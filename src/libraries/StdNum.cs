@@ -11,6 +11,7 @@ public static class StdNum{
 	public static (Delegate func, string description)[] AllFunctions => new (Delegate, string)[]{
 		(toNum, "Transform length into num"),
 		(toLen, "Transform num into length"),
+		(isNum, "Checks if a string is a valid num"),
 		(sum, "Sum two nums"),
 		(sub, "Subtract two nums"),
 		(mult, "Multiply two nums"),
@@ -68,6 +69,13 @@ public static class StdNum{
 	/// </summary>
 	public static int toLen(string self){
 		return double.TryParse(self, out double d) ? (int) d : 0;
+	}
+	
+	/// <summary>
+	/// Checks if a string is a valid num
+	/// </summary>
+	public static bool isNum(string self){
+		return double.TryParse(self, out _);
 	}
 	
 	/// <summary>

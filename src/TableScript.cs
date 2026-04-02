@@ -65,6 +65,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate from source. Will use a default StandardImportResolver
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static TableScript FromSource(string filename, string src){
 		return FromSource(filename, src, new StandardImportResolver(), defaultReport);
 	}
@@ -72,6 +73,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate from source
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static TableScript FromSource(string filename, string src, IImportResolver ir){
 		return FromSource(filename, src, ir, defaultReport);
 	}
@@ -79,6 +81,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate from source
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static TableScript FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;
@@ -115,6 +118,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate from import. Will use a default StandardImportResolver
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static TableScript FromImport(ResolvedImport import){
 		return FromImport(import, new StandardImportResolver(), defaultReport);
 	}
@@ -122,6 +126,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate from import 
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static TableScript FromImport(ResolvedImport import, IImportResolver ir){
 		return FromImport(import, ir, defaultReport);
 	}
@@ -129,6 +134,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate from import. 
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report){
 		Resolver res = new Resolver(ir);
 		res.OnReport = report;
@@ -151,6 +157,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate an import from source
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static ResolvedImport SourceAsImport(string filename, string src){
 		return SourceAsImport(filename, src, defaultReport);
 	}
@@ -158,6 +165,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate an import from source
 	/// </summary>
+	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static ResolvedImport SourceAsImport(string filename, string src, Action<TabScriptException> report){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;

@@ -14,6 +14,7 @@ public static class StdLib{
 		(input, "Read from Standard Input"),
 		(join, "Join all elements of a table with a seperator between them"),
 		(split, "Split all elements of a table by multiple separators"),
+		(splitLines, "Split all elements of a table by all common line endings"),
 		(replace, "Replace a set of substrings by their replacement"),
 		(indexOf, "Find the index of an element"),
 		(upper, "Transform all elements to uppercase"),
@@ -22,6 +23,7 @@ public static class StdLib{
 		(removeQuotes, "Remove surrounding double quotes (\") from all elements"),
 		(deleteAll, "Delete all matching elements from a table"),
 		(deleteAt, "Delete element at an index"),
+		(deleteEmpty, "Delete all 0-length elements"),
 		(reverse, "Reverse the order of a table"),
 		(shuffle, "Shuffle randomly the order of a table"),
 		(repeat, "Repeat some elements x times"),
@@ -80,6 +82,21 @@ public static class StdLib{
 		
 		foreach(string j in self.contents){
 			m.AddRange(j.Split(separators.contents.ToArray(), StringSplitOptions.None));
+		}
+		
+		return new Table(m);
+	}
+	
+	/// <summary>
+	/// Split all elements of a table by all common line endings
+	/// </summary>
+	public static Table splitLines(Table self){
+		List<string> m = new(self.Length);
+		
+		string[] separators = new string[]{"\r\n", "\n", "\r"};
+		
+		foreach(string j in self.contents){
+			m.AddRange(j.Split(separators, StringSplitOptions.None));
 		}
 		
 		return new Table(m);
@@ -154,6 +171,15 @@ public static class StdLib{
 	public static Table deleteAt(Table self, Table index){
 		Table m = self.Clone();
 		m.RemoveAt(index.Length);
+		return m;
+	}
+	
+	/// <summary>
+	/// Delete all 0-length elements
+	/// </summary>
+	public static Table deleteEmpty(Table self){
+		Table m = self.Clone();
+		m.RemoveEmpty();
 		return m;
 	}
 	
