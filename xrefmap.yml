@@ -235,6 +235,15 @@ references:
   fullName.vb: TabScript.Library.BuildLibrary(String, (func As System.Delegate, description As String)())
   nameWithType: Library.BuildLibrary(string, (Delegate func, string description)[])
   nameWithType.vb: Library.BuildLibrary(String, (func As Delegate, description As String)())
+- uid: TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[])
+  name: BuildLibrary(string, (string name, Delegate func, string description)[])
+  href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_String_System_Delegate_System_String____
+  commentId: M:TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[])
+  name.vb: BuildLibrary(String, (name As String, func As Delegate, description As String)())
+  fullName: TabScript.Library.BuildLibrary(string, (string name, System.Delegate func, string description)[])
+  fullName.vb: TabScript.Library.BuildLibrary(String, (name As String, func As System.Delegate, description As String)())
+  nameWithType: Library.BuildLibrary(string, (string name, Delegate func, string description)[])
+  nameWithType.vb: Library.BuildLibrary(String, (name As String, func As Delegate, description As String)())
 - uid: TabScript.Library.BuildLibrary*
   name: BuildLibrary
   href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_
@@ -242,6 +251,31 @@ references:
   isSpec: "True"
   fullName: TabScript.Library.BuildLibrary
   nameWithType: Library.BuildLibrary
+- uid: TabScript.Library.BuildSingle(System.Delegate,System.String)
+  name: BuildSingle(Delegate, string)
+  href: api/TabScript.Library.html#TabScript_Library_BuildSingle_System_Delegate_System_String_
+  commentId: M:TabScript.Library.BuildSingle(System.Delegate,System.String)
+  name.vb: BuildSingle(Delegate, String)
+  fullName: TabScript.Library.BuildSingle(System.Delegate, string)
+  fullName.vb: TabScript.Library.BuildSingle(System.Delegate, String)
+  nameWithType: Library.BuildSingle(Delegate, string)
+  nameWithType.vb: Library.BuildSingle(Delegate, String)
+- uid: TabScript.Library.BuildSingle(System.String,System.Delegate,System.String)
+  name: BuildSingle(string, Delegate, string)
+  href: api/TabScript.Library.html#TabScript_Library_BuildSingle_System_String_System_Delegate_System_String_
+  commentId: M:TabScript.Library.BuildSingle(System.String,System.Delegate,System.String)
+  name.vb: BuildSingle(String, Delegate, String)
+  fullName: TabScript.Library.BuildSingle(string, System.Delegate, string)
+  fullName.vb: TabScript.Library.BuildSingle(String, System.Delegate, String)
+  nameWithType: Library.BuildSingle(string, Delegate, string)
+  nameWithType.vb: Library.BuildSingle(String, Delegate, String)
+- uid: TabScript.Library.BuildSingle*
+  name: BuildSingle
+  href: api/TabScript.Library.html#TabScript_Library_BuildSingle_
+  commentId: Overload:TabScript.Library.BuildSingle
+  isSpec: "True"
+  fullName: TabScript.Library.BuildSingle
+  nameWithType: Library.BuildSingle
 - uid: TabScript.ResolvedImport
   name: ResolvedImport
   href: api/TabScript.ResolvedImport.html
@@ -524,6 +558,19 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdLib.deleteAt
   nameWithType: StdLib.deleteAt
+- uid: TabScript.StandardLibraries.StdLib.deleteEmpty(TabScript.Table)
+  name: deleteEmpty(Table)
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_deleteEmpty_TabScript_Table_
+  commentId: M:TabScript.StandardLibraries.StdLib.deleteEmpty(TabScript.Table)
+  fullName: TabScript.StandardLibraries.StdLib.deleteEmpty(TabScript.Table)
+  nameWithType: StdLib.deleteEmpty(Table)
+- uid: TabScript.StandardLibraries.StdLib.deleteEmpty*
+  name: deleteEmpty
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_deleteEmpty_
+  commentId: Overload:TabScript.StandardLibraries.StdLib.deleteEmpty
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdLib.deleteEmpty
+  nameWithType: StdLib.deleteEmpty
 - uid: TabScript.StandardLibraries.StdLib.error(System.String)
   name: error(string)
   href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_error_System_String_
@@ -740,6 +787,19 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdLib.split
   nameWithType: StdLib.split
+- uid: TabScript.StandardLibraries.StdLib.splitLines(TabScript.Table)
+  name: splitLines(Table)
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_splitLines_TabScript_Table_
+  commentId: M:TabScript.StandardLibraries.StdLib.splitLines(TabScript.Table)
+  fullName: TabScript.StandardLibraries.StdLib.splitLines(TabScript.Table)
+  nameWithType: StdLib.splitLines(Table)
+- uid: TabScript.StandardLibraries.StdLib.splitLines*
+  name: splitLines
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_splitLines_
+  commentId: Overload:TabScript.StandardLibraries.StdLib.splitLines
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdLib.splitLines
+  nameWithType: StdLib.splitLines
 - uid: TabScript.StandardLibraries.StdLib.trim(TabScript.Table)
   name: trim(Table)
   href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_trim_TabScript_Table_
@@ -1325,6 +1385,22 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdNum.greaterEq
   nameWithType: StdNum.greaterEq
+- uid: TabScript.StandardLibraries.StdNum.isNum(System.String)
+  name: isNum(string)
+  href: api/TabScript.StandardLibraries.StdNum.html#TabScript_StandardLibraries_StdNum_isNum_System_String_
+  commentId: M:TabScript.StandardLibraries.StdNum.isNum(System.String)
+  name.vb: isNum(String)
+  fullName: TabScript.StandardLibraries.StdNum.isNum(string)
+  fullName.vb: TabScript.StandardLibraries.StdNum.isNum(String)
+  nameWithType: StdNum.isNum(string)
+  nameWithType.vb: StdNum.isNum(String)
+- uid: TabScript.StandardLibraries.StdNum.isNum*
+  name: isNum
+  href: api/TabScript.StandardLibraries.StdNum.html#TabScript_StandardLibraries_StdNum_isNum_
+  commentId: Overload:TabScript.StandardLibraries.StdNum.isNum
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdNum.isNum
+  nameWithType: StdNum.isNum
 - uid: TabScript.StandardLibraries.StdNum.less(System.String,System.String)
   name: less(string, string)
   href: api/TabScript.StandardLibraries.StdNum.html#TabScript_StandardLibraries_StdNum_less_System_String_System_String_
@@ -2392,6 +2468,19 @@ references:
   isSpec: "True"
   fullName: TabScript.Table.RemoveAt
   nameWithType: Table.RemoveAt
+- uid: TabScript.Table.RemoveEmpty
+  name: RemoveEmpty()
+  href: api/TabScript.Table.html#TabScript_Table_RemoveEmpty
+  commentId: M:TabScript.Table.RemoveEmpty
+  fullName: TabScript.Table.RemoveEmpty()
+  nameWithType: Table.RemoveEmpty()
+- uid: TabScript.Table.RemoveEmpty*
+  name: RemoveEmpty
+  href: api/TabScript.Table.html#TabScript_Table_RemoveEmpty_
+  commentId: Overload:TabScript.Table.RemoveEmpty
+  isSpec: "True"
+  fullName: TabScript.Table.RemoveEmpty
+  nameWithType: Table.RemoveEmpty
 - uid: TabScript.Table.RemoveSingle(TabScript.Table)
   name: RemoveSingle(Table)
   href: api/TabScript.Table.html#TabScript_Table_RemoveSingle_TabScript_Table_
