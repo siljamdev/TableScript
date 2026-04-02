@@ -166,7 +166,6 @@ class Interpreter{
 					
 					foreach(Stmt g in ft.body.inner){
 						if(breakingLoop || continuingLoop || returnVal != null || exiting){
-							scopes.Pop();
 							break;
 						}
 						Interpret(g);
