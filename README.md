@@ -1,5 +1,9 @@
 # TableScript
 <img src="res/icon.png" width="200"/>
+
+[![NuGet](https://img.shields.io/nuget/dt/TableScript.svg)](https://www.nuget.org/packages/TableScript)
+[![NuGet](https://img.shields.io/nuget/v/TableScript.svg)](https://www.nuget.org/packages/TableScript)
+
 Library that serves as interpreter for TableScript scripting language.
 
 ## Usage
