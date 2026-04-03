@@ -12,3 +12,6 @@ Very straightforward: create a Script from source code, and execute it.
 ## Docs
 Check the [documentation](https://siljamdev.github.io/TableScript/index.html)  
 There is also a [notepad++ language](./n++)
+
+## License
+This software is licensed under the [MIT License](./LICENSE)
