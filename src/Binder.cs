@@ -206,7 +206,6 @@ class Binder{
 			
 			case ReturnStmt r:
 				if(!checkingFunction){
-					Console.WriteLine(Environment.StackTrace);
 					throw new TabScriptException(TabScriptErrorType.Binder, currentFilename, p.line, "Return statement outside of function");
 				}
 				return new ReturnStmt(Bind(r.val, p.line), p.line);
