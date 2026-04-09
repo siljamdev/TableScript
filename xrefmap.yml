@@ -50,6 +50,19 @@ references:
   fullName.vb: TabScript.FunctionExtStmt.New
   nameWithType: FunctionExtStmt.FunctionExtStmt
   nameWithType.vb: FunctionExtStmt.New
+- uid: TabScript.FunctionExtStmt.ToCompactString
+  name: ToCompactString()
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_ToCompactString
+  commentId: M:TabScript.FunctionExtStmt.ToCompactString
+  fullName: TabScript.FunctionExtStmt.ToCompactString()
+  nameWithType: FunctionExtStmt.ToCompactString()
+- uid: TabScript.FunctionExtStmt.ToCompactString*
+  name: ToCompactString
+  href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_ToCompactString_
+  commentId: Overload:TabScript.FunctionExtStmt.ToCompactString
+  isSpec: "True"
+  fullName: TabScript.FunctionExtStmt.ToCompactString
+  nameWithType: FunctionExtStmt.ToCompactString
 - uid: TabScript.FunctionExtStmt.ToString
   name: ToString()
   href: api/TabScript.FunctionExtStmt.html#TabScript_FunctionExtStmt_ToString
@@ -226,24 +239,24 @@ references:
   commentId: T:TabScript.Library
   fullName: TabScript.Library
   nameWithType: Library
-- uid: TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[])
-  name: BuildLibrary(string, (Delegate func, string description)[])
-  href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_Delegate_System_String____
-  commentId: M:TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[])
-  name.vb: BuildLibrary(String, (func As Delegate, description As String)())
-  fullName: TabScript.Library.BuildLibrary(string, (System.Delegate func, string description)[])
-  fullName.vb: TabScript.Library.BuildLibrary(String, (func As System.Delegate, description As String)())
-  nameWithType: Library.BuildLibrary(string, (Delegate func, string description)[])
-  nameWithType.vb: Library.BuildLibrary(String, (func As Delegate, description As String)())
-- uid: TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[])
-  name: BuildLibrary(string, (string name, Delegate func, string description)[])
-  href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_String_System_Delegate_System_String____
-  commentId: M:TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[])
-  name.vb: BuildLibrary(String, (name As String, func As Delegate, description As String)())
-  fullName: TabScript.Library.BuildLibrary(string, (string name, System.Delegate func, string description)[])
-  fullName.vb: TabScript.Library.BuildLibrary(String, (name As String, func As System.Delegate, description As String)())
-  nameWithType: Library.BuildLibrary(string, (string name, Delegate func, string description)[])
-  nameWithType.vb: Library.BuildLibrary(String, (name As String, func As Delegate, description As String)())
+- uid: TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[],System.Boolean)
+  name: BuildLibrary(string, (Delegate func, string description)[], bool)
+  href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_Delegate_System_String____System_Boolean_
+  commentId: M:TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[],System.Boolean)
+  name.vb: BuildLibrary(String, (func As Delegate, description As String)(), Boolean)
+  fullName: TabScript.Library.BuildLibrary(string, (System.Delegate func, string description)[], bool)
+  fullName.vb: TabScript.Library.BuildLibrary(String, (func As System.Delegate, description As String)(), Boolean)
+  nameWithType: Library.BuildLibrary(string, (Delegate func, string description)[], bool)
+  nameWithType.vb: Library.BuildLibrary(String, (func As Delegate, description As String)(), Boolean)
+- uid: TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[],System.Boolean)
+  name: BuildLibrary(string, (string name, Delegate func, string description)[], bool)
+  href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_String_System_Delegate_System_String____System_Boolean_
+  commentId: M:TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[],System.Boolean)
+  name.vb: BuildLibrary(String, (name As String, func As Delegate, description As String)(), Boolean)
+  fullName: TabScript.Library.BuildLibrary(string, (string name, System.Delegate func, string description)[], bool)
+  fullName.vb: TabScript.Library.BuildLibrary(String, (name As String, func As System.Delegate, description As String)(), Boolean)
+  nameWithType: Library.BuildLibrary(string, (string name, Delegate func, string description)[], bool)
+  nameWithType.vb: Library.BuildLibrary(String, (name As String, func As Delegate, description As String)(), Boolean)
 - uid: TabScript.Library.BuildLibrary*
   name: BuildLibrary
   href: api/TabScript.Library.html#TabScript_Library_BuildLibrary_
@@ -251,24 +264,15 @@ references:
   isSpec: "True"
   fullName: TabScript.Library.BuildLibrary
   nameWithType: Library.BuildLibrary
-- uid: TabScript.Library.BuildSingle(System.Delegate,System.String)
-  name: BuildSingle(Delegate, string)
-  href: api/TabScript.Library.html#TabScript_Library_BuildSingle_System_Delegate_System_String_
-  commentId: M:TabScript.Library.BuildSingle(System.Delegate,System.String)
-  name.vb: BuildSingle(Delegate, String)
-  fullName: TabScript.Library.BuildSingle(System.Delegate, string)
-  fullName.vb: TabScript.Library.BuildSingle(System.Delegate, String)
-  nameWithType: Library.BuildSingle(Delegate, string)
-  nameWithType.vb: Library.BuildSingle(Delegate, String)
-- uid: TabScript.Library.BuildSingle(System.String,System.Delegate,System.String)
-  name: BuildSingle(string, Delegate, string)
-  href: api/TabScript.Library.html#TabScript_Library_BuildSingle_System_String_System_Delegate_System_String_
-  commentId: M:TabScript.Library.BuildSingle(System.String,System.Delegate,System.String)
-  name.vb: BuildSingle(String, Delegate, String)
-  fullName: TabScript.Library.BuildSingle(string, System.Delegate, string)
-  fullName.vb: TabScript.Library.BuildSingle(String, System.Delegate, String)
-  nameWithType: Library.BuildSingle(string, Delegate, string)
-  nameWithType.vb: Library.BuildSingle(String, Delegate, String)
+- uid: TabScript.Library.BuildSingle(System.String,System.Delegate,System.String,System.Boolean)
+  name: BuildSingle(string, Delegate, string, bool)
+  href: api/TabScript.Library.html#TabScript_Library_BuildSingle_System_String_System_Delegate_System_String_System_Boolean_
+  commentId: M:TabScript.Library.BuildSingle(System.String,System.Delegate,System.String,System.Boolean)
+  name.vb: BuildSingle(String, Delegate, String, Boolean)
+  fullName: TabScript.Library.BuildSingle(string, System.Delegate, string, bool)
+  fullName.vb: TabScript.Library.BuildSingle(String, System.Delegate, String, Boolean)
+  nameWithType: Library.BuildSingle(string, Delegate, string, bool)
+  nameWithType.vb: Library.BuildSingle(String, Delegate, String, Boolean)
 - uid: TabScript.Library.BuildSingle*
   name: BuildSingle
   href: api/TabScript.Library.html#TabScript_Library_BuildSingle_
@@ -301,6 +305,48 @@ references:
   fullName.vb: TabScript.ResolvedImport.New
   nameWithType: ResolvedImport.ResolvedImport
   nameWithType.vb: ResolvedImport.New
+- uid: TabScript.ResolvedImport.GetAsSnippet(System.String,System.Boolean)
+  name: GetAsSnippet(string, bool)
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_GetAsSnippet_System_String_System_Boolean_
+  commentId: M:TabScript.ResolvedImport.GetAsSnippet(System.String,System.Boolean)
+  name.vb: GetAsSnippet(String, Boolean)
+  fullName: TabScript.ResolvedImport.GetAsSnippet(string, bool)
+  fullName.vb: TabScript.ResolvedImport.GetAsSnippet(String, Boolean)
+  nameWithType: ResolvedImport.GetAsSnippet(string, bool)
+  nameWithType.vb: ResolvedImport.GetAsSnippet(String, Boolean)
+- uid: TabScript.ResolvedImport.GetAsSnippet*
+  name: GetAsSnippet
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_GetAsSnippet_
+  commentId: Overload:TabScript.ResolvedImport.GetAsSnippet
+  isSpec: "True"
+  fullName: TabScript.ResolvedImport.GetAsSnippet
+  nameWithType: ResolvedImport.GetAsSnippet
+- uid: TabScript.ResolvedImport.Optimize
+  name: Optimize()
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_Optimize
+  commentId: M:TabScript.ResolvedImport.Optimize
+  fullName: TabScript.ResolvedImport.Optimize()
+  nameWithType: ResolvedImport.Optimize()
+- uid: TabScript.ResolvedImport.Optimize*
+  name: Optimize
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_Optimize_
+  commentId: Overload:TabScript.ResolvedImport.Optimize
+  isSpec: "True"
+  fullName: TabScript.ResolvedImport.Optimize
+  nameWithType: ResolvedImport.Optimize
+- uid: TabScript.ResolvedImport.ToCompactString
+  name: ToCompactString()
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_ToCompactString
+  commentId: M:TabScript.ResolvedImport.ToCompactString
+  fullName: TabScript.ResolvedImport.ToCompactString()
+  nameWithType: ResolvedImport.ToCompactString()
+- uid: TabScript.ResolvedImport.ToCompactString*
+  name: ToCompactString
+  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_ToCompactString_
+  commentId: Overload:TabScript.ResolvedImport.ToCompactString
+  isSpec: "True"
+  fullName: TabScript.ResolvedImport.ToCompactString
+  nameWithType: ResolvedImport.ToCompactString
 - uid: TabScript.ResolvedImport.ToString
   name: ToString()
   href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_ToString
@@ -353,22 +399,6 @@ references:
   isSpec: "True"
   fullName: TabScript.ResolvedImport.functions
   nameWithType: ResolvedImport.functions
-- uid: TabScript.ResolvedImport.getAsSnippet(System.String,System.Boolean)
-  name: getAsSnippet(string, bool)
-  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_getAsSnippet_System_String_System_Boolean_
-  commentId: M:TabScript.ResolvedImport.getAsSnippet(System.String,System.Boolean)
-  name.vb: getAsSnippet(String, Boolean)
-  fullName: TabScript.ResolvedImport.getAsSnippet(string, bool)
-  fullName.vb: TabScript.ResolvedImport.getAsSnippet(String, Boolean)
-  nameWithType: ResolvedImport.getAsSnippet(string, bool)
-  nameWithType.vb: ResolvedImport.getAsSnippet(String, Boolean)
-- uid: TabScript.ResolvedImport.getAsSnippet*
-  name: getAsSnippet
-  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_getAsSnippet_
-  commentId: Overload:TabScript.ResolvedImport.getAsSnippet
-  isSpec: "True"
-  fullName: TabScript.ResolvedImport.getAsSnippet
-  nameWithType: ResolvedImport.getAsSnippet
 - uid: TabScript.ResolvedImport.imports
   name: imports
   href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_imports
@@ -600,6 +630,19 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdLib.getDate
   nameWithType: StdLib.getDate
+- uid: TabScript.StandardLibraries.StdLib.getMaxLength
+  name: getMaxLength()
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_getMaxLength
+  commentId: M:TabScript.StandardLibraries.StdLib.getMaxLength
+  fullName: TabScript.StandardLibraries.StdLib.getMaxLength()
+  nameWithType: StdLib.getMaxLength()
+- uid: TabScript.StandardLibraries.StdLib.getMaxLength*
+  name: getMaxLength
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_getMaxLength_
+  commentId: Overload:TabScript.StandardLibraries.StdLib.getMaxLength
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdLib.getMaxLength
+  nameWithType: StdLib.getMaxLength
 - uid: TabScript.StandardLibraries.StdLib.getOS
   name: getOS()
   href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_getOS
@@ -1762,6 +1805,45 @@ references:
   fullName.vb: TabScript.Stmt.New
   nameWithType: Stmt.Stmt
   nameWithType.vb: Stmt.New
+- uid: TabScript.Stmt.ToBlockString
+  name: ToBlockString()
+  href: api/TabScript.Stmt.html#TabScript_Stmt_ToBlockString
+  commentId: M:TabScript.Stmt.ToBlockString
+  fullName: TabScript.Stmt.ToBlockString()
+  nameWithType: Stmt.ToBlockString()
+- uid: TabScript.Stmt.ToBlockString*
+  name: ToBlockString
+  href: api/TabScript.Stmt.html#TabScript_Stmt_ToBlockString_
+  commentId: Overload:TabScript.Stmt.ToBlockString
+  isSpec: "True"
+  fullName: TabScript.Stmt.ToBlockString
+  nameWithType: Stmt.ToBlockString
+- uid: TabScript.Stmt.ToCompactBlockString
+  name: ToCompactBlockString()
+  href: api/TabScript.Stmt.html#TabScript_Stmt_ToCompactBlockString
+  commentId: M:TabScript.Stmt.ToCompactBlockString
+  fullName: TabScript.Stmt.ToCompactBlockString()
+  nameWithType: Stmt.ToCompactBlockString()
+- uid: TabScript.Stmt.ToCompactBlockString*
+  name: ToCompactBlockString
+  href: api/TabScript.Stmt.html#TabScript_Stmt_ToCompactBlockString_
+  commentId: Overload:TabScript.Stmt.ToCompactBlockString
+  isSpec: "True"
+  fullName: TabScript.Stmt.ToCompactBlockString
+  nameWithType: Stmt.ToCompactBlockString
+- uid: TabScript.Stmt.ToCompactString
+  name: ToCompactString()
+  href: api/TabScript.Stmt.html#TabScript_Stmt_ToCompactString
+  commentId: M:TabScript.Stmt.ToCompactString
+  fullName: TabScript.Stmt.ToCompactString()
+  nameWithType: Stmt.ToCompactString()
+- uid: TabScript.Stmt.ToCompactString*
+  name: ToCompactString
+  href: api/TabScript.Stmt.html#TabScript_Stmt_ToCompactString_
+  commentId: Overload:TabScript.Stmt.ToCompactString
+  isSpec: "True"
+  fullName: TabScript.Stmt.ToCompactString
+  nameWithType: Stmt.ToCompactString
 - uid: TabScript.Stmt.line
   name: line
   href: api/TabScript.Stmt.html#TabScript_Stmt_line
@@ -2258,6 +2340,32 @@ references:
   isSpec: "True"
   fullName: TabScript.Table.AddRange
   nameWithType: Table.AddRange
+- uid: TabScript.Table.AsBool
+  name: AsBool()
+  href: api/TabScript.Table.html#TabScript_Table_AsBool
+  commentId: M:TabScript.Table.AsBool
+  fullName: TabScript.Table.AsBool()
+  nameWithType: Table.AsBool()
+- uid: TabScript.Table.AsBool*
+  name: AsBool
+  href: api/TabScript.Table.html#TabScript_Table_AsBool_
+  commentId: Overload:TabScript.Table.AsBool
+  isSpec: "True"
+  fullName: TabScript.Table.AsBool
+  nameWithType: Table.AsBool
+- uid: TabScript.Table.AsInt
+  name: AsInt()
+  href: api/TabScript.Table.html#TabScript_Table_AsInt
+  commentId: M:TabScript.Table.AsInt
+  fullName: TabScript.Table.AsInt()
+  nameWithType: Table.AsInt()
+- uid: TabScript.Table.AsInt*
+  name: AsInt
+  href: api/TabScript.Table.html#TabScript_Table_AsInt_
+  commentId: Overload:TabScript.Table.AsInt
+  isSpec: "True"
+  fullName: TabScript.Table.AsInt
+  nameWithType: Table.AsInt
 - uid: TabScript.Table.AsString
   name: AsString()
   href: api/TabScript.Table.html#TabScript_Table_AsString
@@ -2426,6 +2534,12 @@ references:
   isSpec: "True"
   fullName: TabScript.Table.Length
   nameWithType: Table.Length
+- uid: TabScript.Table.MaxLength
+  name: MaxLength
+  href: api/TabScript.Table.html#TabScript_Table_MaxLength
+  commentId: F:TabScript.Table.MaxLength
+  fullName: TabScript.Table.MaxLength
+  nameWithType: Table.MaxLength
 - uid: TabScript.Table.Product(TabScript.Table)
   name: Product(Table)
   href: api/TabScript.Table.html#TabScript_Table_Product_TabScript_Table_
@@ -2546,6 +2660,19 @@ references:
   isSpec: "True"
   fullName: TabScript.Table.SplitToChars
   nameWithType: Table.SplitToChars
+- uid: TabScript.Table.ToCompactString
+  name: ToCompactString()
+  href: api/TabScript.Table.html#TabScript_Table_ToCompactString
+  commentId: M:TabScript.Table.ToCompactString
+  fullName: TabScript.Table.ToCompactString()
+  nameWithType: Table.ToCompactString()
+- uid: TabScript.Table.ToCompactString*
+  name: ToCompactString
+  href: api/TabScript.Table.html#TabScript_Table_ToCompactString_
+  commentId: Overload:TabScript.Table.ToCompactString
+  isSpec: "True"
+  fullName: TabScript.Table.ToCompactString
+  nameWithType: Table.ToCompactString
 - uid: TabScript.Table.ToString
   name: ToString()
   href: api/TabScript.Table.html#TabScript_Table_ToString

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Introduction | TableScript </title>
+      <title>Understanding Tables | TableScript </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Introduction | TableScript ">
+      <meta name="title" content="Understanding Tables | TableScript ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/introduction.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/tables.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,29 +85,83 @@
         </div>
 
         <article data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="understanding-tables">Understanding Tables</h1>
 
-<p>Using the scripting language without any aditional features is very straightforward:</p>
-<pre><code class="lang-cs">using TabScript;
+<p><a href="../api/TabScript.Table.html">Tables</a> are the only variable type in TableScript. They are a collection of strings, but can also represent integers, booleans and strings.<br>
+Internally, they are represented as a string collection or as a number(used to save resources on integer tables).</p>
+<h2 id="tables-as-string-collections">Tables as string collections</h2>
+<p>Elements of the table can be accessed in TableScript in two ways:</p>
+<ul>
+<li>Using the <strong>dot</strong> syntax</li>
+<li>Using the <strong>square brackets</strong> syntax</li>
+</ul>
+<pre><code>//Table initialization
+tab a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
 
-class Program{
-	static void Main(){
-		//Get source
-		string src = File.ReadAllText(&quot;program.tbs&quot;);
-		
-		try{
-			TableScript script = TableScript.FromSource(&quot;program.tbs&quot;, src);
-			
-			script.Run();
-		}catch(TabScriptException ex){
-			Console.Error.WriteLine(ex);
-		}
-	}
+//Dot syntax
+print(a.0); //prints a
+
+//Square brackets syntax
+print(a[1]); //prints b
+
+//Out of bounds index returns []
+print(a[100]);
+
+//Negative indices
+print(a[-1]); //prints c
+</code></pre>
+<p>Negative indices start by the end, -1 being the last element, -2 the previous one and so forth.<br>
+The square syntax allows to use full expressions as indices, something the dot syntax doesnt.<br>
+You can also access a random element using the <code>random</code> keyword.</p>
+<h2 id="tables-as-integers">Tables as integers</h2>
+<p>A table's length is its value as an integer.<br>
+Also, you can access a tables length using the <code>length</code> keyword. This keyword returns a number table (table made up of empty strings):</p>
+<pre><code>//Table initialization
+tab a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+print(a.length == [&quot;&quot;, &quot;&quot;, &quot;&quot;] ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>This is also what happens when using numbers.<br>
+For example <code>0</code> represents a table of length 0(<code>[]</code>) and 3 represents a table of length 3(<code>[&quot;&quot;, &quot;&quot;, &quot;&quot;]</code>):</p>
+<pre><code>//Table initialization
+tab a = 3;
+
+print(a == [&quot;&quot;, &quot;&quot;, &quot;&quot;] ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Numbers allow you to set negative lengths for tables, something that doesnt make much sense, and is turned positive as soon as they stop having empty elements:</p>
+<pre><code>//Table initialization
+tab a = -4;
+
+a.0 = &quot;h&quot;; //Setting an element
+
+print(a.length == 1 ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Thats why it is recommended not using negative number tables for other things that arent numbers.</p>
+<h2 id="tables-as-booleans">Tables as booleans</h2>
+<p>Tables are defined as being <em>true</em> when their length is greater than 0.<br>
+Many operators that return booleans (such as <code>==</code>) return either 0 or 1 for false and true:</p>
+<pre><code>tab a = [&quot;a&quot;, &quot;b&quot;] == [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+print(a == 0 ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Also, for conditions in statements, any table can be used:</p>
+<pre><code>tab a = [&quot;a&quot;, &quot;b&quot;];
+
+if a{
+	print(&quot;a is greater than 0&quot;);
 }
 </code></pre>
-<p>You can use a custom <a href="../api/TabScript.IImportResolver.html">IImportResolver</a> to add features in the form of imports.<br>
-We will explore this feature further in a following tutorial.</p>
-<p>In the next tutorial, the central concep of table will be explained.</p>
+<h2 id="tables-as-strings">Tables as strings</h2>
+<p>Tables are collections of strings, so to use them as strings, all elements are flattened into a length 1 table.<br>
+This is the same that happens with the reduction operator(postfix <code>^</code>):</p>
+<pre><code>tab a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+print(a^ == &quot;abc&quot; ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Also, initializing tables as a single string creates them with length 1:</p>
+<pre><code>print(&quot;abc&quot; == [&quot;abc&quot;] ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>In the next tutorial, we will go over all the operators available in TableScript.</p>
 
 </article>
 

@@ -365,10 +365,30 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/operators.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/operators.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/stdlist.md",
       "output": {
         ".html": {
           "relative_path": "docs/stdlist.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/tables.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/tables.html"
         }
       },
       "version": ""

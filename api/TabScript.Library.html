@@ -89,7 +89,7 @@
 
 
   <h1 id="TabScript_Library" data-uid="TabScript.Library" class="text-break">
-Class Library  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class Library  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
 
   <a id="TabScript_Library_BuildLibrary_" data-uid="TabScript.Library.BuildLibrary*"></a>
 
-  <h3 id="TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_Delegate_System_String____" data-uid="TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[])">
-  BuildLibrary(string, (Delegate func, string description)[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_Delegate_System_String____System_Boolean_" data-uid="TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.Delegate,System.String}[],System.Boolean)">
+  BuildLibrary(string, (Delegate func, string description)[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Using reflecion, transforms C# functions with Table, string, bool, int and void return types and arguments into FunctionExtStmt records</p>
@@ -165,7 +165,7 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ResolvedImport BuildLibrary(string filename, (Delegate func, string description)[] functions)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ResolvedImport BuildLibrary(string filename, (Delegate func, string description)[] functions, bool generateDescription = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -173,6 +173,8 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
     <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>functions</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.delegate,system.string-.func">func</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.delegate,system.string-.description">description</a>)[]</dt>
+    <dd></dd>
+    <dt><code>generateDescription</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -194,9 +196,9 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
 
   <a id="TabScript_Library_BuildLibrary_" data-uid="TabScript.Library.BuildLibrary*"></a>
 
-  <h3 id="TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_String_System_Delegate_System_String____" data-uid="TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[])">
-  BuildLibrary(string, (string name, Delegate func, string description)[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_Library_BuildLibrary_System_String_System_ValueTuple_System_String_System_Delegate_System_String____System_Boolean_" data-uid="TabScript.Library.BuildLibrary(System.String,System.ValueTuple{System.String,System.Delegate,System.String}[],System.Boolean)">
+  BuildLibrary(string, (string name, Delegate func, string description)[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Using reflecion, transforms C# functions with Table, string, bool, int and void return types and arguments into FunctionExtStmt records with the specified names</p>
@@ -204,7 +206,7 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ResolvedImport BuildLibrary(string filename, (string name, Delegate func, string description)[] functions)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ResolvedImport BuildLibrary(string filename, (string name, Delegate func, string description)[] functions, bool generateDescription = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -212,6 +214,8 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
     <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>functions</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.delegate,system.string-.name">name</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.delegate,system.string-.func">func</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.delegate,system.string-.description">description</a>)[]</dt>
+    <dd></dd>
+    <dt><code>generateDescription</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -233,56 +237,17 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
 
   <a id="TabScript_Library_BuildSingle_" data-uid="TabScript.Library.BuildSingle*"></a>
 
-  <h3 id="TabScript_Library_BuildSingle_System_Delegate_System_String_" data-uid="TabScript.Library.BuildSingle(System.Delegate,System.String)">
-  BuildSingle(Delegate, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_Library_BuildSingle_System_String_System_Delegate_System_String_System_Boolean_" data-uid="TabScript.Library.BuildSingle(System.String,System.Delegate,System.String,System.Boolean)">
+  BuildSingle(string, Delegate, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Using reflecion, transform a C# function with Table, string, bool, int and void return types and arguments into a FunctionExtStmt record</p>
+  <div class="markdown level1 summary"><p>Using reflecion, transform a C# function with Table, string, bool, int and void return types and arguments into a FunctionExtStmt record. if 'name' is null, the method's name will be used</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FunctionExtStmt BuildSingle(Delegate d, string desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd></dd>
-    <dt><code>desc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="TabScript.FunctionExtStmt.html">FunctionExtStmt</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="TabScript_Library_BuildSingle_" data-uid="TabScript.Library.BuildSingle*"></a>
-
-  <h3 id="TabScript_Library_BuildSingle_System_String_System_Delegate_System_String_" data-uid="TabScript.Library.BuildSingle(System.String,System.Delegate,System.String)">
-  BuildSingle(string, Delegate, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/Library.cs/#L112"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Using reflecion, transform a C# function with Table, string, bool, int and void return types and arguments into a FunctionExtStmt record with the specified name</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FunctionExtStmt BuildSingle(string name, Delegate d, string desc)</code></pre>
+    <pre><code class="lang-csharp hljs">public static FunctionExtStmt BuildSingle(string name, Delegate d, string desc, bool generateDescription = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -292,6 +257,8 @@ Class Library  <a class="header-action link-secondary" title="View source" href=
     <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
     <dd></dd>
     <dt><code>desc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>generateDescription</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 

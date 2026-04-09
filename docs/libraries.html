@@ -87,10 +87,11 @@
         <article data-uid="">
 <h1 id="libraries">Libraries</h1>
 
-<p>To create a custom library with external functions, start by creating a static class with static methods:</p>
+<p>In this tutorial, we will create a loibrary of C# code to import into TableScript.<br>
+To create a custom library with external functions, start by creating a class with static methods:</p>
 <pre><code class="lang-cs">using TabScript;
 
-public static class CustomLib{	
+public static class CustomLib{
 	public static int sum1(int a){
 		return a + 1;
 	}
@@ -114,7 +115,7 @@ For the methods, the valid return types are:</p>
 <ul>
 <li><code>void</code>: Returns an empty Table</li>
 <li><code>string</code>: Returns a single element table. If the string is null, an empty table</li>
-<li><code>int</code>: Returns a n element table (<code>new Table(int)</code>)</li>
+<li><code>int</code>: Returns a number table (<code>new Table(int)</code>)</li>
 <li><code>bool</code>: Returns a 0 or 1 element table (<code>Table.GetBool(bool)</code>)</li>
 <li><a href="../api/TabScript.Table.html">Table</a>: No conversion is done</li>
 </ul>
