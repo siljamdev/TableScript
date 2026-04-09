@@ -6,8 +6,8 @@
     <Nullable>enable</Nullable>
 	
 	<PackageId>TableScript</PackageId>
-    <Version>1.2.8</Version>
-	<PackageVersion>1.2.8</PackageVersion>
+    <Version>1.3.0</Version>
+	<PackageVersion>1.3.0</PackageVersion>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
     

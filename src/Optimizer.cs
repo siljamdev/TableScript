@@ -5,12 +5,21 @@ namespace TabScript;
 //Purpose: optimize expressions and statements to avoid unecessary code
 class Optimizer{
 	TableScript p;
+	ResolvedImport rim;
 	
 	public Optimizer(TableScript s){
 		p = s;
 	}
 	
+	public Optimizer(ResolvedImport r){
+		rim = r;
+	}
+	
 	public TableScript Optimize(){
+		if(p == null){
+			throw new TabScriptException(TabScriptErrorType.Optimizer, "", -1, "Incorrectly initialized: Script was expected");
+		}
+		
 		List<Stmt> top = new(p.body.body.Length);
 		
 		foreach(Stmt v in p.body.body){
@@ -29,6 +38,29 @@ class Optimizer{
 		return new TableScript(new Snippet(p.body.filename, p.body.import, top.ToArray()), fs.ToArray());
 	}
 	
+	public ResolvedImport OptimizeImport(){
+		if(rim == null){
+			throw new TabScriptException(TabScriptErrorType.Optimizer, "", -1, "Incorrectly initialized: Import was expected");
+		}
+		
+		List<Stmt> top = new(rim.body.Length);
+		
+		foreach(Stmt v in rim.body){
+			Stmt bf = Optimize(v);
+			if(bf != null){
+				top.Add(bf);
+			}
+		}
+		
+		List<FunctionStmt> fs = new(rim.functions.Length);
+		
+		foreach(FunctionStmt fun in rim.functions){
+			fs.Add(Optimize(fun));
+		}
+		
+		return new ResolvedImport(rim.filename, rim.imports, top.ToArray(), fs.ToArray());
+	}
+	
 	Stmt Optimize(Stmt p){
 		switch(p){
 			case ExprStmt e:
@@ -39,8 +71,20 @@ class Optimizer{
 				return new ExprStmt(x, p.line);
 			
 			case BlockStmt b:
-				Stmt[] ne = b.inner.Select(h => Optimize(h)).Where(h => h != null).ToArray();
-				return new BlockStmt(ne, p.line);
+				return Optimize(b);
+			
+			case VarDeclStmt v2:
+				x = Optimize(v2.val);
+				return new VarDeclStmt(v2.identifier, x, p.line);
+			
+			case TabAssignStmt a2:
+				x = Optimize(a2.val);
+				return new TabAssignStmt(a2.identifier, x, p.line);
+			
+			case ElementAssignStmt l2:
+				x = Optimize(l2.val);
+				IndexExpr idd2 = (IndexExpr) Optimize(l2.ind);
+				return new ElementAssignStmt(l2.identifier, idd2, x, p.line);
 			
 			case OptVarDeclStmt v:
 				x = Optimize(v.val);
@@ -52,7 +96,7 @@ class Optimizer{
 			
 			case OptElementAssignStmt l:
 				x = Optimize(l.val);
-				IndexExpr idd2 = (IndexExpr) Optimize(l.ind);
+				idd2 = (IndexExpr) Optimize(l.ind);
 				return new OptElementAssignStmt(l.depth, l.index, idd2, x, p.line);
 			
 			case IfStmt f:
@@ -75,7 +119,7 @@ class Optimizer{
 				return new DoStmt(Optimize(d.condition), Optimize(d.body), Optimize(d.els), p.line);
 			
 			case ForeachStmt t:
-				return new ForeachStmt(t.id, Optimize(t.pool), (BlockStmt) Optimize(t.body), Optimize(t.els), p.line);
+				return new ForeachStmt(t.id, Optimize(t.pool), Optimize(t.body), Optimize(t.els), p.line);
 			
 			case ReturnStmt r:
 				return new ReturnStmt(Optimize(r.val), p.line);
@@ -85,10 +129,25 @@ class Optimizer{
 		}
 	}
 	
+	BlockStmt Optimize(BlockStmt b){
+		Stmt[] ne = b.inner.Select(h => Optimize(h)).Where(h => h != null).ToArray();
+		return new BlockStmt(ne, b.line);
+	}
+	
 	TabFunc Optimize(TabFunc p){
 		switch(p){
 			case TabNativeFunc f:
-				return new TabNativeFunc(f.import, f.identifier, f.pars, f.self, f.export, (BlockStmt) Optimize(f.body), p.filename, p.line);
+				return new TabNativeFunc(f.import, f.identifier, f.pars, f.self, f.export, Optimize(f.body), p.filename, p.line);
+			
+			default:
+				return p;
+		}
+	}
+	
+	FunctionStmt Optimize(FunctionStmt p){
+		switch(p){
+			case FunctionDefStmt f:
+				return new FunctionDefStmt(f.identifier, f.pars, f.export, Optimize(f.body), p.line);
 			
 			default:
 				return p;
@@ -190,9 +249,6 @@ class Optimizer{
 					return new TernaryExpr(cond, tru, fal);
 				}
 			
-			case GroupingExpr g:
-				return Optimize(g.exp);
-			
 			case GetElementExpr e:
 				o1 = Optimize(e.left);
 				IndexExpr idd2 = (IndexExpr) Optimize(e.ind);
@@ -263,8 +319,14 @@ class Optimizer{
 					return new BuildLiteralExpr(j.ToArray());
 				}
 			
+			case CallExpr c2:
+				Expr[] n3 = c2.args.Select(h => Optimize(h)).ToArray();
+				
+				return new CallExpr(c2.identifier, c2.import, c2.self, n3);
+			break;
+			
 			case OptCallExpr c:
-				Expr[] n3 = c.args.Select(h => Optimize(h)).ToArray();
+				n3 = c.args.Select(h => Optimize(h)).ToArray();
 				
 				return new OptCallExpr(c.index, n3);
 			break;

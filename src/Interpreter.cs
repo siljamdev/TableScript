@@ -275,9 +275,6 @@ class Interpreter{
 					return eval(q.fa);
 				}
 			
-			case GroupingExpr g:
-				return eval(g.exp);
-			
 			case LiteralExpr l:
 				return l.val;
 			

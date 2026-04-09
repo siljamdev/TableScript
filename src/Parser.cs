@@ -134,6 +134,10 @@ class Parser{
 				return new ExitStmt(prev.line);
 			}else if(match(TokenType.Return)){
 				return retStmt();
+			}else if(check(TokenType.LeftBra)){
+				BlockStmt b = block();
+				consume(TokenType.Semicolon, "Expected ';' after exit statement");
+				return b;
 			}else{
 				return assignment();
 			}
@@ -186,6 +190,11 @@ class Parser{
 			}else if(e is GetElementExpr g && g.left is VariableExpr vv){
 				if(g.ind.val == null && g.ind.ind.mode == TabIndexMode.Length){
 					error("Cannot assign to the length of a table", assig);
+					return null;
+				}
+				
+				if(assig.type == TokenType.PlusEqual && g.ind.val == null && g.ind.ind.mode == TabIndexMode.Random){
+					error("Cannot use '+=' when assigning to random element", assig);
 					return null;
 				}
 				
@@ -406,21 +415,21 @@ class Parser{
 	}
 	
 	Expr binary(){
-		Expr exp = unary();
+		Expr exp = prefix();
 		
 		while(match(TokenType.Star)){
 			TokenType op = prev.type;
-			Expr r = unary();
+			Expr r = prefix();
 			exp = new BinaryExpr(exp, op, r);
 		}
 		
 		return exp;
 	}
 	
-	Expr unary(){
+	Expr prefix(){
 		if(match(TokenType.Exclamation)){
 			TokenType op = prev.type;
-			Expr r = unary();
+			Expr r = prefix();
 			return new UnaryExpr(op, r);
 		}else{
 			return postFix();
@@ -466,9 +475,9 @@ class Parser{
 					error("Expected an index or the keywords 'random' or 'length' after dot access, or a self function", curr);
 				}
 			}else if(match(TokenType.LeftSq)){
-				IndexExpr ind = index(1);
+				IndexExpr ind = index(3);
 				
-				if(match(TokenType.Comma)){
+				if((ind.val != null || ind.ind.mode != TabIndexMode.Length) && match(TokenType.Comma)){
 					IndexExpr len = index(2);
 					
 					exp = new GetRangeExpr(exp, ind, len);
@@ -488,11 +497,11 @@ class Parser{
 	}
 	
 	IndexExpr index(int allowed){		
-		if(allowed == 1 && match(TokenType.Random)){
+		if((allowed == 1 || allowed == 3) && match(TokenType.Random)){
 			return new IndexExpr(new TabIndex(prev), null);
 		}
 		
-		if(allowed == 2 && match(TokenType.Length)){
+		if((allowed == 2 || allowed == 3) && match(TokenType.Length)){
 			return new IndexExpr(new TabIndex(prev), null);
 		}
 		
@@ -514,7 +523,7 @@ class Parser{
 			return dollarString();
 		}else if(match(TokenType.Number)){			
 			return new LiteralExpr(new Table(prev.num));
-		}else if(match(TokenType.LeftPar)){
+		}else if(match(TokenType.LeftPar)){ //Grouping
 			Expr m = expression();
 			
 			consume(TokenType.RightPar, "Expected closing ')' for grouping");

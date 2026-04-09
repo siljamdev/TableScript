@@ -1,7 +1,7 @@
 // IMPORTANT
 // In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
 
-//Importing the standard library for print
+//Importing the standard library for print and other functions
 import stdlib;
 
 //Table variables
@@ -9,15 +9,21 @@ tab global = ["h", "e", "l", "l", "o"];
 
 //Concatenation operator +: table concatenation
 tab greeting = global + [" ", "world"];
-
 print(greeting); //hello world
+
+//+= concatenation operator: concatenates itself and sets
+greeting += " stranger";
+print(greeting); //hello world stranger
+
+//String literals are handled like length 1 tables:
+tab eq = "abcd" == ["abcd"];
 
 //Dollar strings with full expressions (syntax highlighter migh break because of this)
 tab doll = $"The message of the day is '{greeting + "!"}'";
 
-print(doll); //The message of the day is 'hello world!'
+print(doll); //The message of the day is 'hello world stranger!'
 
-//True and false handled with length: 0 is false, > 0 is true
+//True and false handled with length: <0 or 0 is false, >0 is true
 tab true = ["anything"];
 tab false = [];
 
@@ -30,24 +36,29 @@ if false{
 	print("false");
 }
 
-//String literals are handled like length 1 tables:
-tab eq = "abcd" == ["abcd"];
-
-//Ternary operator
+//Ternary operator ?:
 print(eq ? "equal" : "not equal"); //equal
 
-//nagation operator !: returns [] (false) when the table has length greater than zero and [""] (true) when length is 0. This is the general concept of truthiness
+//negation operator !: returns [] (false) when the table has length greater than zero and [""] (true) when length is 0. This is the general concept of truthiness
 tab t = !["h"];
 
 //difference operator -: removes elements
 tab h = ["a", "a", "b"] - ["a"];
 print(h); //ab
 
+//-= difference operator also available
+h -= "a";
+print(h); //b
+
 //product operator *: cartesian product
 tab p = ["a", "b"] * ["c", "d"];
 print(p); //acbcadbd
 
 p = ["a", "b"] * 3;
+print(p); //ababab
+
+p = ["a", "b"];
+p *= 3; //*= also available
 print(p); //ababab
 
 p = 3 * ["a", "b"];
@@ -76,6 +87,9 @@ print(4 > ["a", "b"] ? "true" : "false"); //true
 print(3); //Nothing will be seen (empty strings)
 print(3 == ["", "", ""] ? "true" : "false"); //true
 
+//length: retuns a number table of the length: ["a", "b"].length => ["", ""] (2);
+print(2 == ["a", "b"].length ? "true" : "false"); //true
+
 //Element access
 tab abc = ["a", "b", "c", "d", "e", "f"];
 print(abc.0); //a
@@ -86,10 +100,13 @@ print(abc.-1); //f
 print(abc.-2); //e
 print(abc.random); //Random element
 
-print(abc[1]); //b
+//Expression index access with []: full expressions
+print(abc[0 + 1]); //b
 
-print(abc.100); //Obviously out of bounds, returns []
-print(abc.-100); //Obviously out of bounds, returns []
+tab oob = abc.100; //Obviously out of bounds, returns []
+
+print(oob); //Nothing will be seen (empty table)
+print(abc.-100); //Nothing will be seen (empty table) (Obviously out of bounds, returns [])
 
 //Element setting
 tab nums = ["0", "2", "3"];
@@ -98,25 +115,9 @@ print(nums); //123
 nums[1] = "a";
 print(nums); //1a3
 
-//Expression index access with []
+//Expression index setting with []: full expressions
 nums[1 + 2] = "g";
 print(nums); //1a3g
-
-//Literal building: flattening of other tables
-tab all = [abc, "+", nums, ["j", ["k", "l", abc], "k"]];
-print(all); //abcdef+1a3gjklabcdefk
-
-//length: retuns a number table of the length: ["a", "b"].length => ["", ""] (2);
-print(2 == ["a", "b"].length ? "true" : "false"); //true
-
-//While statements with else clauses(if no break was invoked)
-tab i = 0;
-while i < 5{
-	print("elem");
-	i += 1;
-}else{
-	print("finish");
-}
 
 //Range access: [index, length]. Handles negative indexes, negative lengths and expressions
 print(abc[0, 3]); //abc
@@ -126,6 +127,23 @@ print(abc[-1, 1]); //f
 print(abc[-1, -1]); //e
 print(abc[random, 2]); //random consecutive elements
 print(abc[1 + ["n", "t"], 1]); //Expression: d
+
+//Grouping with ()
+tab g = (abc + "k")%.length > (16 - (4 + 2));
+print(g ? "true" : "false"); //false
+
+//Literal building: flattening of other tables
+tab all = [abc, "+", nums, ["j", ["k", "l", abc], "k"]];
+print(all); //abcdef+1a3gjklabcdefk
+
+//While statements with else clauses(if no break was invoked)
+tab i = 0;
+while i < 5{
+	print("elem");
+	i += 1;
+}else{
+	print("finish");
+}
 
 //Do statements with optionally else clause
 i = 0;
@@ -149,10 +167,6 @@ do{
 foreach letter @ abc + nums{
 	print(letter);
 }
-
-//Grouping with ()
-tab g = (abc + "k")%.length > (16 - (4 + 2));
-print(g ? "true" : "false"); //false
 
 //Lexical scoping
 tab k = "out";

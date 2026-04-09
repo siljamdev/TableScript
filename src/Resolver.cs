@@ -26,7 +26,7 @@ class Resolver{
 		string mainImportFull = validFullImport(parsed.filename);
 		string mainImport = validImportName(mainImportFull);
 		
-		Snippet main = parsed.getAsSnippet(mainImport, false);
+		Snippet main = parsed.GetAsSnippet(mainImport, false);
 		
 		fs.AddRange(parsed.functions.Select(s => s.ToTabFunc(mainImport, parsed.filename)));
 		
@@ -47,7 +47,7 @@ class Resolver{
 			
 			ResolvedImport rim = impres.Resolve(currImportFull, toImport[i].filename);
 			
-			Snippet curr = rim.getAsSnippet(currImport, true);
+			Snippet curr = rim.GetAsSnippet(currImport, true);
 			if(curr != null){
 				snippets.Add(curr);
 			}
@@ -99,10 +99,14 @@ class Resolver{
 
 public record ResolvedImport(string filename, string[] imports, Stmt[] body, FunctionStmt[] functions){
 	public override string ToString(){
-		return filename + (body != null ? ("\n" + string.Join("\n", body.Select(s => s.ToString()))) : "") + (functions != null ? ("\n" + string.Join("\n", functions.Select(f => f.ToString()))) : "");
+		return filename + ":" + (imports != null ? ("\n" + string.Join("\n", imports.Select(i => "import \"" + i + "\";"))) : "") + (body != null ? ("\n\n" + string.Join("\n", body.Select(s => s.ToString()))) : "") + (functions != null ? ("\n\n" + string.Join("\n", functions.Select(f => f.ToString()))) : "");
 	}
 	
-	public Snippet getAsSnippet(string import, bool onlyVars){
+	public string ToCompactString(){
+		return (imports != null ? (string.Join("\n", imports.Select(i => "import \"" + i + "\";"))) : "") + (body != null ? ("\n" + string.Join("\n", body.Select(s => s.ToCompactString()))) : "") + (functions != null ? ("\n" + string.Join("\n", functions.Select(f => f.ToCompactString()))) : "");
+	}
+	
+	public Snippet GetAsSnippet(string import, bool onlyVars){
 		if(onlyVars){
 			Stmt[] varDecls = body == null ? Array.Empty<Stmt>() : body.Where(s => s is VarDeclStmt).ToArray(); //Only variable declarations
 			if(varDecls.Length > 0){
@@ -114,11 +118,19 @@ public record ResolvedImport(string filename, string[] imports, Stmt[] body, Fun
 			return new Snippet(filename, import, body ?? Array.Empty<Stmt>());
 		}
 	}
+	
+	/// <summary>
+	/// Only use for source code generation with ToCompactString
+	/// </summary>
+	public ResolvedImport Optimize(){
+		Optimizer opt = new Optimizer(this);
+		return opt.OptimizeImport();
+	}
 }
 
 public record Snippet(string filename, string import, Stmt[] body){
 	public override string ToString(){
-		return filename + ", " + import + (body != null ? ("\n" + string.Join("\n", body.Select(s => s.ToString()))) : "");
+		return filename + ", \"" + import + "\":" + (body != null ? ("\n" + string.Join("\n", body.Select(s => s.ToString()))) : "");
 	}
 }
 

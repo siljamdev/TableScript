@@ -15,7 +15,7 @@ import => "import" (IDENTIFIER | STRING) ";"
 
 funcDeclaration => "export"? "function" IDENTIFIER "(" (IDENTIFIER ("," IDENTIFIER)*)? ")" block
 
-statement => varDecl | assignment | exprStatement | if | while | do | foreach | breakStmt | continueStmt | returnStmt | exitStmt
+statement => varDecl | assignment | exprStatement | blockStmt | if | while | do | foreach | breakStmt | continueStmt | returnStmt | exitStmt
 
 varDecl => "tab" IDENTIFIER ("=" expression)? ";"
 
@@ -23,7 +23,7 @@ assignment => tabAssignment | elemAssignment
 
 tabAssignment => IDENTIFIER ("=" | "+=" | "-=" | "*=") expression ";"
 
-elemAssignment => IDENTIFIER "." (NUMBER | "random") ("=" | "+=") expression ";"
+elemAssignment => IDENTIFIER (("." (NUMBER | "random")) | ("[" (NUMBER | random | expression) "]")) ("=" | "+=") expression ";"
 
 if => "if" expression block ("else" (if | block))?
 
@@ -43,6 +43,8 @@ returnStmt => "return" expression? ";"
 
 exitStmt => "exit" ";"
 
+blockStmt => "{" statement* "}"
+
 exprStatement => expression ";"
 
 expression => ternary
@@ -61,9 +63,9 @@ membership => addition ("@" addition)*
 
 addition => binary (("+" | "-") binary)*
 
-binary => unary ("*" unary)*
+binary => prefix ("*" prefix)*
 
-unary => "!" unary | postFix
+prefix => "!" prefix | postFix
 
 postFix => primary ("^" | "%" | tabGetElement | tabGetRange | selfFuncCall)*
 

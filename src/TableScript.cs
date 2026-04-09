@@ -53,7 +53,7 @@ public class TableScript{
 	}
 	
 	public override string ToString(){
-		return body.ToString() + "\n" + string.Join("\n", functions.Select((h, i) => "@_" + i + " " + h.ToString()));
+		return body.ToString() + "\n\n" + string.Join("\n", functions.Select((h, i) => "@_" + i + ": " + h.ToString()));
 	}
 	
 	//######################################################################

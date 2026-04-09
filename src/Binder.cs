@@ -328,10 +328,6 @@ class Binder{
 				Expr o3 = Bind(q.fa, line);
 				return new TernaryExpr(o1, o2, o3);
 			
-			case GroupingExpr g:
-				o1 = Bind(g.exp, line);
-				return new GroupingExpr(o1);
-			
 			case GetElementExpr e:
 				o1 = Bind(e.left, line);
 				IndexExpr idd2 = (IndexExpr) Bind(e.ind, line);

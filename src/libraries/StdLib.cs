@@ -23,13 +23,14 @@ public static class StdLib{
 		(removeQuotes, "Remove surrounding double quotes (\") from all elements"),
 		(deleteAll, "Delete all matching elements from a table"),
 		(deleteAt, "Delete element at an index"),
-		(deleteEmpty, "Delete all 0-length elements"),
+		(deleteEmpty, "Delete all 0-length elements from a table"),
 		(reverse, "Reverse the order of a table"),
 		(shuffle, "Shuffle randomly the order of a table"),
 		(repeat, "Repeat some elements x times"),
-		(getOS, "Get the operating system"),
+		(getMaxLength, "Get the maximum table length"),
+		(getOS, "Get the operating system, either 'windows', 'linux', 'macos' or ''"),
 		(getDate, "Get date and hour in [yy, MM, dd, hh, mm, ss] format"),
-		(sleep, "Sleep x miliseconds"),
+		(sleep, "Sleep for a number of miliseconds"),
 	};
 	
 	static ResolvedImport compiled = null;
@@ -209,7 +210,14 @@ public static class StdLib{
 	}
 	
 	/// <summary>
-	/// Get the operating system
+	/// Get the maximum table length
+	/// </summary>
+	public static int getMaxLength(){
+		return Table.MaxLength;
+	}
+	
+	/// <summary>
+	/// Get the operating system, either 'windows', 'linux', 'macos' or ''
 	/// </summary>
 	public static string getOS(){
 		return OperatingSystem.IsWindows() ? "windows" : OperatingSystem.IsLinux() ? "linux" : OperatingSystem.IsMacOS() ? "macos" : "";

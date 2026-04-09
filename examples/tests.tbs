@@ -19,6 +19,11 @@ doTest(forTest());
 doTest(forTest2());
 doTest(foreachTest());
 doTest(dollarTest());
+doTest(ifTest());
+doTest(blockTest());
+doTest(negativeLengthTest());
+doTest(concatTest());
+doTest(decompositionTest());
 
 function doTest(result){
 	testCounter += 1;
@@ -157,4 +162,44 @@ function dollarTest(){
 	tab c = $"hello! this is a {a} and also a {b + "c"}";
 	
 	return c == "hello! this is a test and also a numbertestc";
+}
+
+function ifTest(){
+	tab a;
+	if 1{
+		a = "n";
+	}else{
+		a = "j";
+	}
+	
+	return a == "n";
+}
+
+function blockTest(){
+	tab a;
+	{
+		a = "n";
+	};
+	
+	return a == "n";
+}
+
+function negativeLengthTest(){
+	tab a = -4;
+	a.0 = "h";
+	
+	return a.length == 1;
+}
+
+function concatTest(){
+	tab a = ["a", "b"];
+	a.0 += ["h", "2"];
+	
+	return a == ["ah2", "b"];
+}
+
+function decompositionTest(){
+	tab a = ["abc", "def", "g"];
+	tab b = a%;
+	return b == ["a", "b", "c", "d", "e", "f", "g"];
 }

@@ -7,11 +7,19 @@ namespace TabScript;
 /// Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself
 /// </summary>
 public class Table{
+	public static int MaxLength = 16777216; //2^24
 	static Random rand = new();
 	
 	static readonly List<string> empty = new List<string>();
 	
+	/// <summary>
+	/// true boolean as table
+	/// </summary>
 	public static Table True => new Table(1);
+	
+	/// <summary>
+	/// false boolean as table
+	/// </summary>
 	public static Table False => new Table(0);
 	
 	List<string> tab;
@@ -24,10 +32,13 @@ public class Table{
 	/// </summary>
 	public bool IsNumber => isSpecial;
 	
+	/// <summary>
+	/// Table length (as int)
+	/// </summary>
 	public int Length => isSpecial ? specialLen : tab.Count;
 	
 	/// <summary>
-	/// If it is considered true
+	/// If it is considered true (as bool)
 	/// </summary>
 	public bool Truthy => Length > 0;
 	
@@ -58,7 +69,7 @@ public class Table{
 	/// Initialize table with strings
 	/// </summary>
 	public Table(params string[] ss){
-		tab = new List<string>(ss);
+		tab = new List<string>(ss.Take(MaxLength));
 	}
 	
 	/// <summary>
@@ -87,7 +98,7 @@ public class Table{
 	}
 	
 	/// <summary>
-	/// Initialize Table as number
+	/// Initialize Table as integer
 	/// </summary>
 	public Table(int n){
 		isSpecial = true;
@@ -99,7 +110,7 @@ public class Table{
 	/// </summary>
 	public Table(List<string> t){
 		t ??= empty;
-		tab = new List<string>(t);
+		tab = new List<string>(t.Take(MaxLength));
 	}
 	
 	public Table Clone(){
@@ -111,7 +122,7 @@ public class Table{
 			return;
 		}
 		
-		specialLen = Math.Max(0, specialLen);
+		specialLen = Math.Min(Math.Max(0, specialLen), MaxLength);
 		
 		tab = Enumerable.Repeat("", specialLen).ToList();
 		
@@ -123,8 +134,6 @@ public class Table{
 	/// Set element to another Table
 	/// </summary>
 	public void SetElem(TabIndex ind, Table t){
-		makeNormal();
-		
 		switch(ind.mode){
 			case TabIndexMode.Number:
 				int real;
@@ -135,14 +144,18 @@ public class Table{
 				}
 				
 				if(real >= 0 && real < Length){
+					makeNormal();
 					tab[real] = t.AsString();
-				}else if(real >= Length){
+				}else if(real >= Length && real < MaxLength){
+					makeNormal();
 					tab.AddRange(Enumerable.Repeat("", real - Length));
 					tab.Add(t.AsString());
 				}
 			break;
 			
 			case TabIndexMode.Random:
+				makeNormal();
+				
 				if(Length == 0){
 					tab.Add(t.AsString());
 					return;
@@ -281,6 +294,10 @@ public class Table{
 			return;
 		}
 		
+		if(Length >= MaxLength){
+			return;
+		}
+		
 		makeNormal();
 		
 		tab.Add(s);
@@ -290,6 +307,10 @@ public class Table{
 	/// Add to end
 	/// </summary>
 	public void Add(Table t){
+		if(Length >= MaxLength){
+			return;
+		}
+		
 		makeNormal();
 		
 		tab.Add(t.AsString());
@@ -301,6 +322,10 @@ public class Table{
 	public void AddRange(Table t){
 		if(isSpecial && t.isSpecial){
 			specialLen += t.specialLen;
+			return;
+		}
+		
+		if(Length + t.Length >= MaxLength){
 			return;
 		}
 		
@@ -376,7 +401,9 @@ public class Table{
 			return;
 		}
 		
-		tab.RemoveAt(ind);
+		if(ind >= 0 && ind < Length){
+			tab.RemoveAt(ind);
+		}
 	}
 	
 	/// <summary>
@@ -531,7 +558,7 @@ public class Table{
 	}
 	
 	/// <summary>
-	/// Returns True or False
+	/// bool -> Table
 	/// </summary>
 	public static Table GetBool(bool b){
 		return b ? True : False;
@@ -545,10 +572,31 @@ public class Table{
 	}
 	
 	/// <summary>
-	/// Represent in a coder-friendly way
+	/// Table -> int
+	/// </summary>
+	public int AsInt(){
+		return Length;
+	}
+	
+	/// <summary>
+	/// Table -> bool
+	/// </summary>
+	public bool AsBool(){
+		return Truthy;
+	}
+	
+	/// <summary>
+	/// Represent in the same way as the source code
 	/// </summary>
 	public override string ToString(){
-		return "[" + (isSpecial ? ("#" + Length) : string.Join(", ", tab)) + "]";
+		return isSpecial ? specialLen.ToString() : "[" + string.Join(", ", tab.Select(e => "\"" + e + "\"")) + "]";
+	}
+	
+	/// <summary>
+	/// Represent in the same way as the source code, but compacter
+	/// </summary>
+	public string ToCompactString(){
+		return isSpecial ? specialLen.ToString() : (Length == 1 ? "\"" + this[0] + "\"" : ("[" + string.Join(",", tab.Select(e => "\"" + e + "\"")) + "]"));
 	}
 }
 

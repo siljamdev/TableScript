@@ -14,7 +14,7 @@ public abstract record TabFunc(string import, string identifier, string[] pars, 
 
 record TabNativeFunc(string import, string identifier, string[] pars, bool self, bool export, BlockStmt body, string filename, int line) : TabFunc(import, identifier, pars, self, export, filename, line){
 	public override string ToString(){
-		return (export ? "export " : "") + "function " + import + "::" + identifier + "(" + string.Join(", ", pars) + ")" + body;
+		return (export ? "export " : "") + "function " + import + "::" + identifier + "(" + string.Join(", ", pars) + ")" + body.ToBlockString();
 	}
 }
 
