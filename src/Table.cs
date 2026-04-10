@@ -7,6 +7,9 @@ namespace TabScript;
 /// Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself
 /// </summary>
 public class Table{
+	/// <summary>
+	/// Maximum length for non-number tables. Is not strictly enforced
+	/// </summary>
 	public static int MaxLength = 16777216; //2^24
 	static Random rand = new();
 	
