@@ -136,7 +136,7 @@ public static class Library{
 		Func<Table[], Table> compiledWrapper = lambda.Compile();
 		
 		if(generateDescription){
-			desc = "Returns " + retDesc + ", takes as arguments: " + string.Join(", ", argsDesc) + ". " + desc;
+			desc = "Returns " + retDesc + ", takes " + (argsDesc.Length > 0 ? ("as arguments: " + string.Join(", ", argsDesc)) : "no arguments") + ". " + desc;
 		}
 		
 		return new FunctionExtStmt(name ?? method.Name, parameters.Select((p, i) => p.Name ?? "arg" + i).ToArray(), compiledWrapper, desc);
