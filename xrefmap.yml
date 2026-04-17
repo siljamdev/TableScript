@@ -321,19 +321,6 @@ references:
   isSpec: "True"
   fullName: TabScript.ResolvedImport.GetAsSnippet
   nameWithType: ResolvedImport.GetAsSnippet
-- uid: TabScript.ResolvedImport.Optimize
-  name: Optimize()
-  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_Optimize
-  commentId: M:TabScript.ResolvedImport.Optimize
-  fullName: TabScript.ResolvedImport.Optimize()
-  nameWithType: ResolvedImport.Optimize()
-- uid: TabScript.ResolvedImport.Optimize*
-  name: Optimize
-  href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_Optimize_
-  commentId: Overload:TabScript.ResolvedImport.Optimize
-  isSpec: "True"
-  fullName: TabScript.ResolvedImport.Optimize
-  nameWithType: ResolvedImport.Optimize
 - uid: TabScript.ResolvedImport.ToCompactString
   name: ToCompactString()
   href: api/TabScript.ResolvedImport.html#TabScript_ResolvedImport_ToCompactString
@@ -1805,32 +1792,6 @@ references:
   fullName.vb: TabScript.Stmt.New
   nameWithType: Stmt.Stmt
   nameWithType.vb: Stmt.New
-- uid: TabScript.Stmt.ToBlockString
-  name: ToBlockString()
-  href: api/TabScript.Stmt.html#TabScript_Stmt_ToBlockString
-  commentId: M:TabScript.Stmt.ToBlockString
-  fullName: TabScript.Stmt.ToBlockString()
-  nameWithType: Stmt.ToBlockString()
-- uid: TabScript.Stmt.ToBlockString*
-  name: ToBlockString
-  href: api/TabScript.Stmt.html#TabScript_Stmt_ToBlockString_
-  commentId: Overload:TabScript.Stmt.ToBlockString
-  isSpec: "True"
-  fullName: TabScript.Stmt.ToBlockString
-  nameWithType: Stmt.ToBlockString
-- uid: TabScript.Stmt.ToCompactBlockString
-  name: ToCompactBlockString()
-  href: api/TabScript.Stmt.html#TabScript_Stmt_ToCompactBlockString
-  commentId: M:TabScript.Stmt.ToCompactBlockString
-  fullName: TabScript.Stmt.ToCompactBlockString()
-  nameWithType: Stmt.ToCompactBlockString()
-- uid: TabScript.Stmt.ToCompactBlockString*
-  name: ToCompactBlockString
-  href: api/TabScript.Stmt.html#TabScript_Stmt_ToCompactBlockString_
-  commentId: Overload:TabScript.Stmt.ToCompactBlockString
-  isSpec: "True"
-  fullName: TabScript.Stmt.ToCompactBlockString
-  nameWithType: Stmt.ToCompactBlockString
 - uid: TabScript.Stmt.ToCompactString
   name: ToCompactString()
   href: api/TabScript.Stmt.html#TabScript_Stmt_ToCompactString
