@@ -113,7 +113,15 @@ class Optimizer{
 				return new IfStmt(x, Optimize(f.then), Optimize(f.els), p.line);
 			
 			case WhileStmt w:
-				return new WhileStmt(Optimize(w.condition), Optimize(w.body), Optimize(w.els), p.line);
+				x = Optimize(w.condition);
+				
+				if(x is LiteralExpr lit2){
+					if(!lit2.val.Truthy){
+						return Optimize(w.els);
+					}
+				}
+				
+				return new WhileStmt(x, Optimize(w.body), Optimize(w.els), p.line);
 			
 			case DoStmt d:
 				return new DoStmt(Optimize(d.condition), Optimize(d.body), Optimize(d.els), p.line);
@@ -130,8 +138,18 @@ class Optimizer{
 	}
 	
 	BlockStmt Optimize(BlockStmt b){
-		Stmt[] ne = b.inner.Select(h => Optimize(h)).Where(h => h != null).ToArray();
-		return new BlockStmt(ne, b.line);
+		List<Stmt> ne = new(b.inner.Length);
+		foreach(Stmt s in b.inner){
+			Stmt n = Optimize(s);
+			if(n != null){
+				ne.Add(n);
+				
+				if(n is ReturnStmt){
+					break;
+				}
+			}
+		}
+		return new BlockStmt(ne.ToArray(), b.line);
 	}
 	
 	TabFunc Optimize(TabFunc p){
@@ -208,6 +226,19 @@ class Optimizer{
 					return new UnaryExpr(TokenType.Exclamation, new BinaryExpr(u1.right, TokenType.Or, u2.right));
 				}else if(b.op == TokenType.Or && o1 is UnaryExpr u3 && o2 is UnaryExpr u4 && u3.op == TokenType.Exclamation && u4.op == TokenType.Exclamation){ //Morgans law
 					return new UnaryExpr(TokenType.Exclamation, new BinaryExpr(u3.right, TokenType.And, u4.right));
+				}else if(b.op == TokenType.And && o1 is LiteralExpr lftx && !lftx.val.Truthy){
+					return new LiteralExpr(Table.GetBool(false));
+				}else if(b.op == TokenType.Or && o1 is LiteralExpr lftx2 && lftx2.val.Truthy){
+					return new LiteralExpr(Table.GetBool(true));
+				}else if(b.op == TokenType.Greater || b.op == TokenType.GreaterEqual || b.op == TokenType.Less || b.op == TokenType.LessEqual){
+					if(o1 is GetElementExpr gex1 && gex1.ind.val == null && gex1.ind.ind.mode == TabIndexMode.Length){
+						o1 = gex1.left;
+					}
+					if(o2 is GetElementExpr gex2 && gex2.ind.val == null && gex2.ind.ind.mode == TabIndexMode.Length){
+						o2 = gex2.left;
+					}
+					
+					return new BinaryExpr(o1, b.op, o2);
 				}else{
 					return new BinaryExpr(o1, b.op, o2);
 				}
@@ -238,12 +269,10 @@ class Optimizer{
 				Expr fal = Optimize(q.fa);
 				
 				if(cond is LiteralExpr lit1k){
-					if(lit1k.val.Truthy && tru is LiteralExpr lit2k){
-						return lit2k;
-					}else if(!lit1k.val.Truthy && fal is LiteralExpr lit3k){
-						return lit3k;
+					if(lit1k.val.Truthy){
+						return tru;
 					}else{
-						return new TernaryExpr(cond, tru, fal);
+						return fal;
 					}
 				}else{
 					return new TernaryExpr(cond, tru, fal);
@@ -254,6 +283,8 @@ class Optimizer{
 				IndexExpr idd2 = (IndexExpr) Optimize(e.ind);
 				if(idd2.val == null && idd2.ind.mode != TabIndexMode.Random && o1 is LiteralExpr lit1b){
 					return new LiteralExpr(lit1b.val.GetElem(idd2.ind));
+				}else if(idd2.val == null && idd2.ind.mode == TabIndexMode.Length && o1 is GetElementExpr innerE && innerE.ind.val == null && innerE.ind.ind.mode == TabIndexMode.Length){
+					return o1;
 				}else{
 					return new GetElementExpr(o1, idd2);
 				}
@@ -316,6 +347,12 @@ class Optimizer{
 						}
 					}
 					
+					if(j.Count == 0){
+						return new LiteralExpr(new Table(0));
+					}else if(j.Count == 1){
+						return j[0];
+					}
+					
 					return new BuildLiteralExpr(j.ToArray());
 				}
 			
@@ -323,13 +360,11 @@ class Optimizer{
 				Expr[] n3 = c2.args.Select(h => Optimize(h)).ToArray();
 				
 				return new CallExpr(c2.identifier, c2.import, c2.self, n3);
-			break;
 			
 			case OptCallExpr c:
 				n3 = c.args.Select(h => Optimize(h)).ToArray();
 				
 				return new OptCallExpr(c.index, n3);
-			break;
 			
 			default:
 				return p;

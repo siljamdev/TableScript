@@ -6,11 +6,11 @@ namespace TabScript;
 public abstract record Stmt(int line){
 	public abstract string ToCompactString();
 	
-	public virtual string ToBlockString(){
+	internal virtual string ToBlockString(){
 		return ToString();
 	}
 	
-	public virtual string ToCompactBlockString(){
+	internal virtual string ToCompactBlockString(){
 		return ToCompactString();
 	}
 }
@@ -34,11 +34,11 @@ record BlockStmt(Stmt[] inner, int line) : Stmt(line){
 		return "{\n" + string.Join('\n', inner.Select(h => h.ToCompactString())) + "\n};";
 	}
 	
-	public override string ToBlockString(){
+	internal override string ToBlockString(){
 		return "{\n" + string.Join('\n', inner.SelectMany(h => h.ToString().Split("\n")).Select(h => "\t" + h)) + "\n}";
 	}
 	
-	public override string ToCompactBlockString(){
+	internal override string ToCompactBlockString(){
 		return "{\n" + string.Join('\n', inner.Select(h => h.ToCompactString())) + "\n}";
 	}
 }
@@ -109,7 +109,7 @@ record ForeachStmt(string id, Expr pool, BlockStmt body, Stmt els, int line) : S
 	}
 	
 	public override string ToCompactString(){
-		return "foreach " + id + " @ " + pool.ToCompactString() + body.ToCompactBlockString() + (els != null ? " else " + els.ToCompactBlockString() : "");
+		return "foreach " + id + "@" + pool.ToCompactString() + body.ToCompactBlockString() + (els != null ? " else " + els.ToCompactBlockString() : "");
 	}
 }
 

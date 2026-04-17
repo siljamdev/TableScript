@@ -592,14 +592,26 @@ public class Table{
 	/// Represent in the same way as the source code
 	/// </summary>
 	public override string ToString(){
-		return isSpecial ? specialLen.ToString() : "[" + string.Join(", ", tab.Select(e => "\"" + e + "\"")) + "]";
+		return isSpecial ? specialLen.ToString() : "[" + string.Join(", ", tab.Select(e => "\"" + e.Replace("\\", "\\\\").Replace("\n", "\\n").Replace("\"", "\\\"") + "\"")) + "]";
 	}
 	
 	/// <summary>
 	/// Represent in the same way as the source code, but compacter
 	/// </summary>
 	public string ToCompactString(){
-		return isSpecial ? specialLen.ToString() : (Length == 1 ? "\"" + this[0] + "\"" : ("[" + string.Join(",", tab.Select(e => "\"" + e + "\"")) + "]"));
+		if(isSpecial){
+			return specialLen.ToString();
+		}
+		if(Length == 0){
+			return "[]";
+		}
+		if(Length == 1){
+			return "\"" + this[0].Replace("\\", "\\\\").Replace("\n", "\\n").Replace("\"", "\\\"") + "\"";
+		}
+		if(tab.All(e => e.Length == 1)){
+			return "\"" + string.Join("", tab.Select(e => e.Replace("\\", "\\\\").Replace("\n", "\\n").Replace("\"", "\\\""))) + "\"%";
+		}
+		return "[" + string.Join(",", tab.Select(e => "\"" + e.Replace("\\", "\\\\").Replace("\n", "\\n").Replace("\"", "\\\"") + "\"")) + "]";
 	}
 }
 

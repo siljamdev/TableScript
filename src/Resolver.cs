@@ -102,8 +102,13 @@ public record ResolvedImport(string filename, string[] imports, Stmt[] body, Fun
 		return filename + ":" + (imports != null ? ("\n" + string.Join("\n", imports.Select(i => "import \"" + i + "\";"))) : "") + (body != null ? ("\n\n" + string.Join("\n", body.Select(s => s.ToString()))) : "") + (functions != null ? ("\n\n" + string.Join("\n", functions.Select(f => f.ToString()))) : "");
 	}
 	
-	public string ToCompactString(){
+	string _compactStr(){
 		return (imports != null ? (string.Join("\n", imports.Select(i => "import \"" + i + "\";"))) : "") + (body != null ? ("\n" + string.Join("\n", body.Select(s => s.ToCompactString()))) : "") + (functions != null ? ("\n" + string.Join("\n", functions.Select(f => f.ToCompactString()))) : "");
+	}
+	
+	public string ToCompactString(){
+		Optimizer opt = new Optimizer(this);
+		return opt.OptimizeImport()._compactStr();
 	}
 	
 	public Snippet GetAsSnippet(string import, bool onlyVars){
@@ -117,14 +122,6 @@ public record ResolvedImport(string filename, string[] imports, Stmt[] body, Fun
 		}else{
 			return new Snippet(filename, import, body ?? Array.Empty<Stmt>());
 		}
-	}
-	
-	/// <summary>
-	/// Only use for source code generation with ToCompactString
-	/// </summary>
-	public ResolvedImport Optimize(){
-		Optimizer opt = new Optimizer(this);
-		return opt.OptimizeImport();
 	}
 }
 
