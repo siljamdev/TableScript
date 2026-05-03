@@ -403,11 +403,11 @@ class Interpreter{
 				ta = eval(b.left);
 				
 				if(ta.Truthy){
+					return Table.True;
+				}else{
 					tb = eval(b.right);
 					
 					return Table.GetBool(tb.Truthy);
-				}else{
-					return Table.True;
 				}
 			
 			case TokenType.At:

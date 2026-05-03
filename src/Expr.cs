@@ -85,7 +85,7 @@ record CallExpr(string identifier, string import, bool self, Expr[] args) : Expr
 	}
 	
 	public override string ToCompactString(){
-		return (import != null ? (import + "::") : "") + identifier + "(" + string.Join(", ", args.Select(a => a.ToCompactString())) + ")";
+		return (import != null ? (import + "::") : "") + identifier + "(" + string.Join(",", args.Select(a => a.ToCompactString())) + ")";
 	}
 }
 
