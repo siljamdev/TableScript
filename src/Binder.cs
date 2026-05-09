@@ -154,9 +154,10 @@ class Binder{
 			case WhileStmt w:
 				Expr cond = Bind(w.condition, p.line);
 				
+				bool prev = checkingLoop;
 				checkingLoop = true;
 				Stmt bod = Bind(w.body);
-				checkingLoop = false;
+				checkingLoop = prev;
 				
 				Stmt els = Bind(w.els);
 				
@@ -165,6 +166,7 @@ class Binder{
 			case ForeachStmt t:
 				Expr pool = Bind(t.pool, p.line);
 				
+				prev = checkingLoop;
 				checkingLoop = true;
 				currScope = new Scope(currScope);
 				
@@ -173,7 +175,7 @@ class Binder{
 				ne = t.body.inner.Select(h => Bind(h)).ToArray();
 				
 				currScope = currScope.parent;
-				checkingLoop = false;
+				checkingLoop = prev;
 				
 				BlockStmt body = new BlockStmt(ne, t.body.line);
 				
@@ -184,9 +186,10 @@ class Binder{
 			case DoStmt du:
 				cond = Bind(du.condition, p.line);
 				
+				prev = checkingLoop;
 				checkingLoop = true;
 				bod = Bind(du.body);
-				checkingLoop = false;
+				checkingLoop = prev;
 				
 				els = Bind(du.els);
 				
