@@ -292,9 +292,9 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <a id="TabScript_TableScript_FromImport_" data-uid="TabScript.TableScript.FromImport*"></a>
 
-  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport)">
-  FromImport(ResolvedImport)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_System_Boolean_" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport,System.Boolean)">
+  FromImport(ResolvedImport, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L113"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Generate from import. Will use a default StandardImportResolver</p>
@@ -302,12 +302,14 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import, bool removeUnusedFunctions = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>import</code> <a class="xref" href="TabScript.ResolvedImport.html">ResolvedImport</a></dt>
+    <dd></dd>
+    <dt><code>removeUnusedFunctions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -335,54 +337,9 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <a id="TabScript_TableScript_FromImport_" data-uid="TabScript.TableScript.FromImport*"></a>
 
-  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver)">
-  FromImport(ResolvedImport, IImportResolver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L130"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Generate from import</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import, IImportResolver ir)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>import</code> <a class="xref" href="TabScript.ResolvedImport.html">ResolvedImport</a></dt>
-    <dd></dd>
-    <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="TabScript.TabScriptException.html">TabScriptException</a></dt>
-    <dd><p>Thrown when an error occurs while compiling</p>
-</dd>
-  </dl>
-
-
-
-  <a id="TabScript_TableScript_FromImport_" data-uid="TabScript.TableScript.FromImport*"></a>
-
-  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})">
-  FromImport(ResolvedImport, IImportResolver, Action&lt;TabScriptException&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__System_Boolean_" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException},System.Boolean)">
+  FromImport(ResolvedImport, IImportResolver, Action&lt;TabScriptException&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Generate from import.</p>
@@ -390,7 +347,7 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action&lt;TabScriptException&gt; report)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action&lt;TabScriptException&gt; report, bool removeUnusedFunctions = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -400,6 +357,55 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
     <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
     <dd></dd>
     <dt><code>report</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="TabScript.TabScriptException.html">TabScriptException</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>removeUnusedFunctions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.TabScriptException.html">TabScriptException</a></dt>
+    <dd><p>Thrown when an error occurs while compiling</p>
+</dd>
+  </dl>
+
+
+
+  <a id="TabScript_TableScript_FromImport_" data-uid="TabScript.TableScript.FromImport*"></a>
+
+  <h3 id="TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Boolean_" data-uid="TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Boolean)">
+  FromImport(ResolvedImport, IImportResolver, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate from import</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TableScript FromImport(ResolvedImport import, IImportResolver ir, bool removeUnusedFunctions = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>import</code> <a class="xref" href="TabScript.ResolvedImport.html">ResolvedImport</a></dt>
+    <dd></dd>
+    <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
+    <dd></dd>
+    <dt><code>removeUnusedFunctions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -427,8 +433,8 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <a id="TabScript_TableScript_FromSource_" data-uid="TabScript.TableScript.FromSource*"></a>
 
-  <h3 id="TabScript_TableScript_FromSource_System_String_System_String_" data-uid="TabScript.TableScript.FromSource(System.String,System.String)">
-  FromSource(string, string)
+  <h3 id="TabScript_TableScript_FromSource_System_String_System_String_System_Boolean_" data-uid="TabScript.TableScript.FromSource(System.String,System.String,System.Boolean)">
+  FromSource(string, string, bool)
   <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -437,7 +443,7 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TableScript FromSource(string filename, string src)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TableScript FromSource(string filename, string src, bool removeUnusedFunctions = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -445,6 +451,8 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
     <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>removeUnusedFunctions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -472,55 +480,8 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <a id="TabScript_TableScript_FromSource_" data-uid="TabScript.TableScript.FromSource*"></a>
 
-  <h3 id="TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_" data-uid="TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver)">
-  FromSource(string, string, IImportResolver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L77"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Generate from source</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TableScript FromSource(string filename, string src, IImportResolver ir)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="TabScript.TabScriptException.html">TabScriptException</a></dt>
-    <dd><p>Thrown when an error occurs while compiling</p>
-</dd>
-  </dl>
-
-
-
-  <a id="TabScript_TableScript_FromSource_" data-uid="TabScript.TableScript.FromSource*"></a>
-
-  <h3 id="TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__" data-uid="TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})">
-  FromSource(string, string, IImportResolver, Action&lt;TabScriptException&gt;)
+  <h3 id="TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__System_Boolean_" data-uid="TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException},System.Boolean)">
+  FromSource(string, string, IImportResolver, Action&lt;TabScriptException&gt;, bool)
   <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -529,7 +490,7 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TableScript FromSource(string filename, string src, IImportResolver ir, Action&lt;TabScriptException&gt; report)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TableScript FromSource(string filename, string src, IImportResolver ir, Action&lt;TabScriptException&gt; report, bool removeUnusedFunctions = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -541,6 +502,57 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
     <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
     <dd></dd>
     <dt><code>report</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="TabScript.TabScriptException.html">TabScriptException</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>removeUnusedFunctions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.TableScript.html">TableScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TabScript.TabScriptException.html">TabScriptException</a></dt>
+    <dd><p>Thrown when an error occurs while compiling</p>
+</dd>
+  </dl>
+
+
+
+  <a id="TabScript_TableScript_FromSource_" data-uid="TabScript.TableScript.FromSource*"></a>
+
+  <h3 id="TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Boolean_" data-uid="TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Boolean)">
+  FromSource(string, string, IImportResolver, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate from source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TableScript FromSource(string filename, string src, IImportResolver ir, bool removeUnusedFunctions = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filename</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>ir</code> <a class="xref" href="TabScript.IImportResolver.html">IImportResolver</a></dt>
+    <dd></dd>
+    <dt><code>removeUnusedFunctions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -634,7 +646,7 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_SourceAsImport_System_String_System_String_" data-uid="TabScript.TableScript.SourceAsImport(System.String,System.String)">
   SourceAsImport(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L149"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Generate an import from source</p>
@@ -679,7 +691,7 @@ Class TableScript  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="TabScript_TableScript_SourceAsImport_System_String_System_String_System_Action_TabScript_TabScriptException__" data-uid="TabScript.TableScript.SourceAsImport(System.String,System.String,System.Action{TabScript.TabScriptException})">
   SourceAsImport(string, string, Action&lt;TabScriptException&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/TableScript.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Generate an import from source</p>

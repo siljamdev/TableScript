@@ -549,6 +549,22 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdLib.AsImport
   nameWithType: StdLib.AsImport
+- uid: TabScript.StandardLibraries.StdLib.contains(TabScript.Table,System.String)
+  name: contains(Table, string)
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_contains_TabScript_Table_System_String_
+  commentId: M:TabScript.StandardLibraries.StdLib.contains(TabScript.Table,System.String)
+  name.vb: contains(Table, String)
+  fullName: TabScript.StandardLibraries.StdLib.contains(TabScript.Table, string)
+  fullName.vb: TabScript.StandardLibraries.StdLib.contains(TabScript.Table, String)
+  nameWithType: StdLib.contains(Table, string)
+  nameWithType.vb: StdLib.contains(Table, String)
+- uid: TabScript.StandardLibraries.StdLib.contains*
+  name: contains
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_contains_
+  commentId: Overload:TabScript.StandardLibraries.StdLib.contains
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdLib.contains
+  nameWithType: StdLib.contains
 - uid: TabScript.StandardLibraries.StdLib.deleteAll(TabScript.Table,TabScript.Table)
   name: deleteAll(Table, Table)
   href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_deleteAll_TabScript_Table_TabScript_Table_
@@ -588,6 +604,19 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdLib.deleteEmpty
   nameWithType: StdLib.deleteEmpty
+- uid: TabScript.StandardLibraries.StdLib.endsWith(TabScript.Table,TabScript.Table)
+  name: endsWith(Table, Table)
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_endsWith_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StandardLibraries.StdLib.endsWith(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StandardLibraries.StdLib.endsWith(TabScript.Table, TabScript.Table)
+  nameWithType: StdLib.endsWith(Table, Table)
+- uid: TabScript.StandardLibraries.StdLib.endsWith*
+  name: endsWith
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_endsWith_
+  commentId: Overload:TabScript.StandardLibraries.StdLib.endsWith
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdLib.endsWith
+  nameWithType: StdLib.endsWith
 - uid: TabScript.StandardLibraries.StdLib.error(System.String)
   name: error(string)
   href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_error_System_String_
@@ -830,6 +859,19 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdLib.splitLines
   nameWithType: StdLib.splitLines
+- uid: TabScript.StandardLibraries.StdLib.startsWith(TabScript.Table,TabScript.Table)
+  name: startsWith(Table, Table)
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_startsWith_TabScript_Table_TabScript_Table_
+  commentId: M:TabScript.StandardLibraries.StdLib.startsWith(TabScript.Table,TabScript.Table)
+  fullName: TabScript.StandardLibraries.StdLib.startsWith(TabScript.Table, TabScript.Table)
+  nameWithType: StdLib.startsWith(Table, Table)
+- uid: TabScript.StandardLibraries.StdLib.startsWith*
+  name: startsWith
+  href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_startsWith_
+  commentId: Overload:TabScript.StandardLibraries.StdLib.startsWith
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdLib.startsWith
+  nameWithType: StdLib.startsWith
 - uid: TabScript.StandardLibraries.StdLib.trim(TabScript.Table)
   name: trim(Table)
   href: api/TabScript.StandardLibraries.StdLib.html#TabScript_StandardLibraries_StdLib_trim_TabScript_Table_
@@ -1703,6 +1745,19 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdNum.sum
   nameWithType: StdNum.sum
+- uid: TabScript.StandardLibraries.StdNum.sumAll(TabScript.Table)
+  name: sumAll(Table)
+  href: api/TabScript.StandardLibraries.StdNum.html#TabScript_StandardLibraries_StdNum_sumAll_TabScript_Table_
+  commentId: M:TabScript.StandardLibraries.StdNum.sumAll(TabScript.Table)
+  fullName: TabScript.StandardLibraries.StdNum.sumAll(TabScript.Table)
+  nameWithType: StdNum.sumAll(Table)
+- uid: TabScript.StandardLibraries.StdNum.sumAll*
+  name: sumAll
+  href: api/TabScript.StandardLibraries.StdNum.html#TabScript_StandardLibraries_StdNum_sumAll_
+  commentId: Overload:TabScript.StandardLibraries.StdNum.sumAll
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdNum.sumAll
+  nameWithType: StdNum.sumAll
 - uid: TabScript.StandardLibraries.StdNum.tan(System.String)
   name: tan(string)
   href: api/TabScript.StandardLibraries.StdNum.html#TabScript_StandardLibraries_StdNum_tan_System_String_
@@ -1767,6 +1822,214 @@ references:
   isSpec: "True"
   fullName: TabScript.StandardLibraries.StdNum.trunc
   nameWithType: StdNum.trunc
+- uid: TabScript.StandardLibraries.StdRegex
+  name: StdRegex
+  href: api/TabScript.StandardLibraries.StdRegex.html
+  commentId: T:TabScript.StandardLibraries.StdRegex
+  fullName: TabScript.StandardLibraries.StdRegex
+  nameWithType: StdRegex
+- uid: TabScript.StandardLibraries.StdRegex.AllFunctions
+  name: AllFunctions
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_AllFunctions
+  commentId: P:TabScript.StandardLibraries.StdRegex.AllFunctions
+  fullName: TabScript.StandardLibraries.StdRegex.AllFunctions
+  nameWithType: StdRegex.AllFunctions
+- uid: TabScript.StandardLibraries.StdRegex.AllFunctions*
+  name: AllFunctions
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_AllFunctions_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.AllFunctions
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.AllFunctions
+  nameWithType: StdRegex.AllFunctions
+- uid: TabScript.StandardLibraries.StdRegex.AsImport
+  name: AsImport
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_AsImport
+  commentId: P:TabScript.StandardLibraries.StdRegex.AsImport
+  fullName: TabScript.StandardLibraries.StdRegex.AsImport
+  nameWithType: StdRegex.AsImport
+- uid: TabScript.StandardLibraries.StdRegex.AsImport*
+  name: AsImport
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_AsImport_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.AsImport
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.AsImport
+  nameWithType: StdRegex.AsImport
+- uid: TabScript.StandardLibraries.StdRegex.allMatch(TabScript.Table,System.String)
+  name: allMatch(Table, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_allMatch_TabScript_Table_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.allMatch(TabScript.Table,System.String)
+  name.vb: allMatch(Table, String)
+  fullName: TabScript.StandardLibraries.StdRegex.allMatch(TabScript.Table, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.allMatch(TabScript.Table, String)
+  nameWithType: StdRegex.allMatch(Table, string)
+  nameWithType.vb: StdRegex.allMatch(Table, String)
+- uid: TabScript.StandardLibraries.StdRegex.allMatch*
+  name: allMatch
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_allMatch_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.allMatch
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.allMatch
+  nameWithType: StdRegex.allMatch
+- uid: TabScript.StandardLibraries.StdRegex.anyMatch(TabScript.Table,System.String)
+  name: anyMatch(Table, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_anyMatch_TabScript_Table_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.anyMatch(TabScript.Table,System.String)
+  name.vb: anyMatch(Table, String)
+  fullName: TabScript.StandardLibraries.StdRegex.anyMatch(TabScript.Table, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.anyMatch(TabScript.Table, String)
+  nameWithType: StdRegex.anyMatch(Table, string)
+  nameWithType.vb: StdRegex.anyMatch(Table, String)
+- uid: TabScript.StandardLibraries.StdRegex.anyMatch*
+  name: anyMatch
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_anyMatch_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.anyMatch
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.anyMatch
+  nameWithType: StdRegex.anyMatch
+- uid: TabScript.StandardLibraries.StdRegex.countMatches(TabScript.Table,System.String)
+  name: countMatches(Table, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_countMatches_TabScript_Table_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.countMatches(TabScript.Table,System.String)
+  name.vb: countMatches(Table, String)
+  fullName: TabScript.StandardLibraries.StdRegex.countMatches(TabScript.Table, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.countMatches(TabScript.Table, String)
+  nameWithType: StdRegex.countMatches(Table, string)
+  nameWithType.vb: StdRegex.countMatches(Table, String)
+- uid: TabScript.StandardLibraries.StdRegex.countMatches*
+  name: countMatches
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_countMatches_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.countMatches
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.countMatches
+  nameWithType: StdRegex.countMatches
+- uid: TabScript.StandardLibraries.StdRegex.escape(System.String)
+  name: escape(string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_escape_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.escape(System.String)
+  name.vb: escape(String)
+  fullName: TabScript.StandardLibraries.StdRegex.escape(string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.escape(String)
+  nameWithType: StdRegex.escape(string)
+  nameWithType.vb: StdRegex.escape(String)
+- uid: TabScript.StandardLibraries.StdRegex.escape*
+  name: escape
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_escape_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.escape
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.escape
+  nameWithType: StdRegex.escape
+- uid: TabScript.StandardLibraries.StdRegex.firstMatch(TabScript.Table,System.String)
+  name: firstMatch(Table, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_firstMatch_TabScript_Table_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.firstMatch(TabScript.Table,System.String)
+  name.vb: firstMatch(Table, String)
+  fullName: TabScript.StandardLibraries.StdRegex.firstMatch(TabScript.Table, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.firstMatch(TabScript.Table, String)
+  nameWithType: StdRegex.firstMatch(Table, string)
+  nameWithType.vb: StdRegex.firstMatch(Table, String)
+- uid: TabScript.StandardLibraries.StdRegex.firstMatch*
+  name: firstMatch
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_firstMatch_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.firstMatch
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.firstMatch
+  nameWithType: StdRegex.firstMatch
+- uid: TabScript.StandardLibraries.StdRegex.firstMatchGroups(TabScript.Table,System.String)
+  name: firstMatchGroups(Table, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_firstMatchGroups_TabScript_Table_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.firstMatchGroups(TabScript.Table,System.String)
+  name.vb: firstMatchGroups(Table, String)
+  fullName: TabScript.StandardLibraries.StdRegex.firstMatchGroups(TabScript.Table, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.firstMatchGroups(TabScript.Table, String)
+  nameWithType: StdRegex.firstMatchGroups(Table, string)
+  nameWithType.vb: StdRegex.firstMatchGroups(Table, String)
+- uid: TabScript.StandardLibraries.StdRegex.firstMatchGroups*
+  name: firstMatchGroups
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_firstMatchGroups_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.firstMatchGroups
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.firstMatchGroups
+  nameWithType: StdRegex.firstMatchGroups
+- uid: TabScript.StandardLibraries.StdRegex.indexOfMatch(System.String,System.String)
+  name: indexOfMatch(string, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_indexOfMatch_System_String_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.indexOfMatch(System.String,System.String)
+  name.vb: indexOfMatch(String, String)
+  fullName: TabScript.StandardLibraries.StdRegex.indexOfMatch(string, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.indexOfMatch(String, String)
+  nameWithType: StdRegex.indexOfMatch(string, string)
+  nameWithType.vb: StdRegex.indexOfMatch(String, String)
+- uid: TabScript.StandardLibraries.StdRegex.indexOfMatch*
+  name: indexOfMatch
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_indexOfMatch_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.indexOfMatch
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.indexOfMatch
+  nameWithType: StdRegex.indexOfMatch
+- uid: TabScript.StandardLibraries.StdRegex.match(System.String,System.String)
+  name: match(string, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_match_System_String_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.match(System.String,System.String)
+  name.vb: match(String, String)
+  fullName: TabScript.StandardLibraries.StdRegex.match(string, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.match(String, String)
+  nameWithType: StdRegex.match(string, string)
+  nameWithType.vb: StdRegex.match(String, String)
+- uid: TabScript.StandardLibraries.StdRegex.match*
+  name: match
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_match_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.match
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.match
+  nameWithType: StdRegex.match
+- uid: TabScript.StandardLibraries.StdRegex.matchGroups(System.String,System.String)
+  name: matchGroups(string, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_matchGroups_System_String_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.matchGroups(System.String,System.String)
+  name.vb: matchGroups(String, String)
+  fullName: TabScript.StandardLibraries.StdRegex.matchGroups(string, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.matchGroups(String, String)
+  nameWithType: StdRegex.matchGroups(string, string)
+  nameWithType.vb: StdRegex.matchGroups(String, String)
+- uid: TabScript.StandardLibraries.StdRegex.matchGroups*
+  name: matchGroups
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_matchGroups_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.matchGroups
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.matchGroups
+  nameWithType: StdRegex.matchGroups
+- uid: TabScript.StandardLibraries.StdRegex.replaceMatches(TabScript.Table,System.String,System.String)
+  name: replaceMatches(Table, string, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_replaceMatches_TabScript_Table_System_String_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.replaceMatches(TabScript.Table,System.String,System.String)
+  name.vb: replaceMatches(Table, String, String)
+  fullName: TabScript.StandardLibraries.StdRegex.replaceMatches(TabScript.Table, string, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.replaceMatches(TabScript.Table, String, String)
+  nameWithType: StdRegex.replaceMatches(Table, string, string)
+  nameWithType.vb: StdRegex.replaceMatches(Table, String, String)
+- uid: TabScript.StandardLibraries.StdRegex.replaceMatches*
+  name: replaceMatches
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_replaceMatches_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.replaceMatches
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.replaceMatches
+  nameWithType: StdRegex.replaceMatches
+- uid: TabScript.StandardLibraries.StdRegex.split(TabScript.Table,System.String)
+  name: split(Table, string)
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_split_TabScript_Table_System_String_
+  commentId: M:TabScript.StandardLibraries.StdRegex.split(TabScript.Table,System.String)
+  name.vb: split(Table, String)
+  fullName: TabScript.StandardLibraries.StdRegex.split(TabScript.Table, string)
+  fullName.vb: TabScript.StandardLibraries.StdRegex.split(TabScript.Table, String)
+  nameWithType: StdRegex.split(Table, string)
+  nameWithType.vb: StdRegex.split(Table, String)
+- uid: TabScript.StandardLibraries.StdRegex.split*
+  name: split
+  href: api/TabScript.StandardLibraries.StdRegex.html#TabScript_StandardLibraries_StdRegex_split_
+  commentId: Overload:TabScript.StandardLibraries.StdRegex.split
+  isSpec: "True"
+  fullName: TabScript.StandardLibraries.StdRegex.split
+  nameWithType: StdRegex.split
 - uid: TabScript.Stmt
   name: Stmt
   href: api/TabScript.Stmt.html
@@ -2708,27 +2971,33 @@ references:
   isSpec: "True"
   fullName: TabScript.TableScript.CallFunction
   nameWithType: TableScript.CallFunction
-- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport)
-  name: FromImport(ResolvedImport)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_
-  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport)
-  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport)
-  nameWithType: TableScript.FromImport(ResolvedImport)
-- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver)
-  name: FromImport(ResolvedImport, IImportResolver)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_
-  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver)
-  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver)
-  nameWithType: TableScript.FromImport(ResolvedImport, IImportResolver)
-- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
-  name: FromImport(ResolvedImport, IImportResolver, Action<TabScriptException>)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__
-  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
-  name.vb: FromImport(ResolvedImport, IImportResolver, Action(Of TabScriptException))
-  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, System.Action<TabScript.TabScriptException>)
-  fullName.vb: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, System.Action(Of TabScript.TabScriptException))
-  nameWithType: TableScript.FromImport(ResolvedImport, IImportResolver, Action<TabScriptException>)
-  nameWithType.vb: TableScript.FromImport(ResolvedImport, IImportResolver, Action(Of TabScriptException))
+- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport,System.Boolean)
+  name: FromImport(ResolvedImport, bool)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_System_Boolean_
+  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport,System.Boolean)
+  name.vb: FromImport(ResolvedImport, Boolean)
+  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport, bool)
+  fullName.vb: TabScript.TableScript.FromImport(TabScript.ResolvedImport, Boolean)
+  nameWithType: TableScript.FromImport(ResolvedImport, bool)
+  nameWithType.vb: TableScript.FromImport(ResolvedImport, Boolean)
+- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException},System.Boolean)
+  name: FromImport(ResolvedImport, IImportResolver, Action<TabScriptException>, bool)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__System_Boolean_
+  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Action{TabScript.TabScriptException},System.Boolean)
+  name.vb: FromImport(ResolvedImport, IImportResolver, Action(Of TabScriptException), Boolean)
+  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, System.Action<TabScript.TabScriptException>, bool)
+  fullName.vb: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, System.Action(Of TabScript.TabScriptException), Boolean)
+  nameWithType: TableScript.FromImport(ResolvedImport, IImportResolver, Action<TabScriptException>, bool)
+  nameWithType.vb: TableScript.FromImport(ResolvedImport, IImportResolver, Action(Of TabScriptException), Boolean)
+- uid: TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Boolean)
+  name: FromImport(ResolvedImport, IImportResolver, bool)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_TabScript_ResolvedImport_TabScript_IImportResolver_System_Boolean_
+  commentId: M:TabScript.TableScript.FromImport(TabScript.ResolvedImport,TabScript.IImportResolver,System.Boolean)
+  name.vb: FromImport(ResolvedImport, IImportResolver, Boolean)
+  fullName: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, bool)
+  fullName.vb: TabScript.TableScript.FromImport(TabScript.ResolvedImport, TabScript.IImportResolver, Boolean)
+  nameWithType: TableScript.FromImport(ResolvedImport, IImportResolver, bool)
+  nameWithType.vb: TableScript.FromImport(ResolvedImport, IImportResolver, Boolean)
 - uid: TabScript.TableScript.FromImport*
   name: FromImport
   href: api/TabScript.TableScript.html#TabScript_TableScript_FromImport_
@@ -2736,33 +3005,33 @@ references:
   isSpec: "True"
   fullName: TabScript.TableScript.FromImport
   nameWithType: TableScript.FromImport
-- uid: TabScript.TableScript.FromSource(System.String,System.String)
-  name: FromSource(string, string)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_
-  commentId: M:TabScript.TableScript.FromSource(System.String,System.String)
-  name.vb: FromSource(String, String)
-  fullName: TabScript.TableScript.FromSource(string, string)
-  fullName.vb: TabScript.TableScript.FromSource(String, String)
-  nameWithType: TableScript.FromSource(string, string)
-  nameWithType.vb: TableScript.FromSource(String, String)
-- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver)
-  name: FromSource(string, string, IImportResolver)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_
-  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver)
-  name.vb: FromSource(String, String, IImportResolver)
-  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver)
-  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver)
-  nameWithType: TableScript.FromSource(string, string, IImportResolver)
-  nameWithType.vb: TableScript.FromSource(String, String, IImportResolver)
-- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
-  name: FromSource(string, string, IImportResolver, Action<TabScriptException>)
-  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__
-  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException})
-  name.vb: FromSource(String, String, IImportResolver, Action(Of TabScriptException))
-  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver, System.Action<TabScript.TabScriptException>)
-  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver, System.Action(Of TabScript.TabScriptException))
-  nameWithType: TableScript.FromSource(string, string, IImportResolver, Action<TabScriptException>)
-  nameWithType.vb: TableScript.FromSource(String, String, IImportResolver, Action(Of TabScriptException))
+- uid: TabScript.TableScript.FromSource(System.String,System.String,System.Boolean)
+  name: FromSource(string, string, bool)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_System_Boolean_
+  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,System.Boolean)
+  name.vb: FromSource(String, String, Boolean)
+  fullName: TabScript.TableScript.FromSource(string, string, bool)
+  fullName.vb: TabScript.TableScript.FromSource(String, String, Boolean)
+  nameWithType: TableScript.FromSource(string, string, bool)
+  nameWithType.vb: TableScript.FromSource(String, String, Boolean)
+- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException},System.Boolean)
+  name: FromSource(string, string, IImportResolver, Action<TabScriptException>, bool)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Action_TabScript_TabScriptException__System_Boolean_
+  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Action{TabScript.TabScriptException},System.Boolean)
+  name.vb: FromSource(String, String, IImportResolver, Action(Of TabScriptException), Boolean)
+  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver, System.Action<TabScript.TabScriptException>, bool)
+  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver, System.Action(Of TabScript.TabScriptException), Boolean)
+  nameWithType: TableScript.FromSource(string, string, IImportResolver, Action<TabScriptException>, bool)
+  nameWithType.vb: TableScript.FromSource(String, String, IImportResolver, Action(Of TabScriptException), Boolean)
+- uid: TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Boolean)
+  name: FromSource(string, string, IImportResolver, bool)
+  href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_System_String_System_String_TabScript_IImportResolver_System_Boolean_
+  commentId: M:TabScript.TableScript.FromSource(System.String,System.String,TabScript.IImportResolver,System.Boolean)
+  name.vb: FromSource(String, String, IImportResolver, Boolean)
+  fullName: TabScript.TableScript.FromSource(string, string, TabScript.IImportResolver, bool)
+  fullName.vb: TabScript.TableScript.FromSource(String, String, TabScript.IImportResolver, Boolean)
+  nameWithType: TableScript.FromSource(string, string, IImportResolver, bool)
+  nameWithType.vb: TableScript.FromSource(String, String, IImportResolver, Boolean)
 - uid: TabScript.TableScript.FromSource*
   name: FromSource
   href: api/TabScript.TableScript.html#TabScript_TableScript_FromSource_
