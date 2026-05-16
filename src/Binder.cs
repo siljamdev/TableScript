@@ -33,11 +33,14 @@ class Binder{
 	//Functions that are used and are therefore kept
 	List<TabFunc> funcsFinal = new();
 	
-	public Binder(ResolvedScript resolved){
+	bool removeUnusedFunctions;
+	
+	public Binder(ResolvedScript resolved, bool ruf){
 		main = resolved.mainBody;
 		bodies = resolved.bodies;
 		allFuncs = resolved.allFunctions;
 		symbols = resolved.availableImports;
+		removeUnusedFunctions = ruf;
 	}
 	
 	void updateImport(string import){
@@ -92,14 +95,22 @@ class Binder{
 		//Prevent unused functions from adding new functions to funcsFinal
 		TabFunc[] funcsFinalCopy = funcsFinal.ToArray();
 		
-		//Not continue with errors in unused functions
+		//Not continue with errors in unused functions // keep everything if configured
 		for(int i = 0; i < allFuncs.Length; i++){
+			if(funcsFinal.Any(f => allFuncs[i].SameSignature(f))){
+				continue;
+			}
+			
 			try{
-				Bind(allFuncs[i]);
+				funcsFinal.Add(Bind(allFuncs[i]));
 			}catch(TabScriptException e){
 				hadError = true;
 				OnReport?.Invoke(e);
 			}
+		}
+		
+		if(!removeUnusedFunctions){
+			funcsFinalCopy = funcsFinal.ToArray();
 		}
 		
 		if(hadError){			

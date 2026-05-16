@@ -1,0 +1,191 @@
+tab global = ["1", "9", "6", "2"];
+
+function test_global(){
+	tab global = "a";
+	return global == "a";
+}
+
+function test_global2(){
+	return global == "1962"%;
+}
+
+function test_substring(){
+	tab a0 = "Hello World"%;
+	tab a1 = a0[0, a0.length - 2];
+	
+	return a1 == "Hello Wor"%;
+}
+
+function test_substring2(){
+	tab a0 = "Hello World"%;
+	tab a1 = a0[-2, 2];
+	
+	return a1 == "ld"%;
+}
+
+function test_tableRange(){
+	tab a = ["a", "b", "c", "d", "e", "f"];
+	a = a[-3, 3];
+	
+	return a^ == "def";
+}
+
+function test_tableAccess(){
+	tab a = ["a", "b", "c", "d", "a", "f"];
+	
+	return a.2 == "c";
+}
+
+function test_tableAccess2(){
+	tab a = ["a", "b", "a", "d", "a", "f"][-2];
+	
+	return a == "a";
+}
+
+function test_tableAccess3(){
+	tab a = ["a", "b", "a", "d", "a", "f"].-2;
+	
+	return a == "a";
+}
+
+function test_foreach(){
+	tab a = [];
+	foreach n @ ["a", "b", "c"]{
+		tab b = n;
+		a += n;
+		a += b;
+	}
+	
+	return a == ["a", "a", "b", "b", "c", "c"];
+}
+
+function test_dollar(){
+	tab a = "test";
+	tab b = ["number", "test"];
+	tab c = $"hello! this is a {a} and also a {b + "c"}";
+	
+	return c == "hello! this is a test and also a numbertestc";
+}
+
+function test_if(){
+	tab a;
+	if 1{
+		a = "n";
+	}else{
+		a = "j";
+	}
+	
+	return a == "n";
+}
+
+function test_block(){
+	tab a;
+	{
+		a = "n";
+	};
+	
+	return a == "n";
+}
+
+function test_negativeLength(){
+	tab a = -4;
+	a.0 = "h";
+	
+	return a.length == 1;
+}
+
+function test_concat(){
+	tab a = ["a", "b"];
+	a.0 += ["h", "2"];
+	
+	return a == ["ah2", "b"];
+}
+
+function test_decomposition(){
+	tab a = ["abc", "def", "g"];
+	tab b = a%;
+	return b == ["a", "b", "c", "d", "e", "f", "g"];
+}
+
+function test_and(){
+	tab a = [];
+	tab b = ["a"];
+	
+	return (a & b) == (b & a);
+}
+
+function test_and2(){
+	tab a = ["a"];
+	tab b = ["a"];
+	
+	return (a & b) == (b & a);
+}
+
+function test_or(){
+	tab a = [];
+	tab b = ["a"];
+	
+	return (a | b) == (b | a);
+}
+
+function test_or2(){
+	tab a = ["a"];
+	tab b = ["a"];
+	
+	return (a | b) == (b | a);
+}
+
+function test_diff(){
+	tab a = ["a", "a", "b"];
+	a -= "a";
+	
+	return a == "ab"%;
+}
+
+function test_diff2(){
+	tab a = ["a", "a", "b"];
+	a -= ["a", "a"];
+	
+	return a == "b";
+}
+
+function test_mult(){
+	tab a = -3;
+	a *= -2;
+	
+	return a == 6;
+}
+
+function test_length(){
+	tab a = ["a", "b", "c", "d", "e", "f", "g"];
+	
+	return a.length == 7;
+}
+
+function test_lengthOpt(){
+	tab a = ["a", "b", "c", "d", "e", "f", "g"];
+	tab b = ["a", "b", "c", "d", "e", "f"];
+	
+	return (a.length > b.length) == (a > b);
+}
+
+function test_lengthOpt2(){
+	tab a = ["a", "b", "c", "d", "e", "f", "g"];
+	tab b = ["a", "b", "c", "d", "e", "f"];
+	
+	return (a.length <= b) == (a <= b);
+}
+
+function test_lengthOpt3(){
+	tab a = ["a", "b", "c", "d", "e", "f", "g"];
+	tab b = ["a", "b", "c", "d", "e", "f"];
+	
+	return (a.length.length.length.length > b.length.length) == (a > b);
+}
+
+function test_containment(){
+	tab a = ["a", "b", "c", "d", "e", "f", "g"];
+	tab b = ["a", "b", "a"];
+	
+	return (b @ a) == 1;
+}

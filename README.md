@@ -12,10 +12,14 @@ With imports, you can access functions of [standard libraries](https://siljamdev
 
 ## Usage
 Very straightforward: create a Script from source code, and execute it.  
+You can use it your C# project to provide scripting capabilities, like [Tebas](https://github.com/siljamdev/Tebas) does.  
 
 ## Docs
 Check the [documentation](https://siljamdev.github.io/TableScript/index.html).  
 There is also a [notepad++ language](./n++).  
+
+## Testing
+There are some tests written in TableScript itself inside [the tests folder](./tests). Along them, there is a program capable of running these tests.  
 
 ## License
 This software is licensed under the [MIT License](./LICENSE).  

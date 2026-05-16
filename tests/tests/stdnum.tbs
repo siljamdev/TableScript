@@ -1,0 +1,67 @@
+import stdnum;
+
+function test_do(){
+	tab a = "0";
+	tab b;
+	do{
+		a = stdnum::sum(a, "1");
+		b = stdnum::greater("7", a);
+	}while b;
+	
+	return a == "7";
+}
+
+function test_do2(){
+	tab a = "0";
+	tab b;
+	do{
+		a = stdnum::sum(a, "1");
+		b = stdnum::less("7", a);
+	}while !b;
+	
+	return a == "8";
+}
+
+function test_for(){
+	tab a = "0";
+	tab b;
+	while stdnum::less(a, "7"){
+		b[a.stdnum::toLen()] = a;
+		a = stdnum::sum(a, "1");
+	}
+	
+	return b^ == "0123456";
+}
+
+function test_for2(){
+	tab a = "3";
+	tab b;
+	while stdnum::less(a, "7"){
+		b[a.stdnum::toLen()] = a;
+		a = stdnum::sum(a, "1");
+	}
+	
+	return b^ == "3456";
+}
+
+function test_sqrt(){
+	tab a = "9";
+	tab b = stdnum::sqrt(a);
+	
+	return b == "3";
+}
+
+function test_sum(){
+	tab a = ["1", "2", "3", "6", "8"];
+	
+	return a.stdnum::sumAll() == "20";
+}
+
+//Triangular numbers, sum of n, from n=1 to n=x is equal to (x^2 + x) / 2
+function test_rangeSum(){
+	tab a = stdnum::floor(stdnum::rand("20", "30"));
+	
+	tab ra = stdnum::range("1", a, "1");
+	
+	return ra.stdnum::sumAll() == stdnum::div(stdnum::sum(stdnum::pow(a, "2"), a), "2");
+}

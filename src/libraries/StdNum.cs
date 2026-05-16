@@ -44,7 +44,8 @@ public static class StdNum{
 		(greaterEq, "True if num1 is greater or equal than num2, false otherwise"),
 		(less, "True if num1 is less that num2, false otherwise"),
 		(lessEq, "True if num1 is less or equal than num2, false otherwise"),
-		(range, "Generate a range of numbers between two limits"),
+		(range, "Generate a range of numbers between two limits, where each element of the result table is a num"),
+		(sumAll, "Sum all nums of a table, where each element is a num"),
 		(rand, "Random number between two limits"),
 	};
 	
@@ -72,7 +73,7 @@ public static class StdNum{
 	}
 	
 	/// <summary>
-	/// Checks if a string is a valid num
+	/// Checks if a table is a valid num
 	/// </summary>
 	public static bool isNum(string self){
 		return double.TryParse(self, out _);
@@ -239,7 +240,7 @@ public static class StdNum{
 	public static Table lessEq(string num1, string num2) => numEq(num1, num2, (a, b) => a <= b);
 	
 	/// <summary>
-	/// Generate a range of numbers between two limits
+	/// Generate a range of numbers between two limits, where each element of the result table is a num
 	/// </summary>
 	public static Table range(string start, string end, string step){
 		if(!double.TryParse(start, out double start2)){
@@ -269,6 +270,23 @@ public static class StdNum{
 		}
 		
 		return new Table(l.Select(h => h.ToStr()).ToArray());
+	}
+	
+	/// <summary>
+	/// Sum all nums of a table, where each element is a num
+	/// </summary>
+	public static Table sumAll(Table self){
+		double sum = 0d;
+		
+		foreach(string j in self.contents){
+			if(double.TryParse(j, out double dj)){
+				sum += dj;
+			}else{
+				return new Table(0);
+			}
+		}
+		
+		return new Table(sum.ToStr());
 	}
 	
 	/// <summary>

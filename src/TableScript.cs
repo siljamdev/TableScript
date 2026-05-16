@@ -66,47 +66,38 @@ public class TableScript{
 	/// Generate from source. Will use a default StandardImportResolver
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src){
-		return FromSource(filename, src, new StandardImportResolver(), defaultReport);
+	public static TableScript FromSource(string filename, string src, bool removeUnusedFunctions = true){
+		return FromSource(filename, src, new StandardImportResolver(), defaultReport, removeUnusedFunctions);
 	}
 	
 	/// <summary>
 	/// Generate from source
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, IImportResolver ir){
-		return FromSource(filename, src, ir, defaultReport);
+	public static TableScript FromSource(string filename, string src, IImportResolver ir, bool removeUnusedFunctions = true){
+		return FromSource(filename, src, ir, defaultReport, removeUnusedFunctions);
 	}
 	
 	/// <summary>
 	/// Generate from source
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report){
+	public static TableScript FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report, bool removeUnusedFunctions = true){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;
 		TokenList tokenlist = lex.Scan();
-		if(tokenlist == null){
-			return null;
-		}
 		
 		Parser par = new Parser(tokenlist);
 		par.OnReport = report;
 		ResolvedImport parsed = par.Parse();
-		if(parsed == null){
-			return null;
-		}
 		
 		Resolver res = new Resolver(ir);
 		res.OnReport = report;
 		ResolvedScript resolved = res.Resolve(parsed);
 		
-		Binder bin = new Binder(resolved);
+		Binder bin = new Binder(resolved, removeUnusedFunctions);
 		bin.OnReport = report;
 		TableScript binded = bin.Bind();
-		if(binded == null){
-			return null;
-		}
 		
 		Optimizer opt = new Optimizer(binded);
 		TableScript runnable = opt.Optimize();
@@ -119,33 +110,30 @@ public class TableScript{
 	/// Generate from import. Will use a default StandardImportResolver
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import){
-		return FromImport(import, new StandardImportResolver(), defaultReport);
+	public static TableScript FromImport(ResolvedImport import, bool removeUnusedFunctions = true){
+		return FromImport(import, new StandardImportResolver(), defaultReport, removeUnusedFunctions);
 	}
 	
 	/// <summary>
 	/// Generate from import 
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, IImportResolver ir){
-		return FromImport(import, ir, defaultReport);
+	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, bool removeUnusedFunctions = true){
+		return FromImport(import, ir, defaultReport, removeUnusedFunctions);
 	}
 	
 	/// <summary>
 	/// Generate from import. 
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report){
+	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report, bool removeUnusedFunctions = true){
 		Resolver res = new Resolver(ir);
 		res.OnReport = report;
 		ResolvedScript resolved = res.Resolve(import);
 		
-		Binder bin = new Binder(resolved);
+		Binder bin = new Binder(resolved, removeUnusedFunctions);
 		bin.OnReport = report;
 		TableScript binded = bin.Bind();
-		if(binded == null){
-			return null;
-		}
 		
 		Optimizer opt = new Optimizer(binded);
 		TableScript runnable = opt.Optimize();
@@ -170,9 +158,6 @@ public class TableScript{
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;
 		TokenList tokenlist = lex.Scan();
-		if(tokenlist == null){
-			return null;
-		}
 		
 		Parser par = new Parser(tokenlist);
 		par.OnReport = report;

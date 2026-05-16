@@ -15,12 +15,15 @@ public static class StdLib{
 		(join, "Join all elements of a table with a seperator between them"),
 		(split, "Split all elements of a table by multiple separators"),
 		(splitLines, "Split all elements of a table by all common line endings"),
-		(replace, "Replace a set of substrings by their replacement"),
+		(contains, "Returns true if any element of a table contains a substring"),
+		(replace, "Replace a set of substrings by their replacements"),
 		(indexOf, "Find the index of an element"),
 		(upper, "Transform all elements to uppercase"),
 		(lower, "Transform all elements to lowercase"),
 		(trim, "Trim whitespace from all elements"),
-		(removeQuotes, "Remove surrounding double quotes (\") from all elements"),
+		(removeQuotes, "Trims and removes surrounding double quotes (\") from all elements"),
+		(startsWith, "True if a table fist elements are the passed ones"),
+		(endsWith, "True if a table last elements are the passed ones"),
 		(deleteAll, "Delete all matching elements from a table"),
 		(deleteAt, "Delete element at an index"),
 		(deleteEmpty, "Delete all 0-length elements from a table"),
@@ -104,7 +107,14 @@ public static class StdLib{
 	}
 	
 	/// <summary>
-	/// Replace a set of substrings by their replacement
+	/// Returns true if any element of a table contains a substring
+	/// </summary>
+	public static bool contains(Table self, string substring){
+		return self.contents.Any(s => s.Contains(substring));
+	}
+	
+	/// <summary>
+	/// Replace a set of substrings by their replacements
 	/// </summary>
 	public static Table replace(Table self, Table originals, Table replacements){
 		List<string> m = new(self.Length);
@@ -151,10 +161,24 @@ public static class StdLib{
 	}
 	
 	/// <summary>
-	/// Remove surrounding double quotes (") from all elements
+	/// Trims and removes surrounding double quotes (") from all elements
 	/// </summary>
 	public static Table removeQuotes(Table self){
 		return new Table(self.contents.Select(h => removeQ(h)).ToArray());
+	}
+	
+	/// <summary>
+	/// True if a table fist elements are the passed ones
+	/// </summary>
+	public static bool startsWith(Table self, Table elements){
+		return self.GetRange(new TabIndex(TabIndexMode.Number, 0), new TabIndex(TabIndexMode.Number, elements.Length)).EqualTo(elements);
+	}
+	
+	/// <summary>
+	/// True if a table last elements are the passed ones
+	/// </summary>
+	public static bool endsWith(Table self, Table elements){
+		return self.GetRange(new TabIndex(TabIndexMode.Number, -elements.Length), new TabIndex(TabIndexMode.Number, elements.Length)).EqualTo(elements);
 	}
 	
 	/// <summary>

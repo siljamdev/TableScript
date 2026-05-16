@@ -1,0 +1,105 @@
+import stdlib;
+
+function test_tableDeleteAt(){
+	tab a = ["a", "b", "c"];
+	a = a.stdlib::deleteAt(1);
+	
+	return a[1] == "c";
+}
+
+function test_tableDelete(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	a = a.stdlib::deleteAll("a");
+	
+	return a^ == "bdf";
+}
+
+function test_tableFind(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	tab b = a.stdlib::indexOf("a");
+	
+	return b == 0;
+}
+
+function test_tableFind2(){
+	tab a = ["n", "b", "c", "a", "a", "f"];
+	tab b = a.stdlib::indexOf("a");
+	
+	return b == 3;
+}
+
+function test_trim(){
+	tab a = ["  a ", " b", "c   "];
+	a = a.stdlib::trim();
+	
+	return a^ == "abc";
+}
+
+function test_deleteEmpty(){
+	tab a = ["n", "", "b", "c", "a", "a", "", "f"];
+	a = a.stdlib::deleteEmpty();
+	
+	return a.length == 6;
+}
+
+function test_date(){
+	return stdlib::getDate().length == 6;
+}
+
+function test_contains(){
+	tab a = ["this", "is not an error okay?"];
+	return a.stdlib::contains("error");
+}
+
+function test_contains2(){
+	tab a = ["this", "is not an err", "or okay?"];
+	return !a.stdlib::contains("error");
+}
+
+function test_startsWith(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	
+	return a.stdlib::startsWith(["a", "b"]);
+}
+
+function test_startsWith2(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	
+	return !a.stdlib::startsWith(["a", "b", "c"]);
+}
+
+function test_startsWith3(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	
+	return a.stdlib::startsWith([]);
+}
+
+function test_endsWith(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	
+	return a.stdlib::endsWith(["a", "f"]);
+}
+
+function test_endsWith2(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	
+	return !a.stdlib::endsWith(["a", "f", "c"]);
+}
+
+function test_endsWith3(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	
+	return a.stdlib::endsWith([]);
+}
+
+function test_endsWith4(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	
+	return !a.stdlib::endsWith(-2);
+}
+
+function test_endsWith5(){
+	tab a = 18;
+	
+	return !a.stdlib::endsWith(-2);
+}

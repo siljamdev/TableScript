@@ -22,6 +22,9 @@ public class StandardImportResolver : IImportResolver{
 			case "stdlist":
 				return StdList.AsImport;
 			
+			case "stdregex":
+				return StdRegex.AsImport;
+			
 			default:
 				OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Resolver, callingFilename, -1, "Unable to resolve import: '" + import + "'"));
 				return new ResolvedImport("standard import resolver error", null, null, null);
