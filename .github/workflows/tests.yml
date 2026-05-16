@@ -18,4 +18,4 @@ jobs:
     - name: Run tests
       run: |
         cd tests
-        dotnet run --project tests/tests.csproj
+        dotnet run --project tests.csproj
