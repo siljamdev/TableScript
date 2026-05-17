@@ -15,14 +15,14 @@ public static class StdLib{
 		(join, "Join all elements of a table with a seperator between them"),
 		(split, "Split all elements of a table by multiple separators"),
 		(splitLines, "Split all elements of a table by all common line endings"),
-		(contains, "Returns true if any element of a table contains a substring"),
+		(contains, "True if any element of a table contains a substring"),
 		(replace, "Replace a set of substrings by their replacements"),
 		(indexOf, "Find the index of an element"),
 		(upper, "Transform all elements to uppercase"),
 		(lower, "Transform all elements to lowercase"),
 		(trim, "Trim whitespace from all elements"),
 		(removeQuotes, "Trims and removes surrounding double quotes (\") from all elements"),
-		(startsWith, "True if a table fist elements are the passed ones"),
+		(startsWith, "True if a table first elements are the passed ones"),
 		(endsWith, "True if a table last elements are the passed ones"),
 		(deleteAll, "Delete all matching elements from a table"),
 		(deleteAt, "Delete element at an index"),
@@ -107,7 +107,7 @@ public static class StdLib{
 	}
 	
 	/// <summary>
-	/// Returns true if any element of a table contains a substring
+	/// True if any element of a table contains a substring
 	/// </summary>
 	public static bool contains(Table self, string substring){
 		return self.contents.Any(s => s.Contains(substring));
@@ -168,7 +168,7 @@ public static class StdLib{
 	}
 	
 	/// <summary>
-	/// True if a table fist elements are the passed ones
+	/// True if a table first elements are the passed ones
 	/// </summary>
 	public static bool startsWith(Table self, Table elements){
 		return self.GetRange(new TabIndex(TabIndexMode.Number, 0), new TabIndex(TabIndexMode.Number, elements.Length)).EqualTo(elements);
