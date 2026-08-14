@@ -109,13 +109,13 @@ record BuildLiteralExpr(Expr[] parts) : Expr{
 	}
 }
 
-record VariableExpr(string identifier) : Expr{
+record VariableExpr(string identifier, string import) : Expr{
 	public override string ToString(){
-		return identifier;
+		return (import != null ? (import + "::") : "") + identifier;
 	}
 	
 	public override string ToCompactString(){
-		return identifier;
+		return (import != null ? (import + "::") : "") + identifier;
 	}
 }
 
@@ -130,13 +130,13 @@ record OptCallExpr(int index, Expr[] args) : Expr{
 	}
 }
 
-record OptVariableExpr(int depth, int index) : Expr{
+record OptVariableExpr(int index) : Expr{
 	public override string ToString(){
-		return depth + "_" + index;
+		return "%_" + index;
 	}
 	
 	public override string ToCompactString(){
-		return depth + "_" + index;
+		return "%_" + index;
 	}
 }
 #endregion

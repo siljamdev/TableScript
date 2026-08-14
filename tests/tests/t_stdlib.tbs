@@ -1,5 +1,13 @@
 import stdlib;
 
+function test_modules(){
+	return repeat("A", 3) == "a" & stdlib::repeat("A", 3) == ["A", "A", "A"];
+}
+
+function repeat(self, times){
+	return "a";
+}
+
 function test_tableDeleteAt(){
 	tab a = ["a", "b", "c"];
 	a = a.stdlib::deleteAt(1);

@@ -7,12 +7,31 @@ class Optimizer{
 	TableScript p;
 	ResolvedImport rim;
 	
-	public Optimizer(TableScript s){
+	bool constFolding; //Simplify literals
+	bool constBranching; //Simplify statements
+	bool exprSimplifier; //Simplify expressions
+	bool deadCodeDel; //Delete everything after exit ir return
+	
+	public Optimizer(TableScript s, Optimizations opt){
 		p = s;
+		
+		opt &= ~Optimizations.DeadCodeElimination;
+		
+		constFolding = (opt & Optimizations.ConstantFolding) != 0;
+		constBranching = (opt & Optimizations.ConstantBranching) != 0;
+		exprSimplifier = (opt & Optimizations.ExpressionSimplification) != 0;
+		deadCodeDel = (opt & Optimizations.DeadCodeElimination) != 0;
 	}
 	
-	public Optimizer(ResolvedImport r){
+	public Optimizer(ResolvedImport r, Optimizations opt){
 		rim = r;
+		
+		opt &= ~Optimizations.DeadCodeElimination;
+		
+		constFolding = (opt & Optimizations.ConstantFolding) != 0;
+		constBranching = (opt & Optimizations.ConstantBranching) != 0;
+		exprSimplifier = (opt & Optimizations.ExpressionSimplification) != 0;
+		deadCodeDel = (opt & Optimizations.DeadCodeElimination) != 0;
 	}
 	
 	public TableScript Optimize(){
@@ -43,6 +62,15 @@ class Optimizer{
 			throw new TabScriptException(TabScriptErrorType.Optimizer, "", -1, "Incorrectly initialized: Import was expected");
 		}
 		
+		List<GlobalDeclStmt> globs = new(rim.globals.Length);
+		
+		foreach(GlobalDeclStmt v in rim.globals){
+			GlobalDeclStmt bf = Optimize(v);
+			if(bf != null){
+				globs.Add(bf);
+			}
+		}
+		
 		List<Stmt> top = new(rim.body.Length);
 		
 		foreach(Stmt v in rim.body){
@@ -58,7 +86,7 @@ class Optimizer{
 			fs.Add(Optimize(fun));
 		}
 		
-		return new ResolvedImport(rim.filename, rim.imports, top.ToArray(), fs.ToArray());
+		return new ResolvedImport(rim.filename, rim.imports, globs.ToArray(), top.ToArray(), fs.ToArray());
 	}
 	
 	Stmt Optimize(Stmt p){
@@ -73,36 +101,35 @@ class Optimizer{
 			case BlockStmt b:
 				return Optimize(b);
 			
-			case VarDeclStmt v2:
+			case TabDeclStmt v2:
 				x = Optimize(v2.val);
-				return new VarDeclStmt(v2.identifier, x, p.line);
+				return new TabDeclStmt(v2.identifier, x, p.line);
 			
-			case TabAssignStmt a2:
+			case GlobalDeclStmt gd:
+				return Optimize(gd);
+			
+			case VarAssignStmt a2:
 				x = Optimize(a2.val);
-				return new TabAssignStmt(a2.identifier, x, p.line);
+				return new VarAssignStmt(a2.identifier, a2.import, x, p.line);
 			
 			case ElementAssignStmt l2:
 				x = Optimize(l2.val);
 				IndexExpr idd2 = (IndexExpr) Optimize(l2.ind);
-				return new ElementAssignStmt(l2.identifier, idd2, x, p.line);
+				return new ElementAssignStmt(l2.identifier, l2.import, idd2, x, p.line);
 			
-			case OptVarDeclStmt v:
-				x = Optimize(v.val);
-				return new OptVarDeclStmt(v.depth, v.index, x, p.line);
-			
-			case OptTabAssignStmt a:
+			case OptVarAssignStmt a:
 				x = Optimize(a.val);
-				return new OptTabAssignStmt(a.depth, a.index, x, p.line);
+				return new OptVarAssignStmt(a.index, x, p.line);
 			
 			case OptElementAssignStmt l:
 				x = Optimize(l.val);
 				idd2 = (IndexExpr) Optimize(l.ind);
-				return new OptElementAssignStmt(l.depth, l.index, idd2, x, p.line);
+				return new OptElementAssignStmt(l.index, idd2, x, p.line);
 			
 			case IfStmt f:
 				x = Optimize(f.condition);
 				
-				if(x is LiteralExpr lit){
+				if(constBranching && x is LiteralExpr lit){
 					if(lit.val.Truthy){
 						return Optimize(f.then);
 					}else{
@@ -115,7 +142,7 @@ class Optimizer{
 			case WhileStmt w:
 				x = Optimize(w.condition);
 				
-				if(x is LiteralExpr lit2){
+				if(constBranching && x is LiteralExpr lit2){
 					if(!lit2.val.Truthy){
 						return Optimize(w.els);
 					}
@@ -129,12 +156,20 @@ class Optimizer{
 			case ForeachStmt t:
 				return new ForeachStmt(t.id, Optimize(t.pool), Optimize(t.body), Optimize(t.els), p.line);
 			
+			case OptForeachStmt ot:
+				return new OptForeachStmt(ot.index, Optimize(ot.pool), Optimize(ot.body), Optimize(ot.els), p.line);
+			
 			case ReturnStmt r:
 				return new ReturnStmt(Optimize(r.val), p.line);
 			
 			default:
 				return p;
 		}
+	}
+	
+	GlobalDeclStmt Optimize(GlobalDeclStmt g){
+		Expr x = Optimize(g.val);
+		return new GlobalDeclStmt(g.identifier, g.export, x, g.line);
 	}
 	
 	BlockStmt Optimize(BlockStmt b){
@@ -144,7 +179,7 @@ class Optimizer{
 			if(n != null){
 				ne.Add(n);
 				
-				if(n is ReturnStmt){
+				if(deadCodeDel && (n is ReturnStmt || n is ExitStmt)){
 					break;
 				}
 			}
@@ -178,7 +213,7 @@ class Optimizer{
 				Expr o1 = Optimize(b.left);
 				Expr o2 = Optimize(b.right);
 				
-				if(o1 is LiteralExpr lit1 && o2 is LiteralExpr lit2){
+				if(constFolding && o1 is LiteralExpr lit1 && o2 is LiteralExpr lit2){
 					switch(b.op){
 						case TokenType.Plus:
 							Table t3 = new Table(lit1.val);
@@ -219,18 +254,21 @@ class Optimizer{
 						
 						case TokenType.At:
 							return new LiteralExpr(Table.GetBool(lit2.val.Contains(lit1.val)));
+						
+						case TokenType.ExclamationAt:
+							return new LiteralExpr(Table.GetBool(!lit2.val.Contains(lit1.val)));
 					}
 					
 					return new BinaryExpr(o1, b.op, o2);
-				}else if(b.op == TokenType.And && o1 is UnaryExpr u1 && o2 is UnaryExpr u2 && u1.op == TokenType.Exclamation && u2.op == TokenType.Exclamation){ //Morgans law
+				}else if(exprSimplifier && b.op == TokenType.And && o1 is UnaryExpr u1 && o2 is UnaryExpr u2 && u1.op == TokenType.Exclamation && u2.op == TokenType.Exclamation){ //Morgans law
 					return new UnaryExpr(TokenType.Exclamation, new BinaryExpr(u1.right, TokenType.Or, u2.right));
-				}else if(b.op == TokenType.Or && o1 is UnaryExpr u3 && o2 is UnaryExpr u4 && u3.op == TokenType.Exclamation && u4.op == TokenType.Exclamation){ //Morgans law
+				}else if(exprSimplifier && b.op == TokenType.Or && o1 is UnaryExpr u3 && o2 is UnaryExpr u4 && u3.op == TokenType.Exclamation && u4.op == TokenType.Exclamation){ //Morgans law
 					return new UnaryExpr(TokenType.Exclamation, new BinaryExpr(u3.right, TokenType.And, u4.right));
-				}else if(b.op == TokenType.And && o1 is LiteralExpr lftx && !lftx.val.Truthy){
+				}else if(exprSimplifier && b.op == TokenType.And && o1 is LiteralExpr lftx && !lftx.val.Truthy){
 					return new LiteralExpr(Table.GetBool(false));
-				}else if(b.op == TokenType.Or && o1 is LiteralExpr lftx2 && lftx2.val.Truthy){
+				}else if(exprSimplifier && b.op == TokenType.Or && o1 is LiteralExpr lftx2 && lftx2.val.Truthy){
 					return new LiteralExpr(Table.GetBool(true));
-				}else if(b.op == TokenType.Greater || b.op == TokenType.GreaterEqual || b.op == TokenType.Less || b.op == TokenType.LessEqual){
+				}else if(exprSimplifier && b.op == TokenType.Greater || b.op == TokenType.GreaterEqual || b.op == TokenType.Less || b.op == TokenType.LessEqual){ //a.length > b.length -> a > b
 					if(o1 is GetElementExpr gex1 && gex1.ind.val == null && gex1.ind.ind.mode == TabIndexMode.Length){
 						o1 = gex1.left;
 					}
@@ -246,7 +284,7 @@ class Optimizer{
 			case UnaryExpr u:
 				o2 = Optimize(u.right);
 				
-				if(o2 is LiteralExpr lit2b){
+				if(constFolding && o2 is LiteralExpr lit2b){
 					switch(u.op){
 						case TokenType.Exclamation:
 							return new LiteralExpr(Table.GetBool(!lit2b.val.Truthy));
@@ -259,6 +297,30 @@ class Optimizer{
 					}
 					
 					return new UnaryExpr(u.op, o2);
+				}else if(exprSimplifier && u.op == TokenType.Exclamation && o2 is BinaryExpr bexx){ // !(a == b) -> a != b
+					switch(bexx.op){
+						case TokenType.DobEqual:
+							return new BinaryExpr(bexx.left, TokenType.ExclamationEqual, bexx.right);
+						
+						case TokenType.At:
+							return new BinaryExpr(bexx.left, TokenType.ExclamationAt, bexx.right);
+						
+						case TokenType.Greater:
+							return new BinaryExpr(bexx.left, TokenType.LessEqual, bexx.right);
+						
+						case TokenType.GreaterEqual:
+							return new BinaryExpr(bexx.left, TokenType.Less, bexx.right);
+						
+						case TokenType.Less:
+							return new BinaryExpr(bexx.left, TokenType.GreaterEqual, bexx.right);
+						
+						case TokenType.LessEqual:
+							return new BinaryExpr(bexx.left, TokenType.Greater, bexx.right);
+					}
+					
+					return new UnaryExpr(u.op, o2);
+				}else if(exprSimplifier && u.op == TokenType.Exclamation && o2 is UnaryExpr uuu1 && uuu1.op == TokenType.Exclamation && uuu1.right is UnaryExpr uuu2 && uuu2.op == TokenType.Exclamation){
+					return uuu2; // !!!a -> !a
 				}else{
 					return new UnaryExpr(u.op, o2);
 				}
@@ -268,7 +330,7 @@ class Optimizer{
 				Expr tru = Optimize(q.tr);
 				Expr fal = Optimize(q.fa);
 				
-				if(cond is LiteralExpr lit1k){
+				if(constFolding && cond is LiteralExpr lit1k){
 					if(lit1k.val.Truthy){
 						return tru;
 					}else{
@@ -281,9 +343,10 @@ class Optimizer{
 			case GetElementExpr e:
 				o1 = Optimize(e.left);
 				IndexExpr idd2 = (IndexExpr) Optimize(e.ind);
-				if(idd2.val == null && idd2.ind.mode != TabIndexMode.Random && o1 is LiteralExpr lit1b){
+				
+				if(constFolding && idd2.val == null && idd2.ind.mode != TabIndexMode.Random && o1 is LiteralExpr lit1b){ //literal[smth not random not expr] -> literal
 					return new LiteralExpr(lit1b.val.GetElem(idd2.ind));
-				}else if(idd2.val == null && idd2.ind.mode == TabIndexMode.Length && o1 is GetElementExpr innerE && innerE.ind.val == null && innerE.ind.ind.mode == TabIndexMode.Length){
+				}else if(exprSimplifier && idd2.val == null && idd2.ind.mode == TabIndexMode.Length && o1 is GetElementExpr innerE && innerE.ind.val == null && innerE.ind.ind.mode == TabIndexMode.Length){ //a.length.length -> a.length
 					return o1;
 				}else{
 					return new GetElementExpr(o1, idd2);
@@ -294,7 +357,7 @@ class Optimizer{
 				IndexExpr idd = (IndexExpr) Optimize(r.ind);
 				IndexExpr lld = (IndexExpr) Optimize(r.len);
 				
-				if(o1 is LiteralExpr lit1c){
+				if(constFolding && o1 is LiteralExpr lit1c){
 					
 					TabIndex? p1 = null;
 					TabIndex? p2 = null;
@@ -321,15 +384,16 @@ class Optimizer{
 				
 				Expr o3o2 = Optimize(indxx.val);
 				
-				if(o3o2 is LiteralExpr jum){
+				if(constFolding && o3o2 is LiteralExpr jum){
 					return new IndexExpr(new TabIndex(TabIndexMode.Number, jum.val.Length), null);
 				}
+				
 				return new IndexExpr(default, o3o2);
 			
 			case BuildLiteralExpr d:
 				Expr[] n = d.parts.Select(h => Optimize(h)).ToArray();
 				
-				if(n.All(h => h is LiteralExpr)){
+				if(constFolding && n.All(h => h is LiteralExpr)){
 					Table t = new Table();
 					
 					foreach(Expr xx in n){
@@ -347,10 +411,12 @@ class Optimizer{
 						}
 					}
 					
-					if(j.Count == 0){
-						return new LiteralExpr(new Table(0));
-					}else if(j.Count == 1){
-						return j[0];
+					if(exprSimplifier){
+						if(j.Count == 0){
+							return new LiteralExpr(new Table(0));
+						}else if(j.Count == 1){
+							return j[0];
+						}
 					}
 					
 					return new BuildLiteralExpr(j.ToArray());

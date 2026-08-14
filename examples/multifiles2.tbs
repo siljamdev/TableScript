@@ -2,9 +2,9 @@ import stdlib; //Nothing happens for duplicated imports
 import "multifiles1.tbs"; //Import the other file. Cyclic imports is not something to worry about
 import stdnum; //Only in this file
 
-tab a = "I have always been"; //Global variable
+global a = "I have always been"; //Global variable
 
-tab b = " ready to greet you"; //Global variable
+global b = " ready to greet you"; //Global variable
 
 print("Welcome!"); //This wont execute. Of the main body of imported scripts, only variable declarations are kept
 
@@ -31,11 +31,11 @@ export function greet4(){
 }
 
 export function greet5(){
-	return multifiles2_tbs::greet(); //Accesses local function with its import name
+	return multifiles2::greet(); //Accesses local function with its import name
 }
 
 export function greet6(){
-	return multifiles1_tbs::greet(); //Accesses the function in the other file specifying the import
+	return multifiles1::greet(); //Accesses the function in the other file specifying the import
 }
 
 export function bye(){

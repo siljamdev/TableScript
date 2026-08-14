@@ -1,7 +1,7 @@
 import stdlib;
 import stdnum;
 
-tab testCounter = 0;
+global testCounter = 0;
 
 doTest(substringTest());
 doTest(substringTest2());
@@ -24,6 +24,7 @@ doTest(blockTest());
 doTest(negativeLengthTest());
 doTest(concatTest());
 doTest(decompositionTest());
+print("Tests finished");
 
 function doTest(result){
 	testCounter += 1;

@@ -3,11 +3,9 @@ using System;
 namespace TabScript;
 
 class Interpreter{	
-	Stack<List<Table>> scopes = new();
-	
-	List<Table> currentScope => scopes.Peek();
-	
-	List<Table> globals;
+	List<Table> stack = new();
+	Stack<int> stackPointers = new();
+	int stackPointer => stackPointers.Peek();
 	
 	bool breakingLoop;
 	bool continuingLoop;
@@ -23,20 +21,15 @@ class Interpreter{
 	
 	internal bool interpreted = false;
 	
-	public Interpreter(TableScript t){
-		globals = new List<Table>();
-		globals.Add(new Table()); //args
-		
+	public Interpreter(TableScript t){		
 		functions = t.functions;
 		mainBody = t.body.body;
 		currentFilename = t.body.filename;
 	}
 	
 	public void Interpret(Table args){
-		scopes.Clear();
-		scopes.Push(globals);
-		
-		globals[0] = args.Clone();
+		stackPointers.Push(0);
+		assignStack(0, args.Clone()); //args ALWAYS 0
 		
 		foreach(Stmt s in mainBody){
 			Interpret(s);
@@ -67,6 +60,44 @@ class Interpreter{
 		return callFunc(new OptCallExpr(fxIndex, functionArgs.Select(a => new LiteralExpr(a)).ToArray()));
 	}
 	
+	Table getStack(int index){
+		if(index < 0 || index >= stack.Count){
+			return null;
+		}
+		
+		return stack[index];
+	}
+	
+	Table acessStack(int index){
+		if(index < 0){
+			return getStack(-index - 1);
+		}
+		
+		return getStack(stackPointer + index);
+	}
+	
+	void setStack(int index, Table t){
+		if(index == stack.Count){
+			stack.Add(t);
+			return;
+		}
+		
+		if(index < 0 || index >= stack.Count){
+			return;
+		}
+		
+		stack[index] = t;
+	}
+	
+	void assignStack(int index, Table t){
+		if(index < 0){
+			setStack(-index - 1, t);
+			return;
+		}
+		
+		setStack(stackPointer + index, t);
+	}
+	
 	void Interpret(Stmt s){
 		switch(s){
 			case ExprStmt e:
@@ -75,29 +106,20 @@ class Interpreter{
 			break;
 			
 			case BlockStmt b:
-				scopes.Push(new List<Table>());
-				
 				foreach(Stmt g in b.inner){
 					if(breakingLoop || continuingLoop || returnVal != null || exiting){
-						scopes.Pop();
 						return;
 					}
 					Interpret(g);
 				}
-				
-				scopes.Pop();
 			break;
 			
-			case OptVarDeclStmt v:
-				currentScope.Add(eval(v.val).Clone());
-			break;
-			
-			case OptTabAssignStmt a:
-				scopes.ElementAt(a.depth)[a.index] = eval(a.val).Clone();
+			case OptVarAssignStmt a:
+				assignStack(a.index, eval(a.val).Clone());
 			break;
 			
 			case OptElementAssignStmt l:
-				scopes.ElementAt(l.depth)[l.index].SetElem(evalIndex(l.ind), eval(l.val));
+				acessStack(l.index).SetElem(evalIndex(l.ind), eval(l.val));
 			break;
 			
 			case IfStmt f:
@@ -154,15 +176,13 @@ class Interpreter{
 				}
 			break;
 			
-			case ForeachStmt ft:
+			case OptForeachStmt ft:
 				Table pool = eval(ft.pool);
 				
-				scopes.Push(new List<Table>());
-				currentScope.Add(new Table(0)); //Iteration variable
+				int iterVarIndex = ft.index;
 				
 				for(int i = 0; i < pool.Length; i++){
-					currentScope.Clear();
-					currentScope.Add(new Table(pool[i]));
+					assignStack(iterVarIndex, new Table(pool[i]));
 					
 					foreach(Stmt g in ft.body.inner){
 						if(breakingLoop || continuingLoop || returnVal != null || exiting){
@@ -172,13 +192,11 @@ class Interpreter{
 					}
 					
 					if(returnVal != null || exiting){
-						scopes.Pop();
 						return;
 					}
 					
 					if(breakingLoop){
 						breakingLoop = false;
-						scopes.Pop();
 						return;
 					}
 					
@@ -186,8 +204,6 @@ class Interpreter{
 						continuingLoop = false;
 					}
 				}
-				
-				scopes.Pop();
 				
 				if(ft.els != null){
 					Interpret(ft.els);
@@ -225,16 +241,15 @@ class Interpreter{
 		
 		Table[] args = x.args.Select(h => eval(h).Clone()).ToArray();
 		
-		if(fun is TabNativeFunc funs){
-			Stack<List<Table>> temp = scopes;
-			scopes = new Stack<List<Table>>();
-			scopes.Push(globals);
-			scopes.Push(new List<Table>());
-			
+		if(fun is TabNativeFunc funs){			
 			string tempCF = currentFilename;
 			currentFilename = fun.filename;
 			
-			currentScope.AddRange(args);
+			stackPointers.Push(stack.Count);
+			
+			for(int i = 0; i < args.Length; i++){
+				assignStack(i, args[i]);
+			}
 			
 			foreach(Stmt g in funs.body.inner){
 				Interpret(g);
@@ -246,7 +261,8 @@ class Interpreter{
 			
 			currentFilename = tempCF;
 			
-			scopes = temp;
+			stack.RemoveRange(stackPointer, stack.Count - stackPointer);
+			stackPointers.Pop();
 			
 			Table retVal = returnVal ?? new Table(0);
 			returnVal = null;
@@ -279,7 +295,7 @@ class Interpreter{
 				return l.val;
 			
 			case OptVariableExpr v:
-				return scopes.ElementAt(v.depth)[v.index];
+				return acessStack(v.index);
 			
 			case GetElementExpr e:
 				return eval(e.left).GetElem(evalIndex(e.ind));
@@ -416,9 +432,31 @@ class Interpreter{
 				
 				return Table.GetBool(tb.Contains(ta));
 			
+			case TokenType.ExclamationAt:
+				ta = eval(b.left);
+				tb = eval(b.right);
+				
+				return Table.GetBool(!tb.Contains(ta));
+			
 			default:
 				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Invalid binary operator: " + Token.GetAsString(b.op));
 				return null;
+		}
+	}
+	
+	void printStack(){
+		Console.WriteLine("\n");
+		for(int i = 0; i < stack.Count; i++){
+			if(i == stackPointer){
+				Console.Write("SP  ");
+			}else{
+				Console.Write("    ");
+			}
+			Console.WriteLine(i + ": " + stack[i]);
+		}
+		
+		if(stackPointer == stack.Count){
+			Console.WriteLine("SP");
 		}
 	}
 }

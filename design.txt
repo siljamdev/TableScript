@@ -9,9 +9,11 @@ a[0] //Single elem
 
 ========GRAMMAR========
 
-program => import* statement* funcDeclaration* "EOF"
+program => import* global* statement* funcDeclaration* "EOF"
 
 import => "import" (IDENTIFIER | STRING) ";"
+
+global => "export"? "global" IDENTIFIER ("=" expression)? ";"
 
 funcDeclaration => "export"? "function" IDENTIFIER "(" (IDENTIFIER ("," IDENTIFIER)*)? ")" block
 
@@ -49,7 +51,7 @@ exprStatement => expression ";"
 
 expression => ternary
 
-ternary => or ("?" expression ":" ternary)?
+ternary => or ("?" ternary ":" ternary)?
 
 or => and ("|" and)*
 

@@ -8,7 +8,7 @@ public interface IImportResolver{
 	public ResolvedImport Resolve(string import, string callingFilename);
 }
 
-public class StandardImportResolver : IImportResolver{	
+public class StandardImportResolver : IImportResolver{
 	public Action<TabScriptException> OnReport {get; set;}
 	
 	public virtual ResolvedImport Resolve(string import, string callingFilename){

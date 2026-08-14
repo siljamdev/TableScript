@@ -27,6 +27,7 @@ record Token(TokenType type, string lex, string obj, int num, int line){
 			TokenType.Caret     => "^",
 			TokenType.Percentage     => "%",
 			TokenType.At     => "@",
+			TokenType.ExclamationAt     => "!@",
 			TokenType.Dot      => ".",
 			TokenType.Comma    => ",",
 			TokenType.And      => "&",
@@ -54,7 +55,11 @@ record Token(TokenType type, string lex, string obj, int num, int line){
 	}
 }
 
-record TokenList(string filename, Token[] tokens);
+record TokenList(string filename, Token[] tokens){
+	public override string ToString(){
+		return string.Join(", ", tokens.Select(t => t.ToString()));
+	}
+}
 
 enum TokenType{
 	LeftPar, RightPar,
@@ -64,7 +69,7 @@ enum TokenType{
 	Plus, Minus,
 	Star,
 	Caret, Percentage,
-	At,
+	At, ExclamationAt,
 	Dot, Comma,
 	And, Or,
 	
@@ -100,7 +105,7 @@ enum TokenType{
 	Exit,
 	While, Do, Foreach,
 	Random, Length,
-	Tab,
+	Tab, Global,
 	
 	Import,
 	

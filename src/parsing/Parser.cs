@@ -23,7 +23,9 @@ class Parser{
 	}
 	
 	public ResolvedImport Parse(){
-		string[] im = imports();
+		ImportStmt[] im = imports();
+		
+		GlobalDeclStmt[] glob = globals();
 		
 		Stmt[] top = topLevel();
 		
@@ -32,12 +34,12 @@ class Parser{
 		if(hadError){
 			throw new TabScriptException(TabScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue");
 		}else{
-			return new ResolvedImport(filename, im, top, funcs);
+			return new ResolvedImport(filename, im, glob, top, funcs);
 		}
 	}
 	
-	string[] imports(){
-		List<string> im = new();
+	ImportStmt[] imports(){
+		List<ImportStmt> im = new();
 		
 		while(match(TokenType.Import)){
 			im.Add(import());
@@ -46,19 +48,55 @@ class Parser{
 		return im.ToArray();
 	}
 	
-	string import(){
-		string impor = "";
+	ImportStmt import(){
+		ImportStmt impor = null;
 		if(match(TokenType.Identifier)){
-			impor = prev.lex;
+			impor = new ImportStmt(prev.lex, prev.line);
 		}else if(match(TokenType.String)){
-			impor = prev.obj;
+			impor = new ImportStmt(prev.obj, prev.line);
 		}else{
-			error("Expected identifier or string after import keyword", curr);
+			error("Expected identifier or string after 'import' keyword", curr);
 		}
 		
 		consume(TokenType.Semicolon, "Expected ';' after import statement");
 		
 		return impor; 
+	}
+	
+	GlobalDeclStmt[] globals(){
+		List<GlobalDeclStmt> g = new();
+		
+		while(!atEnd && match(TokenType.Global) || match(TokenType.Export)){
+			if(prev.type == TokenType.Export){
+				if(check(TokenType.Function)){
+					current--;
+					break;
+				}
+				
+				consume(TokenType.Global, "Expected 'global' keyword after 'export' keyword");
+				g.Add(globalDecl(true));
+			}else{
+				g.Add(globalDecl());
+			}
+		}
+		
+		return g.ToArray();
+	}
+	
+	GlobalDeclStmt globalDecl(bool export = false){
+		Token id = consume(TokenType.Identifier, "Expected variable name after 'global' keyword");
+		
+		Expr val;
+		
+		if(match(TokenType.Equal)){
+			val = expression();
+		}else{
+			val = new LiteralExpr(new Table());
+		}
+		
+		consume(TokenType.Semicolon, "Expected ';' after variable declaration");
+		
+		return new GlobalDeclStmt(id.lex, export, val, id.line);
 	}
 	
 	FunctionStmt[] funcDefinitions(){
@@ -138,6 +176,12 @@ class Parser{
 				BlockStmt b = block();
 				consume(TokenType.Semicolon, "Expected ';' after exit statement");
 				return b;
+			}else if(check(TokenType.Import)){
+				error("import statements must be at the top of the file", curr);
+				return null;
+			}else if(check(TokenType.Global)){
+				error("global variable declaration statements must be at the top of the file, after import statements", curr);
+				return null;
 			}else{
 				return assignment();
 			}
@@ -149,11 +193,7 @@ class Parser{
 	}
 	
 	Stmt varDecl(){
-		Token id = consume(TokenType.Identifier, "Expected variable name after keyword 'tab'");
-		
-		if(id.lex.Contains(":")){
-			error("':' is not allowed in variable identifiers: " + id.lex, id);
-		}
+		Token id = consume(TokenType.Identifier, "Expected variable name after 'tab' keyword");
 		
 		Expr val;
 		
@@ -165,7 +205,7 @@ class Parser{
 		
 		consume(TokenType.Semicolon, "Expected ';' after variable declaration");
 		
-		return new VarDeclStmt(id.lex, val, id.line);
+		return new TabDeclStmt(id.lex, val, id.line);
 	}
 	
 	Stmt assignment(){
@@ -186,7 +226,7 @@ class Parser{
 					val = new BinaryExpr(e, TokenType.Star, val);
 				}
 				
-				return new TabAssignStmt(v.identifier, val, assig.line);
+				return new VarAssignStmt(v.identifier, v.import, val, assig.line);
 			}else if(e is GetElementExpr g && g.left is VariableExpr vv){
 				if(g.ind.val == null && g.ind.ind.mode == TabIndexMode.Length){
 					error("Cannot assign to the length of a table", assig);
@@ -215,7 +255,7 @@ class Parser{
 					val = new BinaryExpr(e, TokenType.Plus, val);
 				}
 				
-				return new ElementAssignStmt(vv.identifier, g.ind, val, assig.line);
+				return new ElementAssignStmt(vv.identifier, vv.import, g.ind, val, assig.line);
 			}else{
 				error("Only variables or variable elements are valid as assignment targets", assig);
 				return null;
@@ -335,7 +375,7 @@ class Parser{
 		Expr exp = or();
 		
 		if(match(TokenType.QuestionMark)){
-			Expr t = expression();
+			Expr t = ternary();
 			consume(TokenType.Colon, "Expected ':' in ternary operator");
 			Expr f = ternary();
 			exp = new TernaryExpr(exp, t, f);
@@ -393,7 +433,7 @@ class Parser{
 	Expr membership(){
 		Expr exp = addition();
 		
-		while(match(TokenType.At)){
+		while(match(TokenType.At) || match(TokenType.ExclamationAt)){
 			TokenType op = prev.type;
 			Expr r = addition();
 			exp = new BinaryExpr(exp, op, r);
@@ -530,12 +570,20 @@ class Parser{
 			
 			return m;
 		}else if(match(TokenType.Identifier)){
+			Token fid = prev;
+			
 			if(check(TokenType.LeftPar)){
 				return funcCall();
-			}else if(check(TokenType.DobColon)){
-				return funcCall();
+			}else if(match(TokenType.DobColon)){
+				Token sid = consume(TokenType.Identifier, "Expected variable or function identifier after '::'");
+				
+				if(check(TokenType.LeftPar)){
+					return funcCall(fid.lex);
+				}else{
+					return new VariableExpr(sid.lex, fid.lex);
+				}
 			}else{
-				return new VariableExpr(prev.lex);
+				return new VariableExpr(fid.lex, null);
 			}
 		}
 		
@@ -544,14 +592,8 @@ class Parser{
 		return null;
 	}
 	
-	Expr funcCall(){
+	Expr funcCall(string imp = null){
 		string id = prev.lex;
-		string imp = null;
-		
-		if(match(TokenType.DobColon)){
-			imp = id;
-			id = consume(TokenType.Identifier, "Expected function identifier after '::'").lex;
-		}
 		
 		consume(TokenType.LeftPar, "Expected opening '(' for function arguments");
 		
@@ -664,6 +706,7 @@ class Parser{
 				case TokenType.Function:
 				case TokenType.Export:
 				case TokenType.Tab:
+				case TokenType.Global:
 				return;
 			}
 			

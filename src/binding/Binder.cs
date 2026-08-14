@@ -2,13 +2,14 @@ using System;
 
 namespace TabScript;
 
-//Purpose of this class: transforming variables into indices, functions into indices, and cutting unused functions
+//Purpose of this class: transforming variables into unique ids, functions into indices, and cutting unused functions, and producing variable lifetime data
 class Binder{
 	public Action<TabScriptException> OnReport;
 	public bool hadError{get; private set;}
 	
-	Scope glob = new Scope(null);
-	Scope currScope;
+	Allocator alloc = new Allocator();
+	IScope globalScope;
+	IScope currScope;
 	
 	string currentImport;
 	string currentFilename;
@@ -16,8 +17,6 @@ class Binder{
 	//break, continue, return illegal usage outside of loop
 	bool checkingLoop;
 	bool checkingFunction;
-	
-	Stack<TabFunc> funcsBeingChecked = new();
 	
 	Snippet main; //Main code
 	Snippet[] bodies; //Secondary code
@@ -28,19 +27,25 @@ class Binder{
 	//Functions currently available
 	TabFunc[] funcs;
 	
-	Dictionary<string, string[]> symbols;
+	Dictionary<string, Dictionary<string, string>> symbols; //Available imports and what they are called
 	
 	//Functions that are used and are therefore kept
 	List<TabFunc> funcsFinal = new();
 	
 	bool removeUnusedFunctions;
 	
-	public Binder(ResolvedScript resolved, bool ruf){
+	Optimizations opt;
+	
+	int programCounter = 0;
+	
+	public Binder(ResolvedScript resolved, Optimizations opt){
 		main = resolved.mainBody;
 		bodies = resolved.bodies;
 		allFuncs = resolved.allFunctions;
 		symbols = resolved.availableImports;
-		removeUnusedFunctions = ruf;
+		this.opt = opt;
+		
+		removeUnusedFunctions = (opt & Optimizations.DeadFunctionElimination) != 0;
 	}
 	
 	void updateImport(string import){
@@ -48,20 +53,25 @@ class Binder{
 			return;
 		}
 		currentImport = import;
-		funcs = allFuncs.Where(f => (f.import == currentImport) || (f.export && symbols[currentImport].Contains(f.import))).ToArray();
+		funcs = allFuncs.Where(f =>
+			(f.import == currentImport) || //Current import
+			(f.export && symbols[currentImport].Values.Contains(f.import)) //Acessibel import
+		).ToArray();
 	}
 	
-	public TableScript Bind(){
+	public BindedScript Bind(){
 		List<Stmt> body = new(main.body.Length);
 		
-		currScope = glob;
-		currScope.define(main.filename, 0, main.import + "::args"); //args variable
+		globalScope = new GlobalScope(alloc);
+		globalScope.define(main.filename, 0, main.import, "args", false, programCounter); //args variable, defined here so it has index 0
+		
+		programCounter++;
 		
 		//Secondary bodies
 		foreach(Snippet sec in bodies){
 			currentFilename = sec.filename;
 			updateImport(sec.import);
-			currScope = glob;
+			currScope = new Scope(globalScope, alloc, currentImport);
 			
 			for(int i = 0; i < sec.body.Length; i++){
 				try{
@@ -74,11 +84,13 @@ class Binder{
 					OnReport?.Invoke(e);
 				}
 			}
+			
+			currScope.endOfLife();
 		}
 		
 		currentFilename = main.filename;
 		updateImport(main.import);
-		currScope = glob;
+		currScope = new Scope(globalScope, alloc, main.import);
 		
 		for(int i = 0; i < main.body.Length; i++){
 			try{
@@ -92,17 +104,20 @@ class Binder{
 			}
 		}
 		
+		currScope.endOfLife();
+		
 		//Prevent unused functions from adding new functions to funcsFinal
 		TabFunc[] funcsFinalCopy = funcsFinal.ToArray();
 		
 		//Not continue with errors in unused functions // keep everything if configured
 		for(int i = 0; i < allFuncs.Length; i++){
-			if(funcsFinal.Any(f => allFuncs[i].SameSignature(f))){
+			if(funcsFinal.Contains(allFuncs[i])){
 				continue;
 			}
 			
 			try{
-				funcsFinal.Add(Bind(allFuncs[i]));
+				funcsFinal.Add(allFuncs[i]);
+				Bind(allFuncs[i], funcsFinal.Count - 1);
 			}catch(TabScriptException e){
 				hadError = true;
 				OnReport?.Invoke(e);
@@ -116,46 +131,56 @@ class Binder{
 		if(hadError){			
 			throw new TabScriptException(TabScriptErrorType.Binder, main.filename, -1, "Errors present: Unable to continue");
 		}else{
-			return new TableScript(new Snippet(main.filename, main.import, body.ToArray()), funcsFinalCopy);
+			return new BindedScript(new Snippet(main.filename, main.import, body.ToArray()), funcsFinalCopy, alloc);
 		}
 	}
 	
 	Stmt Bind(Stmt p){
+		programCounter++;
+		
 		switch(p){
 			//Changes
-			case VarDeclStmt k:				
-				Expr v = Bind(k.val, p.line);
+			case TabDeclStmt k:				
+				Expr v = Bind(k.val, p.line); //First function so you cant do tab a = a;
 				
-				(int d, int i) = currScope.define(currentFilename, p.line, currentImport + "::" + k.identifier);
+				int index = currScope.define(currentFilename, p.line, currentImport, k.identifier, false, programCounter);
 				
-				return new OptVarDeclStmt(d, i, v, p.line);
+				return new OptVarAssignStmt(index, v, p.line);
 			
 			//Changes
-			case TabAssignStmt a:
+			case GlobalDeclStmt k2:				
+				v = Bind(k2.val, p.line);
+				
+				index = globalScope.define(currentFilename, p.line, currentImport, k2.identifier, k2.export, programCounter);
+				
+				return new OptVarAssignStmt(index, v, p.line);
+			
+			//Changes
+			case VarAssignStmt a:
 				v = Bind(a.val, p.line);
 				
-				(d, i) = currScope.assign(currentFilename, p.line, currentImport + "::" + a.identifier);
+				index = currScope.assign(currentFilename, p.line, currentImport, a.identifier, a.import, programCounter);
 				
-				return new OptTabAssignStmt(d, i, v, p.line);
+				return new OptVarAssignStmt(index, v, p.line);
 			
 			//Changes
 			case ElementAssignStmt l:
 				v = Bind(l.val, p.line);
 				
-				(d, i) = currScope.assign(currentFilename, p.line, currentImport + "::" + l.identifier);
+				index = currScope.assign(currentFilename, p.line, currentImport, l.identifier, l.import, programCounter);
 				IndexExpr idd2 = (IndexExpr) Bind(l.ind, p.line);
 				
-				return new OptElementAssignStmt(d, i, idd2, v, p.line);
+				return new OptElementAssignStmt(index, idd2, v, p.line);
 			
 			case ExprStmt e:
 				return new ExprStmt(Bind(e.exp, p.line), p.line);
 			
 			case BlockStmt b:
-				currScope = new Scope(currScope);
+				currScope = new Scope(currScope, alloc, currentImport);
 				
 				Stmt[] ne = b.inner.Select(h => Bind(h)).ToArray();
 				
-				currScope = currScope.parent;
+				currScope = currScope.endOfLife();
 				
 				return new BlockStmt(ne, p.line);
 			
@@ -179,20 +204,20 @@ class Binder{
 				
 				prev = checkingLoop;
 				checkingLoop = true;
-				currScope = new Scope(currScope);
+				currScope = new Scope(currScope, alloc, currentImport);
 				
-				currScope.define(currentFilename, p.line, currentImport + "::" + t.id);
+				int uid = currScope.define(currentFilename, p.line, currentImport, t.id, false, programCounter);
 				
 				ne = t.body.inner.Select(h => Bind(h)).ToArray();
 				
-				currScope = currScope.parent;
+				currScope = currScope.endOfLife();
 				checkingLoop = prev;
 				
 				BlockStmt body = new BlockStmt(ne, t.body.line);
 				
 				els = Bind(t.els);
 				
-				return new ForeachStmt(t.id, pool, body, els, p.line);
+				return new OptForeachStmt(uid, pool, body, els, p.line);
 			
 			case DoStmt du:
 				cond = Bind(du.condition, p.line);
@@ -229,31 +254,31 @@ class Binder{
 		}
 	}
 	
-	TabFunc Bind(TabFunc p){
+	//Modifies it
+	void Bind(TabFunc p, int index){
 		switch(p){
 			case TabNativeFunc f:
 				if(f.pars.Length != f.pars.Distinct().Count()){
 					throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Function parameters must not repeat names");
 				}
 				
-				if(allFuncs.Any(h => !ReferenceEquals(h, f) && f.SameSignature(h))){
+				if(allFuncs.Any(h => !ReferenceEquals(h, f) && f.SameSignature(h))){ //Avoid same.signature functions
 					throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Functions must have different signatures: '" + f.import + "::" + f.identifier + "'");
 				}
 				
-				Scope tempScope = currScope;
-				currScope = new Scope(glob);
+				IScope tempScope = currScope;
+				currScope = new FunctionScope(globalScope, alloc, f.import, index);
 				
 				bool checkingFunctionTemp = checkingFunction;
 				checkingFunction = true;
-				funcsBeingChecked.Push(f);
 				
 				string temp2 = currentFilename;
 				string temp3 = currentImport;
 				currentFilename = p.filename;
 				updateImport(f.import);
 				
-				foreach(string p222 in f.pars){ //define parameters
-					currScope.define(currentFilename, f.line, currentImport + "::" + p222);
+				foreach(string param in f.pars){ //define parameters
+					currScope.define(currentFilename, f.line, currentImport, param, false, programCounter);
 				}
 				Stmt[] ne = f.body.inner.Select(h => Bind(h)).ToArray();
 				
@@ -261,11 +286,12 @@ class Binder{
 				updateImport(temp3);
 				
 				checkingFunction = checkingFunctionTemp;
-				funcsBeingChecked.Pop();
 				
+				currScope.endOfLife();
 				currScope = tempScope;
 				
-				return new TabNativeFunc(f.import, f.identifier, f.pars, f.self, f.export, new BlockStmt(ne, f.body.line), p.filename, p.line);
+				f.body = new BlockStmt(ne, f.body.line);
+				break;
 			
 			case TabExternFunc x:
 				if(x.pars.Length != x.pars.Distinct().Count()){
@@ -276,10 +302,7 @@ class Binder{
 					throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Function must have different signatures: " + x.import + "::" + x.identifier);
 				}
 				
-				return p;
-			
-			default:
-				return p;
+				break;
 		}
 	}
 	
@@ -287,9 +310,9 @@ class Binder{
 		switch(p){
 			//Changes
 			case CallExpr c:
-				string cimport = c.import == "local" ? currentImport : c.import;
+				string cimport = getRealImport(c.import); //Replace local and import as (symbols)
 				
-				TabFunc fx = null;
+				TabFunc fx = null; //First, search it in currently available functions. Then, search it in bound functions
 				if(cimport == null){ //Try match local first
 					fx = Array.Find(funcs, f => f.Matches(currentImport, c.identifier, c.arity));
 				}
@@ -306,14 +329,11 @@ class Binder{
 				}
 				
 				//get its index in finals
-				int fxind = funcsFinal.FindIndex(f => fx.SameSignature(f));
+				int fxind = funcsFinal.IndexOf(fx);
 				if(fxind < 0){ //Not found in finals
-					if(!funcsBeingChecked.Any(f => ReferenceEquals(f, fx))){ //Prevent infinite loops
-						funcsFinal.Add(Bind(fx)); //Add it
-						fxind = funcsFinal.Count - 1;
-					}else{
-						fxind = funcsFinal.Count + funcsBeingChecked.ToList().FindIndex(f => ReferenceEquals(f, fx));
-					}
+					fxind = funcsFinal.Count;
+					funcsFinal.Add(fx);
+					Bind(fx, fxind);
 				}
 				
 				//Bind arguments
@@ -323,8 +343,8 @@ class Binder{
 			
 			//Changes
 			case VariableExpr v:
-				(int d2, int i) = currScope.get(currentFilename, line, currentImport + "::" + v.identifier);
-				return new OptVariableExpr(d2, i);
+				int index = currScope.get(currentFilename, line, currentImport, v.identifier, v.import, programCounter);
+				return new OptVariableExpr(index);
 			
 			case BinaryExpr b:
 				Expr o1 = Bind(b.left, line);
@@ -364,4 +384,15 @@ class Binder{
 				return p;
 		}
 	}
+	
+	string getRealImport(string i){
+		return i == "local" ? currentImport : i == null ? null : symbols[currentImport].TryGetValue(i, out string a) ? a : i;
+	}
 }
+
+record BindedScript(Snippet body, TabFunc[] functions, Allocator allocator){
+	public override string ToString(){
+		return body.ToString() +
+			"\n" + string.Join("\n", functions.Select(f => f.ToString()));
+	}
+} 

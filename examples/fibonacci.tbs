@@ -1,0 +1,19 @@
+// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
+
+//Importing the standard library for print and other functions
+import stdlib;
+import stdnum;
+
+foreach num @ stdnum::range("0", "10", "1"){
+	print(num + ": " + fibonacci(num.toLen()).toNum());
+}
+
+function fibonacci(n){
+    if n <= 1{
+        return n;
+    }
+	
+	//Recursion
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}

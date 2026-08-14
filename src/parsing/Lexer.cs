@@ -18,6 +18,7 @@ class Lexer{
 		{"random", TokenType.Random},
 		{"length", TokenType.Length},
 		{"tab", TokenType.Tab},
+		{"global", TokenType.Global},
 		{"import", TokenType.Import},
 		{"export", TokenType.Export}
 	};
@@ -148,7 +149,7 @@ class Lexer{
 			break;
 			
 			case '!':
-				tokens.Add(create(match('=') ? TokenType.ExclamationEqual : TokenType.Exclamation));
+				tokens.Add(create(match('=') ? TokenType.ExclamationEqual : match('@') ? TokenType.ExclamationAt : TokenType.Exclamation));
 			break;
 			
 			case '=':

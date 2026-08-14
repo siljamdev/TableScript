@@ -1,0 +1,6 @@
+import stdlib;
+import "fil.tbs";
+
+global loc = "b";
+
+export global b = loc;

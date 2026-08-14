@@ -1,18 +1,25 @@
 using System;
 using TabScript;
 
-class Tests{
+namespace TabScript.Tests;
+
+public class Tests{
 	static int passed = 0;
 	static int failed = 0;
 	
 	static int testNum = 0;
 	
 	public static int Main(){
+		Console.WriteLine("Running in-language tests");
 		bool fileError = false;
 		foreach(string file in Directory.GetFiles("tests", "*.tbs")){
 			TableScript f;
 			try{
-				f = TableScript.FromSource(file, File.ReadAllText(file), false);
+				ResolvedImport resolved = TableScript.SourceAsImport(file, File.ReadAllText(file)); //Test compact string as well
+				
+				//Console.WriteLine(resolved.ToCompactString());
+				
+				f = TableScript.FromSource(file, resolved.ToCompactString(), Optimizations.ExternalCall);
 				f.Run(); //Needed to use CallFunction
 			}catch(Exception e){
 				Console.Error.WriteLine("\nFailed to compile '" + file + "'");
@@ -40,7 +47,7 @@ class Tests{
 	}
 	
 	static void testScript(TableScript s){
-		Console.WriteLine("\nRunning tests of '" + s.body.filename + "'");
+		Console.WriteLine("\nRunning tests of '" + s.filename + "'");
 		
 		foreach(TabFunc f in s.functions){
 			if(f.identifier.StartsWith("test_")){

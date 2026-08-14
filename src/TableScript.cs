@@ -3,8 +3,10 @@ using System;
 namespace TabScript;
 
 public class TableScript{
-	public Snippet body {get; private set;}
-	public TabFunc[] functions {get; private set;}
+	internal Snippet body;
+	public TabFunc[] functions {get; private init;}
+	
+	public string filename => body?.filename;
 	
 	public Action<TabScriptException> OnReport;
 	
@@ -66,42 +68,26 @@ public class TableScript{
 	/// Generate from source. Will use a default StandardImportResolver
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, bool removeUnusedFunctions = true){
-		return FromSource(filename, src, new StandardImportResolver(), defaultReport, removeUnusedFunctions);
+	public static TableScript FromSource(string filename, string src, Optimizations optimizations = Optimizations.Normal){
+		return FromSource(filename, src, new StandardImportResolver(), defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from source
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, IImportResolver ir, bool removeUnusedFunctions = true){
-		return FromSource(filename, src, ir, defaultReport, removeUnusedFunctions);
+	public static TableScript FromSource(string filename, string src, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
+		return FromSource(filename, src, ir, defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from source
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report, bool removeUnusedFunctions = true){
-		Lexer lex = new Lexer(filename, src);
-		lex.OnReport = report;
-		TokenList tokenlist = lex.Scan();
+	public static TableScript FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
+		ResolvedImport parsed = SourceAsImport(filename, src, report, optimizations);
 		
-		Parser par = new Parser(tokenlist);
-		par.OnReport = report;
-		ResolvedImport parsed = par.Parse();
-		
-		Resolver res = new Resolver(ir);
-		res.OnReport = report;
-		ResolvedScript resolved = res.Resolve(parsed);
-		
-		Binder bin = new Binder(resolved, removeUnusedFunctions);
-		bin.OnReport = report;
-		TableScript binded = bin.Bind();
-		
-		Optimizer opt = new Optimizer(binded);
-		TableScript runnable = opt.Optimize();
-		runnable.OnReport = report;
+		TableScript runnable = FromImport(parsed, ir, report, optimizations);
 		
 		return runnable;
 	}
@@ -110,32 +96,35 @@ public class TableScript{
 	/// Generate from import. Will use a default StandardImportResolver
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, bool removeUnusedFunctions = true){
-		return FromImport(import, new StandardImportResolver(), defaultReport, removeUnusedFunctions);
+	public static TableScript FromImport(ResolvedImport import, Optimizations optimizations = Optimizations.Normal){
+		return FromImport(import, new StandardImportResolver(), defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from import 
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, bool removeUnusedFunctions = true){
-		return FromImport(import, ir, defaultReport, removeUnusedFunctions);
+	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
+		return FromImport(import, ir, defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from import. 
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report, bool removeUnusedFunctions = true){
+	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		Resolver res = new Resolver(ir);
 		res.OnReport = report;
 		ResolvedScript resolved = res.Resolve(import);
 		
-		Binder bin = new Binder(resolved, removeUnusedFunctions);
+		Binder bin = new Binder(resolved, optimizations);
 		bin.OnReport = report;
-		TableScript binded = bin.Bind();
+		BindedScript binded = bin.Bind();
 		
-		Optimizer opt = new Optimizer(binded);
+		Indexer ind = new Indexer(binded, optimizations);
+		TableScript indexed = ind.Index();
+		
+		Optimizer opt = new Optimizer(indexed, optimizations);
 		TableScript runnable = opt.Optimize();
 		runnable.OnReport = report;
 		
@@ -146,15 +135,15 @@ public class TableScript{
 	/// Generate an import from source
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static ResolvedImport SourceAsImport(string filename, string src){
-		return SourceAsImport(filename, src, defaultReport);
+	public static ResolvedImport SourceAsImport(string filename, string src, Optimizations optimizations = Optimizations.Normal){
+		return SourceAsImport(filename, src, defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate an import from source
 	/// </summary>
 	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static ResolvedImport SourceAsImport(string filename, string src, Action<TabScriptException> report){
+	public static ResolvedImport SourceAsImport(string filename, string src, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;
 		TokenList tokenlist = lex.Scan();
@@ -162,6 +151,11 @@ public class TableScript{
 		Parser par = new Parser(tokenlist);
 		par.OnReport = report;
 		ResolvedImport parsed = par.Parse();
+		
+		if((optimizations | Optimizations.OptimizeBeforeResolving) != 0){
+			Optimizer opt = new Optimizer(parsed, optimizations);
+			parsed = opt.OptimizeImport();
+		}
 		
 		return parsed;
 	}

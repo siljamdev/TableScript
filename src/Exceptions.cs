@@ -29,11 +29,12 @@ public class TabScriptException : Exception{
 			TabScriptErrorType.Binder => "BIN",
 			TabScriptErrorType.Optimizer => "OPT",
 			TabScriptErrorType.Runtime => "RUN",
+			TabScriptErrorType.Indexer => "IND",
 			_ => "???"
 		};
 	}
 }
 
 public enum TabScriptErrorType{
-	Lexer, Parser, Resolver, Binder, Optimizer, Runtime
+	Lexer, Parser, Resolver, Binder, Indexer, Optimizer, Runtime
 }

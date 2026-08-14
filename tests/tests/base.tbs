@@ -1,12 +1,12 @@
-tab global = ["1", "9", "6", "2"];
+global g = ["1", "9", "6", "2"];
 
 function test_global(){
-	tab global = "a";
-	return global == "a";
+	tab g = "a";
+	return g == "a";
 }
 
 function test_global2(){
-	return global == "1962"%;
+	return g == "1962"%;
 }
 
 function test_substring(){
@@ -85,6 +85,15 @@ function test_block(){
 	};
 	
 	return a == "n";
+}
+
+function test_block2(){
+	tab a;
+	{
+		tab a = "n";
+	};
+	
+	return a == [];
 }
 
 function test_negativeLength(){
@@ -188,4 +197,81 @@ function test_containment(){
 	tab b = ["a", "b", "a"];
 	
 	return (b @ a) == 1;
+}
+
+function test_notContainment(){
+	tab a = ["a", "b", "c", "d", "e", "f", "g"];
+	tab b = ["a", "b", "a"];
+	
+	return (b !@ a) == 0;
+}
+
+function test_add(){
+	tab a = ["1", "2", "3"];
+	return "1" + "2" + "3" == a;
+}
+
+function test_add2(){
+	tab a = ["1", "2", "3"];
+	return ("1" + "2") + "3" == a;
+}
+
+function test_add3(){
+	tab a = ["1", "2", "3"];
+	return "1" + ("2" + "3") == a;
+}
+
+function test_mult2(){
+	tab a = "123";
+	return "1" * "2" * "3" == a;
+}
+
+function test_mult3(){
+	tab a = ["ace", "bce", "ade", "bde", "acf", "bcf", "adf", "bdf"];
+	tab b = ["a", "b"];
+	tab c = ["c", "d"];
+	tab d = ["e", "f"];
+	return b * c * d == a;
+}
+
+function test_mult4(){
+	tab a = ["ace", "bce", "ade", "bde", "acf", "bcf", "adf", "bdf"];
+	tab b = ["a", "b"];
+	tab c = ["c", "d"];
+	tab d = ["e", "f"];
+	return b * (c * d) == a;
+}
+
+function test_mult5(){
+	tab a = ["ace", "bce", "ade", "bde", "acf", "bcf", "adf", "bdf"];
+	tab b = ["a", "b"];
+	tab c = ["c", "d"];
+	tab d = ["e", "f"];
+	return (b * c) * d == a;
+}
+
+function test_recursion(){
+	return fib(10) == 55;
+}
+
+function fib(n){
+    if n <= 1{
+        return n;
+    }
+	
+    return fib(n - 1) + fib(n - 2);
+}
+
+function test_breaking(){
+	do{
+		brake();
+	}while 0 else{
+		return 1;
+	}
+}
+
+function brake(){
+	while(1){
+		break;
+	}
 }
