@@ -1,9 +1,9 @@
 using System;
-using TabScript;
+using TableScript;
 
-namespace TabScript.Tests;
+namespace TableScript.Tests;
 
-public class Tests{
+public class Runner{
 	static int passed = 0;
 	static int failed = 0;
 	
@@ -13,13 +13,13 @@ public class Tests{
 		Console.WriteLine("Running in-language tests");
 		bool fileError = false;
 		foreach(string file in Directory.GetFiles("tests", "*.tbs")){
-			TableScript f;
+			Script f;
 			try{
-				ResolvedImport resolved = TableScript.SourceAsImport(file, File.ReadAllText(file)); //Test compact string as well
+				ResolvedImport resolved = Script.SourceAsImport(file, File.ReadAllText(file)); //Test compact string as well
 				
 				//Console.WriteLine(resolved.ToCompactString());
 				
-				f = TableScript.FromSource(file, resolved.ToCompactString(), Optimizations.ExternalCall);
+				f = Script.FromSource(file, resolved.ToCompactString(), Optimizations.ExternalCall);
 				f.Run(); //Needed to use CallFunction
 			}catch(Exception e){
 				Console.Error.WriteLine("\nFailed to compile '" + file + "'");
@@ -46,10 +46,10 @@ public class Tests{
 		}
 	}
 	
-	static void testScript(TableScript s){
+	static void testScript(Script s){
 		Console.WriteLine("\nRunning tests of '" + s.filename + "'");
 		
-		foreach(TabFunc f in s.functions){
+		foreach(BoundFunc f in s.functions){
 			if(f.identifier.StartsWith("test_")){
 				testNum++;
 				

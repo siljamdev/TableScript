@@ -1,10 +1,10 @@
-namespace TabScript;
+namespace TableScript;
 
 /// <summary>
 /// Statements that form programs
 /// </summary>
 public abstract record Stmt(int line){
-	public abstract string ToCompactString();
+	internal abstract string ToCompactString();
 	
 	internal virtual string ToBlockString(){
 		return ToString();
@@ -20,17 +20,18 @@ record ExprStmt(Expr exp, int line) : Stmt(line){
 		return exp?.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return exp?.ToCompactString() + ";";
 	}
 }
 
+//Dissapears in Binder
 record BlockStmt(Stmt[] inner, int line) : Stmt(line){
 	public override string ToString(){
 		return ToBlockString() + ";";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return ToCompactBlockString() + ";";
 	}
 	
@@ -43,102 +44,112 @@ record BlockStmt(Stmt[] inner, int line) : Stmt(line){
 	}
 }
 
+//Dissapears in binder
 record TabDeclStmt(string identifier, Expr val, int line) : Stmt(line){
 	public override string ToString(){
 		return "tab " + identifier + " = " + val.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "tab " + identifier + "=" + val.ToCompactString() + ";";
 	}
 }
 
+//Dissapears in binder
 record GlobalDeclStmt(string identifier, bool export, Expr val, int line) : Stmt(line){
 	public override string ToString(){
 		return (export ? "export " : "") + "global " + identifier + " = " + val.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return (export ? "export " : "") + "global " + identifier + "=" + val.ToCompactString() + ";";
 	}
 }
 
+//Dissapears in binder
 record VarAssignStmt(string identifier, string import, Expr val, int line) : Stmt(line){
 	public override string ToString(){
 		return (import != null ? (import + "::") : "") + identifier + " = " + val.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return (import != null ? (import + "::") : "") + identifier + "=" + val.ToCompactString() + ";";
 	}
 }
 
+//Dissapears in binder
 record ElementAssignStmt(string identifier, string import, IndexExpr ind, Expr val, int line) : Stmt(line){
 	public override string ToString(){
 		return (import != null ? (import + "::") : "") + identifier + "[" + ind.ToString() + "] = " + val.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return (import != null ? (import + "::") : "") + identifier + "[" + ind.ToCompactString() + "]=" + val.ToCompactString() + ";";
 	}
 }
 
+//Dissapears in binder
 record IfStmt(Expr condition, Stmt then, Stmt els, int line) : Stmt(line){
 	public override string ToString(){
 		return "if " + condition.ToString() + " " + then.ToBlockString() + (els != null ? " else " + els.ToBlockString() : "");
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "if " + condition.ToCompactString() + " " + then.ToCompactBlockString() + (els != null ? " else " + els.ToCompactBlockString() : "");
 	}
 }
 
+//Dissapears in binder
 record WhileStmt(Expr condition, Stmt body, Stmt els, int line) : Stmt(line){
 	public override string ToString(){
 		return "while " + condition.ToString() + " " + body.ToBlockString() + (els != null ? " else " + els.ToBlockString() : "");
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "while " + condition.ToCompactString() + " " + body.ToCompactBlockString() + (els != null ? " else " + els.ToCompactBlockString() : "");
 	}
 }
 
+//Dissapears in binder
 record DoStmt(Expr condition, Stmt body, Stmt els, int line) : Stmt(line){
 	public override string ToString(){
 		return "do " + body.ToBlockString() + " while " + condition.ToString() + (els != null ? " else " + els.ToBlockString() : ";");
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "do " + body.ToCompactBlockString() + " while " + condition.ToCompactString() + (els != null ? " else " + els.ToCompactBlockString() : ";");
 	}
 }
 
+//Dissapears in binder
 record ForeachStmt(string id, Expr pool, BlockStmt body, Stmt els, int line) : Stmt(line){
 	public override string ToString(){
 		return "foreach " + id + " @ " + pool.ToString() + body.ToBlockString() + (els != null ? " else " + els.ToString() : "");
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "foreach " + id + "@" + pool.ToCompactString() + body.ToCompactBlockString() + (els != null ? " else " + els.ToCompactBlockString() : "");
 	}
 }
 
+//Dissapears in binder
 record BreakStmt(int line) : Stmt(line){
 	public override string ToString(){
 		return "break;";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "break;";
 	}
 }
 
+//Dissapears in binder
 record ContinueStmt(int line) : Stmt(line){
 	public override string ToString(){
 		return "continue;";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "continue;";
 	}
 }
@@ -148,7 +159,7 @@ record ExitStmt(int line) : Stmt(line){
 		return "exit;";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "exit;";
 	}
 }
@@ -158,18 +169,19 @@ record ReturnStmt(Expr val, int line) : Stmt(line){
 		return "return " + val.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "return " + val.ToCompactString() + ";";
 	}
 }
 
+//Dissapears in resolver
 record ImportStmt(string reference, int line) : Stmt(line){
 	public override string ToString(){
 		return "import \"" + reference + "\";";
 	}
 	
-	public override string ToCompactString(){
-		return "import \"" + reference + "\";";
+	internal override string ToCompactString(){
+		return "import\"" + reference + "\";";
 	}
 }
 
@@ -180,22 +192,20 @@ record ImportStmt(string reference, int line) : Stmt(line){
 public abstract record FunctionStmt(string identifier, string[] pars, int line) : Stmt(line){
 	public int arity => pars.Length;
 	
-	public abstract TabFunc ToTabFunc(string import, string filename);
+	internal abstract TabFunc ToTabFunc(string import, string filename);
 }
 
-/// <summary>
-/// Native function as a statement
-/// </summary>
+//Dissapears in resolver
 record FunctionDefStmt(string identifier, string[] pars, bool export, BlockStmt body, int line) : FunctionStmt(identifier, pars, line){
 	public override string ToString(){
 		return (export ? "export " : "") + "function " + identifier + "(" + string.Join(", ", pars) + ")" + body.ToBlockString();
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return (export ? "export " : "") + "function " + identifier + "(" + string.Join(",", pars) + ")" + body.ToCompactBlockString();
 	}
 	
-	public override TabFunc ToTabFunc(string import, string filename){
+	internal override TabFunc ToTabFunc(string import, string filename){
 		return new TabNativeFunc(import, identifier, pars, pars.Length > 0 && pars[0] == "self", export, body, filename, line);
 	}
 }
@@ -212,44 +222,34 @@ public record FunctionExtStmt(string identifier, string[] pars, Func<Table[], Ta
 		return "export function " + identifier + "(" + string.Join(", ", pars) + "){ EXTERN; }" + (description == null ? "" : (" //" + description));
 	}
 	
-	public override string ToCompactString(){
+	internal override string ToCompactString(){
 		return "export function " + identifier + "(" + string.Join(",", pars) + "){}";
 	}
 	
-	public override TabFunc ToTabFunc(string import, string filename){
+	internal override TabFunc ToTabFunc(string import, string filename){
 		return new TabExternFunc(import, identifier, pars, pars.Length > 0 && pars[0] == "self", true, body, description, filename, line);
 	}
 }
 #endregion
 
-#region optimization
-record OptVarAssignStmt(int index, Expr val, int line) : Stmt(line){
+#region bound
+record BoundVarAssignStmt(int index, Expr val, int line) : Stmt(line){
 	public override string ToString(){
-		return "%_" + index  + " = " + val.ToString() + ";";
+		return "var_" + index  + " = " + val.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
-		return "%_" + index  + "=" + val.ToCompactString() + ";";
+	internal override string ToCompactString(){
+		return "var_" + index  + "=" + val.ToCompactString() + ";";
 	}
 }
 
-record OptElementAssignStmt(int index, IndexExpr ind, Expr val, int line) : Stmt(line){
+record BoundElementAssignStmt(int index, IndexExpr ind, Expr val, int line) : Stmt(line){
 	public override string ToString(){
-		return "%_" + index  + "[" + ind.ToString() + "] = " + val.ToString() + ";";
+		return "var_" + index  + "[" + ind.ToString() + "] = " + val.ToString() + ";";
 	}
 	
-	public override string ToCompactString(){
-		return "%_" + index  + "[" + ind.ToCompactString() + "]=" + val.ToCompactString() + ";";
-	}
-}
-
-record OptForeachStmt(int index, Expr pool, BlockStmt body, Stmt els, int line) : Stmt(line){
-	public override string ToString(){
-		return "foreach %_" + index + " @ " + pool.ToString() + body.ToBlockString() + (els != null ? " else " + els.ToString() : "");
-	}
-	
-	public override string ToCompactString(){
-		return "foreach %_" + index + "@" + pool.ToCompactString() + body.ToCompactBlockString() + (els != null ? " else " + els.ToCompactBlockString() : "");
+	internal override string ToCompactString(){
+		return "var_" + index  + "[" + ind.ToCompactString() + "]=" + val.ToCompactString() + ";";
 	}
 }
 #endregion

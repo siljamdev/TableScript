@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript;
+namespace TableScript;
 
 interface IScope{
 	public int define(string filename, int line, string callingImport, string id, bool export, int programCounter);
@@ -11,5 +11,5 @@ interface IScope{
 	
 	public IScope endOfLife();
 	
-	public Variable getVariable();
+	public Variable getVariable(int programCounter);
 }

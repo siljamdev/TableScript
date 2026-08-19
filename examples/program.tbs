@@ -4,11 +4,17 @@
 //Importing the standard library for print and other functions
 import stdlib;
 
-//Table variables
+//Global variables go first thing. Accessible from functions
 global glob = ["h", "e", "l", "l", "o"];
 
+//Export globals can be accessed from any import, but only set from its owner
+export global other = "today";
+
+//Normal body variables
+tab f = "world";
+
 //Concatenation operator +: table concatenation
-tab greeting = glob + [" ", "world"];
+tab greeting = glob + [" ", f];
 print(greeting); //hello world
 
 //+= concatenation operator: concatenates itself and sets

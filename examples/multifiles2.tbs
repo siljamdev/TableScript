@@ -4,9 +4,9 @@ import stdnum; //Only in this file
 
 global a = "I have always been"; //Global variable
 
-global b = " ready to greet you"; //Global variable
+export global b = " ready to greet you"; //Global variable
 
-print("Welcome!"); //This wont execute. Of the main body of imported scripts, only variable declarations are kept
+print("Welcome!"); //This wont execute. Of the imported scripts, only global declarations and functions are kept
 
 //Returns "I have always been", "ready to greet you"
 function fun(){

@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace TabScript;
+namespace TableScript;
 
 class Resolver{
 	IImportResolver impres;
@@ -31,7 +31,7 @@ class Resolver{
 			snippets.Add(new Snippet(parsed.filename, mainImport, parsed.globals));
 		}
 		
-		fs.AddRange(parsed.functions.Select(s => s.ToTabFunc(mainImport, parsed.filename)));
+		fs.AddRange(parsed.funcs.Select(s => s.ToTabFunc(mainImport, parsed.filename)));
 		
 		foreach(ImportStmt im in parsed.imports){
 			pending.Enqueue((parsed.filename, mainImport, im));
@@ -63,8 +63,8 @@ class Resolver{
 					snippets.Add(new Snippet(rim.filename, import, rim.globals));
 				}
 				
-				if(rim.functions != null){ //Add functions
-					fs.AddRange(rim.functions.Select(s => s.ToTabFunc(import, rim.filename)));
+				if(rim.funcs != null){ //Add functions
+					fs.AddRange(rim.funcs.Select(s => s.ToTabFunc(import, rim.filename)));
 				}
 				
 				availableImports[import] = new Dictionary<string, string>(); //Init for this import

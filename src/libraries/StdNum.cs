@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript.StandardLibraries;
+namespace TableScript.StandardLibraries;
 
 /// <summary>
 /// Numbers are `double`, and are stored in its string representation

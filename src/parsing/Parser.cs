@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript;
+namespace TableScript;
 
 class Parser{
 	public Action<TabScriptException> OnReport;

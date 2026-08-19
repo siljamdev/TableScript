@@ -3,7 +3,8 @@ import stdnum;
 
 global testCounter = 0;
 
-doTest(substringTest());
+print("Starting tests");
+doTest(substringTest()); //1
 doTest(substringTest2());
 doTest(tableDeleteAtTest());
 doTest(tableRangeTest());
@@ -12,12 +13,12 @@ doTest(tableAccessTest());
 doTest(tableAccessTest2());
 doTest(tableAccessTest3());
 doTest(tableFindTest());
-doTest(tableFindTest2());
+doTest(tableFindTest2()); //10
 doTest(doTest());
 doTest(doTest2());
 doTest(forTest());
 doTest(forTest2());
-doTest(foreachTest());
+doTest(foreachTest()); //15
 doTest(dollarTest());
 doTest(ifTest());
 doTest(blockTest());

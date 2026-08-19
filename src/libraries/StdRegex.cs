@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace TabScript.StandardLibraries;
+namespace TableScript.StandardLibraries;
 
 /// <summary>
 /// Standard regex library. Basic regex functionality

@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace TabScript;
+namespace TableScript;
 
 class Lexer{
 	static readonly Dictionary<string, TokenType> keywords = new(){

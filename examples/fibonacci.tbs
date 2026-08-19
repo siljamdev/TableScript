@@ -1,9 +1,8 @@
-// IMPORTANT
-// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
-
-//Importing the standard library for print and other functions
+//Importing the standard library for print and stdnum to print human-readable numbers
 import stdlib;
 import stdnum;
+
+//This program prints the 10 first numbers of the fibonacci sequence
 
 foreach num @ stdnum::range("0", "10", "1"){
 	print(num + ": " + fibonacci(num.toLen()).toNum());

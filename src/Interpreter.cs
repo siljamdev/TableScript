@@ -1,43 +1,35 @@
 using System;
 
-namespace TabScript;
+namespace TableScript;
 
 class Interpreter{	
 	List<Table> stack = new();
 	Stack<int> stackPointers = new();
 	int stackPointer => stackPointers.Peek();
 	
-	bool breakingLoop;
-	bool continuingLoop;
-	
 	bool exiting;
 	
 	Table returnVal;
+	bool returning => returnVal != null;
 	
-	string currentFilename;
+	string filename;
 	
-	TabFunc[] functions;
-	Stmt[] mainBody;
+	BoundFunc[] functions;
+	CFGNode mainBody;
 	
 	internal bool interpreted = false;
 	
-	public Interpreter(TableScript t){		
+	public Interpreter(Script t){		
 		functions = t.functions;
-		mainBody = t.body.body;
-		currentFilename = t.body.filename;
+		mainBody = t.body;
+		filename = t.filename;
 	}
 	
 	public void Interpret(Table args){
 		stackPointers.Push(0);
 		assignStack(0, args.Clone()); //args ALWAYS 0
 		
-		foreach(Stmt s in mainBody){
-			Interpret(s);
-			
-			if(exiting){
-				break;
-			}
-		}
+		Interpret(mainBody);
 		
 		interpreted = true;
 	}
@@ -45,19 +37,18 @@ class Interpreter{
 	//Only call after Interpreting
 	public Table CallFunction(string import, string identifier, params Table[] functionArgs){
 		if(!interpreted){
-			throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Cannot call a function before having run the script");
+			throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Cannot call a function before having run the script");
 		}
 		
 		int fxIndex = Array.FindIndex(functions, f => f.Matches(import, identifier, functionArgs.Length)); //Match in available functions
 		if(fxIndex == -1){
-			throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "No function available with '" + (import == null ? "" : import + "::") + identifier + "' as identifier and " + functionArgs.Length + " parameters");
+			throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "No function available with '" + (import == null ? "" : import + "::") + identifier + "' as identifier and " + functionArgs.Length + " parameters");
 		}
 		
-		breakingLoop = false;
-		continuingLoop = false;
 		exiting = false;
+		returnVal = null;
 		
-		return callFunc(new OptCallExpr(fxIndex, functionArgs.Select(a => new LiteralExpr(a)).ToArray()));
+		return callFunc(new BoundCallExpr(fxIndex, functionArgs.Select(a => new LiteralExpr(a)).ToArray()));
 	}
 	
 	Table getStack(int index){
@@ -98,6 +89,35 @@ class Interpreter{
 		setStack(stackPointer + index, t);
 	}
 	
+	void Interpret(CFGNode n){
+		while(n != null){
+			if(returning || exiting){
+				return;
+			}
+			
+			switch(n){
+				case StmtCFGNode s:
+					foreach(Stmt g in s.statements){
+						Interpret(g);
+						
+						if(returning || exiting){
+							return;
+						}
+					}
+					n = s.next;
+					break;
+				
+				case CondCFGNode c:
+					if(eval(c.condition).Truthy){
+						n = c.isTrue;
+					}else{
+						n = c.isFalse;
+					}
+					break;
+			}
+		}
+	}
+	
 	void Interpret(Stmt s){
 		switch(s){
 			case ExprStmt e:
@@ -107,115 +127,19 @@ class Interpreter{
 			
 			case BlockStmt b:
 				foreach(Stmt g in b.inner){
-					if(breakingLoop || continuingLoop || returnVal != null || exiting){
+					if(returning || exiting){
 						return;
 					}
 					Interpret(g);
 				}
 			break;
 			
-			case OptVarAssignStmt a:
+			case BoundVarAssignStmt a:
 				assignStack(a.index, eval(a.val).Clone());
 			break;
 			
-			case OptElementAssignStmt l:
+			case BoundElementAssignStmt l:
 				acessStack(l.index).SetElem(evalIndex(l.ind), eval(l.val));
-			break;
-			
-			case IfStmt f:
-				if(eval(f.condition).Truthy){
-					Interpret(f.then);
-				}else if(f.els != null){
-					Interpret(f.els);
-				}
-			break;
-			
-			case WhileStmt w:
-				while(eval(w.condition).Truthy){
-					Interpret(w.body);
-					
-					if(returnVal != null || exiting){
-						return;
-					}
-					
-					if(breakingLoop){
-						breakingLoop = false;
-						return;
-					}
-					
-					if(continuingLoop){
-						continuingLoop = false;
-					}
-				}
-				
-				if(w.els != null){
-					Interpret(w.els);
-				}
-			break;
-			
-			case DoStmt d:
-				do{
-					Interpret(d.body);
-					
-					if(returnVal != null || exiting){
-						return;
-					}
-					
-					if(breakingLoop){
-						breakingLoop = false;
-						return;
-					}
-					
-					if(continuingLoop){
-						continuingLoop = false;
-					}
-				}while(eval(d.condition).Truthy);
-				
-				if(d.els != null){
-					Interpret(d.els);
-				}
-			break;
-			
-			case OptForeachStmt ft:
-				Table pool = eval(ft.pool);
-				
-				int iterVarIndex = ft.index;
-				
-				for(int i = 0; i < pool.Length; i++){
-					assignStack(iterVarIndex, new Table(pool[i]));
-					
-					foreach(Stmt g in ft.body.inner){
-						if(breakingLoop || continuingLoop || returnVal != null || exiting){
-							break;
-						}
-						Interpret(g);
-					}
-					
-					if(returnVal != null || exiting){
-						return;
-					}
-					
-					if(breakingLoop){
-						breakingLoop = false;
-						return;
-					}
-					
-					if(continuingLoop){
-						continuingLoop = false;
-					}
-				}
-				
-				if(ft.els != null){
-					Interpret(ft.els);
-				}
-			break;
-			
-			case BreakStmt:
-				breakingLoop = true;
-			break;
-			
-			case ContinueStmt:
-				continuingLoop = true;
 			break;
 			
 			case ReturnStmt r:
@@ -227,39 +151,28 @@ class Interpreter{
 			break;
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, s.line, "Invalid statement: " + s);
+				throw new TabScriptException(TabScriptErrorType.Runtime, filename, s.line, "Invalid statement: " + s);
 			break;
 		}
 	}
 	
-	Table callFunc(OptCallExpr x){
-		TabFunc fun = functions[x.index];
+	Table callFunc(BoundCallExpr x){
+		BoundFunc fun = functions[x.index];
 		
 		if(fun.arity != x.args.Length){
-			throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, fun.line, "Non-matching arity in call: " + x);
+			throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Non-matching arity in call: " + x);
 		}
 		
 		Table[] args = x.args.Select(h => eval(h).Clone()).ToArray();
 		
-		if(fun is TabNativeFunc funs){			
-			string tempCF = currentFilename;
-			currentFilename = fun.filename;
-			
+		if(fun is BoundNativeFunc funs){			
 			stackPointers.Push(stack.Count);
 			
 			for(int i = 0; i < args.Length; i++){
 				assignStack(i, args[i]);
 			}
 			
-			foreach(Stmt g in funs.body.inner){
-				Interpret(g);
-				
-				if(returnVal != null || exiting){
-					break;
-				}
-			}
-			
-			currentFilename = tempCF;
+			Interpret(funs.body);
 			
 			stack.RemoveRange(stackPointer, stack.Count - stackPointer);
 			stackPointers.Pop();
@@ -268,7 +181,7 @@ class Interpreter{
 			returnVal = null;
 			
 			return retVal;
-		}else if(fun is TabExternFunc funn){
+		}else if(fun is BoundExternFunc funn){
 			Table ret = funn.body(args);
 			return ret ?? new Table(0);
 		}else{
@@ -294,7 +207,7 @@ class Interpreter{
 			case LiteralExpr l:
 				return l.val;
 			
-			case OptVariableExpr v:
+			case BoundVariableExpr v:
 				return acessStack(v.index);
 			
 			case GetElementExpr e:
@@ -310,11 +223,11 @@ class Interpreter{
 				}
 				return t;
 			
-			case OptCallExpr c:
+			case BoundCallExpr c:
 				return callFunc(c);
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Invalid expression: " + x);
+				throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Invalid expression: " + x);
 				return null;
 		}
 	}
@@ -335,7 +248,7 @@ class Interpreter{
 				return new Table(eval(u.right).SplitToChars());
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Invalid unary operator: " + Token.GetAsString(u.op));
+				throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Invalid unary operator: " + Token.GetAsString(u.op));
 				return null;
 		}
 	}
@@ -439,7 +352,7 @@ class Interpreter{
 				return Table.GetBool(!tb.Contains(ta));
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, currentFilename, -1, "Invalid binary operator: " + Token.GetAsString(b.op));
+				throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Invalid binary operator: " + Token.GetAsString(b.op));
 				return null;
 		}
 	}

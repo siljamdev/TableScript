@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript;
+namespace TableScript;
 
 record Token(TokenType type, string lex, string obj, int num, int line){
 	public override string ToString(){

@@ -1,7 +1,23 @@
-namespace TabScript;
+namespace TableScript;
 
 abstract record Expr{
-	public abstract string ToCompactString();
+	public virtual bool hasSideEffects(){
+		return false;
+	}
+	
+	public virtual int precedence(){
+		return 0;
+	}
+	
+	public string ToCompactString(int parentPrecedence = 0){
+		if(precedence() <= parentPrecedence){
+			return "(" + ToCompactStr() + ")";
+		}
+		
+		return ToCompactStr();
+	}
+	
+	public abstract string ToCompactStr();
 }
 
 record BinaryExpr(Expr left, TokenType op, Expr right) : Expr{
@@ -9,8 +25,30 @@ record BinaryExpr(Expr left, TokenType op, Expr right) : Expr{
 		return left?.ToString() + " " + Token.GetAsString(op) + " " + right?.ToString();
 	}
 	
-	public override string ToCompactString(){
-		return "(" + left?.ToCompactString() + Token.GetAsString(op) + (op == TokenType.Minus ? " " : "") + right?.ToCompactString() + ")";
+	public override string ToCompactStr(){
+		return left?.ToCompactString(precedence()) + Token.GetAsString(op) + (op == TokenType.Minus ? " " : "") + right?.ToCompactString(precedence());
+	}
+	
+	public override bool hasSideEffects(){
+		return left.hasSideEffects() || right.hasSideEffects();
+	}
+	
+	public override int precedence(){
+		return op switch{
+			TokenType.Star => 700,
+			TokenType.Plus => 600,
+			TokenType.Minus => 600,
+			TokenType.At => 500,
+			TokenType.Greater => 400,
+			TokenType.GreaterEqual => 400,
+			TokenType.Less => 400,
+			TokenType.LessEqual => 400,
+			TokenType.DobEqual => 300,
+			TokenType.ExclamationEqual => 300,
+			TokenType.And => 200,
+			TokenType.Or => 100,
+			_ => 0
+		};
 	}
 }
 
@@ -23,12 +61,25 @@ record UnaryExpr(TokenType op, Expr right) : Expr{
 		}
 	}
 	
-	public override string ToCompactString(){
+	public override string ToCompactStr(){
 		if(op == TokenType.Exclamation){
-			return "(" + Token.GetAsString(op) + right?.ToCompactString() + ")";
+			return Token.GetAsString(op) + right?.ToCompactString(precedence());
 		}else{
-			return "(" + right?.ToCompactString() + Token.GetAsString(op) + ")";
+			return right?.ToCompactString(precedence()) + Token.GetAsString(op);
 		}
+	}
+	
+	public override bool hasSideEffects(){
+		return right.hasSideEffects();
+	}
+	
+	public override int precedence(){
+		return op switch{
+			TokenType.Caret => 900,
+			TokenType.Percentage => 900,
+			TokenType.Exclamation => 800,
+			_ => 0
+		};
 	}
 }
 
@@ -37,8 +88,16 @@ record TernaryExpr(Expr cond, Expr tr, Expr fa) : Expr{
 		return cond?.ToString() + " ? " + tr?.ToString() + " : " + fa?.ToString();
 	}
 	
-	public override string ToCompactString(){
-		return "(" + cond?.ToCompactString() + "?" + tr?.ToCompactString() + ":" + fa?.ToCompactString() + ")";
+	public override string ToCompactStr(){
+		return cond?.ToCompactString(precedence()) + "?" + tr?.ToCompactString(precedence()) + ":" + fa?.ToCompactString(precedence());
+	}
+	
+	public override bool hasSideEffects(){
+		return cond.hasSideEffects() || tr.hasSideEffects() || fa.hasSideEffects();
+	}
+	
+	public override int precedence(){
+		return 50;
 	}
 }
 
@@ -47,8 +106,16 @@ record GetElementExpr(Expr left, IndexExpr ind) : Expr{
 		return left?.ToString() + "[" + ind.ToString() + "]";
 	}
 	
-	public override string ToCompactString(){
-		return left?.ToCompactString() + "[" + ind.ToCompactString() + "]";
+	public override string ToCompactStr(){
+		return left?.ToCompactString(precedence()) + "[" + ind.ToCompactString() + "]";
+	}
+	
+	public override bool hasSideEffects(){
+		return left.hasSideEffects() || ind.hasSideEffects();
+	}
+	
+	public override int precedence(){
+		return 1000;
 	}
 }
 
@@ -57,8 +124,16 @@ record GetRangeExpr(Expr left, IndexExpr ind, IndexExpr len) : Expr{
 		return left?.ToString() + "[" + ind.ToString() + ", " + len.ToString() + "]";
 	}
 	
-	public override string ToCompactString(){
-		return left?.ToCompactString() + "[" + ind.ToCompactString() + "," + len.ToCompactString() + "]";
+	public override string ToCompactStr(){
+		return left?.ToCompactString(precedence()) + "[" + ind.ToCompactString() + "," + len.ToCompactString() + "]";
+	}
+	
+	public override bool hasSideEffects(){
+		return left.hasSideEffects() || ind.hasSideEffects() || len.hasSideEffects();
+	}
+	
+	public override int precedence(){
+		return 1000;
 	}
 }
 
@@ -67,8 +142,16 @@ record IndexExpr(TabIndex ind, Expr val) : Expr{
 		return val == null ? ind.ToString() : val.ToString();
 	}
 	
-	public override string ToCompactString(){
+	public override string ToCompactStr(){
 		return val == null ? ind.ToString() : val.ToCompactString();
+	}
+	
+	public override bool hasSideEffects(){
+		return val?.hasSideEffects() ?? false;
+	}
+	
+	public override int precedence(){
+		return 1000;
 	}
 }
 
@@ -84,8 +167,16 @@ record CallExpr(string identifier, string import, bool self, Expr[] args) : Expr
 		}
 	}
 	
-	public override string ToCompactString(){
+	public override string ToCompactStr(){
 		return (import != null ? (import + "::") : "") + identifier + "(" + string.Join(",", args.Select(a => a.ToCompactString())) + ")";
+	}
+	
+	public override bool hasSideEffects(){
+		return true;
+	}
+	
+	public override int precedence(){
+		return 1000;
 	}
 }
 
@@ -94,8 +185,12 @@ record LiteralExpr(Table val) : Expr{
 		return val?.ToString();
 	}
 	
-	public override string ToCompactString(){
+	public override string ToCompactStr(){
 		return val?.ToCompactString();
+	}
+	
+	public override int precedence(){
+		return 1000;
 	}
 }
 
@@ -104,8 +199,16 @@ record BuildLiteralExpr(Expr[] parts) : Expr{
 		return "[" + string.Join(", ", parts.Select(p => p.ToString())) + "]";
 	}
 	
-	public override string ToCompactString(){
+	public override string ToCompactStr(){
 		return "[" + string.Join(",", parts.Select(p => p.ToCompactString())) + "]";
+	}
+	
+	public override bool hasSideEffects(){
+		return parts.Any(p => p.hasSideEffects());
+	}
+	
+	public override int precedence(){
+		return 1000;
 	}
 }
 
@@ -114,29 +217,45 @@ record VariableExpr(string identifier, string import) : Expr{
 		return (import != null ? (import + "::") : "") + identifier;
 	}
 	
-	public override string ToCompactString(){
+	public override string ToCompactStr(){
 		return (import != null ? (import + "::") : "") + identifier;
 	}
-}
-
-#region optimized
-record OptCallExpr(int index, Expr[] args) : Expr{
-	public override string ToString(){
-		return "@_" + index + "(" + string.Join(", ", args.Select(a => a.ToString())) + ")";
-	}
 	
-	public override string ToCompactString(){
-		return "@_" + index + "(" + string.Join(",", args.Select(a => a.ToCompactString())) + ")";
+	public override int precedence(){
+		return 1000;
 	}
 }
 
-record OptVariableExpr(int index) : Expr{
+#region bound
+record BoundCallExpr(int index, Expr[] args) : Expr{
 	public override string ToString(){
-		return "%_" + index;
+		return "func_" + index + "(" + string.Join(", ", args.Select(a => a.ToString())) + ")";
 	}
 	
-	public override string ToCompactString(){
-		return "%_" + index;
+	public override string ToCompactStr(){
+		return "func_" + index + "(" + string.Join(",", args.Select(a => a.ToCompactString())) + ")";
+	}
+	
+	public override bool hasSideEffects(){
+		return true;
+	}
+	
+	public override int precedence(){
+		return 1000;
+	}
+}
+
+record BoundVariableExpr(int index) : Expr{
+	public override string ToString(){
+		return "var_" + index;
+	}
+	
+	public override string ToCompactStr(){
+		return "var_" + index;
+	}
+	
+	public override int precedence(){
+		return 1000;
 	}
 }
 #endregion

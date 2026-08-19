@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace TabScript;
+namespace TableScript;
 
 /// <summary>
 /// The purpose of this class is to transform C# libraries into available functions for TableScript

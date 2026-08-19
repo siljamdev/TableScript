@@ -1,18 +1,21 @@
-using TabScript.StandardLibraries;
+using TableScript.StandardLibraries;
 
-namespace TabScript;
+namespace TableScript;
 
+/// <summary>
+/// Interface that resolves import references
+/// </summary>
 public interface IImportResolver{
 	public Action<TabScriptException> OnReport {get; set;}
 	
-	public ResolvedImport Resolve(string import, string callingFilename);
+	public ResolvedImport Resolve(string reference, string callingFilename);
 }
 
 public class StandardImportResolver : IImportResolver{
 	public Action<TabScriptException> OnReport {get; set;}
 	
-	public virtual ResolvedImport Resolve(string import, string callingFilename){
-		switch(import){
+	public virtual ResolvedImport Resolve(string reference, string callingFilename){
+		switch(reference){
 			case "stdlib":
 				return StdLib.AsImport;
 			
@@ -26,7 +29,7 @@ public class StandardImportResolver : IImportResolver{
 				return StdRegex.AsImport;
 			
 			default:
-				OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Resolver, callingFilename, -1, "Unable to resolve import: '" + import + "'"));
+				OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Resolver, callingFilename, -1, "Unable to resolve import reference: '" + reference + "'"));
 				return new ResolvedImport("standard import resolver error", null, null, null);
 		}
 	}

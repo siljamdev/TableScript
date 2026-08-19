@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace TabScript;
+namespace TableScript;
 
 /// <summary>
 /// Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself

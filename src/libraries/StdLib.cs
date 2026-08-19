@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript.StandardLibraries;
+namespace TableScript.StandardLibraries;
 
 /// <summary>
 /// Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.

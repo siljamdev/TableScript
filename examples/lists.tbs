@@ -26,6 +26,7 @@ lst4 = lst4.setTab(2, "help"%);
 lst4 = lst4.setTabElem(2, 3, "7");
 printLst(lst4);
 
+print(""); //Separator
 print(lst4.flattenLst().decor()); //Flattened all tables of the list
 
 tab lst5 = newLst();
@@ -34,8 +35,10 @@ lst5 = lst5.addTab(["b", "h"]);
 lst5 = lst5.addTab(["b", "f"]);
 lst5 = lst5.insertTab(1, ["ñ", "k"]);
 printLst(lst5);
+
+print(""); //Separator
 print(tf(lst5.containsTab(["b", "h"]))); //true
-print(lst5.indexOfTab(["b", "h"]).toNum());
+print(lst5.indexOfTab(["b", "h"]).toNum()); //2
 
 //Helper function
 function tf(self){

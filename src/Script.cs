@@ -1,19 +1,26 @@
 using System;
 
-namespace TabScript;
+namespace TableScript;
 
-public class TableScript{
-	internal Snippet body;
-	public TabFunc[] functions {get; private init;}
+/// <summary>
+/// Main class that represents a ready to run script and manages most of the public API
+/// </summary>
+public class Script{
+	internal CFGNode body;
+	public BoundFunc[] functions {get; private init;}
 	
-	public string filename => body?.filename;
+	public string filename {get; private init;}
 	
+	/// <summary>
+	/// Action that will be called on error
+	/// </summary>
 	public Action<TabScriptException> OnReport;
 	
 	Interpreter i;
 	
-	internal TableScript(Snippet bod, TabFunc[] funcs, Action<TabScriptException> report = null){
-		body = bod;
+	internal Script(string fn, CFGNode b, BoundFunc[] funcs, Action<TabScriptException> report = null){
+		filename = fn;
+		body = b;
 		functions = funcs;
 		OnReport = report;
 		
@@ -55,7 +62,7 @@ public class TableScript{
 	}
 	
 	public override string ToString(){
-		return body.ToString() + "\n\n" + string.Join("\n", functions.Select((h, i) => "@_" + i + ": " + h.ToString()));
+		return CFGNode.ToString(body) + "\n\n" + string.Join("\n", functions.Select((h, i) => "func_" + i + ": " + h.ToString()));
 	}
 	
 	//######################################################################
@@ -67,27 +74,27 @@ public class TableScript{
 	/// <summary>
 	/// Generate from source. Will use a default StandardImportResolver
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromSource(string filename, string src, Optimizations optimizations = Optimizations.Normal){
 		return FromSource(filename, src, new StandardImportResolver(), defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from source
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromSource(string filename, string src, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
 		return FromSource(filename, src, ir, defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from source
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		ResolvedImport parsed = SourceAsImport(filename, src, report, optimizations);
 		
-		TableScript runnable = FromImport(parsed, ir, report, optimizations);
+		Script runnable = FromImport(parsed, ir, report, optimizations);
 		
 		return runnable;
 	}
@@ -95,37 +102,34 @@ public class TableScript{
 	/// <summary>
 	/// Generate from import. Will use a default StandardImportResolver
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromImport(ResolvedImport import, Optimizations optimizations = Optimizations.Normal){
 		return FromImport(import, new StandardImportResolver(), defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from import 
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromImport(ResolvedImport import, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
 		return FromImport(import, ir, defaultReport, optimizations);
 	}
 	
 	/// <summary>
 	/// Generate from import. 
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static TableScript FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		Resolver res = new Resolver(ir);
 		res.OnReport = report;
 		ResolvedScript resolved = res.Resolve(import);
 		
 		Binder bin = new Binder(resolved, optimizations);
 		bin.OnReport = report;
-		BindedScript binded = bin.Bind();
+		BoundScript binded = bin.Bind();
 		
-		Indexer ind = new Indexer(binded, optimizations);
-		TableScript indexed = ind.Index();
-		
-		Optimizer opt = new Optimizer(indexed, optimizations);
-		TableScript runnable = opt.Optimize();
+		Optimizer opt = new Optimizer(binded, optimizations);
+		Script runnable = opt.Optimize();
 		runnable.OnReport = report;
 		
 		return runnable;
@@ -134,7 +138,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate an import from source
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static ResolvedImport SourceAsImport(string filename, string src, Optimizations optimizations = Optimizations.Normal){
 		return SourceAsImport(filename, src, defaultReport, optimizations);
 	}
@@ -142,7 +146,7 @@ public class TableScript{
 	/// <summary>
 	/// Generate an import from source
 	/// </summary>
-	/// <exception cref="TabScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
 	public static ResolvedImport SourceAsImport(string filename, string src, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;
@@ -152,9 +156,9 @@ public class TableScript{
 		par.OnReport = report;
 		ResolvedImport parsed = par.Parse();
 		
-		if((optimizations | Optimizations.OptimizeBeforeResolving) != 0){
-			Optimizer opt = new Optimizer(parsed, optimizations);
-			parsed = opt.OptimizeImport();
+		if((optimizations & Optimizations.EarlyOptimizations) != 0){
+			EarlyOptimizer opt = new EarlyOptimizer(parsed, optimizations);
+			parsed = opt.Optimize();
 		}
 		
 		return parsed;

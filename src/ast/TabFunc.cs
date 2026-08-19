@@ -1,6 +1,6 @@
-namespace TabScript;
+namespace TableScript;
 
-public abstract class TabFunc{
+abstract class TabFunc{
 	public string import {get; private init;}
 	public string identifier {get; private init;}
 	public string[] pars {get; private init;}

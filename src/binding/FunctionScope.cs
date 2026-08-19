@@ -1,6 +1,6 @@
 using System;
 
-namespace TabScript;
+namespace TableScript;
 
 class FunctionScope : IScope{	
 	IScope parent;
@@ -26,13 +26,11 @@ class FunctionScope : IScope{
 			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Variable re-definition: " + import + "::" + id);
 		}
 		
-		Variable v = getVariable();
-		vars[id] = allocator.allocate(v);
+		Variable v = getVariable(programCounter);
+		int uid = allocator.allocate(v);
+		vars[id] = uid;
 		
-		int op = allocator.getOperationId();
-		v.operations[op] = (false, programCounter);
-		
-		return op;
+		return uid;
 	}
 	
 	public int assign(string filename, int line, string callingImport, string id, string im, int programCounter){
@@ -41,9 +39,8 @@ class FunctionScope : IScope{
 		}
 		
 		if(im == null && vars.TryGetValue(id, out int uid)){
-			int op = allocator.getOperationId();
-			allocator.variables[uid].operations[op] = (false, programCounter);
-			return op;
+			allocator.variables[uid].setDeath(programCounter);
+			return uid;
 		}else{
 			return parent.assign(filename, line, callingImport, id, im, programCounter);
 		}
@@ -55,9 +52,8 @@ class FunctionScope : IScope{
 		}
 		
 		if(im == null && vars.TryGetValue(id, out int uid)){
-			int op = allocator.getOperationId();
-			allocator.variables[uid].operations[op] = (true, programCounter);
-			return op;
+			allocator.variables[uid].setDeath(programCounter);
+			return uid;
 		}else{
 			return parent.get(filename, line, callingImport, id, im, programCounter);
 		}
@@ -67,7 +63,7 @@ class FunctionScope : IScope{
 		return parent;
 	}
 	
-	public Variable getVariable(){
-		return new Variable(){frame = funcIndex};
+	public Variable getVariable(int programCounter){
+		return new Variable(funcIndex, programCounter);
 	}
 }

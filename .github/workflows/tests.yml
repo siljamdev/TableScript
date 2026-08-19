@@ -17,5 +17,5 @@ jobs:
 
     - name: Run tests
       run: |
-        cd tests
-        dotnet run --project tests.csproj
+        cd tests/TableScript.LanguageTests
+        dotnet run --project TableScript.LanguageTests.csproj

@@ -6,9 +6,11 @@ import "multifiles2.tbs"; //Import the other file. Cyclic imports is not somethi
 
 global a = "Hello world"; //Global variable
 
-global b = "Greetings!"; //Global variable
+export global b = "Greetings!"; //Global variable
 
 print(greet()); //Greetings!
+print(fun2()); //Greetings!
+print(fun3()); //I am not ready to greet you
 print(greet2()); //I have always been ready to greet you
 print(greet3()); //I have always been ready to greet you
 print(greet4()); //I have always been ready to greet you
@@ -17,9 +19,18 @@ print(greet6()); //Greetings!
 print(bye()); //Sad to see you go! or Bye!
 
 function fun(){
-	return b; //Accessing local variables
+	return local::b; //Accessing local global variables
+}
+
+function fun2(){
+	return b; //Accessing local global variables
+}
+
+function fun3(){
+	//multifiles2::b = "hi"; //This would be an ERROR!
+	return "I am not" + multifiles2::b; //Accessing global variables from other imports
 }
 
 export function greet(){
-	return fun(); //Can access function that isnt export
+	return fun(); //Can access local functions that arent export
 }
