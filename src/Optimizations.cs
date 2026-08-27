@@ -84,5 +84,10 @@ public enum Optimizations{
 	/// <summary>
 	/// Experimental optimizations
 	/// </summary>
-	Experimental = Normal | VariableIndexReusing | ConstantPropagation | DeadStoreElimination
+	Experimental = Normal | VariableIndexReusing | ConstantPropagation | DeadStoreElimination,
+	
+	/// <summary>
+	/// Useful for when unsued functions will be called from the API + experimental optimizations
+	/// </summary>
+	ExternalCallExperimental = ExternalCall | VariableIndexReusing | ConstantPropagation | DeadStoreElimination
 }

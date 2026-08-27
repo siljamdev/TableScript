@@ -8,7 +8,7 @@ class Allocator{
 	
 	bool reuseSlots;
 	
-	Dictionary<int, Variable[]> frameVars;
+	Dictionary<int, int[]> frameVars; //frame, uids
 	
 	//Returns uid
 	public int allocate(Variable va){
@@ -24,7 +24,7 @@ class Allocator{
 		
 		reuseSlots = (opt & Optimizations.VariableIndexReusing) != 0;
 		
-		frameVars = variables.Where(v => v.used).GroupBy(v => v.frame).ToDictionary(g => g.Key, g => g.ToArray());
+		frameVars = variables.Where(v => v.used).GroupBy(v => v.frame).ToDictionary(g => g.Key, g => g.Select(h => variables.IndexOf(h)).ToArray());
 	}
 	
 	public int getIndex(int uid){
@@ -40,16 +40,31 @@ class Allocator{
 	}
 	
 	void setIndexes(int frame){
-		Variable[] vars = frameVars[frame];
+		int[] vars = frameVars[frame];
 		
-		List<Variable> alive = new();
+		List<int> alive = new();
 		
 		for(int i = 0; i < vars.Length; i++){
 			int chosen = alive.Count;
 			
-			alive.Add(vars[i]);
+			bool previous = false;
 			
-			vars[i].index = frame == -1 ? (-chosen - 1) : chosen;
+			if(reuseSlots){
+				for(int j = 0; j < alive.Count; j++){
+					if(!variables[vars[i]].liveness.Contains(alive[j])){
+						chosen = j;
+						alive[j] = vars[i];
+						previous = true;
+						break;
+					}
+				}
+			}
+			
+			if(!previous){
+				alive.Add(vars[i]);
+			}
+			
+			variables[vars[i]].index = frame == -1 ? (-chosen - 1) : chosen;
 			
 			//Console.WriteLine("Chosen index " + vars[i].index + " for UID " + vars[i].uid);
 		}
@@ -72,6 +87,7 @@ class Variable{
 	public bool isGlobal;
 	public bool used = false;
 	
+	public HashSet<int> liveness;
 	public int? index = null;
 	
 	public Variable(int f, bool g){

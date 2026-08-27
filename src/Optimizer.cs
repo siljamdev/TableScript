@@ -15,6 +15,8 @@ class Optimizer{
 	HashSet<int> currentInLive; //For liveness analysis
 	HashSet<int> currentOutLive; //For DSE
 	
+	List<int> usedFuncsIndexTranslation = new();
+	
 	Optimizations opt;
 	
 	bool constFolding; //Simplify literals
@@ -23,6 +25,7 @@ class Optimizer{
 	bool exprSimplifier; //Simplify expressions
 	bool deadCodeDel; //Delete everything after exit ir return
 	bool deadStoreDel; //Delete useless var writes
+	bool deadFuncDel; //Delete unused funcs
 	
 	bool anyChanged;
 	
@@ -38,6 +41,7 @@ class Optimizer{
 		deadCodeDel = (opt & Optimizations.DeadCodeElimination) != 0;
 		constPropagation = (opt & Optimizations.ConstantPropagation) != 0;
 		deadStoreDel = (opt & Optimizations.DeadStoreElimination) != 0;
+		deadFuncDel = (opt & Optimizations.DeadFunctionElimination) != 0;
 	}
 	
 	public Script Optimize(){		
@@ -47,7 +51,27 @@ class Optimizer{
 			OptimizeFunc(fun);
 		}
 		
-		return new Script(p.filename, main, p.functions);
+		if(deadFuncDel){
+			int lastLen = 0;
+			walkNode(main, none, none, deleteDeadFunctions);
+			
+			List<BoundFunc> newFuncs = new();
+			
+			while(usedFuncsIndexTranslation.Count > lastLen){
+				int nl = lastLen;
+				lastLen = usedFuncsIndexTranslation.Count;
+				
+				for(int i = nl; i < usedFuncsIndexTranslation.Count; i++){
+					if(p.functions[usedFuncsIndexTranslation[i]] is BoundNativeFunc n){
+						walkNode(n.body, none, none, deleteDeadFunctions);
+					}
+				}
+			}
+			
+			return new Script(p.filename, main, usedFuncsIndexTranslation.Select(i => p.functions[i]).ToArray());
+		}else{
+			return new Script(p.filename, main, p.functions);
+		}
 	}
 	
 	CFGNode OptimizeCFG(CFGNode n){
@@ -94,6 +118,7 @@ class Optimizer{
 		
 		//Variable index, only once
 		walkNode(n, none, markUsedVars, markUsedVars);
+		analizeLiveness(n);
 		alloc.startIndexing(opt);
 		walkNode(n, none, replaceVariableUids, replaceVariableUids);
 		
@@ -112,22 +137,6 @@ class Optimizer{
 	void none(CFGNode n){}
 	Stmt[] none(Stmt s) => new Stmt[]{s};
 	Expr none(Expr e) => e;
-	
-	//set variable indexes
-	Stmt[] replaceVariableUids(Stmt s){
-		if(s is BoundVarAssignStmt a){
-			return new Stmt[]{new BoundVarAssignStmt(alloc.getIndex(a.index), a.val, s.line)};
-		}else if(s is BoundElementAssignStmt e){
-			return new Stmt[]{new BoundElementAssignStmt(alloc.getIndex(e.index), e.ind, e.val, s.line)};
-		}
-		return new Stmt[]{s};
-	}
-	Expr replaceVariableUids(Expr e){
-		if(e is BoundVariableExpr v){
-			return new BoundVariableExpr(alloc.getIndex(v.index));
-		}
-		return e;
-	}
 	
 	//Simplify expressions
 	Stmt[] simplifyExpr(Stmt s){
@@ -626,6 +635,25 @@ class Optimizer{
 		return true;
 	}
 	
+	//set variable indexes
+	Stmt[] replaceVariableUids(Stmt s){
+		if(s is BoundVarAssignStmt a){
+			int index = alloc.getIndex(a.index);
+			return new Stmt[]{new BoundVarAssignStmt(index, a.val, s.line)};
+		}else if(s is BoundElementAssignStmt e){
+			int index = alloc.getIndex(e.index);
+			return new Stmt[]{new BoundElementAssignStmt(index, e.ind, e.val, s.line)};
+		}
+		return new Stmt[]{s};
+	}
+	Expr replaceVariableUids(Expr e){
+		if(e is BoundVariableExpr v){
+			int index = alloc.getIndex(v.index);
+			return new BoundVariableExpr(index);
+		}
+		return e;
+	}
+	
 	//Dead store elimination
 	void eliminateDeadStoreBefore(CFGNode n){
 		//Set the set so it can be accessed
@@ -723,19 +751,34 @@ class Optimizer{
 	//Needed because lvalue must be evaluated before rvalue expr
 	void insideLiveness(Stmt s){
 		if(s is BoundVarAssignStmt b){
+			alloc.variables[b.index].liveness = new(currentInLive);
 			currentInLive.Remove(b.index);
 		}else if(s is BoundElementAssignStmt e){
+			alloc.variables[e.index].liveness = new(currentInLive);
 			currentInLive.Add(e.index); //Treat as a read
 		}
 		
 		transformStmt(s, none, insideLiveness); //rvalues
 	}
-	
 	Expr insideLiveness(Expr e){
 		if(e is BoundVariableExpr v){
+			//alloc.variables[v.index].liveness = new(currentInLive);
 			currentInLive.Add(v.index);
 		}
 		
+		return e;
+	}
+	
+	//Dead func del
+	Expr deleteDeadFunctions(Expr e){
+		if(e is BoundCallExpr c){
+			int sto = usedFuncsIndexTranslation.IndexOf(c.index);
+			if(sto == -1){
+				sto = usedFuncsIndexTranslation.Count;
+				usedFuncsIndexTranslation.Add(c.index);
+			}
+			return new BoundCallExpr(sto, c.args);
+		}
 		return e;
 	}
 	
