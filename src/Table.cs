@@ -543,6 +543,10 @@ public class Table{
 	/// Checking for equality
 	/// </summary>
 	public bool EqualTo(Table t){
+		if(t == null){
+			return false;
+		}
+		
 		if(Length != t.Length){
 			return false;
 		}

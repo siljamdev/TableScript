@@ -24,7 +24,7 @@ class Allocator{
 		
 		reuseSlots = (opt & Optimizations.VariableIndexReusing) != 0;
 		
-		frameVars = variables.GroupBy(v => v.frame).ToDictionary(g => g.Key, g => g.ToArray());
+		frameVars = variables.Where(v => v.used).GroupBy(v => v.frame).ToDictionary(g => g.Key, g => g.ToArray());
 	}
 	
 	public int getIndex(int uid){
@@ -47,21 +47,7 @@ class Allocator{
 		for(int i = 0; i < vars.Length; i++){
 			int chosen = alive.Count;
 			
-			if(reuseSlots){
-				for(int j = 0; j < alive.Count; j++){
-					if(alive[j].death < vars[i].born){
-						alive[j] = vars[i];
-						chosen = j;
-						break;
-					}
-				}
-				
-				if(chosen == alive.Count){
-					alive.Add(vars[i]);
-				}
-			}else{
-				alive.Add(vars[i]);
-			}
+			alive.Add(vars[i]);
 			
 			vars[i].index = frame == -1 ? (-chosen - 1) : chosen;
 			
@@ -83,23 +69,13 @@ class Allocator{
 class Variable{
 	public int frame; //-1 is global / main. else its func index
 	public bool isRelative => frame != -1;
-	
-	public int death;
-	public int born;
+	public bool isGlobal;
+	public bool used = false;
 	
 	public int? index = null;
 	
-	public Variable(int f, int b){
+	public Variable(int f, bool g){
 		frame = f;
-		born = b;
-		death = b;
-	}
-	
-	public void setDeath(int d){
-		death = Math.Max(death, d);
-	}
-	
-	public override string ToString(){
-		return ", born: " + born + " death: " + death;
+		isGlobal = g;
 	}
 }

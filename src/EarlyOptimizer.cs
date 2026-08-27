@@ -52,7 +52,7 @@ class EarlyOptimizer{
 			anyChanged = false;
 			
 			if(exprSimplifier){
-				n = n.Select(s => transformStmt(s, Optimizer.simplifyExpr, Optimizer.simplifyExpr)).ToArray();
+				n = n.Select(s => transformStmt(s, Optimizer.simplifyExprSimple, Optimizer.simplifyExpr)).ToArray();
 			}
 			
 			if(constFolding){
@@ -163,7 +163,7 @@ class EarlyOptimizer{
 		
 		Stmt ns = stmtFunc(s);
 		
-		if(s != ns){
+		if(ns != s){
 			anyChanged = true;
 		}
 		

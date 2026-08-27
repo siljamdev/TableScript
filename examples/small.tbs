@@ -1,0 +1,10 @@
+import stdlib;
+
+print(tableFindTest()?"T":"F");
+
+function tableFindTest(){
+	tab a = ["a", "b", "a", "d", "a", "f"];
+	tab b = a.stdlib::indexOf("a");
+	
+	return b == 0;
+}

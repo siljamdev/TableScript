@@ -3,7 +3,7 @@ using System.Text;
 
 namespace TableScript;
 
-abstract class CFGNode{
+abstract partial class CFGNode{
 	static int counter;
 	public int id {get; private init;}
 	public bool isEntry; //Prevent total removal
@@ -45,6 +45,10 @@ abstract class CFGNode{
 		}
 	}
 	
+	public virtual CFGNode[] successors(){
+		return Array.Empty<CFGNode>();
+	}
+	
 	public static string ToString(CFGNode p){
 		StringBuilder sb = new();
 		HashSet<CFGNode> seen = new();
@@ -63,8 +67,8 @@ abstract class CFGNode{
 						break;
 					
 					case CondCFGNode c:
-						pending.Push(c.isTrue);
 						pending.Push(c.isFalse);
+						pending.Push(c.isTrue);
 						break;
 				}
 			}
@@ -111,8 +115,19 @@ class StmtCFGNode : CFGNode{
 		next = null;
 	}
 	
+	public override CFGNode[] successors(){
+		if(next != null){
+			return new CFGNode[]{next};
+		}else{
+			return Array.Empty<CFGNode>();
+		}
+	}
+	
 	public override string ToString(){
-		return "#" + id + " ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id)) + "[\n" + string.Join("\n", statements.Select(s => "\t" + s?.ToString())) + "\n] NEXT: #" + next?.id;
+		return "#" + id +
+			(entries.Count > 0 ? " {ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id)) + "}" : "") +
+			" [\n" + string.Join("\n", statements.Select(s => "\t" + s?.ToString())) + "\n]" +
+			"NEXT: #" + next?.id;
 	}
 }
 
@@ -162,20 +177,32 @@ class CondCFGNode : CFGNode{
 		isFalse = null;
 	}
 	
+	public override CFGNode[] successors(){
+		if(isTrue != null){
+			return isFalse == null ? new CFGNode[]{isTrue} : new CFGNode[]{isTrue, isFalse};
+		}else{
+			return isFalse != null ? new CFGNode[]{isFalse} : Array.Empty<CFGNode>();
+		}
+	}
+	
 	public override string ToString(){
-		return "#" + id + " ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id)) + " IF <" + condition.ToString() + ">\n\tTRUE: #" + isTrue?.id + "\n\tFALSE: #" + isFalse?.id;
+		return "#" + id +
+		(entries.Count > 0 ? " {ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id)) + "}" : "") +
+		" IF <" + condition.ToString() + ">\n\tTRUE: #" + isTrue?.id + "\n\tFALSE: #" + isFalse?.id;
 	}
 }
 
 class DummyCFGNode : CFGNode{	
 	public override string ToString(){
-		return "#" + id + " DUMMY ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id));
+		return "#" + id + " DUMMY" +
+			(entries.Count > 0 ? " {ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id)) + "}" : "");
 	}
 }
 
 class RedirectCFGNode : CFGNode{	
 	public override string ToString(){
-		return "#" + id + " REDIRECT ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id));
+		return "#" + id + " REDIRECT" +
+			(entries.Count > 0 ? " {ENTRIES: " + string.Join(", ", entries.Select(e => "#" + e.id)) + "}" : "");
 	}
 }
 

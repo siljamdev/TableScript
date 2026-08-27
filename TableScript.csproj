@@ -27,6 +27,7 @@
 	<Compile Remove="examples/**" />
 	<Compile Remove="exec/**" />
 	<Compile Remove="tests/**" />
+	
 	<None Include="res/icon.png" Pack="true" PackagePath="res/" />
 	<None Include="README.md" Pack="true" PackagePath="/" />
   </ItemGroup>

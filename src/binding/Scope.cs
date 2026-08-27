@@ -15,7 +15,7 @@ class Scope : IScope{
 		import = i;
 	}
 	
-	public int define(string filename, int line, string callingImport, string id, bool export, int programCounter){
+	public int define(string filename, int line, string callingImport, string id, bool export){
 		if(callingImport != import){
 			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
 		}
@@ -24,36 +24,34 @@ class Scope : IScope{
 			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Variable re-definition: " + import + "::" + id);
 		}
 		
-		Variable v = getVariable(programCounter);
+		Variable v = getVariable();
 		int uid = allocator.allocate(v);
 		vars[id] = uid;
 		
 		return uid;
 	}
 	
-	public int assign(string filename, int line, string callingImport, string id, string im, int programCounter){
+	public int assign(string filename, int line, string callingImport, string id, string im){
 		if(callingImport != import){
 			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
 		}
 		
 		if(im == null && vars.TryGetValue(id, out int uid)){
-			allocator.variables[uid].setDeath(programCounter);
 			return uid;
 		}else{
-			return parent.assign(filename, line, callingImport, id, im, programCounter);
+			return parent.assign(filename, line, callingImport, id, im);
 		}
 	}
 	
-	public int get(string filename, int line, string callingImport, string id, string im, int programCounter){
+	public int get(string filename, int line, string callingImport, string id, string im){
 		if(callingImport != import){
 			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
 		}
 		
 		if(im == null && vars.TryGetValue(id, out int uid)){
-			allocator.variables[uid].setDeath(programCounter);
 			return uid;
 		}else{
-			return parent.get(filename, line, callingImport, id, im, programCounter);
+			return parent.get(filename, line, callingImport, id, im);
 		}
 	}
 	
@@ -61,7 +59,7 @@ class Scope : IScope{
 		return parent;
 	}
 	
-	public Variable getVariable(int programCounter){
-		return parent.getVariable(programCounter);
+	public Variable getVariable(){
+		return parent.getVariable();
 	}
 }

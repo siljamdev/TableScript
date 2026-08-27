@@ -243,6 +243,32 @@ record BoundCallExpr(int index, Expr[] args) : Expr{
 	public override int precedence(){
 		return 1000;
 	}
+	
+	protected override Type EqualityContract => typeof(BoundCallExpr);
+	
+	public virtual bool Equals(BoundCallExpr? b){
+		if(b == null)
+			return false;
+		
+		if(index != b.index)
+			return false;
+		
+		if(args == null && b.args == null)
+			return true;
+		
+		if(args == null || b.args == null)
+			return false;
+		
+		if(args.Length != b.args.Length)
+			return false;
+		
+		for(int i = 0; i < args.Length; i++){
+			if(args[i] != b.args[i])
+				return false;
+		}
+		
+		return true;
+	}
 }
 
 record BoundVariableExpr(int index) : Expr{

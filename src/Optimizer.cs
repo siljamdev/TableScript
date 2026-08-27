@@ -8,6 +8,13 @@ class Optimizer{
 	ResolvedImport rim;
 	Allocator alloc;
 	
+	Dictionary<CFGNode, Dictionary<int, Table>> inVars = new();
+	Dictionary<int, Table> currentVariables;
+	
+	Dictionary<CFGNode, HashSet<int>> outLive = new();
+	HashSet<int> currentInLive; //For liveness analysis
+	HashSet<int> currentOutLive; //For DSE
+	
 	Optimizations opt;
 	
 	bool constFolding; //Simplify literals
@@ -33,9 +40,7 @@ class Optimizer{
 		deadStoreDel = (opt & Optimizations.DeadStoreElimination) != 0;
 	}
 	
-	public Script Optimize(){
-		alloc.startIndexing(opt);
-		
+	public Script Optimize(){		
 		CFGNode main = OptimizeCFG(p.body);
 		
 		foreach(BoundFunc fun in p.functions){
@@ -62,8 +67,18 @@ class Optimizer{
 				walkNode(n, none, simplifyExpr, simplifyExpr);
 			}
 			
+			if(constPropagation){
+				prepareInVars(n);
+				walkNodeBefore(n, propagateConstantsBefore, propagateConstants, propagateConstants);
+			}
+			
 			if(constFolding){
 				walkNode(n, none, none, foldConstants);
+			}
+			
+			if(deadStoreDel){
+				analizeLiveness(n);
+				walkNodeBeforeBeforeReversed(n, eliminateDeadStoreBefore, eliminateDeadStore, eliminateDeadStore);
 			}
 			
 			if(deadCodeDel){
@@ -78,26 +93,34 @@ class Optimizer{
 		}
 		
 		//Variable index, only once
+		walkNode(n, none, markUsedVars, markUsedVars);
+		alloc.startIndexing(opt);
 		walkNode(n, none, replaceVariableUids, replaceVariableUids);
 		
-		//Console.WriteLine("GRAPH FINISHED");
+		//Console.WriteLine("GRAPH FINISHED\n" + CFGNode.ToString(n));
 		
 		return n;
 	}
 	
+	void OptimizeFunc(BoundFunc p){
+		if(p is BoundNativeFunc f){
+			f.body = OptimizeCFG(f.body);
+		}
+	}
+	
 	//No transformation
 	void none(CFGNode n){}
-	Stmt none(Stmt s) => s;
+	Stmt[] none(Stmt s) => new Stmt[]{s};
 	Expr none(Expr e) => e;
 	
 	//set variable indexes
-	Stmt replaceVariableUids(Stmt s){
+	Stmt[] replaceVariableUids(Stmt s){
 		if(s is BoundVarAssignStmt a){
-			return new BoundVarAssignStmt(alloc.getIndex(a.index), a.val, s.line);
+			return new Stmt[]{new BoundVarAssignStmt(alloc.getIndex(a.index), a.val, s.line)};
 		}else if(s is BoundElementAssignStmt e){
-			return new BoundElementAssignStmt(alloc.getIndex(e.index), e.ind, e.val, s.line);
+			return new Stmt[]{new BoundElementAssignStmt(alloc.getIndex(e.index), e.ind, e.val, s.line)};
 		}
-		return s;
+		return new Stmt[]{s};
 	}
 	Expr replaceVariableUids(Expr e){
 		if(e is BoundVariableExpr v){
@@ -107,7 +130,11 @@ class Optimizer{
 	}
 	
 	//Simplify expressions
-	public static Stmt simplifyExpr(Stmt s){
+	Stmt[] simplifyExpr(Stmt s){
+		Stmt n = simplifyExprSimple(s);
+		return n == null ? Array.Empty<Stmt>() : new Stmt[]{n};
+	}
+	public static Stmt simplifyExprSimple(Stmt s){
 		if(s is ExprStmt e && !e.exp.hasSideEffects()){
 			return null;
 		}
@@ -445,13 +472,363 @@ class Optimizer{
 		}
 	}
 	
-	void OptimizeFunc(BoundFunc p){
-		if(p is BoundNativeFunc f){
-			f.body = OptimizeCFG(f.body);
+	//Constant propagation
+	void propagateConstantsBefore(CFGNode n){
+		//Set the dict so it can be accessed
+		currentVariables = inVars[n];
+	}
+	Stmt[] propagateConstants(Stmt s){
+		if(s is BoundVarAssignStmt a){
+			if(a.val is LiteralExpr lit){
+				currentVariables[a.index] = lit.val;
+			}else{
+				currentVariables[a.index] = null;
+			}
+		}else if(s is BoundElementAssignStmt e){
+			if(e.val is LiteralExpr lit && e.ind.val == null && e.ind.ind.mode != TabIndexMode.Random){
+				Table t = currentVariables[e.index].Clone();
+				t.SetElem(e.ind.ind, lit.val);
+				currentVariables[e.index] = t;
+			}else{
+				currentVariables[e.index] = null;
+			}
+		}
+		
+		return new Stmt[]{s};
+	}
+	Expr propagateConstants(Expr e){
+		if(e is BoundVariableExpr v && currentVariables.TryGetValue(v.index, out Table val) && val != null){
+			return new LiteralExpr(val);
+		}
+		return e;
+	}
+	
+	//Populate inVars dict. Its a dictionary of the know variables values at the start of a node
+	void prepareInVars(CFGNode entry){
+		inVars.Clear();
+		Dictionary<CFGNode, Dictionary<int, Table>> outVars = new();
+		
+		Queue<CFGNode> toProcess = new();
+		HashSet<CFGNode> queued = new();
+		
+		toProcess.Enqueue(entry);
+		queued.Add(entry);
+		
+		while(toProcess.Count > 0){
+			CFGNode cur = toProcess.Dequeue();
+			queued.Remove(cur);
+			
+			Dictionary<int, Table> input = null;
+			
+			foreach(CFGNode e in cur.entries){
+				if(!outVars.TryGetValue(e, out Dictionary<int, Table> outE)){
+					continue;
+				}
+				
+				if(input == null){
+					input = new(outE);
+				}else{
+					input = meet(input, outE);
+				}
+			}
+			
+			input ??= new();
+			
+			inVars[cur] = input;
+			
+			Dictionary<int, Table> output = new(input);
+			
+			insideVars(cur, output);
+			
+			bool changed = !outVars.TryGetValue(cur, out Dictionary<int, Table> old) || !dictEqual(old, output);
+			
+			outVars[cur] = output;
+			
+			if(changed){
+				foreach(CFGNode suc in cur.successors()){
+					if(queued.Add(suc)){
+						toProcess.Enqueue(suc);
+					}
+				}
+			}
 		}
 	}
 	
-	void walkNode(CFGNode n, Action<CFGNode> nodeFunc, Func<Stmt, Stmt> stmtFunc, Func<Expr, Expr> exprFunc, HashSet<CFGNode> visited = null){
+	//Add to the output the variable assignments of the node
+	void insideVars(CFGNode n, Dictionary<int, Table> output){
+		if(n is StmtCFGNode s){
+			foreach(Stmt t in s.statements){
+				if(t is BoundVarAssignStmt b){
+					if(b.val is LiteralExpr lit){
+						output[b.index] = lit.val;
+					}else{
+						output[b.index] = null;
+					}
+				}else if(t is BoundElementAssignStmt e){
+					if(e.val is LiteralExpr lit && e.ind.val == null && e.ind.ind.mode != TabIndexMode.Random){
+						Table t22 = output[e.index].Clone();
+						t22.SetElem(e.ind.ind, lit.val);
+						output[e.index] = t22;
+					}else{
+						output[e.index] = null;
+					}
+				} 
+			}
+		}
+	}
+	
+	//Combine dicts of entry nodes
+	Dictionary<int, Table> meet(Dictionary<int, Table> a, Dictionary<int, Table> b){
+		Dictionary<int, Table> res = new();
+		
+		foreach(int key in a.Keys.Union(b.Keys)){
+			bool hasA = a.TryGetValue(key, out Table? t1);
+			bool hasB = b.TryGetValue(key, out Table? t2);
+			
+			if(!hasA || !hasB){
+				continue;
+			}
+			
+			if(t1 == null || t2 == null){
+				res[key] = null;
+				continue;
+			}
+			
+			res[key] = t1.EqualTo(t2) ? t1 : null;
+		}
+		
+		return res;
+	}
+	
+	bool dictEqual(Dictionary<int, Table> a, Dictionary<int, Table> b){
+		if(a.Count != b.Count){
+			return false;
+		}
+		
+		foreach(KeyValuePair<int, Table> kvp in a){
+			if(!b.TryGetValue(kvp.Key, out Table tb)){
+				return false;
+			}
+			
+			if(kvp.Value == null && tb == null){
+				continue;
+			}
+			
+			if(kvp.Value == null && tb != null){
+				return false;
+			}
+			
+			if(!kvp.Value.EqualTo(tb)){
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	//Dead store elimination
+	void eliminateDeadStoreBefore(CFGNode n){
+		//Set the set so it can be accessed
+		currentOutLive = outLive[n];
+	}
+	Stmt[] eliminateDeadStore(Stmt s){
+		if(s is BoundVarAssignStmt b){
+			if(!currentOutLive.Remove(b.index) && !alloc.variables[b.index].isGlobal){
+				return new Stmt[]{new ExprStmt(b.val, s.line)};
+			}
+		}else if(s is BoundElementAssignStmt e){
+			if(!currentOutLive.Contains(e.index) && !alloc.variables[e.index].isGlobal){
+				if(e.ind.val != null){
+					return new Stmt[]{new ExprStmt(e.val, s.line), new ExprStmt(e.ind.val, s.line)};
+				}else{
+					return new Stmt[]{new ExprStmt(e.val, s.line)};
+				}
+			}
+			currentOutLive.Add(e.index);
+		}
+		
+		return new Stmt[]{s};
+	}
+	Expr eliminateDeadStore(Expr e){
+		if(e is BoundVariableExpr v){
+			currentOutLive.Add(v.index);
+		}
+		return e;
+	}
+	
+	//Populate outLive dict. Its a dictionary of the live variables at the end of each node
+	void analizeLiveness(CFGNode entry){
+		outLive.Clear();
+		Dictionary<CFGNode, HashSet<int>> inLive = new();
+		
+		Queue<CFGNode> toProcess = new();
+		HashSet<CFGNode> queued = new();
+		
+		toProcess.Enqueue(entry);
+		queued.Add(entry);
+		
+		while(toProcess.Count > 0){
+			CFGNode cur = toProcess.Dequeue();
+			queued.Remove(cur);
+			
+			HashSet<int> output = new();
+			
+			foreach(CFGNode suc in cur.successors()){
+				if(inLive.TryGetValue(suc, out HashSet<int> sucInLive)){
+					output.UnionWith(sucInLive);
+				}
+			}
+			
+			outLive[cur] = output;
+			
+			HashSet<int> input = new(output);
+			
+			insideLiveness(cur, input);
+			
+			bool first = !inLive.TryGetValue(cur, out HashSet<int> old);
+			bool changed = first || !old.SetEquals(input);
+			
+			inLive[cur] = input;
+			
+			if(first){
+				foreach(CFGNode suc in cur.successors()){
+					if(queued.Add(suc)){
+						toProcess.Enqueue(suc);
+					}
+				}
+			}
+			
+			if(changed){
+				foreach(CFGNode e in cur.entries){
+					if(queued.Add(e)){
+						toProcess.Enqueue(e);
+					}
+				}
+			}
+		}
+	}
+	
+	void insideLiveness(CFGNode n, HashSet<int> inLive){
+		currentInLive = inLive;
+		if(n is StmtCFGNode s){
+			foreach(Stmt t in s.statements.Reverse()){
+				insideLiveness(t);
+			}
+		}else if(n is CondCFGNode c){
+			transformExpr(c.condition, insideLiveness);
+		}
+		currentInLive = null;
+	}
+	
+	//Needed because lvalue must be evaluated before rvalue expr
+	void insideLiveness(Stmt s){
+		if(s is BoundVarAssignStmt b){
+			currentInLive.Remove(b.index);
+		}else if(s is BoundElementAssignStmt e){
+			currentInLive.Add(e.index); //Treat as a read
+		}
+		
+		transformStmt(s, none, insideLiveness); //rvalues
+	}
+	
+	Expr insideLiveness(Expr e){
+		if(e is BoundVariableExpr v){
+			currentInLive.Add(v.index);
+		}
+		
+		return e;
+	}
+	
+	//Node function is before statements, statements are evaluated in reverse order in blocks and statements are transformed before expressions
+	void walkNodeBeforeBeforeReversed(CFGNode n, Action<CFGNode> nodeFuncBefore, Func<Stmt, Stmt[]> stmtFuncBefore, Func<Expr, Expr> exprFunc, HashSet<CFGNode> visited = null){
+		if(n == null){
+			return;
+		}
+		
+		visited ??= new();
+		
+		if(!visited.Add(n)){
+			return;
+		}
+		
+		nodeFuncBefore(n);
+		
+		switch(n){
+			case StmtCFGNode s:
+				s.statements = s.statements.Reverse().SelectMany(t => transformStmtBefore(t, stmtFuncBefore, exprFunc).Reverse()).Reverse().ToArray();
+				break;
+			
+			case CondCFGNode c:
+				c.condition = transformExpr(c.condition, exprFunc);
+				break;
+		}
+		
+		switch(n){
+			case StmtCFGNode s:
+				walkNodeBeforeBeforeReversed(s.next, nodeFuncBefore, stmtFuncBefore, exprFunc, visited);
+				break;
+			
+			case CondCFGNode c:
+				walkNodeBeforeBeforeReversed(c.isTrue, nodeFuncBefore, stmtFuncBefore, exprFunc, visited);
+				walkNodeBeforeBeforeReversed(c.isFalse, nodeFuncBefore, stmtFuncBefore, exprFunc, visited);
+				break;
+		}
+	}
+	
+	//Mark variables as used
+	Stmt[] markUsedVars(Stmt s){
+		if(s is BoundVarAssignStmt b){
+			alloc.variables[b.index].used = true;
+		}else if(s is BoundElementAssignStmt e){
+			alloc.variables[e.index].used = true;
+		}
+		
+		return new Stmt[]{s};
+	}
+	Expr markUsedVars(Expr e){
+		if(e is BoundVariableExpr v){
+			alloc.variables[v.index].used = true;
+		}
+		return e;
+	}
+	
+	//Node function is before statements
+	void walkNodeBefore(CFGNode n, Action<CFGNode> nodeFuncBefore, Func<Stmt, Stmt[]> stmtFunc, Func<Expr, Expr> exprFunc, HashSet<CFGNode> visited = null){
+		if(n == null){
+			return;
+		}
+		
+		visited ??= new();
+		
+		if(!visited.Add(n)){
+			return;
+		}
+		
+		nodeFuncBefore(n);
+		
+		switch(n){
+			case StmtCFGNode s:
+				s.statements = s.statements.SelectMany(t => transformStmt(t, stmtFunc, exprFunc)).ToArray();
+				break;
+			
+			case CondCFGNode c:
+				c.condition = transformExpr(c.condition, exprFunc);
+				break;
+		}
+		
+		switch(n){
+			case StmtCFGNode s:
+				walkNodeBefore(s.next, nodeFuncBefore, stmtFunc, exprFunc, visited);
+				break;
+			
+			case CondCFGNode c:
+				walkNodeBefore(c.isTrue, nodeFuncBefore, stmtFunc, exprFunc, visited);
+				walkNodeBefore(c.isFalse, nodeFuncBefore, stmtFunc, exprFunc, visited);
+				break;
+		}
+	}
+	
+	void walkNode(CFGNode n, Action<CFGNode> nodeFunc, Func<Stmt, Stmt[]> stmtFunc, Func<Expr, Expr> exprFunc, HashSet<CFGNode> visited = null){
 		if(n == null){
 			return;
 		}
@@ -464,7 +841,7 @@ class Optimizer{
 		
 		switch(n){
 			case StmtCFGNode s:
-				s.statements = s.statements.Select(t => transformStmt(t, stmtFunc, exprFunc)).Where(t => t != null).ToArray();
+				s.statements = s.statements.SelectMany(t => transformStmt(t, stmtFunc, exprFunc)).ToArray();
 				break;
 			
 			case CondCFGNode c:
@@ -486,7 +863,27 @@ class Optimizer{
 		}
 	}
 	
-	Stmt transformStmt(Stmt s, Func<Stmt, Stmt> stmtFunc, Func<Expr, Expr> exprFunc){
+	Stmt[] transformStmtBefore(Stmt s, Func<Stmt, Stmt[]> stmtFuncBefore, Func<Expr, Expr> exprFunc){
+		Stmt[] ns = stmtFuncBefore(s);
+		
+		ns = ns.Select(s => s switch{
+				ExprStmt e => new ExprStmt(transformExpr(e.exp, exprFunc), s.line),
+				ReturnStmt r => new ReturnStmt(transformExpr(r.val, exprFunc), s.line),
+				BoundVarAssignStmt a => new BoundVarAssignStmt(a.index, transformExpr(a.val, exprFunc), s.line),
+				BoundElementAssignStmt m => new BoundElementAssignStmt(m.index, transformIndex(m.ind, exprFunc), transformExpr(m.val, exprFunc), s.line),
+				
+				_ => s
+			}).ToArray();
+		
+		
+		if(ns.Length < 1 || ns.Length > 1 || s != ns[0]){
+			anyChanged = true;
+		}
+		
+		return ns;
+	}
+	
+	Stmt[] transformStmt(Stmt s, Func<Stmt, Stmt[]> stmtFunc, Func<Expr, Expr> exprFunc){
 		s = s switch{
 			ExprStmt e => new ExprStmt(transformExpr(e.exp, exprFunc), s.line),
 			ReturnStmt r => new ReturnStmt(transformExpr(r.val, exprFunc), s.line),
@@ -496,9 +893,9 @@ class Optimizer{
 			_ => s
 		};
 		
-		Stmt ns = stmtFunc(s);
+		Stmt[] ns = stmtFunc(s);
 		
-		if(s != ns){
+		if(ns.Length < 1 || ns.Length > 1 || s != ns[0]){
 			anyChanged = true;
 		}
 		

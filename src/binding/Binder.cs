@@ -43,8 +43,6 @@ class Binder{
 	Optimizations opt;
 	bool removeUnusedFunctions;
 	
-	int programCounter = 0;
-	
 	public Binder(ResolvedScript resolved, Optimizations opt){
 		main = resolved.mainBody;
 		bodies = resolved.bodies;
@@ -68,9 +66,7 @@ class Binder{
 	
 	public BoundScript Bind(){
 		globalScope = new GlobalScope(alloc);
-		globalScope.define(main.filename, 0, main.import, "args", false, programCounter); //args variable, defined here so it has index 0
-		
-		programCounter++;
+		globalScope.define(main.filename, 0, main.import, "args", false); //args variable, defined here so it has index 0
 		
 		CFGFragment first = null;
 		CFGFragment curr = first;
@@ -185,8 +181,6 @@ class Binder{
 	}
 	
 	CFGFragment Build(Stmt p){
-		programCounter++;
-		
 		switch(p){
 			case BlockStmt b:
 				currScope = new Scope(currScope, alloc, currentImport);
@@ -341,14 +335,12 @@ class Binder{
 	}
 	
 	Stmt Bind(Stmt p){
-		programCounter++;
-		
 		switch(p){
 			//Changes
 			case TabDeclStmt k:				
 				Expr v = BindExpr(k.val, p.line); //First function so you cant do tab a = a;
 				
-				int uid = currScope.define(currentFilename, p.line, currentImport, k.identifier, false, programCounter);
+				int uid = currScope.define(currentFilename, p.line, currentImport, k.identifier, false);
 				
 				return new BoundVarAssignStmt(uid, v, p.line);
 			
@@ -356,7 +348,7 @@ class Binder{
 			case GlobalDeclStmt k2:				
 				v = BindExpr(k2.val, p.line);
 				
-				uid = globalScope.define(currentFilename, p.line, currentImport, k2.identifier, k2.export, programCounter);
+				uid = globalScope.define(currentFilename, p.line, currentImport, k2.identifier, k2.export);
 				
 				return new BoundVarAssignStmt(uid, v, p.line);
 			
@@ -364,7 +356,7 @@ class Binder{
 			case VarAssignStmt a:
 				v = BindExpr(a.val, p.line);
 				
-				uid = currScope.assign(currentFilename, p.line, currentImport, a.identifier, a.import, programCounter);
+				uid = currScope.assign(currentFilename, p.line, currentImport, a.identifier, a.import);
 				
 				return new BoundVarAssignStmt(uid, v, p.line);
 			
@@ -373,7 +365,7 @@ class Binder{
 				v = BindExpr(l.val, p.line);
 				
 				IndexExpr idd2 = (IndexExpr) BindIndex(l.ind, p.line);
-				uid = currScope.assign(currentFilename, p.line, currentImport, l.identifier, l.import, programCounter);
+				uid = currScope.assign(currentFilename, p.line, currentImport, l.identifier, l.import);
 				
 				return new BoundElementAssignStmt(uid, idd2, v, p.line);
 			
@@ -415,7 +407,7 @@ class Binder{
 				updateImport(f.import);
 				
 				foreach(string param in f.pars){ //define parameters
-					currScope.define(currentFilename, f.line, currentImport, param, false, programCounter);
+					currScope.define(currentFilename, f.line, currentImport, param, false);
 				}
 				
 				CFGFragment bodyFragment = BuildMany(f.body.inner);
@@ -482,7 +474,7 @@ class Binder{
 			
 			//Changes
 			case VariableExpr v:
-				int index = currScope.get(currentFilename, line, currentImport, v.identifier, getRealImport(v.import), programCounter);
+				int index = currScope.get(currentFilename, line, currentImport, v.identifier, getRealImport(v.import));
 				return new BoundVariableExpr(index);
 			
 			case BinaryExpr b:
