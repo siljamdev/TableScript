@@ -19,11 +19,11 @@ class FunctionScope : IScope{
 	
 	public int define(string filename, int line, string callingImport, string id, bool export){
 		if(callingImport != import){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
 		}
 		
 		if(vars.ContainsKey(id)){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Variable re-definition: " + import + "::" + id);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Variable re-definition: " + import + "::" + id);
 		}
 		
 		Variable v = getVariable();
@@ -35,7 +35,7 @@ class FunctionScope : IScope{
 	
 	public int assign(string filename, int line, string callingImport, string id, string im){
 		if(callingImport != import){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
 		}
 		
 		if(im == null && vars.TryGetValue(id, out int uid)){
@@ -47,7 +47,7 @@ class FunctionScope : IScope{
 	
 	public int get(string filename, int line, string callingImport, string id, string im){
 		if(callingImport != import){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Unexpected scope access from foreign import: " + callingImport);
 		}
 		
 		if(im == null && vars.TryGetValue(id, out int uid)){

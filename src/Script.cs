@@ -14,11 +14,11 @@ public class Script{
 	/// <summary>
 	/// Action that will be called on error
 	/// </summary>
-	public Action<TabScriptException> OnReport;
+	public Action<TableScriptException> OnReport;
 	
 	Interpreter i;
 	
-	internal Script(string fn, CFGNode b, BoundFunc[] funcs, Action<TabScriptException> report = null){
+	internal Script(string fn, CFGNode b, BoundFunc[] funcs, Action<TableScriptException> report = null){
 		filename = fn;
 		body = b;
 		functions = funcs;
@@ -44,7 +44,7 @@ public class Script{
 		
 		try{
 			i.Interpret(args ?? new Table());
-		}catch(TabScriptException ex){
+		}catch(TableScriptException ex){
 			OnReport(ex);
 		}
 	}
@@ -55,7 +55,7 @@ public class Script{
 	public Table CallFunction(string import, string identifier, params Table[] args){
 		try{
 			return i.CallFunction(import, identifier, args ?? Array.Empty<Table>());
-		}catch(TabScriptException ex){
+		}catch(TableScriptException ex){
 			OnReport(ex);
 			return new Table(0);
 		}
@@ -67,14 +67,14 @@ public class Script{
 	
 	//######################################################################
 	
-	static void defaultReport(TabScriptException tsex){
+	static void defaultReport(TableScriptException tsex){
 		Console.Error.WriteLine(tsex.ToShortString());
 	}
 	
 	/// <summary>
 	/// Generate from source. Will use a default StandardImportResolver
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
 	public static Script FromSource(string filename, string src, Optimizations optimizations = Optimizations.Normal){
 		return FromSource(filename, src, new StandardImportResolver(), defaultReport, optimizations);
 	}
@@ -82,7 +82,7 @@ public class Script{
 	/// <summary>
 	/// Generate from source
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
 	public static Script FromSource(string filename, string src, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
 		return FromSource(filename, src, ir, defaultReport, optimizations);
 	}
@@ -90,8 +90,8 @@ public class Script{
 	/// <summary>
 	/// Generate from source
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static Script FromSource(string filename, string src, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromSource(string filename, string src, IImportResolver ir, Action<TableScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		ResolvedImport parsed = SourceAsImport(filename, src, report, optimizations);
 		
 		Script runnable = FromImport(parsed, ir, report, optimizations);
@@ -102,7 +102,7 @@ public class Script{
 	/// <summary>
 	/// Generate from import. Will use a default StandardImportResolver
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
 	public static Script FromImport(ResolvedImport import, Optimizations optimizations = Optimizations.Normal){
 		return FromImport(import, new StandardImportResolver(), defaultReport, optimizations);
 	}
@@ -110,7 +110,7 @@ public class Script{
 	/// <summary>
 	/// Generate from import 
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
 	public static Script FromImport(ResolvedImport import, IImportResolver ir, Optimizations optimizations = Optimizations.Normal){
 		return FromImport(import, ir, defaultReport, optimizations);
 	}
@@ -118,8 +118,8 @@ public class Script{
 	/// <summary>
 	/// Generate from import. 
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static Script FromImport(ResolvedImport import, IImportResolver ir, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
+	public static Script FromImport(ResolvedImport import, IImportResolver ir, Action<TableScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		Resolver res = new Resolver(ir);
 		res.OnReport = report;
 		ResolvedScript resolved = res.Resolve(import);
@@ -138,7 +138,7 @@ public class Script{
 	/// <summary>
 	/// Generate an import from source
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
 	public static ResolvedImport SourceAsImport(string filename, string src, Optimizations optimizations = Optimizations.Normal){
 		return SourceAsImport(filename, src, defaultReport, optimizations);
 	}
@@ -146,8 +146,8 @@ public class Script{
 	/// <summary>
 	/// Generate an import from source
 	/// </summary>
-	/// <exception cref="TableScript.TabScriptException">Thrown when an error occurs while compiling</exception>
-	public static ResolvedImport SourceAsImport(string filename, string src, Action<TabScriptException> report, Optimizations optimizations = Optimizations.Normal){
+	/// <exception cref="TableScript.TableScriptException">Thrown when an error occurs while compiling</exception>
+	public static ResolvedImport SourceAsImport(string filename, string src, Action<TableScriptException> report, Optimizations optimizations = Optimizations.Normal){
 		Lexer lex = new Lexer(filename, src);
 		lex.OnReport = report;
 		TokenList tokenlist = lex.Scan();

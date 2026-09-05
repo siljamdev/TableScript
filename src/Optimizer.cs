@@ -179,6 +179,16 @@ class Optimizer{
 				
 				return new BinaryExpr(o1, b.op, o2);
 			}
+			
+			//a == 0 -> !a
+			else if(b.op == TokenType.DobEqual && o2 is LiteralExpr lit7 && lit7.val.Length == 0){
+				return new UnaryExpr(TokenType.Exclamation, o1);
+			}
+			
+			//a.length == 0 -> !a
+			else if(b.op == TokenType.DobEqual && o1 is GetElementExpr gee1 && gee1.ind.val == null && gee1.ind.ind.mode == TabIndexMode.Length && o2 is LiteralExpr lit777 && lit777.val.Length == 0){
+				return new UnaryExpr(TokenType.Exclamation, gee1.left);
+			}
 		}else if(e is UnaryExpr u){
 			Expr o2 = u.right;
 			
@@ -204,6 +214,11 @@ class Optimizer{
 				}
 			}else if(u.op == TokenType.Exclamation && o2 is UnaryExpr uuu1 && uuu1.op == TokenType.Exclamation && uuu1.right is UnaryExpr uuu2 && uuu2.op == TokenType.Exclamation){
 				return uuu2; // !!!a -> !a
+			}
+			
+			// !(a.length) -> !a
+			else if(u.op == TokenType.Exclamation && o2 is GetElementExpr gee1 && gee1.ind.val == null && gee1.ind.ind.mode == TabIndexMode.Length){
+				return new UnaryExpr(TokenType.Exclamation, gee1.left);
 			}
 		}else if(e is GetElementExpr g){
 			Expr o1 = g.left;

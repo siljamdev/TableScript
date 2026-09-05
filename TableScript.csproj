@@ -10,6 +10,8 @@
 	<PackageVersion>1.5.0</PackageVersion>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
+	
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
     
     <PackageDescription>String table based scripting languange</PackageDescription>
 	
@@ -27,6 +29,10 @@
 	<Compile Remove="examples/**" />
 	<Compile Remove="exec/**" />
 	<Compile Remove="tests/**" />
+	<Compile Remove="TableScript.Generator/**" />
+	
+	<ProjectReference Include="TableScript.Generator/TableScript.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	<None Include="TableScript.Generator/bin/$(Configuration)/net6.0/TableScript.Generator.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 	
 	<None Include="res/icon.png" Pack="true" PackagePath="res/" />
 	<None Include="README.md" Pack="true" PackagePath="/" />

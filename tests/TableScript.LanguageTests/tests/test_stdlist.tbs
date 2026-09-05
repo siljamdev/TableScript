@@ -1,0 +1,94 @@
+import stdlist;
+
+function test_isList(){
+	tab lst1 = ["aa", "a", "aa", "t0e0", "t1e0", "t1e1"];
+	return isLst(lst1);
+}
+
+function test_addTab(){
+	tab a = ["uno", "dos", "tres", "memechepo"];
+	tab b = ["one", "two", "three", "four"];
+	tab c = ["chus", "calva", "mandarina"];
+	
+	tab lst = newLst();
+	lst = lst.addTab(b);
+	lst = lst.addTab(a);
+	lst = lst.addTab(c);
+	lst = lst.addTab(c);
+	lst = lst.addTab(b);
+	
+	return lst.getTab(2) == c;
+}
+
+function test_insertTab(){
+	tab a = ["uno", "dos", "tres", "memechepo"];
+	tab b = ["one", "two", "three", "four"];
+	tab c = ["chus", "calva", "mandarina"];
+	
+	tab lst = newLst();
+	lst = lst.addTab(b);
+	lst = lst.addTab(a);
+	lst = lst.addTab(c);
+	
+	lst = lst.insertTab(1, c);
+	
+	return lst.getTab(1) == c;
+}
+
+function test_delTab(){
+	tab a = ["uno", "dos", "tres", "memechepo"];
+	tab b = ["one", "two", "three", "four"];
+	tab c = ["chus", "calva", "mandarina"];
+	
+	tab lst = newLst();
+	lst = lst.addTab(b);
+	lst = lst.addTab(a);
+	lst = lst.addTab(c);
+	
+	lst = lst.delTab(1);
+	
+	return lst.getTab(1) == c;
+}
+
+function test_setTab(){
+	tab a = ["uno", "dos", "tres", "memechepo"];
+	tab b = ["one", "two", "three", "four"];
+	tab c = ["chus", "calva", "mandarina"];
+	
+	tab lst = newLst();
+	lst = lst.addTab(b);
+	lst = lst.addTab(a);
+	lst = lst.addTab(b);
+	
+	lst = lst.setTab(1, c);
+	
+	return lst.getTab(1) == c;
+}
+
+function test_setTabElem(){
+	tab a = ["uno", "dos", "tres", "memechepo"];
+	tab b = ["one", "two", "three", "four"];
+	tab c = ["chus", "calva", "mandarina"];
+	
+	tab lst = newLst();
+	lst = lst.addTab(b);
+	lst = lst.addTab(a);
+	lst = lst.addTab(b);
+	
+	lst = lst.setTabElem(1, 0, "a");
+	
+	return lst.getTab(1) == ["a", "dos", "tres", "memechepo"];
+}
+
+function test_flatten(){
+	tab a = ["uno", "dos", "tres", "memechepo"];
+	tab b = ["one", "two", "three", "four"];
+	tab c = ["chus", "calva", "mandarina"];
+	
+	tab lst = newLst();
+	lst = lst.addTab(a);
+	lst = lst.addTab(b);
+	lst = lst.addTab(c);
+	
+	return lst.flattenLst() == a + b + c;
+}

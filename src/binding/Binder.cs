@@ -4,7 +4,7 @@ namespace TableScript;
 
 //Purpose of this class: transforming variables into unique ids, functions into indices, cutting unused functions, and producing the CFG
 class Binder{
-	public Action<TabScriptException> OnReport;
+	public Action<TableScriptException> OnReport;
 	public bool hadError{get; private set;}
 	
 	//Variables
@@ -114,7 +114,7 @@ class Binder{
 				int fxind = funcsIndex.Count;
 				funcsIndex[allFuncs[i]] = fxind;
 				boundFuncs[fxind] = BindFunc(allFuncs[i], fxind);
-			}catch(TabScriptException e){
+			}catch(TableScriptException e){
 				hadError = true;
 				OnReport?.Invoke(e);
 			}
@@ -125,7 +125,7 @@ class Binder{
 		}
 		
 		if(hadError){
-			throw new TabScriptException(TabScriptErrorType.Binder, main.filename, -1, "Errors present: Unable to continue");
+			throw new TableScriptException(TableScriptErrorType.Binder, main.filename, -1, "Errors present: Unable to continue");
 		}else{
 			return new BoundScript(main.filename, first.entry, funcsFinalCopy, alloc);
 		}
@@ -147,7 +147,7 @@ class Binder{
 		}else if(frag.exit is RedirectCFGNode){ //We cant do this
 			return;
 		}else{
-			throw new TabScriptException(TabScriptErrorType.Binder, currentFilename, -1, "Invdalid CFG: fragment exit was not stmt nor dummy");
+			throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, -1, "Invdalid CFG: fragment exit was not stmt nor dummy");
 		}
 		frag.exit = exit;
 	}
@@ -171,7 +171,7 @@ class Binder{
 				
 				first ??= frag;
 				cur = frag;
-			}catch(TabScriptException e){
+			}catch(TableScriptException e){
 				hadError = true;
 				OnReport?.Invoke(e);
 			}
@@ -304,7 +304,7 @@ class Binder{
 			
 			case BreakStmt:
 				if(!checkingLoop){
-					throw new TabScriptException(TabScriptErrorType.Binder, currentFilename, p.line, "Break statement outside of loop");
+					throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, p.line, "Break statement outside of loop");
 				}
 				RedirectCFGNode redir = new RedirectCFGNode();
 				breaks.Add(redir);
@@ -312,7 +312,7 @@ class Binder{
 			
 			case ContinueStmt:
 				if(!checkingLoop){
-					throw new TabScriptException(TabScriptErrorType.Binder, currentFilename, p.line, "Continue statement outside of loop");
+					throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, p.line, "Continue statement outside of loop");
 				}
 				redir = new RedirectCFGNode();
 				continues.Add(redir);
@@ -320,7 +320,7 @@ class Binder{
 			
 			case ReturnStmt r:
 				if(!checkingFunction){
-					throw new TabScriptException(TabScriptErrorType.Binder, currentFilename, p.line, "Return statement outside of function");
+					throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, p.line, "Return statement outside of function");
 				}
 				StmtCFGNode n2 = new StmtCFGNode(new[]{Bind(r)});
 				return new CFGFragment(n2, n2);
@@ -385,11 +385,11 @@ class Binder{
 		switch(p){
 			case TabNativeFunc f:
 				if(f.pars.Length != f.pars.Distinct().Count()){
-					throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Function parameters must not repeat names");
+					throw new TableScriptException(TableScriptErrorType.Binder, p.filename, p.line, "Function parameters must not repeat names");
 				}
 				
 				if(allFuncs.Any(h => !ReferenceEquals(h, f) && f.SameSignature(h))){ //Avoid same.signature functions
-					throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Functions must have different signatures: '" + f.import + "::" + f.identifier + "'");
+					throw new TableScriptException(TableScriptErrorType.Binder, p.filename, p.line, "Functions must have different signatures: '" + f.import + "::" + f.identifier + "'");
 				}
 				
 				//Scope
@@ -429,16 +429,16 @@ class Binder{
 			
 			case TabExternFunc x:
 				if(x.pars.Length != x.pars.Distinct().Count()){
-					throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Function parameters must not repeat names");
+					throw new TableScriptException(TableScriptErrorType.Binder, p.filename, p.line, "Function parameters must not repeat names");
 				}
 				
 				if(allFuncs.Any(h => !ReferenceEquals(h, x) && x.SameSignature(h))){
-					throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Function must have different signatures: " + x.import + "::" + x.identifier);
+					throw new TableScriptException(TableScriptErrorType.Binder, p.filename, p.line, "Function must have different signatures: " + x.import + "::" + x.identifier);
 				}
 				
 				return new BoundExternFunc(p.import, p.identifier, p.arity, x.body);
 			default:
-				throw new TabScriptException(TabScriptErrorType.Binder, p.filename, p.line, "Unknown internal function type: " + p);
+				throw new TableScriptException(TableScriptErrorType.Binder, p.filename, p.line, "Unknown internal function type: " + p);
 		}
 	}
 	
@@ -456,12 +456,12 @@ class Binder{
 				if(fx == null){
 					fx = Array.Find(funcs, f => f.Matches(cimport, c.identifier, c.arity)); //Match in available functions
 					if(fx == null){
-						throw new TabScriptException(TabScriptErrorType.Binder, currentFilename, line, "No function available with '" + (cimport == null ? "" : cimport + "::") + c.identifier + "' as identifier and " + c.arity + " parameters");
+						throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, line, "No function available with '" + (cimport == null ? "" : cimport + "::") + c.identifier + "' as identifier and " + c.arity + " parameters");
 					}
 				}
 				
 				if(c.self && !fx.self){
-					throw new TabScriptException(TabScriptErrorType.Binder, currentFilename, line, "The function '" + fx.import + "::" + fx.identifier + "' is not a self function.");
+					throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, line, "The function '" + fx.import + "::" + fx.identifier + "' is not a self function.");
 				}
 				
 				//Get func index

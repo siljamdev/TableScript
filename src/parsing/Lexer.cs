@@ -23,7 +23,7 @@ class Lexer{
 		{"export", TokenType.Export}
 	};
 	
-	public Action<TabScriptException> OnReport;
+	public Action<TableScriptException> OnReport;
 	public bool hadError{get; private set;}
 	
 	string filename;
@@ -49,7 +49,7 @@ class Lexer{
 		tokens.Add(new Token(TokenType.EOF, null, null, 0, line));
 		
 		if(hadError){
-			throw new TabScriptException(TabScriptErrorType.Lexer, filename, -1, "Errors present: Unable to continue");
+			throw new TableScriptException(TableScriptErrorType.Lexer, filename, -1, "Errors present: Unable to continue");
 		}else{
 			return new TokenList(filename, tokens.ToArray());
 		}
@@ -387,7 +387,7 @@ class Lexer{
 	}
 	
 	void error(string message){
-		OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Lexer, filename, line, message));
+		OnReport?.Invoke(new TableScriptException(TableScriptErrorType.Lexer, filename, line, message));
 		hadError = true;
 	}
 }

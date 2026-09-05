@@ -2,12 +2,12 @@ using System;
 
 namespace TableScript;
 
-public class TabScriptException : Exception{
-	public TabScriptErrorType type {get; private init;}
+public class TableScriptException : Exception{
+	public TableScriptErrorType type {get; private init;}
 	public string filename {get; private init;}
 	public int line {get; private init;}
 	
-	public TabScriptException(TabScriptErrorType t, string f, int l, string message) : base(message){
+	public TableScriptException(TableScriptErrorType t, string f, int l, string message) : base(message){
 		filename = f;
 		type = t;
 		line = l;
@@ -21,19 +21,19 @@ public class TabScriptException : Exception{
 		return "[ERROR] [" + typeName(type) + "] Filename: '" + filename + "' Line: " + line + "\n\t" + Message; 
 	}
 	
-	static string typeName(TabScriptErrorType t){
+	static string typeName(TableScriptErrorType t){
 		return t switch{
-			TabScriptErrorType.Lexer => "LEX",
-			TabScriptErrorType.Parser => "PAR",
-			TabScriptErrorType.Resolver => "RES",
-			TabScriptErrorType.Binder => "BIN",
-			TabScriptErrorType.Optimizer => "OPT",
-			TabScriptErrorType.Runtime => "RUN",
+			TableScriptErrorType.Lexer => "LEX",
+			TableScriptErrorType.Parser => "PAR",
+			TableScriptErrorType.Resolver => "RES",
+			TableScriptErrorType.Binder => "BIN",
+			TableScriptErrorType.Optimizer => "OPT",
+			TableScriptErrorType.Runtime => "RUN",
 			_ => "???"
 		};
 	}
 }
 
-public enum TabScriptErrorType{
+public enum TableScriptErrorType{
 	Lexer, Parser, Resolver, Binder, Optimizer, Runtime
 }

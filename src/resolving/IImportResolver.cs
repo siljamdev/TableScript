@@ -6,30 +6,30 @@ namespace TableScript;
 /// Interface that resolves import references
 /// </summary>
 public interface IImportResolver{
-	public Action<TabScriptException> OnReport {get; set;}
+	public Action<TableScriptException> OnReport {get; set;}
 	
 	public ResolvedImport Resolve(string reference, string callingFilename);
 }
 
 public class StandardImportResolver : IImportResolver{
-	public Action<TabScriptException> OnReport {get; set;}
+	public Action<TableScriptException> OnReport {get; set;}
 	
 	public virtual ResolvedImport Resolve(string reference, string callingFilename){
 		switch(reference){
 			case "stdlib":
-				return StdLib.AsImport;
+				return StdLib.TableScriptImport;
 			
 			case "stdnum":
-				return StdNum.AsImport;
+				return StdNum.TableScriptImport;
 			
 			case "stdlist":
-				return StdList.AsImport;
+				return StdList.TableScriptImport;
 			
 			case "stdregex":
-				return StdRegex.AsImport;
+				return StdRegex.TableScriptImport;
 			
 			default:
-				OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Resolver, callingFilename, -1, "Unable to resolve import reference: '" + reference + "'"));
+				OnReport?.Invoke(new TableScriptException(TableScriptErrorType.Resolver, callingFilename, -1, "Unable to resolve import reference: '" + reference + "'"));
 				return new ResolvedImport("standard import resolver error", null, null, null);
 		}
 	}

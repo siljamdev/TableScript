@@ -3,7 +3,7 @@ using System;
 namespace TableScript;
 
 class Parser{
-	public Action<TabScriptException> OnReport;
+	public Action<TableScriptException> OnReport;
 	public bool hadError{get; private set;}
 	
 	string filename;
@@ -32,7 +32,7 @@ class Parser{
 		FunctionStmt[] funcs = funcDefinitions();
 		
 		if(hadError){
-			throw new TabScriptException(TabScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue");
+			throw new TableScriptException(TableScriptErrorType.Parser, filename, -1, "Errors present: Unable to continue");
 		}else{
 			return new ResolvedImport(filename, im, glob, top, funcs);
 		}
@@ -110,7 +110,7 @@ class Parser{
 				}else{
 					defined.Add(functionDef());
 				}
-			}catch(TabScriptException pe){
+			}catch(TableScriptException pe){
 				OnReport?.Invoke(pe);
 				sync();
 			}
@@ -185,7 +185,7 @@ class Parser{
 			}else{
 				return assignment();
 			}
-		}catch(TabScriptException pe){
+		}catch(TableScriptException pe){
 			OnReport?.Invoke(pe);
 			sync();
 			return null;
@@ -717,6 +717,6 @@ class Parser{
 	void error(string message, Token t){
 		hadError = true;
 		
-		throw new TabScriptException(TabScriptErrorType.Parser, filename, t.line, message);
+		throw new TableScriptException(TableScriptErrorType.Parser, filename, t.line, message);
 	}
 }

@@ -7,3 +7,4 @@ import customlib; //Our custom library!
 
 print(sum1(3).toNum()); //4
 print(getDayOfTheWeek(5)); //Friday
+print(country); //Spain

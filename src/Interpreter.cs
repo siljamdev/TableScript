@@ -37,12 +37,12 @@ class Interpreter{
 	//Only call after Interpreting
 	public Table CallFunction(string import, string identifier, params Table[] functionArgs){
 		if(!interpreted){
-			throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Cannot call a function before having run the script");
+			throw new TableScriptException(TableScriptErrorType.Runtime, filename, -1, "Cannot call a function before having run the script");
 		}
 		
 		int fxIndex = Array.FindIndex(functions, f => f.Matches(import, identifier, functionArgs.Length)); //Match in available functions
 		if(fxIndex == -1){
-			throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "No function available with '" + (import == null ? "" : import + "::") + identifier + "' as identifier and " + functionArgs.Length + " parameters");
+			throw new TableScriptException(TableScriptErrorType.Runtime, filename, -1, "No function available with '" + (import == null ? "" : import + "::") + identifier + "' as identifier and " + functionArgs.Length + " parameters");
 		}
 		
 		exiting = false;
@@ -151,7 +151,7 @@ class Interpreter{
 			break;
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, filename, s.line, "Invalid statement: " + s);
+				throw new TableScriptException(TableScriptErrorType.Runtime, filename, s.line, "Invalid statement: " + s);
 			break;
 		}
 	}
@@ -160,7 +160,7 @@ class Interpreter{
 		BoundFunc fun = functions[x.index];
 		
 		if(fun.arity != x.args.Length){
-			throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Non-matching arity in call: " + x);
+			throw new TableScriptException(TableScriptErrorType.Runtime, filename, -1, "Non-matching arity in call: " + x);
 		}
 		
 		Table[] args = x.args.Select(h => eval(h).Clone()).ToArray();
@@ -227,7 +227,7 @@ class Interpreter{
 				return callFunc(c);
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Invalid expression: " + x);
+				throw new TableScriptException(TableScriptErrorType.Runtime, filename, -1, "Invalid expression: " + x);
 				return null;
 		}
 	}
@@ -248,7 +248,7 @@ class Interpreter{
 				return new Table(eval(u.right).SplitToChars());
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Invalid unary operator: " + Token.GetAsString(u.op));
+				throw new TableScriptException(TableScriptErrorType.Runtime, filename, -1, "Invalid unary operator: " + Token.GetAsString(u.op));
 				return null;
 		}
 	}
@@ -352,7 +352,7 @@ class Interpreter{
 				return Table.GetBool(!tb.Contains(ta));
 			
 			default:
-				throw new TabScriptException(TabScriptErrorType.Runtime, filename, -1, "Invalid binary operator: " + Token.GetAsString(b.op));
+				throw new TableScriptException(TableScriptErrorType.Runtime, filename, -1, "Invalid binary operator: " + Token.GetAsString(b.op));
 				return null;
 		}
 	}

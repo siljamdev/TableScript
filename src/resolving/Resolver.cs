@@ -6,7 +6,7 @@ namespace TableScript;
 class Resolver{
 	IImportResolver impres;
 	
-	public Action<TabScriptException> OnReport {get{
+	public Action<TableScriptException> OnReport {get{
 		return impres.OnReport;
 	}set{
 		impres.OnReport = value;
@@ -75,7 +75,7 @@ class Resolver{
 					}
 				}
 			}else if(!importedFilenames.Contains(rim.filename)){ //Same import name, diff file
-				OnReport?.Invoke(new TabScriptException(TabScriptErrorType.Resolver, fromFilename, s.line, "Different filenames for imports, but same import name: '" + import + "'"));
+				OnReport?.Invoke(new TableScriptException(TableScriptErrorType.Resolver, fromFilename, s.line, "Different filenames for imports, but same import name: '" + import + "'"));
 				continue;
 			}
 			

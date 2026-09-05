@@ -1,4 +1,5 @@
 using System;
+using TableScript.Generator;
 
 namespace TableScript.StandardLibraries;
 
@@ -6,45 +7,27 @@ namespace TableScript.StandardLibraries;
 /// Lists are several tables expressed as one, compacted together.
 /// All functions have the same name in the code and in here
 /// </summary>
-public static class StdList{
-	
-	public static (Delegate func, string description)[] AllFunctions => new (Delegate, string)[]{
-		(newLst, "Creates a new list"),
-		(isLst, "Test if a table is a valid list"),
-		(lstLen, "Get length of the list (number of tables)"),
-		(tabLen, "Get length of table at index"),
-		(getTab, "Get table at index"),
-		(getTabElem, "Get element at index n2 of table at index n1"),
-		(addTab, "Add table to the end of the list"),
-		(delTab, "Delete table from list at index"),
-		(setTab, "Set table at index"),
-		(setTabElem, "Set element at index n2 of table at index n1"),
-		(insertTab, "Insert table at index"),
-		(flattenLst, "Flatten all tables into one table"),
-		(containsTab, "Check if list contains table"),
-		(indexOfTab, "Get index of table or -1 if not contained"),
-		(mergeLst, "Merge 2 lists"),
-	};
-	
-	static ResolvedImport compiled = null;
-	
-	public static ResolvedImport AsImport {get{
-		if(compiled == null){
-			compiled = Library.BuildLibrary("stdlist", AllFunctions);
-		}
-		return compiled;
-	}}
+[TableScriptLibrary("stdlist.cs")]
+public static partial class StdList{
 	
 	const char lenChar = '*';
 	
 	/// <summary>
+	/// The charachters used for length encoding
+	/// </summary>
+	[TableScriptGlobal]
+	public static readonly string lengthChar = lenChar.ToString();
+	
+	/// <summary>
 	/// Creates a new list
 	/// </summary>
+	[TableScriptFunction]
 	public static Table newLst() => new Table("");
 	
 	/// <summary>
 	/// Test if a table is a valid list
 	/// </summary>
+	[TableScriptFunction]
 	public static Table isLst(Table self){
 		if(self.Length < 1){
 			return Table.False;
@@ -75,6 +58,7 @@ public static class StdList{
 	/// <summary>
 	/// Get length of the list (number of tables)
 	/// </summary>
+	[TableScriptFunction]
 	public static int lstLen(Table self){
 		if(self.Length < 1){
 			return -1;
@@ -95,6 +79,7 @@ public static class StdList{
 	/// <summary>
 	/// Get length of table at index
 	/// </summary>
+	[TableScriptFunction]
 	public static int tabLen(Table self, int index){
 		if(self.Length < 2){
 			return -1;
@@ -116,6 +101,7 @@ public static class StdList{
 	/// <summary>
 	/// Get table at index
 	/// </summary>
+	[TableScriptFunction]
 	public static Table getTab(Table self, int index){
 		if(self.Length < 2){
 			return new Table(0);
@@ -142,6 +128,7 @@ public static class StdList{
 	/// <summary>
 	/// Get element at index n2 of table at index n1
 	/// </summary>
+	[TableScriptFunction]
 	public static Table getTabElem(Table self, int tabIndex, int elemIndex){
 		if(self.Length < 2){
 			return null;
@@ -174,11 +161,13 @@ public static class StdList{
 	/// <summary>
 	/// Add table to the end of the list
 	/// </summary>
+	[TableScriptFunction]
 	public static Table addTab(Table self, Table tab) => Build(Extract(self).Append(tab).ToArray());
 	
 	/// <summary>
 	/// Delete table from list at index
 	/// </summary>
+	[TableScriptFunction]
 	public static Table delTab(Table self, int index){
 		if(self.Length < 2){
 			return new Table("");
@@ -210,6 +199,7 @@ public static class StdList{
 	/// <summary>
 	/// Set table at index
 	/// </summary>
+	[TableScriptFunction]
 	public static Table setTab(Table self, int index, Table tab){
 		if(self.Length < 2){
 			return new Table("");
@@ -242,6 +232,7 @@ public static class StdList{
 	/// <summary>
 	/// Set element at index n2 of table at index n1
 	/// </summary>
+	[TableScriptFunction]
 	public static Table setTabElem(Table self, int tabIndex, int elemIndex, Table element){
 		if(self.Length < 2){
 			return new Table("");
@@ -275,6 +266,7 @@ public static class StdList{
 	/// <summary>
 	/// Insert table at index
 	/// </summary>
+	[TableScriptFunction]
 	public static Table insertTab(Table self, int index, Table tab){
 		if(self.Length < 2){
 			return new Table("");
@@ -306,21 +298,25 @@ public static class StdList{
 	/// <summary>
 	/// Flatten all tables into one table
 	/// </summary>
+	[TableScriptFunction]
 	public static Table flattenLst(Table self) => new Table(Extract(self).SelectMany(t2 => t2.contents).ToArray());
 	
 	/// <summary>
 	/// Check if list contains table
 	/// </summary>
+	[TableScriptFunction]
 	public static bool containsTab(Table self, Table tab) => Extract(self).Any(t2 => t2.EqualTo(tab));
 	
 	/// <summary>
 	/// Get index of table or -1 if not contained
 	/// </summary>
+	[TableScriptFunction]
 	public static int indexOfTab(Table self, Table tab) => Extract(self).ToList().FindIndex(t2 => t2.EqualTo(tab));
 	
 	/// <summary>
 	/// Merge 2 lists
 	/// </summary>
+	[TableScriptFunction]
 	public static Table mergeLst(Table lst1, Table lst2) => Merge(lst1, lst2);
 	
 	/// <summary>

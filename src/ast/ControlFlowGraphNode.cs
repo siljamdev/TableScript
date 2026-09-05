@@ -3,7 +3,7 @@ using System.Text;
 
 namespace TableScript;
 
-abstract partial class CFGNode{
+abstract class CFGNode{
 	static int counter;
 	public int id {get; private init;}
 	public bool isEntry; //Prevent total removal

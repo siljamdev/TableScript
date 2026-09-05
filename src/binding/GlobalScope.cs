@@ -13,7 +13,7 @@ class GlobalScope : IScope{
 	
 	public int define(string filename, int line, string callingImport, string id, bool export){
 		if(vars.Keys.Any(t => t.import == callingImport && t.identifier == id)){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Variable re-definition: " + callingImport + "::" + id);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Variable re-definition: " + callingImport + "::" + id);
 		}
 		
 		Variable v = new Variable(-1, true);
@@ -42,11 +42,11 @@ class GlobalScope : IScope{
 		}
 		
 		if(uid == null){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Undefined variable assignment: " + (im == null ? "" : (im + "::")) + id);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Undefined variable assignment: " + (im == null ? "" : (im + "::")) + id);
 		}
 		
 		if(import != callingImport){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Unauthorized variable assignment from foreign import: " + import + "::" + id);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Unauthorized variable assignment from foreign import: " + import + "::" + id);
 		}
 		
 		return (int) uid;
@@ -68,7 +68,7 @@ class GlobalScope : IScope{
 		}
 		
 		if(uid == null){
-			throw new TabScriptException(TabScriptErrorType.Binder, filename, line, "Undefined variable access: " + (im == null ? "" : (im + "::")) + id);
+			throw new TableScriptException(TableScriptErrorType.Binder, filename, line, "Undefined variable access: " + (im == null ? "" : (im + "::")) + id);
 		}
 		
 		return (int) uid;

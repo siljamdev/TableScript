@@ -20,7 +20,7 @@ public class ResolvedImport{
 	}
 	
 	public ResolvedImport(string fn, string[] furtherImports, Dictionary<string, Table> definedGlobals, FunctionStmt[] funcs)
-		: this(fn, furtherImports?.Select(i => new ImportStmt(i, -1)).ToArray(), definedGlobals?.Select(kvp => new GlobalDeclStmt(kvp.Key, true, new LiteralExpr(kvp.Value), -1)).ToArray(), null, funcs){
+		: this(fn, furtherImports?.Select(i => new ImportStmt(i, -1))?.ToArray(), definedGlobals?.Select(kvp => new GlobalDeclStmt(kvp.Key, true, new LiteralExpr(kvp.Value), -1)).ToArray(), null, funcs){
 			
 	}
 	
