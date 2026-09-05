@@ -1,0 +1,494 @@
+{
+  "source_base_path": "D:/treespace/TableScript/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "icon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.BoundFunc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.BoundFunc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.BoundFunc",
+      "Summary": "<p sourcefile=\"api/TableScript.BoundFunc.yml\" sourcestartlinenumber=\"1\">Function representation</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.FunctionExtStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.FunctionExtStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.FunctionExtStmt",
+      "Summary": "<p sourcefile=\"api/TableScript.FunctionExtStmt.yml\" sourcestartlinenumber=\"1\">External function as a statement</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.FunctionStmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.FunctionStmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.FunctionStmt",
+      "Summary": "<p sourcefile=\"api/TableScript.FunctionStmt.yml\" sourcestartlinenumber=\"1\">Statement that represents a function</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Generator.TableScriptFunctionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Generator.TableScriptFunctionAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Generator.TableScriptFunctionAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Generator.TableScriptGlobalAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Generator.TableScriptGlobalAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Generator.TableScriptGlobalAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Generator.TableScriptLibraryAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Generator.TableScriptLibraryAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Generator.TableScriptLibraryAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Generator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Generator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Generator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.IImportResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.IImportResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.IImportResolver",
+      "Summary": "<p sourcefile=\"api/TableScript.IImportResolver.yml\" sourcestartlinenumber=\"1\">Interface that resolves import references</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Optimizations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Optimizations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Optimizations",
+      "Summary": "<p sourcefile=\"api/TableScript.Optimizations.yml\" sourcestartlinenumber=\"1\">Enum to enable/disable optimizations</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.ResolvedImport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.ResolvedImport.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.ResolvedImport",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Script.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Script.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Script",
+      "Summary": "<p sourcefile=\"api/TableScript.Script.yml\" sourcestartlinenumber=\"1\">Main class that represents a ready to run script and manages most of the public API</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.StandardImportResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.StandardImportResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.StandardImportResolver",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.StandardLibraries.StdLib.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.StandardLibraries.StdLib.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.StandardLibraries.StdLib",
+      "Summary": "<p sourcefile=\"api/TableScript.StandardLibraries.StdLib.yml\" sourcestartlinenumber=\"1\">Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.StandardLibraries.StdList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.StandardLibraries.StdList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.StandardLibraries.StdList",
+      "Summary": "<p sourcefile=\"api/TableScript.StandardLibraries.StdList.yml\" sourcestartlinenumber=\"1\">Lists are several tables expressed as one, compacted together.\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.StandardLibraries.StdNum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.StandardLibraries.StdNum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.StandardLibraries.StdNum",
+      "Summary": "<p sourcefile=\"api/TableScript.StandardLibraries.StdNum.yml\" sourcestartlinenumber=\"1\">Numbers are <code sourcefile=\"api/TableScript.StandardLibraries.StdNum.yml\" sourcestartlinenumber=\"1\">double</code>, and are stored in its string representation\nAll functions have the same name in the code and in here</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.StandardLibraries.StdRegex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.StandardLibraries.StdRegex.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.StandardLibraries.StdRegex",
+      "Summary": "<p sourcefile=\"api/TableScript.StandardLibraries.StdRegex.yml\" sourcestartlinenumber=\"1\">Standard regex library. Basic regex functionality</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.StandardLibraries.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.StandardLibraries.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.StandardLibraries",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Stmt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Stmt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Stmt",
+      "Summary": "<p sourcefile=\"api/TableScript.Stmt.yml\" sourcestartlinenumber=\"1\">Statements that form programs</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.TabIndex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.TabIndex.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.TabIndex",
+      "Summary": "<p sourcefile=\"api/TableScript.TabIndex.yml\" sourcestartlinenumber=\"1\">Represents an Index for a Table</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.TabIndexMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.TabIndexMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.TabIndexMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.Table.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.Table.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.Table",
+      "Summary": "<p sourcefile=\"api/TableScript.Table.yml\" sourcestartlinenumber=\"1\">Table class, represents a dynamic array of strings. Be careful with its use, its only optimized for the languge itself</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.TableScriptErrorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.TableScriptErrorType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.TableScriptErrorType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.TableScriptException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.TableScriptException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript.TableScriptException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TableScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TableScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TableScript",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/example.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/example.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/libraries.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/libraries.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/multifiles.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/multifiles.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/operators.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/operators.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/stdlist.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/stdlist.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/tables.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/tables.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

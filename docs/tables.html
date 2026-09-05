@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Understanding Tables | TableScript </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Understanding Tables | TableScript ">
+      
+      
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/tables.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="TableScript">
+            TableScript
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="understanding-tables">Understanding Tables</h1>
+
+<p><a href="../api/TableScript.Table.html">Tables</a> are the only variable type in TableScript. They are a collection of strings, but can also represent integers, booleans and strings.<br>
+Internally, they are represented as a string collection or as a number (used to save resources on integer tables).</p>
+<h2 id="tables-as-string-collections">Tables as string collections</h2>
+<p>Elements of the table can be accessed in TableScript in two ways:</p>
+<ul>
+<li>Using the <strong>dot</strong> syntax</li>
+<li>Using the <strong>square brackets</strong> syntax</li>
+</ul>
+<pre><code>//Table initialization
+tab a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+//Dot syntax
+print(a.0); //prints a
+
+//Square brackets syntax
+print(a[1]); //prints b
+
+//Out of bounds index returns []
+print(a[100]);
+
+//Negative indices
+print(a[-1]); //prints c
+</code></pre>
+<p>Negative indices start by the end, -1 being the last element, -2 the previous one and so forth.<br>
+The square syntax allows to use full expressions as indices, something the dot syntax doesnt.<br>
+You can also access a random element using the <code>random</code> keyword.</p>
+<h2 id="tables-as-integers">Tables as integers</h2>
+<p>A table's length is its value as an integer.<br>
+Also, you can access a tables length using the <code>length</code> keyword. This keyword returns a number table (table made up of empty strings):</p>
+<pre><code>//Table initialization
+tab a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+print(a.length == [&quot;&quot;, &quot;&quot;, &quot;&quot;] ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>This is also what happens when using numbers.<br>
+For example <code>0</code> represents a table of length 0(<code>[]</code>) and 3 represents a table of length 3(<code>[&quot;&quot;, &quot;&quot;, &quot;&quot;]</code>):</p>
+<pre><code>//Table initialization
+tab a = 3;
+
+print(a == [&quot;&quot;, &quot;&quot;, &quot;&quot;] ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Numbers allow you to set negative lengths for tables, something that doesnt make much sense, and is turned positive as soon as they stop having empty elements:</p>
+<pre><code>//Table initialization
+tab a = -4;
+
+a.0 = &quot;h&quot;; //Setting an element
+
+print(a.length == 1 ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Thats why it is recommended not using negative number tables for other things that arent numbers.</p>
+<h2 id="tables-as-booleans">Tables as booleans</h2>
+<p>Tables are defined as being <em>true</em> when their length is greater than 0.<br>
+Many operators that return booleans (such as <code>==</code>) return either 0 or 1 for false and true:</p>
+<pre><code>tab a = [&quot;a&quot;, &quot;b&quot;] == [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+print(a == 0 ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Also, for conditions in statements, any table can be used:</p>
+<pre><code>tab a = [&quot;a&quot;, &quot;b&quot;];
+
+if a{
+	print(&quot;a is greater than 0&quot;);
+}
+</code></pre>
+<h2 id="tables-as-strings">Tables as strings</h2>
+<p>Tables are collections of strings, so to use them as strings, all elements are flattened into a length 1 table.<br>
+This is the same that happens with the reduction operator(postfix <code>^</code>):</p>
+<pre><code>tab a = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+print(a^ == &quot;abc&quot; ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>Also, initializing tables as a single string creates them with length 1:</p>
+<pre><code>print(&quot;abc&quot; == [&quot;abc&quot;] ? &quot;true&quot; : &quot;false&quot;); //Prints true
+</code></pre>
+<p>In the <a href="operators.html">next tutorial</a>, we will go over all the operators available in TableScript.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

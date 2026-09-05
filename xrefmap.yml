@@ -1,0 +1,2922 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: TableScript
+  name: TableScript
+  href: api/TableScript.html
+  commentId: N:TableScript
+  fullName: TableScript
+  nameWithType: TableScript
+- uid: TableScript.BoundFunc
+  name: BoundFunc
+  href: api/TableScript.BoundFunc.html
+  commentId: T:TableScript.BoundFunc
+  fullName: TableScript.BoundFunc
+  nameWithType: BoundFunc
+- uid: TableScript.BoundFunc.Matches(System.String,System.String,System.Int32)
+  name: Matches(string, string, int)
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_Matches_System_String_System_String_System_Int32_
+  commentId: M:TableScript.BoundFunc.Matches(System.String,System.String,System.Int32)
+  name.vb: Matches(String, String, Integer)
+  fullName: TableScript.BoundFunc.Matches(string, string, int)
+  fullName.vb: TableScript.BoundFunc.Matches(String, String, Integer)
+  nameWithType: BoundFunc.Matches(string, string, int)
+  nameWithType.vb: BoundFunc.Matches(String, String, Integer)
+- uid: TableScript.BoundFunc.Matches*
+  name: Matches
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_Matches_
+  commentId: Overload:TableScript.BoundFunc.Matches
+  isSpec: "True"
+  fullName: TableScript.BoundFunc.Matches
+  nameWithType: BoundFunc.Matches
+- uid: TableScript.BoundFunc.arity
+  name: arity
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_arity
+  commentId: P:TableScript.BoundFunc.arity
+  fullName: TableScript.BoundFunc.arity
+  nameWithType: BoundFunc.arity
+- uid: TableScript.BoundFunc.arity*
+  name: arity
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_arity_
+  commentId: Overload:TableScript.BoundFunc.arity
+  isSpec: "True"
+  fullName: TableScript.BoundFunc.arity
+  nameWithType: BoundFunc.arity
+- uid: TableScript.BoundFunc.identifier
+  name: identifier
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_identifier
+  commentId: P:TableScript.BoundFunc.identifier
+  fullName: TableScript.BoundFunc.identifier
+  nameWithType: BoundFunc.identifier
+- uid: TableScript.BoundFunc.identifier*
+  name: identifier
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_identifier_
+  commentId: Overload:TableScript.BoundFunc.identifier
+  isSpec: "True"
+  fullName: TableScript.BoundFunc.identifier
+  nameWithType: BoundFunc.identifier
+- uid: TableScript.BoundFunc.import
+  name: import
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_import
+  commentId: P:TableScript.BoundFunc.import
+  fullName: TableScript.BoundFunc.import
+  nameWithType: BoundFunc.import
+- uid: TableScript.BoundFunc.import*
+  name: import
+  href: api/TableScript.BoundFunc.html#TableScript_BoundFunc_import_
+  commentId: Overload:TableScript.BoundFunc.import
+  isSpec: "True"
+  fullName: TableScript.BoundFunc.import
+  nameWithType: BoundFunc.import
+- uid: TableScript.FunctionExtStmt
+  name: FunctionExtStmt
+  href: api/TableScript.FunctionExtStmt.html
+  commentId: T:TableScript.FunctionExtStmt
+  fullName: TableScript.FunctionExtStmt
+  nameWithType: FunctionExtStmt
+- uid: TableScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TableScript.Table[],TableScript.Table})
+  name: FunctionExtStmt(string, string[], Func<Table[], Table>)
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt__ctor_System_String_System_String___System_Func_TableScript_Table___TableScript_Table__
+  commentId: M:TableScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TableScript.Table[],TableScript.Table})
+  name.vb: New(String, String(), Func(Of Table(), Table))
+  fullName: TableScript.FunctionExtStmt.FunctionExtStmt(string, string[], System.Func<TableScript.Table[], TableScript.Table>)
+  fullName.vb: TableScript.FunctionExtStmt.New(String, String(), System.Func(Of TableScript.Table(), TableScript.Table))
+  nameWithType: FunctionExtStmt.FunctionExtStmt(string, string[], Func<Table[], Table>)
+  nameWithType.vb: FunctionExtStmt.New(String, String(), Func(Of Table(), Table))
+- uid: TableScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TableScript.Table[],TableScript.Table},System.String)
+  name: FunctionExtStmt(string, string[], Func<Table[], Table>, string)
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt__ctor_System_String_System_String___System_Func_TableScript_Table___TableScript_Table__System_String_
+  commentId: M:TableScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TableScript.Table[],TableScript.Table},System.String)
+  name.vb: New(String, String(), Func(Of Table(), Table), String)
+  fullName: TableScript.FunctionExtStmt.FunctionExtStmt(string, string[], System.Func<TableScript.Table[], TableScript.Table>, string)
+  fullName.vb: TableScript.FunctionExtStmt.New(String, String(), System.Func(Of TableScript.Table(), TableScript.Table), String)
+  nameWithType: FunctionExtStmt.FunctionExtStmt(string, string[], Func<Table[], Table>, string)
+  nameWithType.vb: FunctionExtStmt.New(String, String(), Func(Of Table(), Table), String)
+- uid: TableScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TableScript.Table[],TableScript.Table},System.String,System.Int32)
+  name: FunctionExtStmt(string, string[], Func<Table[], Table>, string, int)
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt__ctor_System_String_System_String___System_Func_TableScript_Table___TableScript_Table__System_String_System_Int32_
+  commentId: M:TableScript.FunctionExtStmt.#ctor(System.String,System.String[],System.Func{TableScript.Table[],TableScript.Table},System.String,System.Int32)
+  name.vb: New(String, String(), Func(Of Table(), Table), String, Integer)
+  fullName: TableScript.FunctionExtStmt.FunctionExtStmt(string, string[], System.Func<TableScript.Table[], TableScript.Table>, string, int)
+  fullName.vb: TableScript.FunctionExtStmt.New(String, String(), System.Func(Of TableScript.Table(), TableScript.Table), String, Integer)
+  nameWithType: FunctionExtStmt.FunctionExtStmt(string, string[], Func<Table[], Table>, string, int)
+  nameWithType.vb: FunctionExtStmt.New(String, String(), Func(Of Table(), Table), String, Integer)
+- uid: TableScript.FunctionExtStmt.#ctor*
+  name: FunctionExtStmt
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt__ctor_
+  commentId: Overload:TableScript.FunctionExtStmt.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.FunctionExtStmt.FunctionExtStmt
+  fullName.vb: TableScript.FunctionExtStmt.New
+  nameWithType: FunctionExtStmt.FunctionExtStmt
+  nameWithType.vb: FunctionExtStmt.New
+- uid: TableScript.FunctionExtStmt.ToString
+  name: ToString()
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt_ToString
+  commentId: M:TableScript.FunctionExtStmt.ToString
+  fullName: TableScript.FunctionExtStmt.ToString()
+  nameWithType: FunctionExtStmt.ToString()
+- uid: TableScript.FunctionExtStmt.ToString*
+  name: ToString
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt_ToString_
+  commentId: Overload:TableScript.FunctionExtStmt.ToString
+  isSpec: "True"
+  fullName: TableScript.FunctionExtStmt.ToString
+  nameWithType: FunctionExtStmt.ToString
+- uid: TableScript.FunctionExtStmt.body
+  name: body
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt_body
+  commentId: P:TableScript.FunctionExtStmt.body
+  fullName: TableScript.FunctionExtStmt.body
+  nameWithType: FunctionExtStmt.body
+- uid: TableScript.FunctionExtStmt.body*
+  name: body
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt_body_
+  commentId: Overload:TableScript.FunctionExtStmt.body
+  isSpec: "True"
+  fullName: TableScript.FunctionExtStmt.body
+  nameWithType: FunctionExtStmt.body
+- uid: TableScript.FunctionExtStmt.description
+  name: description
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt_description
+  commentId: P:TableScript.FunctionExtStmt.description
+  fullName: TableScript.FunctionExtStmt.description
+  nameWithType: FunctionExtStmt.description
+- uid: TableScript.FunctionExtStmt.description*
+  name: description
+  href: api/TableScript.FunctionExtStmt.html#TableScript_FunctionExtStmt_description_
+  commentId: Overload:TableScript.FunctionExtStmt.description
+  isSpec: "True"
+  fullName: TableScript.FunctionExtStmt.description
+  nameWithType: FunctionExtStmt.description
+- uid: TableScript.FunctionStmt
+  name: FunctionStmt
+  href: api/TableScript.FunctionStmt.html
+  commentId: T:TableScript.FunctionStmt
+  fullName: TableScript.FunctionStmt
+  nameWithType: FunctionStmt
+- uid: TableScript.FunctionStmt.#ctor(System.String,System.String[],System.Int32)
+  name: FunctionStmt(string, string[], int)
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt__ctor_System_String_System_String___System_Int32_
+  commentId: M:TableScript.FunctionStmt.#ctor(System.String,System.String[],System.Int32)
+  name.vb: New(String, String(), Integer)
+  fullName: TableScript.FunctionStmt.FunctionStmt(string, string[], int)
+  fullName.vb: TableScript.FunctionStmt.New(String, String(), Integer)
+  nameWithType: FunctionStmt.FunctionStmt(string, string[], int)
+  nameWithType.vb: FunctionStmt.New(String, String(), Integer)
+- uid: TableScript.FunctionStmt.#ctor*
+  name: FunctionStmt
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt__ctor_
+  commentId: Overload:TableScript.FunctionStmt.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.FunctionStmt.FunctionStmt
+  fullName.vb: TableScript.FunctionStmt.New
+  nameWithType: FunctionStmt.FunctionStmt
+  nameWithType.vb: FunctionStmt.New
+- uid: TableScript.FunctionStmt.arity
+  name: arity
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt_arity
+  commentId: P:TableScript.FunctionStmt.arity
+  fullName: TableScript.FunctionStmt.arity
+  nameWithType: FunctionStmt.arity
+- uid: TableScript.FunctionStmt.arity*
+  name: arity
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt_arity_
+  commentId: Overload:TableScript.FunctionStmt.arity
+  isSpec: "True"
+  fullName: TableScript.FunctionStmt.arity
+  nameWithType: FunctionStmt.arity
+- uid: TableScript.FunctionStmt.identifier
+  name: identifier
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt_identifier
+  commentId: P:TableScript.FunctionStmt.identifier
+  fullName: TableScript.FunctionStmt.identifier
+  nameWithType: FunctionStmt.identifier
+- uid: TableScript.FunctionStmt.identifier*
+  name: identifier
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt_identifier_
+  commentId: Overload:TableScript.FunctionStmt.identifier
+  isSpec: "True"
+  fullName: TableScript.FunctionStmt.identifier
+  nameWithType: FunctionStmt.identifier
+- uid: TableScript.FunctionStmt.pars
+  name: pars
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt_pars
+  commentId: P:TableScript.FunctionStmt.pars
+  fullName: TableScript.FunctionStmt.pars
+  nameWithType: FunctionStmt.pars
+- uid: TableScript.FunctionStmt.pars*
+  name: pars
+  href: api/TableScript.FunctionStmt.html#TableScript_FunctionStmt_pars_
+  commentId: Overload:TableScript.FunctionStmt.pars
+  isSpec: "True"
+  fullName: TableScript.FunctionStmt.pars
+  nameWithType: FunctionStmt.pars
+- uid: TableScript.Generator
+  name: TableScript.Generator
+  href: api/TableScript.Generator.html
+  commentId: N:TableScript.Generator
+  fullName: TableScript.Generator
+  nameWithType: TableScript.Generator
+- uid: TableScript.Generator.TableScriptFunctionAttribute
+  name: TableScriptFunctionAttribute
+  href: api/TableScript.Generator.TableScriptFunctionAttribute.html
+  commentId: T:TableScript.Generator.TableScriptFunctionAttribute
+  fullName: TableScript.Generator.TableScriptFunctionAttribute
+  nameWithType: TableScriptFunctionAttribute
+- uid: TableScript.Generator.TableScriptGlobalAttribute
+  name: TableScriptGlobalAttribute
+  href: api/TableScript.Generator.TableScriptGlobalAttribute.html
+  commentId: T:TableScript.Generator.TableScriptGlobalAttribute
+  fullName: TableScript.Generator.TableScriptGlobalAttribute
+  nameWithType: TableScriptGlobalAttribute
+- uid: TableScript.Generator.TableScriptLibraryAttribute
+  name: TableScriptLibraryAttribute
+  href: api/TableScript.Generator.TableScriptLibraryAttribute.html
+  commentId: T:TableScript.Generator.TableScriptLibraryAttribute
+  fullName: TableScript.Generator.TableScriptLibraryAttribute
+  nameWithType: TableScriptLibraryAttribute
+- uid: TableScript.Generator.TableScriptLibraryAttribute.#ctor(System.String)
+  name: TableScriptLibraryAttribute(string)
+  href: api/TableScript.Generator.TableScriptLibraryAttribute.html#TableScript_Generator_TableScriptLibraryAttribute__ctor_System_String_
+  commentId: M:TableScript.Generator.TableScriptLibraryAttribute.#ctor(System.String)
+  name.vb: New(String)
+  fullName: TableScript.Generator.TableScriptLibraryAttribute.TableScriptLibraryAttribute(string)
+  fullName.vb: TableScript.Generator.TableScriptLibraryAttribute.New(String)
+  nameWithType: TableScriptLibraryAttribute.TableScriptLibraryAttribute(string)
+  nameWithType.vb: TableScriptLibraryAttribute.New(String)
+- uid: TableScript.Generator.TableScriptLibraryAttribute.#ctor*
+  name: TableScriptLibraryAttribute
+  href: api/TableScript.Generator.TableScriptLibraryAttribute.html#TableScript_Generator_TableScriptLibraryAttribute__ctor_
+  commentId: Overload:TableScript.Generator.TableScriptLibraryAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.Generator.TableScriptLibraryAttribute.TableScriptLibraryAttribute
+  fullName.vb: TableScript.Generator.TableScriptLibraryAttribute.New
+  nameWithType: TableScriptLibraryAttribute.TableScriptLibraryAttribute
+  nameWithType.vb: TableScriptLibraryAttribute.New
+- uid: TableScript.Generator.TableScriptLibraryAttribute.filename
+  name: filename
+  href: api/TableScript.Generator.TableScriptLibraryAttribute.html#TableScript_Generator_TableScriptLibraryAttribute_filename
+  commentId: P:TableScript.Generator.TableScriptLibraryAttribute.filename
+  fullName: TableScript.Generator.TableScriptLibraryAttribute.filename
+  nameWithType: TableScriptLibraryAttribute.filename
+- uid: TableScript.Generator.TableScriptLibraryAttribute.filename*
+  name: filename
+  href: api/TableScript.Generator.TableScriptLibraryAttribute.html#TableScript_Generator_TableScriptLibraryAttribute_filename_
+  commentId: Overload:TableScript.Generator.TableScriptLibraryAttribute.filename
+  isSpec: "True"
+  fullName: TableScript.Generator.TableScriptLibraryAttribute.filename
+  nameWithType: TableScriptLibraryAttribute.filename
+- uid: TableScript.IImportResolver
+  name: IImportResolver
+  href: api/TableScript.IImportResolver.html
+  commentId: T:TableScript.IImportResolver
+  fullName: TableScript.IImportResolver
+  nameWithType: IImportResolver
+- uid: TableScript.IImportResolver.OnReport
+  name: OnReport
+  href: api/TableScript.IImportResolver.html#TableScript_IImportResolver_OnReport
+  commentId: P:TableScript.IImportResolver.OnReport
+  fullName: TableScript.IImportResolver.OnReport
+  nameWithType: IImportResolver.OnReport
+- uid: TableScript.IImportResolver.OnReport*
+  name: OnReport
+  href: api/TableScript.IImportResolver.html#TableScript_IImportResolver_OnReport_
+  commentId: Overload:TableScript.IImportResolver.OnReport
+  isSpec: "True"
+  fullName: TableScript.IImportResolver.OnReport
+  nameWithType: IImportResolver.OnReport
+- uid: TableScript.IImportResolver.Resolve(System.String,System.String)
+  name: Resolve(string, string)
+  href: api/TableScript.IImportResolver.html#TableScript_IImportResolver_Resolve_System_String_System_String_
+  commentId: M:TableScript.IImportResolver.Resolve(System.String,System.String)
+  name.vb: Resolve(String, String)
+  fullName: TableScript.IImportResolver.Resolve(string, string)
+  fullName.vb: TableScript.IImportResolver.Resolve(String, String)
+  nameWithType: IImportResolver.Resolve(string, string)
+  nameWithType.vb: IImportResolver.Resolve(String, String)
+- uid: TableScript.IImportResolver.Resolve*
+  name: Resolve
+  href: api/TableScript.IImportResolver.html#TableScript_IImportResolver_Resolve_
+  commentId: Overload:TableScript.IImportResolver.Resolve
+  isSpec: "True"
+  fullName: TableScript.IImportResolver.Resolve
+  nameWithType: IImportResolver.Resolve
+- uid: TableScript.Optimizations
+  name: Optimizations
+  href: api/TableScript.Optimizations.html
+  commentId: T:TableScript.Optimizations
+  fullName: TableScript.Optimizations
+  nameWithType: Optimizations
+- uid: TableScript.Optimizations.ConstantBranching
+  name: ConstantBranching
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_ConstantBranching
+  commentId: F:TableScript.Optimizations.ConstantBranching
+  fullName: TableScript.Optimizations.ConstantBranching
+  nameWithType: Optimizations.ConstantBranching
+- uid: TableScript.Optimizations.ConstantFolding
+  name: ConstantFolding
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_ConstantFolding
+  commentId: F:TableScript.Optimizations.ConstantFolding
+  fullName: TableScript.Optimizations.ConstantFolding
+  nameWithType: Optimizations.ConstantFolding
+- uid: TableScript.Optimizations.ConstantPropagation
+  name: ConstantPropagation
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_ConstantPropagation
+  commentId: F:TableScript.Optimizations.ConstantPropagation
+  fullName: TableScript.Optimizations.ConstantPropagation
+  nameWithType: Optimizations.ConstantPropagation
+- uid: TableScript.Optimizations.DeadCodeElimination
+  name: DeadCodeElimination
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_DeadCodeElimination
+  commentId: F:TableScript.Optimizations.DeadCodeElimination
+  fullName: TableScript.Optimizations.DeadCodeElimination
+  nameWithType: Optimizations.DeadCodeElimination
+- uid: TableScript.Optimizations.DeadFunctionElimination
+  name: DeadFunctionElimination
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_DeadFunctionElimination
+  commentId: F:TableScript.Optimizations.DeadFunctionElimination
+  fullName: TableScript.Optimizations.DeadFunctionElimination
+  nameWithType: Optimizations.DeadFunctionElimination
+- uid: TableScript.Optimizations.DeadStoreElimination
+  name: DeadStoreElimination
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_DeadStoreElimination
+  commentId: F:TableScript.Optimizations.DeadStoreElimination
+  fullName: TableScript.Optimizations.DeadStoreElimination
+  nameWithType: Optimizations.DeadStoreElimination
+- uid: TableScript.Optimizations.Early
+  name: Early
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_Early
+  commentId: F:TableScript.Optimizations.Early
+  fullName: TableScript.Optimizations.Early
+  nameWithType: Optimizations.Early
+- uid: TableScript.Optimizations.EarlyDeadCodeElimination
+  name: EarlyDeadCodeElimination
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_EarlyDeadCodeElimination
+  commentId: F:TableScript.Optimizations.EarlyDeadCodeElimination
+  fullName: TableScript.Optimizations.EarlyDeadCodeElimination
+  nameWithType: Optimizations.EarlyDeadCodeElimination
+- uid: TableScript.Optimizations.EarlyDestructive
+  name: EarlyDestructive
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_EarlyDestructive
+  commentId: F:TableScript.Optimizations.EarlyDestructive
+  fullName: TableScript.Optimizations.EarlyDestructive
+  nameWithType: Optimizations.EarlyDestructive
+- uid: TableScript.Optimizations.EarlyOptimizations
+  name: EarlyOptimizations
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_EarlyOptimizations
+  commentId: F:TableScript.Optimizations.EarlyOptimizations
+  fullName: TableScript.Optimizations.EarlyOptimizations
+  nameWithType: Optimizations.EarlyOptimizations
+- uid: TableScript.Optimizations.Experimental
+  name: Experimental
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_Experimental
+  commentId: F:TableScript.Optimizations.Experimental
+  fullName: TableScript.Optimizations.Experimental
+  nameWithType: Optimizations.Experimental
+- uid: TableScript.Optimizations.ExpressionSimplification
+  name: ExpressionSimplification
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_ExpressionSimplification
+  commentId: F:TableScript.Optimizations.ExpressionSimplification
+  fullName: TableScript.Optimizations.ExpressionSimplification
+  nameWithType: Optimizations.ExpressionSimplification
+- uid: TableScript.Optimizations.ExternalCall
+  name: ExternalCall
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_ExternalCall
+  commentId: F:TableScript.Optimizations.ExternalCall
+  fullName: TableScript.Optimizations.ExternalCall
+  nameWithType: Optimizations.ExternalCall
+- uid: TableScript.Optimizations.ExternalCallExperimental
+  name: ExternalCallExperimental
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_ExternalCallExperimental
+  commentId: F:TableScript.Optimizations.ExternalCallExperimental
+  fullName: TableScript.Optimizations.ExternalCallExperimental
+  nameWithType: Optimizations.ExternalCallExperimental
+- uid: TableScript.Optimizations.None
+  name: None
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_None
+  commentId: F:TableScript.Optimizations.None
+  fullName: TableScript.Optimizations.None
+  nameWithType: Optimizations.None
+- uid: TableScript.Optimizations.Normal
+  name: Normal
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_Normal
+  commentId: F:TableScript.Optimizations.Normal
+  fullName: TableScript.Optimizations.Normal
+  nameWithType: Optimizations.Normal
+- uid: TableScript.Optimizations.VariableIndexReusing
+  name: VariableIndexReusing
+  href: api/TableScript.Optimizations.html#TableScript_Optimizations_VariableIndexReusing
+  commentId: F:TableScript.Optimizations.VariableIndexReusing
+  fullName: TableScript.Optimizations.VariableIndexReusing
+  nameWithType: Optimizations.VariableIndexReusing
+- uid: TableScript.ResolvedImport
+  name: ResolvedImport
+  href: api/TableScript.ResolvedImport.html
+  commentId: T:TableScript.ResolvedImport
+  fullName: TableScript.ResolvedImport
+  nameWithType: ResolvedImport
+- uid: TableScript.ResolvedImport.#ctor(System.String,System.String[],System.Collections.Generic.Dictionary{System.String,TableScript.Table},TableScript.FunctionStmt[])
+  name: ResolvedImport(string, string[], Dictionary<string, Table>, FunctionStmt[])
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport__ctor_System_String_System_String___System_Collections_Generic_Dictionary_System_String_TableScript_Table__TableScript_FunctionStmt___
+  commentId: M:TableScript.ResolvedImport.#ctor(System.String,System.String[],System.Collections.Generic.Dictionary{System.String,TableScript.Table},TableScript.FunctionStmt[])
+  name.vb: New(String, String(), Dictionary(Of String, Table), FunctionStmt())
+  fullName: TableScript.ResolvedImport.ResolvedImport(string, string[], System.Collections.Generic.Dictionary<string, TableScript.Table>, TableScript.FunctionStmt[])
+  fullName.vb: TableScript.ResolvedImport.New(String, String(), System.Collections.Generic.Dictionary(Of String, TableScript.Table), TableScript.FunctionStmt())
+  nameWithType: ResolvedImport.ResolvedImport(string, string[], Dictionary<string, Table>, FunctionStmt[])
+  nameWithType.vb: ResolvedImport.New(String, String(), Dictionary(Of String, Table), FunctionStmt())
+- uid: TableScript.ResolvedImport.#ctor*
+  name: ResolvedImport
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport__ctor_
+  commentId: Overload:TableScript.ResolvedImport.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.ResolvedImport.ResolvedImport
+  fullName.vb: TableScript.ResolvedImport.New
+  nameWithType: ResolvedImport.ResolvedImport
+  nameWithType.vb: ResolvedImport.New
+- uid: TableScript.ResolvedImport.ToCompactString
+  name: ToCompactString()
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_ToCompactString
+  commentId: M:TableScript.ResolvedImport.ToCompactString
+  fullName: TableScript.ResolvedImport.ToCompactString()
+  nameWithType: ResolvedImport.ToCompactString()
+- uid: TableScript.ResolvedImport.ToCompactString*
+  name: ToCompactString
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_ToCompactString_
+  commentId: Overload:TableScript.ResolvedImport.ToCompactString
+  isSpec: "True"
+  fullName: TableScript.ResolvedImport.ToCompactString
+  nameWithType: ResolvedImport.ToCompactString
+- uid: TableScript.ResolvedImport.ToString
+  name: ToString()
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_ToString
+  commentId: M:TableScript.ResolvedImport.ToString
+  fullName: TableScript.ResolvedImport.ToString()
+  nameWithType: ResolvedImport.ToString()
+- uid: TableScript.ResolvedImport.ToString*
+  name: ToString
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_ToString_
+  commentId: Overload:TableScript.ResolvedImport.ToString
+  isSpec: "True"
+  fullName: TableScript.ResolvedImport.ToString
+  nameWithType: ResolvedImport.ToString
+- uid: TableScript.ResolvedImport.definedGlobals
+  name: definedGlobals
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_definedGlobals
+  commentId: P:TableScript.ResolvedImport.definedGlobals
+  fullName: TableScript.ResolvedImport.definedGlobals
+  nameWithType: ResolvedImport.definedGlobals
+- uid: TableScript.ResolvedImport.definedGlobals*
+  name: definedGlobals
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_definedGlobals_
+  commentId: Overload:TableScript.ResolvedImport.definedGlobals
+  isSpec: "True"
+  fullName: TableScript.ResolvedImport.definedGlobals
+  nameWithType: ResolvedImport.definedGlobals
+- uid: TableScript.ResolvedImport.filename
+  name: filename
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_filename
+  commentId: P:TableScript.ResolvedImport.filename
+  fullName: TableScript.ResolvedImport.filename
+  nameWithType: ResolvedImport.filename
+- uid: TableScript.ResolvedImport.filename*
+  name: filename
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_filename_
+  commentId: Overload:TableScript.ResolvedImport.filename
+  isSpec: "True"
+  fullName: TableScript.ResolvedImport.filename
+  nameWithType: ResolvedImport.filename
+- uid: TableScript.ResolvedImport.functions
+  name: functions
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_functions
+  commentId: P:TableScript.ResolvedImport.functions
+  fullName: TableScript.ResolvedImport.functions
+  nameWithType: ResolvedImport.functions
+- uid: TableScript.ResolvedImport.functions*
+  name: functions
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_functions_
+  commentId: Overload:TableScript.ResolvedImport.functions
+  isSpec: "True"
+  fullName: TableScript.ResolvedImport.functions
+  nameWithType: ResolvedImport.functions
+- uid: TableScript.ResolvedImport.furtherImports
+  name: furtherImports
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_furtherImports
+  commentId: P:TableScript.ResolvedImport.furtherImports
+  fullName: TableScript.ResolvedImport.furtherImports
+  nameWithType: ResolvedImport.furtherImports
+- uid: TableScript.ResolvedImport.furtherImports*
+  name: furtherImports
+  href: api/TableScript.ResolvedImport.html#TableScript_ResolvedImport_furtherImports_
+  commentId: Overload:TableScript.ResolvedImport.furtherImports
+  isSpec: "True"
+  fullName: TableScript.ResolvedImport.furtherImports
+  nameWithType: ResolvedImport.furtherImports
+- uid: TableScript.Script
+  name: Script
+  href: api/TableScript.Script.html
+  commentId: T:TableScript.Script
+  fullName: TableScript.Script
+  nameWithType: Script
+- uid: TableScript.Script.CallFunction(System.String,System.String,TableScript.Table[])
+  name: CallFunction(string, string, params Table[])
+  href: api/TableScript.Script.html#TableScript_Script_CallFunction_System_String_System_String_TableScript_Table___
+  commentId: M:TableScript.Script.CallFunction(System.String,System.String,TableScript.Table[])
+  name.vb: CallFunction(String, String, ParamArray Table())
+  fullName: TableScript.Script.CallFunction(string, string, params TableScript.Table[])
+  fullName.vb: TableScript.Script.CallFunction(String, String, ParamArray TableScript.Table())
+  nameWithType: Script.CallFunction(string, string, params Table[])
+  nameWithType.vb: Script.CallFunction(String, String, ParamArray Table())
+- uid: TableScript.Script.CallFunction*
+  name: CallFunction
+  href: api/TableScript.Script.html#TableScript_Script_CallFunction_
+  commentId: Overload:TableScript.Script.CallFunction
+  isSpec: "True"
+  fullName: TableScript.Script.CallFunction
+  nameWithType: Script.CallFunction
+- uid: TableScript.Script.FromImport(TableScript.ResolvedImport,TableScript.IImportResolver,System.Action{TableScript.TableScriptException},TableScript.Optimizations)
+  name: FromImport(ResolvedImport, IImportResolver, Action<TableScriptException>, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_FromImport_TableScript_ResolvedImport_TableScript_IImportResolver_System_Action_TableScript_TableScriptException__TableScript_Optimizations_
+  commentId: M:TableScript.Script.FromImport(TableScript.ResolvedImport,TableScript.IImportResolver,System.Action{TableScript.TableScriptException},TableScript.Optimizations)
+  name.vb: FromImport(ResolvedImport, IImportResolver, Action(Of TableScriptException), Optimizations)
+  fullName: TableScript.Script.FromImport(TableScript.ResolvedImport, TableScript.IImportResolver, System.Action<TableScript.TableScriptException>, TableScript.Optimizations)
+  fullName.vb: TableScript.Script.FromImport(TableScript.ResolvedImport, TableScript.IImportResolver, System.Action(Of TableScript.TableScriptException), TableScript.Optimizations)
+  nameWithType: Script.FromImport(ResolvedImport, IImportResolver, Action<TableScriptException>, Optimizations)
+  nameWithType.vb: Script.FromImport(ResolvedImport, IImportResolver, Action(Of TableScriptException), Optimizations)
+- uid: TableScript.Script.FromImport(TableScript.ResolvedImport,TableScript.IImportResolver,TableScript.Optimizations)
+  name: FromImport(ResolvedImport, IImportResolver, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_FromImport_TableScript_ResolvedImport_TableScript_IImportResolver_TableScript_Optimizations_
+  commentId: M:TableScript.Script.FromImport(TableScript.ResolvedImport,TableScript.IImportResolver,TableScript.Optimizations)
+  fullName: TableScript.Script.FromImport(TableScript.ResolvedImport, TableScript.IImportResolver, TableScript.Optimizations)
+  nameWithType: Script.FromImport(ResolvedImport, IImportResolver, Optimizations)
+- uid: TableScript.Script.FromImport(TableScript.ResolvedImport,TableScript.Optimizations)
+  name: FromImport(ResolvedImport, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_FromImport_TableScript_ResolvedImport_TableScript_Optimizations_
+  commentId: M:TableScript.Script.FromImport(TableScript.ResolvedImport,TableScript.Optimizations)
+  fullName: TableScript.Script.FromImport(TableScript.ResolvedImport, TableScript.Optimizations)
+  nameWithType: Script.FromImport(ResolvedImport, Optimizations)
+- uid: TableScript.Script.FromImport*
+  name: FromImport
+  href: api/TableScript.Script.html#TableScript_Script_FromImport_
+  commentId: Overload:TableScript.Script.FromImport
+  isSpec: "True"
+  fullName: TableScript.Script.FromImport
+  nameWithType: Script.FromImport
+- uid: TableScript.Script.FromSource(System.String,System.String,TableScript.IImportResolver,System.Action{TableScript.TableScriptException},TableScript.Optimizations)
+  name: FromSource(string, string, IImportResolver, Action<TableScriptException>, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_FromSource_System_String_System_String_TableScript_IImportResolver_System_Action_TableScript_TableScriptException__TableScript_Optimizations_
+  commentId: M:TableScript.Script.FromSource(System.String,System.String,TableScript.IImportResolver,System.Action{TableScript.TableScriptException},TableScript.Optimizations)
+  name.vb: FromSource(String, String, IImportResolver, Action(Of TableScriptException), Optimizations)
+  fullName: TableScript.Script.FromSource(string, string, TableScript.IImportResolver, System.Action<TableScript.TableScriptException>, TableScript.Optimizations)
+  fullName.vb: TableScript.Script.FromSource(String, String, TableScript.IImportResolver, System.Action(Of TableScript.TableScriptException), TableScript.Optimizations)
+  nameWithType: Script.FromSource(string, string, IImportResolver, Action<TableScriptException>, Optimizations)
+  nameWithType.vb: Script.FromSource(String, String, IImportResolver, Action(Of TableScriptException), Optimizations)
+- uid: TableScript.Script.FromSource(System.String,System.String,TableScript.IImportResolver,TableScript.Optimizations)
+  name: FromSource(string, string, IImportResolver, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_FromSource_System_String_System_String_TableScript_IImportResolver_TableScript_Optimizations_
+  commentId: M:TableScript.Script.FromSource(System.String,System.String,TableScript.IImportResolver,TableScript.Optimizations)
+  name.vb: FromSource(String, String, IImportResolver, Optimizations)
+  fullName: TableScript.Script.FromSource(string, string, TableScript.IImportResolver, TableScript.Optimizations)
+  fullName.vb: TableScript.Script.FromSource(String, String, TableScript.IImportResolver, TableScript.Optimizations)
+  nameWithType: Script.FromSource(string, string, IImportResolver, Optimizations)
+  nameWithType.vb: Script.FromSource(String, String, IImportResolver, Optimizations)
+- uid: TableScript.Script.FromSource(System.String,System.String,TableScript.Optimizations)
+  name: FromSource(string, string, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_FromSource_System_String_System_String_TableScript_Optimizations_
+  commentId: M:TableScript.Script.FromSource(System.String,System.String,TableScript.Optimizations)
+  name.vb: FromSource(String, String, Optimizations)
+  fullName: TableScript.Script.FromSource(string, string, TableScript.Optimizations)
+  fullName.vb: TableScript.Script.FromSource(String, String, TableScript.Optimizations)
+  nameWithType: Script.FromSource(string, string, Optimizations)
+  nameWithType.vb: Script.FromSource(String, String, Optimizations)
+- uid: TableScript.Script.FromSource*
+  name: FromSource
+  href: api/TableScript.Script.html#TableScript_Script_FromSource_
+  commentId: Overload:TableScript.Script.FromSource
+  isSpec: "True"
+  fullName: TableScript.Script.FromSource
+  nameWithType: Script.FromSource
+- uid: TableScript.Script.OnReport
+  name: OnReport
+  href: api/TableScript.Script.html#TableScript_Script_OnReport
+  commentId: F:TableScript.Script.OnReport
+  fullName: TableScript.Script.OnReport
+  nameWithType: Script.OnReport
+- uid: TableScript.Script.Run(System.Collections.Generic.IEnumerable{System.String})
+  name: Run(IEnumerable<string>)
+  href: api/TableScript.Script.html#TableScript_Script_Run_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:TableScript.Script.Run(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Run(IEnumerable(Of String))
+  fullName: TableScript.Script.Run(System.Collections.Generic.IEnumerable<string>)
+  fullName.vb: TableScript.Script.Run(System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: Script.Run(IEnumerable<string>)
+  nameWithType.vb: Script.Run(IEnumerable(Of String))
+- uid: TableScript.Script.Run(TableScript.Table)
+  name: Run(Table)
+  href: api/TableScript.Script.html#TableScript_Script_Run_TableScript_Table_
+  commentId: M:TableScript.Script.Run(TableScript.Table)
+  fullName: TableScript.Script.Run(TableScript.Table)
+  nameWithType: Script.Run(Table)
+- uid: TableScript.Script.Run*
+  name: Run
+  href: api/TableScript.Script.html#TableScript_Script_Run_
+  commentId: Overload:TableScript.Script.Run
+  isSpec: "True"
+  fullName: TableScript.Script.Run
+  nameWithType: Script.Run
+- uid: TableScript.Script.SourceAsImport(System.String,System.String,System.Action{TableScript.TableScriptException},TableScript.Optimizations)
+  name: SourceAsImport(string, string, Action<TableScriptException>, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_SourceAsImport_System_String_System_String_System_Action_TableScript_TableScriptException__TableScript_Optimizations_
+  commentId: M:TableScript.Script.SourceAsImport(System.String,System.String,System.Action{TableScript.TableScriptException},TableScript.Optimizations)
+  name.vb: SourceAsImport(String, String, Action(Of TableScriptException), Optimizations)
+  fullName: TableScript.Script.SourceAsImport(string, string, System.Action<TableScript.TableScriptException>, TableScript.Optimizations)
+  fullName.vb: TableScript.Script.SourceAsImport(String, String, System.Action(Of TableScript.TableScriptException), TableScript.Optimizations)
+  nameWithType: Script.SourceAsImport(string, string, Action<TableScriptException>, Optimizations)
+  nameWithType.vb: Script.SourceAsImport(String, String, Action(Of TableScriptException), Optimizations)
+- uid: TableScript.Script.SourceAsImport(System.String,System.String,TableScript.Optimizations)
+  name: SourceAsImport(string, string, Optimizations)
+  href: api/TableScript.Script.html#TableScript_Script_SourceAsImport_System_String_System_String_TableScript_Optimizations_
+  commentId: M:TableScript.Script.SourceAsImport(System.String,System.String,TableScript.Optimizations)
+  name.vb: SourceAsImport(String, String, Optimizations)
+  fullName: TableScript.Script.SourceAsImport(string, string, TableScript.Optimizations)
+  fullName.vb: TableScript.Script.SourceAsImport(String, String, TableScript.Optimizations)
+  nameWithType: Script.SourceAsImport(string, string, Optimizations)
+  nameWithType.vb: Script.SourceAsImport(String, String, Optimizations)
+- uid: TableScript.Script.SourceAsImport*
+  name: SourceAsImport
+  href: api/TableScript.Script.html#TableScript_Script_SourceAsImport_
+  commentId: Overload:TableScript.Script.SourceAsImport
+  isSpec: "True"
+  fullName: TableScript.Script.SourceAsImport
+  nameWithType: Script.SourceAsImport
+- uid: TableScript.Script.ToString
+  name: ToString()
+  href: api/TableScript.Script.html#TableScript_Script_ToString
+  commentId: M:TableScript.Script.ToString
+  fullName: TableScript.Script.ToString()
+  nameWithType: Script.ToString()
+- uid: TableScript.Script.ToString*
+  name: ToString
+  href: api/TableScript.Script.html#TableScript_Script_ToString_
+  commentId: Overload:TableScript.Script.ToString
+  isSpec: "True"
+  fullName: TableScript.Script.ToString
+  nameWithType: Script.ToString
+- uid: TableScript.Script.filename
+  name: filename
+  href: api/TableScript.Script.html#TableScript_Script_filename
+  commentId: P:TableScript.Script.filename
+  fullName: TableScript.Script.filename
+  nameWithType: Script.filename
+- uid: TableScript.Script.filename*
+  name: filename
+  href: api/TableScript.Script.html#TableScript_Script_filename_
+  commentId: Overload:TableScript.Script.filename
+  isSpec: "True"
+  fullName: TableScript.Script.filename
+  nameWithType: Script.filename
+- uid: TableScript.Script.functions
+  name: functions
+  href: api/TableScript.Script.html#TableScript_Script_functions
+  commentId: P:TableScript.Script.functions
+  fullName: TableScript.Script.functions
+  nameWithType: Script.functions
+- uid: TableScript.Script.functions*
+  name: functions
+  href: api/TableScript.Script.html#TableScript_Script_functions_
+  commentId: Overload:TableScript.Script.functions
+  isSpec: "True"
+  fullName: TableScript.Script.functions
+  nameWithType: Script.functions
+- uid: TableScript.StandardImportResolver
+  name: StandardImportResolver
+  href: api/TableScript.StandardImportResolver.html
+  commentId: T:TableScript.StandardImportResolver
+  fullName: TableScript.StandardImportResolver
+  nameWithType: StandardImportResolver
+- uid: TableScript.StandardImportResolver.OnReport
+  name: OnReport
+  href: api/TableScript.StandardImportResolver.html#TableScript_StandardImportResolver_OnReport
+  commentId: P:TableScript.StandardImportResolver.OnReport
+  fullName: TableScript.StandardImportResolver.OnReport
+  nameWithType: StandardImportResolver.OnReport
+- uid: TableScript.StandardImportResolver.OnReport*
+  name: OnReport
+  href: api/TableScript.StandardImportResolver.html#TableScript_StandardImportResolver_OnReport_
+  commentId: Overload:TableScript.StandardImportResolver.OnReport
+  isSpec: "True"
+  fullName: TableScript.StandardImportResolver.OnReport
+  nameWithType: StandardImportResolver.OnReport
+- uid: TableScript.StandardImportResolver.Resolve(System.String,System.String)
+  name: Resolve(string, string)
+  href: api/TableScript.StandardImportResolver.html#TableScript_StandardImportResolver_Resolve_System_String_System_String_
+  commentId: M:TableScript.StandardImportResolver.Resolve(System.String,System.String)
+  name.vb: Resolve(String, String)
+  fullName: TableScript.StandardImportResolver.Resolve(string, string)
+  fullName.vb: TableScript.StandardImportResolver.Resolve(String, String)
+  nameWithType: StandardImportResolver.Resolve(string, string)
+  nameWithType.vb: StandardImportResolver.Resolve(String, String)
+- uid: TableScript.StandardImportResolver.Resolve*
+  name: Resolve
+  href: api/TableScript.StandardImportResolver.html#TableScript_StandardImportResolver_Resolve_
+  commentId: Overload:TableScript.StandardImportResolver.Resolve
+  isSpec: "True"
+  fullName: TableScript.StandardImportResolver.Resolve
+  nameWithType: StandardImportResolver.Resolve
+- uid: TableScript.StandardLibraries
+  name: TableScript.StandardLibraries
+  href: api/TableScript.StandardLibraries.html
+  commentId: N:TableScript.StandardLibraries
+  fullName: TableScript.StandardLibraries
+  nameWithType: TableScript.StandardLibraries
+- uid: TableScript.StandardLibraries.StdLib
+  name: StdLib
+  href: api/TableScript.StandardLibraries.StdLib.html
+  commentId: T:TableScript.StandardLibraries.StdLib
+  fullName: TableScript.StandardLibraries.StdLib
+  nameWithType: StdLib
+- uid: TableScript.StandardLibraries.StdLib.contains(TableScript.Table,System.String)
+  name: contains(Table, string)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_contains_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdLib.contains(TableScript.Table,System.String)
+  name.vb: contains(Table, String)
+  fullName: TableScript.StandardLibraries.StdLib.contains(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdLib.contains(TableScript.Table, String)
+  nameWithType: StdLib.contains(Table, string)
+  nameWithType.vb: StdLib.contains(Table, String)
+- uid: TableScript.StandardLibraries.StdLib.contains*
+  name: contains
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_contains_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.contains
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.contains
+  nameWithType: StdLib.contains
+- uid: TableScript.StandardLibraries.StdLib.deleteAll(TableScript.Table,TableScript.Table)
+  name: deleteAll(Table, Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_deleteAll_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.deleteAll(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.deleteAll(TableScript.Table, TableScript.Table)
+  nameWithType: StdLib.deleteAll(Table, Table)
+- uid: TableScript.StandardLibraries.StdLib.deleteAll*
+  name: deleteAll
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_deleteAll_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.deleteAll
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.deleteAll
+  nameWithType: StdLib.deleteAll
+- uid: TableScript.StandardLibraries.StdLib.deleteAt(TableScript.Table,TableScript.Table)
+  name: deleteAt(Table, Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_deleteAt_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.deleteAt(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.deleteAt(TableScript.Table, TableScript.Table)
+  nameWithType: StdLib.deleteAt(Table, Table)
+- uid: TableScript.StandardLibraries.StdLib.deleteAt*
+  name: deleteAt
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_deleteAt_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.deleteAt
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.deleteAt
+  nameWithType: StdLib.deleteAt
+- uid: TableScript.StandardLibraries.StdLib.deleteEmpty(TableScript.Table)
+  name: deleteEmpty(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_deleteEmpty_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.deleteEmpty(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.deleteEmpty(TableScript.Table)
+  nameWithType: StdLib.deleteEmpty(Table)
+- uid: TableScript.StandardLibraries.StdLib.deleteEmpty*
+  name: deleteEmpty
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_deleteEmpty_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.deleteEmpty
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.deleteEmpty
+  nameWithType: StdLib.deleteEmpty
+- uid: TableScript.StandardLibraries.StdLib.endsWith(TableScript.Table,TableScript.Table)
+  name: endsWith(Table, Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_endsWith_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.endsWith(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.endsWith(TableScript.Table, TableScript.Table)
+  nameWithType: StdLib.endsWith(Table, Table)
+- uid: TableScript.StandardLibraries.StdLib.endsWith*
+  name: endsWith
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_endsWith_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.endsWith
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.endsWith
+  nameWithType: StdLib.endsWith
+- uid: TableScript.StandardLibraries.StdLib.error(System.String)
+  name: error(string)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_error_System_String_
+  commentId: M:TableScript.StandardLibraries.StdLib.error(System.String)
+  name.vb: error(String)
+  fullName: TableScript.StandardLibraries.StdLib.error(string)
+  fullName.vb: TableScript.StandardLibraries.StdLib.error(String)
+  nameWithType: StdLib.error(string)
+  nameWithType.vb: StdLib.error(String)
+- uid: TableScript.StandardLibraries.StdLib.error*
+  name: error
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_error_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.error
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.error
+  nameWithType: StdLib.error
+- uid: TableScript.StandardLibraries.StdLib.getDate
+  name: getDate()
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_getDate
+  commentId: M:TableScript.StandardLibraries.StdLib.getDate
+  fullName: TableScript.StandardLibraries.StdLib.getDate()
+  nameWithType: StdLib.getDate()
+- uid: TableScript.StandardLibraries.StdLib.getDate*
+  name: getDate
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_getDate_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.getDate
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.getDate
+  nameWithType: StdLib.getDate
+- uid: TableScript.StandardLibraries.StdLib.getMaxLength
+  name: getMaxLength()
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_getMaxLength
+  commentId: M:TableScript.StandardLibraries.StdLib.getMaxLength
+  fullName: TableScript.StandardLibraries.StdLib.getMaxLength()
+  nameWithType: StdLib.getMaxLength()
+- uid: TableScript.StandardLibraries.StdLib.getMaxLength*
+  name: getMaxLength
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_getMaxLength_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.getMaxLength
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.getMaxLength
+  nameWithType: StdLib.getMaxLength
+- uid: TableScript.StandardLibraries.StdLib.getOS
+  name: getOS()
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_getOS
+  commentId: M:TableScript.StandardLibraries.StdLib.getOS
+  fullName: TableScript.StandardLibraries.StdLib.getOS()
+  nameWithType: StdLib.getOS()
+- uid: TableScript.StandardLibraries.StdLib.getOS*
+  name: getOS
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_getOS_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.getOS
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.getOS
+  nameWithType: StdLib.getOS
+- uid: TableScript.StandardLibraries.StdLib.indexOf(TableScript.Table,System.String)
+  name: indexOf(Table, string)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_indexOf_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdLib.indexOf(TableScript.Table,System.String)
+  name.vb: indexOf(Table, String)
+  fullName: TableScript.StandardLibraries.StdLib.indexOf(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdLib.indexOf(TableScript.Table, String)
+  nameWithType: StdLib.indexOf(Table, string)
+  nameWithType.vb: StdLib.indexOf(Table, String)
+- uid: TableScript.StandardLibraries.StdLib.indexOf*
+  name: indexOf
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_indexOf_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.indexOf
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.indexOf
+  nameWithType: StdLib.indexOf
+- uid: TableScript.StandardLibraries.StdLib.input(System.String)
+  name: input(string)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_input_System_String_
+  commentId: M:TableScript.StandardLibraries.StdLib.input(System.String)
+  name.vb: input(String)
+  fullName: TableScript.StandardLibraries.StdLib.input(string)
+  fullName.vb: TableScript.StandardLibraries.StdLib.input(String)
+  nameWithType: StdLib.input(string)
+  nameWithType.vb: StdLib.input(String)
+- uid: TableScript.StandardLibraries.StdLib.input*
+  name: input
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_input_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.input
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.input
+  nameWithType: StdLib.input
+- uid: TableScript.StandardLibraries.StdLib.join(TableScript.Table,System.String)
+  name: join(Table, string)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_join_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdLib.join(TableScript.Table,System.String)
+  name.vb: join(Table, String)
+  fullName: TableScript.StandardLibraries.StdLib.join(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdLib.join(TableScript.Table, String)
+  nameWithType: StdLib.join(Table, string)
+  nameWithType.vb: StdLib.join(Table, String)
+- uid: TableScript.StandardLibraries.StdLib.join*
+  name: join
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_join_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.join
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.join
+  nameWithType: StdLib.join
+- uid: TableScript.StandardLibraries.StdLib.lower(TableScript.Table)
+  name: lower(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_lower_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.lower(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.lower(TableScript.Table)
+  nameWithType: StdLib.lower(Table)
+- uid: TableScript.StandardLibraries.StdLib.lower*
+  name: lower
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_lower_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.lower
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.lower
+  nameWithType: StdLib.lower
+- uid: TableScript.StandardLibraries.StdLib.maxLength
+  name: maxLength
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_maxLength
+  commentId: F:TableScript.StandardLibraries.StdLib.maxLength
+  fullName: TableScript.StandardLibraries.StdLib.maxLength
+  nameWithType: StdLib.maxLength
+- uid: TableScript.StandardLibraries.StdLib.os
+  name: os
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_os
+  commentId: F:TableScript.StandardLibraries.StdLib.os
+  fullName: TableScript.StandardLibraries.StdLib.os
+  nameWithType: StdLib.os
+- uid: TableScript.StandardLibraries.StdLib.print(System.String)
+  name: print(string)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_print_System_String_
+  commentId: M:TableScript.StandardLibraries.StdLib.print(System.String)
+  name.vb: print(String)
+  fullName: TableScript.StandardLibraries.StdLib.print(string)
+  fullName.vb: TableScript.StandardLibraries.StdLib.print(String)
+  nameWithType: StdLib.print(string)
+  nameWithType.vb: StdLib.print(String)
+- uid: TableScript.StandardLibraries.StdLib.print*
+  name: print
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_print_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.print
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.print
+  nameWithType: StdLib.print
+- uid: TableScript.StandardLibraries.StdLib.removeQuotes(TableScript.Table)
+  name: removeQuotes(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_removeQuotes_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.removeQuotes(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.removeQuotes(TableScript.Table)
+  nameWithType: StdLib.removeQuotes(Table)
+- uid: TableScript.StandardLibraries.StdLib.removeQuotes*
+  name: removeQuotes
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_removeQuotes_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.removeQuotes
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.removeQuotes
+  nameWithType: StdLib.removeQuotes
+- uid: TableScript.StandardLibraries.StdLib.repeat(TableScript.Table,System.Int32)
+  name: repeat(Table, int)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_repeat_TableScript_Table_System_Int32_
+  commentId: M:TableScript.StandardLibraries.StdLib.repeat(TableScript.Table,System.Int32)
+  name.vb: repeat(Table, Integer)
+  fullName: TableScript.StandardLibraries.StdLib.repeat(TableScript.Table, int)
+  fullName.vb: TableScript.StandardLibraries.StdLib.repeat(TableScript.Table, Integer)
+  nameWithType: StdLib.repeat(Table, int)
+  nameWithType.vb: StdLib.repeat(Table, Integer)
+- uid: TableScript.StandardLibraries.StdLib.repeat*
+  name: repeat
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_repeat_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.repeat
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.repeat
+  nameWithType: StdLib.repeat
+- uid: TableScript.StandardLibraries.StdLib.replace(TableScript.Table,TableScript.Table,TableScript.Table)
+  name: replace(Table, Table, Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_replace_TableScript_Table_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.replace(TableScript.Table,TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.replace(TableScript.Table, TableScript.Table, TableScript.Table)
+  nameWithType: StdLib.replace(Table, Table, Table)
+- uid: TableScript.StandardLibraries.StdLib.replace*
+  name: replace
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_replace_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.replace
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.replace
+  nameWithType: StdLib.replace
+- uid: TableScript.StandardLibraries.StdLib.reverse(TableScript.Table)
+  name: reverse(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_reverse_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.reverse(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.reverse(TableScript.Table)
+  nameWithType: StdLib.reverse(Table)
+- uid: TableScript.StandardLibraries.StdLib.reverse*
+  name: reverse
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_reverse_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.reverse
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.reverse
+  nameWithType: StdLib.reverse
+- uid: TableScript.StandardLibraries.StdLib.shuffle(TableScript.Table)
+  name: shuffle(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_shuffle_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.shuffle(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.shuffle(TableScript.Table)
+  nameWithType: StdLib.shuffle(Table)
+- uid: TableScript.StandardLibraries.StdLib.shuffle*
+  name: shuffle
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_shuffle_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.shuffle
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.shuffle
+  nameWithType: StdLib.shuffle
+- uid: TableScript.StandardLibraries.StdLib.sleep(System.Int32)
+  name: sleep(int)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_sleep_System_Int32_
+  commentId: M:TableScript.StandardLibraries.StdLib.sleep(System.Int32)
+  name.vb: sleep(Integer)
+  fullName: TableScript.StandardLibraries.StdLib.sleep(int)
+  fullName.vb: TableScript.StandardLibraries.StdLib.sleep(Integer)
+  nameWithType: StdLib.sleep(int)
+  nameWithType.vb: StdLib.sleep(Integer)
+- uid: TableScript.StandardLibraries.StdLib.sleep*
+  name: sleep
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_sleep_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.sleep
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.sleep
+  nameWithType: StdLib.sleep
+- uid: TableScript.StandardLibraries.StdLib.split(TableScript.Table,TableScript.Table)
+  name: split(Table, Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_split_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.split(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.split(TableScript.Table, TableScript.Table)
+  nameWithType: StdLib.split(Table, Table)
+- uid: TableScript.StandardLibraries.StdLib.split*
+  name: split
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_split_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.split
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.split
+  nameWithType: StdLib.split
+- uid: TableScript.StandardLibraries.StdLib.splitLines(TableScript.Table)
+  name: splitLines(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_splitLines_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.splitLines(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.splitLines(TableScript.Table)
+  nameWithType: StdLib.splitLines(Table)
+- uid: TableScript.StandardLibraries.StdLib.splitLines*
+  name: splitLines
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_splitLines_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.splitLines
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.splitLines
+  nameWithType: StdLib.splitLines
+- uid: TableScript.StandardLibraries.StdLib.startsWith(TableScript.Table,TableScript.Table)
+  name: startsWith(Table, Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_startsWith_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.startsWith(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.startsWith(TableScript.Table, TableScript.Table)
+  nameWithType: StdLib.startsWith(Table, Table)
+- uid: TableScript.StandardLibraries.StdLib.startsWith*
+  name: startsWith
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_startsWith_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.startsWith
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.startsWith
+  nameWithType: StdLib.startsWith
+- uid: TableScript.StandardLibraries.StdLib.trim(TableScript.Table)
+  name: trim(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_trim_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.trim(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.trim(TableScript.Table)
+  nameWithType: StdLib.trim(Table)
+- uid: TableScript.StandardLibraries.StdLib.trim*
+  name: trim
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_trim_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.trim
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.trim
+  nameWithType: StdLib.trim
+- uid: TableScript.StandardLibraries.StdLib.upper(TableScript.Table)
+  name: upper(Table)
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_upper_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdLib.upper(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdLib.upper(TableScript.Table)
+  nameWithType: StdLib.upper(Table)
+- uid: TableScript.StandardLibraries.StdLib.upper*
+  name: upper
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_upper_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.upper
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdLib.upper
+  nameWithType: StdLib.upper
+- uid: TableScript.StandardLibraries.StdList
+  name: StdList
+  href: api/TableScript.StandardLibraries.StdList.html
+  commentId: T:TableScript.StandardLibraries.StdList
+  fullName: TableScript.StandardLibraries.StdList
+  nameWithType: StdList
+- uid: TableScript.StandardLibraries.StdList.Build(TableScript.Table[])
+  name: Build(params Table[])
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_Build_TableScript_Table___
+  commentId: M:TableScript.StandardLibraries.StdList.Build(TableScript.Table[])
+  name.vb: Build(ParamArray Table())
+  fullName: TableScript.StandardLibraries.StdList.Build(params TableScript.Table[])
+  fullName.vb: TableScript.StandardLibraries.StdList.Build(ParamArray TableScript.Table())
+  nameWithType: StdList.Build(params Table[])
+  nameWithType.vb: StdList.Build(ParamArray Table())
+- uid: TableScript.StandardLibraries.StdList.Build*
+  name: Build
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_Build_
+  commentId: Overload:TableScript.StandardLibraries.StdList.Build
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.Build
+  nameWithType: StdList.Build
+- uid: TableScript.StandardLibraries.StdList.Extract(TableScript.Table)
+  name: Extract(Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_Extract_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.Extract(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.Extract(TableScript.Table)
+  nameWithType: StdList.Extract(Table)
+- uid: TableScript.StandardLibraries.StdList.Extract*
+  name: Extract
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_Extract_
+  commentId: Overload:TableScript.StandardLibraries.StdList.Extract
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.Extract
+  nameWithType: StdList.Extract
+- uid: TableScript.StandardLibraries.StdList.Merge(TableScript.Table[])
+  name: Merge(params Table[])
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_Merge_TableScript_Table___
+  commentId: M:TableScript.StandardLibraries.StdList.Merge(TableScript.Table[])
+  name.vb: Merge(ParamArray Table())
+  fullName: TableScript.StandardLibraries.StdList.Merge(params TableScript.Table[])
+  fullName.vb: TableScript.StandardLibraries.StdList.Merge(ParamArray TableScript.Table())
+  nameWithType: StdList.Merge(params Table[])
+  nameWithType.vb: StdList.Merge(ParamArray Table())
+- uid: TableScript.StandardLibraries.StdList.Merge*
+  name: Merge
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_Merge_
+  commentId: Overload:TableScript.StandardLibraries.StdList.Merge
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.Merge
+  nameWithType: StdList.Merge
+- uid: TableScript.StandardLibraries.StdList.addTab(TableScript.Table,TableScript.Table)
+  name: addTab(Table, Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_addTab_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.addTab(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.addTab(TableScript.Table, TableScript.Table)
+  nameWithType: StdList.addTab(Table, Table)
+- uid: TableScript.StandardLibraries.StdList.addTab*
+  name: addTab
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_addTab_
+  commentId: Overload:TableScript.StandardLibraries.StdList.addTab
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.addTab
+  nameWithType: StdList.addTab
+- uid: TableScript.StandardLibraries.StdList.containsTab(TableScript.Table,TableScript.Table)
+  name: containsTab(Table, Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_containsTab_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.containsTab(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.containsTab(TableScript.Table, TableScript.Table)
+  nameWithType: StdList.containsTab(Table, Table)
+- uid: TableScript.StandardLibraries.StdList.containsTab*
+  name: containsTab
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_containsTab_
+  commentId: Overload:TableScript.StandardLibraries.StdList.containsTab
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.containsTab
+  nameWithType: StdList.containsTab
+- uid: TableScript.StandardLibraries.StdList.delTab(TableScript.Table,System.Int32)
+  name: delTab(Table, int)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_delTab_TableScript_Table_System_Int32_
+  commentId: M:TableScript.StandardLibraries.StdList.delTab(TableScript.Table,System.Int32)
+  name.vb: delTab(Table, Integer)
+  fullName: TableScript.StandardLibraries.StdList.delTab(TableScript.Table, int)
+  fullName.vb: TableScript.StandardLibraries.StdList.delTab(TableScript.Table, Integer)
+  nameWithType: StdList.delTab(Table, int)
+  nameWithType.vb: StdList.delTab(Table, Integer)
+- uid: TableScript.StandardLibraries.StdList.delTab*
+  name: delTab
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_delTab_
+  commentId: Overload:TableScript.StandardLibraries.StdList.delTab
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.delTab
+  nameWithType: StdList.delTab
+- uid: TableScript.StandardLibraries.StdList.flattenLst(TableScript.Table)
+  name: flattenLst(Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_flattenLst_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.flattenLst(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.flattenLst(TableScript.Table)
+  nameWithType: StdList.flattenLst(Table)
+- uid: TableScript.StandardLibraries.StdList.flattenLst*
+  name: flattenLst
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_flattenLst_
+  commentId: Overload:TableScript.StandardLibraries.StdList.flattenLst
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.flattenLst
+  nameWithType: StdList.flattenLst
+- uid: TableScript.StandardLibraries.StdList.getTab(TableScript.Table,System.Int32)
+  name: getTab(Table, int)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_getTab_TableScript_Table_System_Int32_
+  commentId: M:TableScript.StandardLibraries.StdList.getTab(TableScript.Table,System.Int32)
+  name.vb: getTab(Table, Integer)
+  fullName: TableScript.StandardLibraries.StdList.getTab(TableScript.Table, int)
+  fullName.vb: TableScript.StandardLibraries.StdList.getTab(TableScript.Table, Integer)
+  nameWithType: StdList.getTab(Table, int)
+  nameWithType.vb: StdList.getTab(Table, Integer)
+- uid: TableScript.StandardLibraries.StdList.getTab*
+  name: getTab
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_getTab_
+  commentId: Overload:TableScript.StandardLibraries.StdList.getTab
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.getTab
+  nameWithType: StdList.getTab
+- uid: TableScript.StandardLibraries.StdList.getTabElem(TableScript.Table,System.Int32,System.Int32)
+  name: getTabElem(Table, int, int)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_getTabElem_TableScript_Table_System_Int32_System_Int32_
+  commentId: M:TableScript.StandardLibraries.StdList.getTabElem(TableScript.Table,System.Int32,System.Int32)
+  name.vb: getTabElem(Table, Integer, Integer)
+  fullName: TableScript.StandardLibraries.StdList.getTabElem(TableScript.Table, int, int)
+  fullName.vb: TableScript.StandardLibraries.StdList.getTabElem(TableScript.Table, Integer, Integer)
+  nameWithType: StdList.getTabElem(Table, int, int)
+  nameWithType.vb: StdList.getTabElem(Table, Integer, Integer)
+- uid: TableScript.StandardLibraries.StdList.getTabElem*
+  name: getTabElem
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_getTabElem_
+  commentId: Overload:TableScript.StandardLibraries.StdList.getTabElem
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.getTabElem
+  nameWithType: StdList.getTabElem
+- uid: TableScript.StandardLibraries.StdList.indexOfTab(TableScript.Table,TableScript.Table)
+  name: indexOfTab(Table, Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_indexOfTab_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.indexOfTab(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.indexOfTab(TableScript.Table, TableScript.Table)
+  nameWithType: StdList.indexOfTab(Table, Table)
+- uid: TableScript.StandardLibraries.StdList.indexOfTab*
+  name: indexOfTab
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_indexOfTab_
+  commentId: Overload:TableScript.StandardLibraries.StdList.indexOfTab
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.indexOfTab
+  nameWithType: StdList.indexOfTab
+- uid: TableScript.StandardLibraries.StdList.insertTab(TableScript.Table,System.Int32,TableScript.Table)
+  name: insertTab(Table, int, Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_insertTab_TableScript_Table_System_Int32_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.insertTab(TableScript.Table,System.Int32,TableScript.Table)
+  name.vb: insertTab(Table, Integer, Table)
+  fullName: TableScript.StandardLibraries.StdList.insertTab(TableScript.Table, int, TableScript.Table)
+  fullName.vb: TableScript.StandardLibraries.StdList.insertTab(TableScript.Table, Integer, TableScript.Table)
+  nameWithType: StdList.insertTab(Table, int, Table)
+  nameWithType.vb: StdList.insertTab(Table, Integer, Table)
+- uid: TableScript.StandardLibraries.StdList.insertTab*
+  name: insertTab
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_insertTab_
+  commentId: Overload:TableScript.StandardLibraries.StdList.insertTab
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.insertTab
+  nameWithType: StdList.insertTab
+- uid: TableScript.StandardLibraries.StdList.isLst(TableScript.Table)
+  name: isLst(Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_isLst_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.isLst(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.isLst(TableScript.Table)
+  nameWithType: StdList.isLst(Table)
+- uid: TableScript.StandardLibraries.StdList.isLst*
+  name: isLst
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_isLst_
+  commentId: Overload:TableScript.StandardLibraries.StdList.isLst
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.isLst
+  nameWithType: StdList.isLst
+- uid: TableScript.StandardLibraries.StdList.lengthChar
+  name: lengthChar
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_lengthChar
+  commentId: F:TableScript.StandardLibraries.StdList.lengthChar
+  fullName: TableScript.StandardLibraries.StdList.lengthChar
+  nameWithType: StdList.lengthChar
+- uid: TableScript.StandardLibraries.StdList.lstLen(TableScript.Table)
+  name: lstLen(Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_lstLen_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.lstLen(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.lstLen(TableScript.Table)
+  nameWithType: StdList.lstLen(Table)
+- uid: TableScript.StandardLibraries.StdList.lstLen*
+  name: lstLen
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_lstLen_
+  commentId: Overload:TableScript.StandardLibraries.StdList.lstLen
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.lstLen
+  nameWithType: StdList.lstLen
+- uid: TableScript.StandardLibraries.StdList.mergeLst(TableScript.Table,TableScript.Table)
+  name: mergeLst(Table, Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_mergeLst_TableScript_Table_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.mergeLst(TableScript.Table,TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdList.mergeLst(TableScript.Table, TableScript.Table)
+  nameWithType: StdList.mergeLst(Table, Table)
+- uid: TableScript.StandardLibraries.StdList.mergeLst*
+  name: mergeLst
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_mergeLst_
+  commentId: Overload:TableScript.StandardLibraries.StdList.mergeLst
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.mergeLst
+  nameWithType: StdList.mergeLst
+- uid: TableScript.StandardLibraries.StdList.newLst
+  name: newLst()
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_newLst
+  commentId: M:TableScript.StandardLibraries.StdList.newLst
+  fullName: TableScript.StandardLibraries.StdList.newLst()
+  nameWithType: StdList.newLst()
+- uid: TableScript.StandardLibraries.StdList.newLst*
+  name: newLst
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_newLst_
+  commentId: Overload:TableScript.StandardLibraries.StdList.newLst
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.newLst
+  nameWithType: StdList.newLst
+- uid: TableScript.StandardLibraries.StdList.setTab(TableScript.Table,System.Int32,TableScript.Table)
+  name: setTab(Table, int, Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_setTab_TableScript_Table_System_Int32_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.setTab(TableScript.Table,System.Int32,TableScript.Table)
+  name.vb: setTab(Table, Integer, Table)
+  fullName: TableScript.StandardLibraries.StdList.setTab(TableScript.Table, int, TableScript.Table)
+  fullName.vb: TableScript.StandardLibraries.StdList.setTab(TableScript.Table, Integer, TableScript.Table)
+  nameWithType: StdList.setTab(Table, int, Table)
+  nameWithType.vb: StdList.setTab(Table, Integer, Table)
+- uid: TableScript.StandardLibraries.StdList.setTab*
+  name: setTab
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_setTab_
+  commentId: Overload:TableScript.StandardLibraries.StdList.setTab
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.setTab
+  nameWithType: StdList.setTab
+- uid: TableScript.StandardLibraries.StdList.setTabElem(TableScript.Table,System.Int32,System.Int32,TableScript.Table)
+  name: setTabElem(Table, int, int, Table)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_setTabElem_TableScript_Table_System_Int32_System_Int32_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdList.setTabElem(TableScript.Table,System.Int32,System.Int32,TableScript.Table)
+  name.vb: setTabElem(Table, Integer, Integer, Table)
+  fullName: TableScript.StandardLibraries.StdList.setTabElem(TableScript.Table, int, int, TableScript.Table)
+  fullName.vb: TableScript.StandardLibraries.StdList.setTabElem(TableScript.Table, Integer, Integer, TableScript.Table)
+  nameWithType: StdList.setTabElem(Table, int, int, Table)
+  nameWithType.vb: StdList.setTabElem(Table, Integer, Integer, Table)
+- uid: TableScript.StandardLibraries.StdList.setTabElem*
+  name: setTabElem
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_setTabElem_
+  commentId: Overload:TableScript.StandardLibraries.StdList.setTabElem
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.setTabElem
+  nameWithType: StdList.setTabElem
+- uid: TableScript.StandardLibraries.StdList.tabLen(TableScript.Table,System.Int32)
+  name: tabLen(Table, int)
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_tabLen_TableScript_Table_System_Int32_
+  commentId: M:TableScript.StandardLibraries.StdList.tabLen(TableScript.Table,System.Int32)
+  name.vb: tabLen(Table, Integer)
+  fullName: TableScript.StandardLibraries.StdList.tabLen(TableScript.Table, int)
+  fullName.vb: TableScript.StandardLibraries.StdList.tabLen(TableScript.Table, Integer)
+  nameWithType: StdList.tabLen(Table, int)
+  nameWithType.vb: StdList.tabLen(Table, Integer)
+- uid: TableScript.StandardLibraries.StdList.tabLen*
+  name: tabLen
+  href: api/TableScript.StandardLibraries.StdList.html#TableScript_StandardLibraries_StdList_tabLen_
+  commentId: Overload:TableScript.StandardLibraries.StdList.tabLen
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdList.tabLen
+  nameWithType: StdList.tabLen
+- uid: TableScript.StandardLibraries.StdNum
+  name: StdNum
+  href: api/TableScript.StandardLibraries.StdNum.html
+  commentId: T:TableScript.StandardLibraries.StdNum
+  fullName: TableScript.StandardLibraries.StdNum
+  nameWithType: StdNum
+- uid: TableScript.StandardLibraries.StdNum.abs(System.String)
+  name: abs(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_abs_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.abs(System.String)
+  name.vb: abs(String)
+  fullName: TableScript.StandardLibraries.StdNum.abs(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.abs(String)
+  nameWithType: StdNum.abs(string)
+  nameWithType.vb: StdNum.abs(String)
+- uid: TableScript.StandardLibraries.StdNum.abs*
+  name: abs
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_abs_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.abs
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.abs
+  nameWithType: StdNum.abs
+- uid: TableScript.StandardLibraries.StdNum.acos(System.String)
+  name: acos(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_acos_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.acos(System.String)
+  name.vb: acos(String)
+  fullName: TableScript.StandardLibraries.StdNum.acos(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.acos(String)
+  nameWithType: StdNum.acos(string)
+  nameWithType.vb: StdNum.acos(String)
+- uid: TableScript.StandardLibraries.StdNum.acos*
+  name: acos
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_acos_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.acos
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.acos
+  nameWithType: StdNum.acos
+- uid: TableScript.StandardLibraries.StdNum.asin(System.String)
+  name: asin(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_asin_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.asin(System.String)
+  name.vb: asin(String)
+  fullName: TableScript.StandardLibraries.StdNum.asin(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.asin(String)
+  nameWithType: StdNum.asin(string)
+  nameWithType.vb: StdNum.asin(String)
+- uid: TableScript.StandardLibraries.StdNum.asin*
+  name: asin
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_asin_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.asin
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.asin
+  nameWithType: StdNum.asin
+- uid: TableScript.StandardLibraries.StdNum.atan(System.String)
+  name: atan(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_atan_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.atan(System.String)
+  name.vb: atan(String)
+  fullName: TableScript.StandardLibraries.StdNum.atan(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.atan(String)
+  nameWithType: StdNum.atan(string)
+  nameWithType.vb: StdNum.atan(String)
+- uid: TableScript.StandardLibraries.StdNum.atan*
+  name: atan
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_atan_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.atan
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.atan
+  nameWithType: StdNum.atan
+- uid: TableScript.StandardLibraries.StdNum.ceil(System.String)
+  name: ceil(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_ceil_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.ceil(System.String)
+  name.vb: ceil(String)
+  fullName: TableScript.StandardLibraries.StdNum.ceil(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.ceil(String)
+  nameWithType: StdNum.ceil(string)
+  nameWithType.vb: StdNum.ceil(String)
+- uid: TableScript.StandardLibraries.StdNum.ceil*
+  name: ceil
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_ceil_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.ceil
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.ceil
+  nameWithType: StdNum.ceil
+- uid: TableScript.StandardLibraries.StdNum.clamp(System.String,System.String,System.String)
+  name: clamp(string, string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_clamp_System_String_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.clamp(System.String,System.String,System.String)
+  name.vb: clamp(String, String, String)
+  fullName: TableScript.StandardLibraries.StdNum.clamp(string, string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.clamp(String, String, String)
+  nameWithType: StdNum.clamp(string, string, string)
+  nameWithType.vb: StdNum.clamp(String, String, String)
+- uid: TableScript.StandardLibraries.StdNum.clamp*
+  name: clamp
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_clamp_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.clamp
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.clamp
+  nameWithType: StdNum.clamp
+- uid: TableScript.StandardLibraries.StdNum.cos(System.String)
+  name: cos(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_cos_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.cos(System.String)
+  name.vb: cos(String)
+  fullName: TableScript.StandardLibraries.StdNum.cos(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.cos(String)
+  nameWithType: StdNum.cos(string)
+  nameWithType.vb: StdNum.cos(String)
+- uid: TableScript.StandardLibraries.StdNum.cos*
+  name: cos
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_cos_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.cos
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.cos
+  nameWithType: StdNum.cos
+- uid: TableScript.StandardLibraries.StdNum.div(System.String,System.String)
+  name: div(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_div_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.div(System.String,System.String)
+  name.vb: div(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.div(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.div(String, String)
+  nameWithType: StdNum.div(string, string)
+  nameWithType.vb: StdNum.div(String, String)
+- uid: TableScript.StandardLibraries.StdNum.div*
+  name: div
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_div_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.div
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.div
+  nameWithType: StdNum.div
+- uid: TableScript.StandardLibraries.StdNum.e
+  name: e
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_e
+  commentId: F:TableScript.StandardLibraries.StdNum.e
+  fullName: TableScript.StandardLibraries.StdNum.e
+  nameWithType: StdNum.e
+- uid: TableScript.StandardLibraries.StdNum.exp(System.String)
+  name: exp(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_exp_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.exp(System.String)
+  name.vb: exp(String)
+  fullName: TableScript.StandardLibraries.StdNum.exp(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.exp(String)
+  nameWithType: StdNum.exp(string)
+  nameWithType.vb: StdNum.exp(String)
+- uid: TableScript.StandardLibraries.StdNum.exp*
+  name: exp
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_exp_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.exp
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.exp
+  nameWithType: StdNum.exp
+- uid: TableScript.StandardLibraries.StdNum.floor(System.String)
+  name: floor(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_floor_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.floor(System.String)
+  name.vb: floor(String)
+  fullName: TableScript.StandardLibraries.StdNum.floor(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.floor(String)
+  nameWithType: StdNum.floor(string)
+  nameWithType.vb: StdNum.floor(String)
+- uid: TableScript.StandardLibraries.StdNum.floor*
+  name: floor
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_floor_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.floor
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.floor
+  nameWithType: StdNum.floor
+- uid: TableScript.StandardLibraries.StdNum.fract(System.String)
+  name: fract(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_fract_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.fract(System.String)
+  name.vb: fract(String)
+  fullName: TableScript.StandardLibraries.StdNum.fract(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.fract(String)
+  nameWithType: StdNum.fract(string)
+  nameWithType.vb: StdNum.fract(String)
+- uid: TableScript.StandardLibraries.StdNum.fract*
+  name: fract
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_fract_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.fract
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.fract
+  nameWithType: StdNum.fract
+- uid: TableScript.StandardLibraries.StdNum.getE
+  name: getE()
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_getE
+  commentId: M:TableScript.StandardLibraries.StdNum.getE
+  fullName: TableScript.StandardLibraries.StdNum.getE()
+  nameWithType: StdNum.getE()
+- uid: TableScript.StandardLibraries.StdNum.getE*
+  name: getE
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_getE_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.getE
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.getE
+  nameWithType: StdNum.getE
+- uid: TableScript.StandardLibraries.StdNum.getPi
+  name: getPi()
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_getPi
+  commentId: M:TableScript.StandardLibraries.StdNum.getPi
+  fullName: TableScript.StandardLibraries.StdNum.getPi()
+  nameWithType: StdNum.getPi()
+- uid: TableScript.StandardLibraries.StdNum.getPi*
+  name: getPi
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_getPi_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.getPi
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.getPi
+  nameWithType: StdNum.getPi
+- uid: TableScript.StandardLibraries.StdNum.greater(System.String,System.String)
+  name: greater(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_greater_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.greater(System.String,System.String)
+  name.vb: greater(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.greater(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.greater(String, String)
+  nameWithType: StdNum.greater(string, string)
+  nameWithType.vb: StdNum.greater(String, String)
+- uid: TableScript.StandardLibraries.StdNum.greater*
+  name: greater
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_greater_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.greater
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.greater
+  nameWithType: StdNum.greater
+- uid: TableScript.StandardLibraries.StdNum.greaterEq(System.String,System.String)
+  name: greaterEq(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_greaterEq_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.greaterEq(System.String,System.String)
+  name.vb: greaterEq(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.greaterEq(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.greaterEq(String, String)
+  nameWithType: StdNum.greaterEq(string, string)
+  nameWithType.vb: StdNum.greaterEq(String, String)
+- uid: TableScript.StandardLibraries.StdNum.greaterEq*
+  name: greaterEq
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_greaterEq_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.greaterEq
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.greaterEq
+  nameWithType: StdNum.greaterEq
+- uid: TableScript.StandardLibraries.StdNum.isNum(System.String)
+  name: isNum(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_isNum_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.isNum(System.String)
+  name.vb: isNum(String)
+  fullName: TableScript.StandardLibraries.StdNum.isNum(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.isNum(String)
+  nameWithType: StdNum.isNum(string)
+  nameWithType.vb: StdNum.isNum(String)
+- uid: TableScript.StandardLibraries.StdNum.isNum*
+  name: isNum
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_isNum_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.isNum
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.isNum
+  nameWithType: StdNum.isNum
+- uid: TableScript.StandardLibraries.StdNum.less(System.String,System.String)
+  name: less(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_less_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.less(System.String,System.String)
+  name.vb: less(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.less(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.less(String, String)
+  nameWithType: StdNum.less(string, string)
+  nameWithType.vb: StdNum.less(String, String)
+- uid: TableScript.StandardLibraries.StdNum.less*
+  name: less
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_less_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.less
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.less
+  nameWithType: StdNum.less
+- uid: TableScript.StandardLibraries.StdNum.lessEq(System.String,System.String)
+  name: lessEq(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_lessEq_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.lessEq(System.String,System.String)
+  name.vb: lessEq(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.lessEq(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.lessEq(String, String)
+  nameWithType: StdNum.lessEq(string, string)
+  nameWithType.vb: StdNum.lessEq(String, String)
+- uid: TableScript.StandardLibraries.StdNum.lessEq*
+  name: lessEq
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_lessEq_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.lessEq
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.lessEq
+  nameWithType: StdNum.lessEq
+- uid: TableScript.StandardLibraries.StdNum.ln(System.String)
+  name: ln(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_ln_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.ln(System.String)
+  name.vb: ln(String)
+  fullName: TableScript.StandardLibraries.StdNum.ln(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.ln(String)
+  nameWithType: StdNum.ln(string)
+  nameWithType.vb: StdNum.ln(String)
+- uid: TableScript.StandardLibraries.StdNum.ln*
+  name: ln
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_ln_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.ln
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.ln
+  nameWithType: StdNum.ln
+- uid: TableScript.StandardLibraries.StdNum.log(System.String)
+  name: log(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_log_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.log(System.String)
+  name.vb: log(String)
+  fullName: TableScript.StandardLibraries.StdNum.log(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.log(String)
+  nameWithType: StdNum.log(string)
+  nameWithType.vb: StdNum.log(String)
+- uid: TableScript.StandardLibraries.StdNum.log*
+  name: log
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_log_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.log
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.log
+  nameWithType: StdNum.log
+- uid: TableScript.StandardLibraries.StdNum.max(System.String,System.String)
+  name: max(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_max_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.max(System.String,System.String)
+  name.vb: max(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.max(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.max(String, String)
+  nameWithType: StdNum.max(string, string)
+  nameWithType.vb: StdNum.max(String, String)
+- uid: TableScript.StandardLibraries.StdNum.max*
+  name: max
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_max_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.max
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.max
+  nameWithType: StdNum.max
+- uid: TableScript.StandardLibraries.StdNum.min(System.String,System.String)
+  name: min(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_min_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.min(System.String,System.String)
+  name.vb: min(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.min(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.min(String, String)
+  nameWithType: StdNum.min(string, string)
+  nameWithType.vb: StdNum.min(String, String)
+- uid: TableScript.StandardLibraries.StdNum.min*
+  name: min
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_min_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.min
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.min
+  nameWithType: StdNum.min
+- uid: TableScript.StandardLibraries.StdNum.mod(System.String,System.String)
+  name: mod(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_mod_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.mod(System.String,System.String)
+  name.vb: mod(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.mod(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.mod(String, String)
+  nameWithType: StdNum.mod(string, string)
+  nameWithType.vb: StdNum.mod(String, String)
+- uid: TableScript.StandardLibraries.StdNum.mod*
+  name: mod
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_mod_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.mod
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.mod
+  nameWithType: StdNum.mod
+- uid: TableScript.StandardLibraries.StdNum.mult(System.String,System.String)
+  name: mult(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_mult_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.mult(System.String,System.String)
+  name.vb: mult(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.mult(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.mult(String, String)
+  nameWithType: StdNum.mult(string, string)
+  nameWithType.vb: StdNum.mult(String, String)
+- uid: TableScript.StandardLibraries.StdNum.mult*
+  name: mult
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_mult_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.mult
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.mult
+  nameWithType: StdNum.mult
+- uid: TableScript.StandardLibraries.StdNum.pi
+  name: pi
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_pi
+  commentId: F:TableScript.StandardLibraries.StdNum.pi
+  fullName: TableScript.StandardLibraries.StdNum.pi
+  nameWithType: StdNum.pi
+- uid: TableScript.StandardLibraries.StdNum.pow(System.String,System.String)
+  name: pow(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_pow_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.pow(System.String,System.String)
+  name.vb: pow(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.pow(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.pow(String, String)
+  nameWithType: StdNum.pow(string, string)
+  nameWithType.vb: StdNum.pow(String, String)
+- uid: TableScript.StandardLibraries.StdNum.pow*
+  name: pow
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_pow_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.pow
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.pow
+  nameWithType: StdNum.pow
+- uid: TableScript.StandardLibraries.StdNum.rand(System.String,System.String)
+  name: rand(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_rand_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.rand(System.String,System.String)
+  name.vb: rand(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.rand(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.rand(String, String)
+  nameWithType: StdNum.rand(string, string)
+  nameWithType.vb: StdNum.rand(String, String)
+- uid: TableScript.StandardLibraries.StdNum.rand*
+  name: rand
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_rand_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.rand
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.rand
+  nameWithType: StdNum.rand
+- uid: TableScript.StandardLibraries.StdNum.range(System.String,System.String,System.String)
+  name: range(string, string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_range_System_String_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.range(System.String,System.String,System.String)
+  name.vb: range(String, String, String)
+  fullName: TableScript.StandardLibraries.StdNum.range(string, string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.range(String, String, String)
+  nameWithType: StdNum.range(string, string, string)
+  nameWithType.vb: StdNum.range(String, String, String)
+- uid: TableScript.StandardLibraries.StdNum.range*
+  name: range
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_range_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.range
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.range
+  nameWithType: StdNum.range
+- uid: TableScript.StandardLibraries.StdNum.round(System.String)
+  name: round(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_round_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.round(System.String)
+  name.vb: round(String)
+  fullName: TableScript.StandardLibraries.StdNum.round(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.round(String)
+  nameWithType: StdNum.round(string)
+  nameWithType.vb: StdNum.round(String)
+- uid: TableScript.StandardLibraries.StdNum.round*
+  name: round
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_round_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.round
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.round
+  nameWithType: StdNum.round
+- uid: TableScript.StandardLibraries.StdNum.sign(System.String)
+  name: sign(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sign_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.sign(System.String)
+  name.vb: sign(String)
+  fullName: TableScript.StandardLibraries.StdNum.sign(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.sign(String)
+  nameWithType: StdNum.sign(string)
+  nameWithType.vb: StdNum.sign(String)
+- uid: TableScript.StandardLibraries.StdNum.sign*
+  name: sign
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sign_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.sign
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.sign
+  nameWithType: StdNum.sign
+- uid: TableScript.StandardLibraries.StdNum.sin(System.String)
+  name: sin(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sin_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.sin(System.String)
+  name.vb: sin(String)
+  fullName: TableScript.StandardLibraries.StdNum.sin(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.sin(String)
+  nameWithType: StdNum.sin(string)
+  nameWithType.vb: StdNum.sin(String)
+- uid: TableScript.StandardLibraries.StdNum.sin*
+  name: sin
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sin_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.sin
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.sin
+  nameWithType: StdNum.sin
+- uid: TableScript.StandardLibraries.StdNum.sqrt(System.String)
+  name: sqrt(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sqrt_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.sqrt(System.String)
+  name.vb: sqrt(String)
+  fullName: TableScript.StandardLibraries.StdNum.sqrt(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.sqrt(String)
+  nameWithType: StdNum.sqrt(string)
+  nameWithType.vb: StdNum.sqrt(String)
+- uid: TableScript.StandardLibraries.StdNum.sqrt*
+  name: sqrt
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sqrt_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.sqrt
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.sqrt
+  nameWithType: StdNum.sqrt
+- uid: TableScript.StandardLibraries.StdNum.sub(System.String,System.String)
+  name: sub(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sub_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.sub(System.String,System.String)
+  name.vb: sub(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.sub(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.sub(String, String)
+  nameWithType: StdNum.sub(string, string)
+  nameWithType.vb: StdNum.sub(String, String)
+- uid: TableScript.StandardLibraries.StdNum.sub*
+  name: sub
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sub_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.sub
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.sub
+  nameWithType: StdNum.sub
+- uid: TableScript.StandardLibraries.StdNum.sum(System.String,System.String)
+  name: sum(string, string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sum_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.sum(System.String,System.String)
+  name.vb: sum(String, String)
+  fullName: TableScript.StandardLibraries.StdNum.sum(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.sum(String, String)
+  nameWithType: StdNum.sum(string, string)
+  nameWithType.vb: StdNum.sum(String, String)
+- uid: TableScript.StandardLibraries.StdNum.sum*
+  name: sum
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sum_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.sum
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.sum
+  nameWithType: StdNum.sum
+- uid: TableScript.StandardLibraries.StdNum.sumAll(TableScript.Table)
+  name: sumAll(Table)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sumAll_TableScript_Table_
+  commentId: M:TableScript.StandardLibraries.StdNum.sumAll(TableScript.Table)
+  fullName: TableScript.StandardLibraries.StdNum.sumAll(TableScript.Table)
+  nameWithType: StdNum.sumAll(Table)
+- uid: TableScript.StandardLibraries.StdNum.sumAll*
+  name: sumAll
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sumAll_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.sumAll
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.sumAll
+  nameWithType: StdNum.sumAll
+- uid: TableScript.StandardLibraries.StdNum.tan(System.String)
+  name: tan(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_tan_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.tan(System.String)
+  name.vb: tan(String)
+  fullName: TableScript.StandardLibraries.StdNum.tan(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.tan(String)
+  nameWithType: StdNum.tan(string)
+  nameWithType.vb: StdNum.tan(String)
+- uid: TableScript.StandardLibraries.StdNum.tan*
+  name: tan
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_tan_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.tan
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.tan
+  nameWithType: StdNum.tan
+- uid: TableScript.StandardLibraries.StdNum.toLen(System.String)
+  name: toLen(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_toLen_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.toLen(System.String)
+  name.vb: toLen(String)
+  fullName: TableScript.StandardLibraries.StdNum.toLen(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.toLen(String)
+  nameWithType: StdNum.toLen(string)
+  nameWithType.vb: StdNum.toLen(String)
+- uid: TableScript.StandardLibraries.StdNum.toLen*
+  name: toLen
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_toLen_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.toLen
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.toLen
+  nameWithType: StdNum.toLen
+- uid: TableScript.StandardLibraries.StdNum.toNum(System.Int32)
+  name: toNum(int)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_toNum_System_Int32_
+  commentId: M:TableScript.StandardLibraries.StdNum.toNum(System.Int32)
+  name.vb: toNum(Integer)
+  fullName: TableScript.StandardLibraries.StdNum.toNum(int)
+  fullName.vb: TableScript.StandardLibraries.StdNum.toNum(Integer)
+  nameWithType: StdNum.toNum(int)
+  nameWithType.vb: StdNum.toNum(Integer)
+- uid: TableScript.StandardLibraries.StdNum.toNum*
+  name: toNum
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_toNum_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.toNum
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.toNum
+  nameWithType: StdNum.toNum
+- uid: TableScript.StandardLibraries.StdNum.trunc(System.String)
+  name: trunc(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_trunc_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.trunc(System.String)
+  name.vb: trunc(String)
+  fullName: TableScript.StandardLibraries.StdNum.trunc(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.trunc(String)
+  nameWithType: StdNum.trunc(string)
+  nameWithType.vb: StdNum.trunc(String)
+- uid: TableScript.StandardLibraries.StdNum.trunc*
+  name: trunc
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_trunc_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.trunc
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.trunc
+  nameWithType: StdNum.trunc
+- uid: TableScript.StandardLibraries.StdRegex
+  name: StdRegex
+  href: api/TableScript.StandardLibraries.StdRegex.html
+  commentId: T:TableScript.StandardLibraries.StdRegex
+  fullName: TableScript.StandardLibraries.StdRegex
+  nameWithType: StdRegex
+- uid: TableScript.StandardLibraries.StdRegex.allMatch(TableScript.Table,System.String)
+  name: allMatch(Table, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_allMatch_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.allMatch(TableScript.Table,System.String)
+  name.vb: allMatch(Table, String)
+  fullName: TableScript.StandardLibraries.StdRegex.allMatch(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.allMatch(TableScript.Table, String)
+  nameWithType: StdRegex.allMatch(Table, string)
+  nameWithType.vb: StdRegex.allMatch(Table, String)
+- uid: TableScript.StandardLibraries.StdRegex.allMatch*
+  name: allMatch
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_allMatch_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.allMatch
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.allMatch
+  nameWithType: StdRegex.allMatch
+- uid: TableScript.StandardLibraries.StdRegex.anyMatch(TableScript.Table,System.String)
+  name: anyMatch(Table, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_anyMatch_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.anyMatch(TableScript.Table,System.String)
+  name.vb: anyMatch(Table, String)
+  fullName: TableScript.StandardLibraries.StdRegex.anyMatch(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.anyMatch(TableScript.Table, String)
+  nameWithType: StdRegex.anyMatch(Table, string)
+  nameWithType.vb: StdRegex.anyMatch(Table, String)
+- uid: TableScript.StandardLibraries.StdRegex.anyMatch*
+  name: anyMatch
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_anyMatch_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.anyMatch
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.anyMatch
+  nameWithType: StdRegex.anyMatch
+- uid: TableScript.StandardLibraries.StdRegex.countMatches(TableScript.Table,System.String)
+  name: countMatches(Table, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_countMatches_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.countMatches(TableScript.Table,System.String)
+  name.vb: countMatches(Table, String)
+  fullName: TableScript.StandardLibraries.StdRegex.countMatches(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.countMatches(TableScript.Table, String)
+  nameWithType: StdRegex.countMatches(Table, string)
+  nameWithType.vb: StdRegex.countMatches(Table, String)
+- uid: TableScript.StandardLibraries.StdRegex.countMatches*
+  name: countMatches
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_countMatches_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.countMatches
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.countMatches
+  nameWithType: StdRegex.countMatches
+- uid: TableScript.StandardLibraries.StdRegex.escape(System.String)
+  name: escape(string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_escape_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.escape(System.String)
+  name.vb: escape(String)
+  fullName: TableScript.StandardLibraries.StdRegex.escape(string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.escape(String)
+  nameWithType: StdRegex.escape(string)
+  nameWithType.vb: StdRegex.escape(String)
+- uid: TableScript.StandardLibraries.StdRegex.escape*
+  name: escape
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_escape_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.escape
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.escape
+  nameWithType: StdRegex.escape
+- uid: TableScript.StandardLibraries.StdRegex.firstMatch(TableScript.Table,System.String)
+  name: firstMatch(Table, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_firstMatch_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.firstMatch(TableScript.Table,System.String)
+  name.vb: firstMatch(Table, String)
+  fullName: TableScript.StandardLibraries.StdRegex.firstMatch(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.firstMatch(TableScript.Table, String)
+  nameWithType: StdRegex.firstMatch(Table, string)
+  nameWithType.vb: StdRegex.firstMatch(Table, String)
+- uid: TableScript.StandardLibraries.StdRegex.firstMatch*
+  name: firstMatch
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_firstMatch_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.firstMatch
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.firstMatch
+  nameWithType: StdRegex.firstMatch
+- uid: TableScript.StandardLibraries.StdRegex.firstMatchGroups(TableScript.Table,System.String)
+  name: firstMatchGroups(Table, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_firstMatchGroups_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.firstMatchGroups(TableScript.Table,System.String)
+  name.vb: firstMatchGroups(Table, String)
+  fullName: TableScript.StandardLibraries.StdRegex.firstMatchGroups(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.firstMatchGroups(TableScript.Table, String)
+  nameWithType: StdRegex.firstMatchGroups(Table, string)
+  nameWithType.vb: StdRegex.firstMatchGroups(Table, String)
+- uid: TableScript.StandardLibraries.StdRegex.firstMatchGroups*
+  name: firstMatchGroups
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_firstMatchGroups_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.firstMatchGroups
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.firstMatchGroups
+  nameWithType: StdRegex.firstMatchGroups
+- uid: TableScript.StandardLibraries.StdRegex.indexOfMatch(System.String,System.String)
+  name: indexOfMatch(string, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_indexOfMatch_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.indexOfMatch(System.String,System.String)
+  name.vb: indexOfMatch(String, String)
+  fullName: TableScript.StandardLibraries.StdRegex.indexOfMatch(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.indexOfMatch(String, String)
+  nameWithType: StdRegex.indexOfMatch(string, string)
+  nameWithType.vb: StdRegex.indexOfMatch(String, String)
+- uid: TableScript.StandardLibraries.StdRegex.indexOfMatch*
+  name: indexOfMatch
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_indexOfMatch_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.indexOfMatch
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.indexOfMatch
+  nameWithType: StdRegex.indexOfMatch
+- uid: TableScript.StandardLibraries.StdRegex.match(System.String,System.String)
+  name: match(string, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_match_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.match(System.String,System.String)
+  name.vb: match(String, String)
+  fullName: TableScript.StandardLibraries.StdRegex.match(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.match(String, String)
+  nameWithType: StdRegex.match(string, string)
+  nameWithType.vb: StdRegex.match(String, String)
+- uid: TableScript.StandardLibraries.StdRegex.match*
+  name: match
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_match_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.match
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.match
+  nameWithType: StdRegex.match
+- uid: TableScript.StandardLibraries.StdRegex.matchGroups(System.String,System.String)
+  name: matchGroups(string, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_matchGroups_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.matchGroups(System.String,System.String)
+  name.vb: matchGroups(String, String)
+  fullName: TableScript.StandardLibraries.StdRegex.matchGroups(string, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.matchGroups(String, String)
+  nameWithType: StdRegex.matchGroups(string, string)
+  nameWithType.vb: StdRegex.matchGroups(String, String)
+- uid: TableScript.StandardLibraries.StdRegex.matchGroups*
+  name: matchGroups
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_matchGroups_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.matchGroups
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.matchGroups
+  nameWithType: StdRegex.matchGroups
+- uid: TableScript.StandardLibraries.StdRegex.replaceMatches(TableScript.Table,System.String,System.String)
+  name: replaceMatches(Table, string, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_replaceMatches_TableScript_Table_System_String_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.replaceMatches(TableScript.Table,System.String,System.String)
+  name.vb: replaceMatches(Table, String, String)
+  fullName: TableScript.StandardLibraries.StdRegex.replaceMatches(TableScript.Table, string, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.replaceMatches(TableScript.Table, String, String)
+  nameWithType: StdRegex.replaceMatches(Table, string, string)
+  nameWithType.vb: StdRegex.replaceMatches(Table, String, String)
+- uid: TableScript.StandardLibraries.StdRegex.replaceMatches*
+  name: replaceMatches
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_replaceMatches_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.replaceMatches
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.replaceMatches
+  nameWithType: StdRegex.replaceMatches
+- uid: TableScript.StandardLibraries.StdRegex.split(TableScript.Table,System.String)
+  name: split(Table, string)
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_split_TableScript_Table_System_String_
+  commentId: M:TableScript.StandardLibraries.StdRegex.split(TableScript.Table,System.String)
+  name.vb: split(Table, String)
+  fullName: TableScript.StandardLibraries.StdRegex.split(TableScript.Table, string)
+  fullName.vb: TableScript.StandardLibraries.StdRegex.split(TableScript.Table, String)
+  nameWithType: StdRegex.split(Table, string)
+  nameWithType.vb: StdRegex.split(Table, String)
+- uid: TableScript.StandardLibraries.StdRegex.split*
+  name: split
+  href: api/TableScript.StandardLibraries.StdRegex.html#TableScript_StandardLibraries_StdRegex_split_
+  commentId: Overload:TableScript.StandardLibraries.StdRegex.split
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdRegex.split
+  nameWithType: StdRegex.split
+- uid: TableScript.Stmt
+  name: Stmt
+  href: api/TableScript.Stmt.html
+  commentId: T:TableScript.Stmt
+  fullName: TableScript.Stmt
+  nameWithType: Stmt
+- uid: TableScript.Stmt.#ctor(System.Int32)
+  name: Stmt(int)
+  href: api/TableScript.Stmt.html#TableScript_Stmt__ctor_System_Int32_
+  commentId: M:TableScript.Stmt.#ctor(System.Int32)
+  name.vb: New(Integer)
+  fullName: TableScript.Stmt.Stmt(int)
+  fullName.vb: TableScript.Stmt.New(Integer)
+  nameWithType: Stmt.Stmt(int)
+  nameWithType.vb: Stmt.New(Integer)
+- uid: TableScript.Stmt.#ctor*
+  name: Stmt
+  href: api/TableScript.Stmt.html#TableScript_Stmt__ctor_
+  commentId: Overload:TableScript.Stmt.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.Stmt.Stmt
+  fullName.vb: TableScript.Stmt.New
+  nameWithType: Stmt.Stmt
+  nameWithType.vb: Stmt.New
+- uid: TableScript.Stmt.line
+  name: line
+  href: api/TableScript.Stmt.html#TableScript_Stmt_line
+  commentId: P:TableScript.Stmt.line
+  fullName: TableScript.Stmt.line
+  nameWithType: Stmt.line
+- uid: TableScript.Stmt.line*
+  name: line
+  href: api/TableScript.Stmt.html#TableScript_Stmt_line_
+  commentId: Overload:TableScript.Stmt.line
+  isSpec: "True"
+  fullName: TableScript.Stmt.line
+  nameWithType: Stmt.line
+- uid: TableScript.TabIndex
+  name: TabIndex
+  href: api/TableScript.TabIndex.html
+  commentId: T:TableScript.TabIndex
+  fullName: TableScript.TabIndex
+  nameWithType: TabIndex
+- uid: TableScript.TabIndex.#ctor(TableScript.TabIndexMode,System.Int32)
+  name: TabIndex(TabIndexMode, int)
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex__ctor_TableScript_TabIndexMode_System_Int32_
+  commentId: M:TableScript.TabIndex.#ctor(TableScript.TabIndexMode,System.Int32)
+  name.vb: New(TabIndexMode, Integer)
+  fullName: TableScript.TabIndex.TabIndex(TableScript.TabIndexMode, int)
+  fullName.vb: TableScript.TabIndex.New(TableScript.TabIndexMode, Integer)
+  nameWithType: TabIndex.TabIndex(TabIndexMode, int)
+  nameWithType.vb: TabIndex.New(TabIndexMode, Integer)
+- uid: TableScript.TabIndex.#ctor*
+  name: TabIndex
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex__ctor_
+  commentId: Overload:TableScript.TabIndex.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.TabIndex.TabIndex
+  fullName.vb: TableScript.TabIndex.New
+  nameWithType: TabIndex.TabIndex
+  nameWithType.vb: TabIndex.New
+- uid: TableScript.TabIndex.ToString
+  name: ToString()
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex_ToString
+  commentId: M:TableScript.TabIndex.ToString
+  fullName: TableScript.TabIndex.ToString()
+  nameWithType: TabIndex.ToString()
+- uid: TableScript.TabIndex.ToString*
+  name: ToString
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex_ToString_
+  commentId: Overload:TableScript.TabIndex.ToString
+  isSpec: "True"
+  fullName: TableScript.TabIndex.ToString
+  nameWithType: TabIndex.ToString
+- uid: TableScript.TabIndex.mode
+  name: mode
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex_mode
+  commentId: P:TableScript.TabIndex.mode
+  fullName: TableScript.TabIndex.mode
+  nameWithType: TabIndex.mode
+- uid: TableScript.TabIndex.mode*
+  name: mode
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex_mode_
+  commentId: Overload:TableScript.TabIndex.mode
+  isSpec: "True"
+  fullName: TableScript.TabIndex.mode
+  nameWithType: TabIndex.mode
+- uid: TableScript.TabIndex.num
+  name: num
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex_num
+  commentId: P:TableScript.TabIndex.num
+  fullName: TableScript.TabIndex.num
+  nameWithType: TabIndex.num
+- uid: TableScript.TabIndex.num*
+  name: num
+  href: api/TableScript.TabIndex.html#TableScript_TabIndex_num_
+  commentId: Overload:TableScript.TabIndex.num
+  isSpec: "True"
+  fullName: TableScript.TabIndex.num
+  nameWithType: TabIndex.num
+- uid: TableScript.TabIndexMode
+  name: TabIndexMode
+  href: api/TableScript.TabIndexMode.html
+  commentId: T:TableScript.TabIndexMode
+  fullName: TableScript.TabIndexMode
+  nameWithType: TabIndexMode
+- uid: TableScript.TabIndexMode.Length
+  name: Length
+  href: api/TableScript.TabIndexMode.html#TableScript_TabIndexMode_Length
+  commentId: F:TableScript.TabIndexMode.Length
+  fullName: TableScript.TabIndexMode.Length
+  nameWithType: TabIndexMode.Length
+- uid: TableScript.TabIndexMode.Number
+  name: Number
+  href: api/TableScript.TabIndexMode.html#TableScript_TabIndexMode_Number
+  commentId: F:TableScript.TabIndexMode.Number
+  fullName: TableScript.TabIndexMode.Number
+  nameWithType: TabIndexMode.Number
+- uid: TableScript.TabIndexMode.Random
+  name: Random
+  href: api/TableScript.TabIndexMode.html#TableScript_TabIndexMode_Random
+  commentId: F:TableScript.TabIndexMode.Random
+  fullName: TableScript.TabIndexMode.Random
+  nameWithType: TabIndexMode.Random
+- uid: TableScript.Table
+  name: Table
+  href: api/TableScript.Table.html
+  commentId: T:TableScript.Table
+  fullName: TableScript.Table
+  nameWithType: Table
+- uid: TableScript.Table.#ctor
+  name: Table()
+  href: api/TableScript.Table.html#TableScript_Table__ctor
+  commentId: M:TableScript.Table.#ctor
+  name.vb: New()
+  fullName: TableScript.Table.Table()
+  fullName.vb: TableScript.Table.New()
+  nameWithType: Table.Table()
+  nameWithType.vb: Table.New()
+- uid: TableScript.Table.#ctor(System.Collections.Generic.List{System.String})
+  name: Table(List<string>)
+  href: api/TableScript.Table.html#TableScript_Table__ctor_System_Collections_Generic_List_System_String__
+  commentId: M:TableScript.Table.#ctor(System.Collections.Generic.List{System.String})
+  name.vb: New(List(Of String))
+  fullName: TableScript.Table.Table(System.Collections.Generic.List<string>)
+  fullName.vb: TableScript.Table.New(System.Collections.Generic.List(Of String))
+  nameWithType: Table.Table(List<string>)
+  nameWithType.vb: Table.New(List(Of String))
+- uid: TableScript.Table.#ctor(System.Int32)
+  name: Table(int)
+  href: api/TableScript.Table.html#TableScript_Table__ctor_System_Int32_
+  commentId: M:TableScript.Table.#ctor(System.Int32)
+  name.vb: New(Integer)
+  fullName: TableScript.Table.Table(int)
+  fullName.vb: TableScript.Table.New(Integer)
+  nameWithType: Table.Table(int)
+  nameWithType.vb: Table.New(Integer)
+- uid: TableScript.Table.#ctor(System.String)
+  name: Table(string)
+  href: api/TableScript.Table.html#TableScript_Table__ctor_System_String_
+  commentId: M:TableScript.Table.#ctor(System.String)
+  name.vb: New(String)
+  fullName: TableScript.Table.Table(string)
+  fullName.vb: TableScript.Table.New(String)
+  nameWithType: Table.Table(string)
+  nameWithType.vb: Table.New(String)
+- uid: TableScript.Table.#ctor(System.String[])
+  name: Table(params string[])
+  href: api/TableScript.Table.html#TableScript_Table__ctor_System_String___
+  commentId: M:TableScript.Table.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: TableScript.Table.Table(params string[])
+  fullName.vb: TableScript.Table.New(ParamArray String())
+  nameWithType: Table.Table(params string[])
+  nameWithType.vb: Table.New(ParamArray String())
+- uid: TableScript.Table.#ctor(TableScript.Table)
+  name: Table(Table)
+  href: api/TableScript.Table.html#TableScript_Table__ctor_TableScript_Table_
+  commentId: M:TableScript.Table.#ctor(TableScript.Table)
+  name.vb: New(Table)
+  fullName: TableScript.Table.Table(TableScript.Table)
+  fullName.vb: TableScript.Table.New(TableScript.Table)
+  nameWithType: Table.Table(Table)
+  nameWithType.vb: Table.New(Table)
+- uid: TableScript.Table.#ctor*
+  name: Table
+  href: api/TableScript.Table.html#TableScript_Table__ctor_
+  commentId: Overload:TableScript.Table.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.Table.Table
+  fullName.vb: TableScript.Table.New
+  nameWithType: Table.Table
+  nameWithType.vb: Table.New
+- uid: TableScript.Table.Add(System.String)
+  name: Add(string)
+  href: api/TableScript.Table.html#TableScript_Table_Add_System_String_
+  commentId: M:TableScript.Table.Add(System.String)
+  name.vb: Add(String)
+  fullName: TableScript.Table.Add(string)
+  fullName.vb: TableScript.Table.Add(String)
+  nameWithType: Table.Add(string)
+  nameWithType.vb: Table.Add(String)
+- uid: TableScript.Table.Add(TableScript.Table)
+  name: Add(Table)
+  href: api/TableScript.Table.html#TableScript_Table_Add_TableScript_Table_
+  commentId: M:TableScript.Table.Add(TableScript.Table)
+  fullName: TableScript.Table.Add(TableScript.Table)
+  nameWithType: Table.Add(Table)
+- uid: TableScript.Table.Add*
+  name: Add
+  href: api/TableScript.Table.html#TableScript_Table_Add_
+  commentId: Overload:TableScript.Table.Add
+  isSpec: "True"
+  fullName: TableScript.Table.Add
+  nameWithType: Table.Add
+- uid: TableScript.Table.AddRange(TableScript.Table)
+  name: AddRange(Table)
+  href: api/TableScript.Table.html#TableScript_Table_AddRange_TableScript_Table_
+  commentId: M:TableScript.Table.AddRange(TableScript.Table)
+  fullName: TableScript.Table.AddRange(TableScript.Table)
+  nameWithType: Table.AddRange(Table)
+- uid: TableScript.Table.AddRange*
+  name: AddRange
+  href: api/TableScript.Table.html#TableScript_Table_AddRange_
+  commentId: Overload:TableScript.Table.AddRange
+  isSpec: "True"
+  fullName: TableScript.Table.AddRange
+  nameWithType: Table.AddRange
+- uid: TableScript.Table.AsBool
+  name: AsBool()
+  href: api/TableScript.Table.html#TableScript_Table_AsBool
+  commentId: M:TableScript.Table.AsBool
+  fullName: TableScript.Table.AsBool()
+  nameWithType: Table.AsBool()
+- uid: TableScript.Table.AsBool*
+  name: AsBool
+  href: api/TableScript.Table.html#TableScript_Table_AsBool_
+  commentId: Overload:TableScript.Table.AsBool
+  isSpec: "True"
+  fullName: TableScript.Table.AsBool
+  nameWithType: Table.AsBool
+- uid: TableScript.Table.AsInt
+  name: AsInt()
+  href: api/TableScript.Table.html#TableScript_Table_AsInt
+  commentId: M:TableScript.Table.AsInt
+  fullName: TableScript.Table.AsInt()
+  nameWithType: Table.AsInt()
+- uid: TableScript.Table.AsInt*
+  name: AsInt
+  href: api/TableScript.Table.html#TableScript_Table_AsInt_
+  commentId: Overload:TableScript.Table.AsInt
+  isSpec: "True"
+  fullName: TableScript.Table.AsInt
+  nameWithType: Table.AsInt
+- uid: TableScript.Table.AsString
+  name: AsString()
+  href: api/TableScript.Table.html#TableScript_Table_AsString
+  commentId: M:TableScript.Table.AsString
+  fullName: TableScript.Table.AsString()
+  nameWithType: Table.AsString()
+- uid: TableScript.Table.AsString*
+  name: AsString
+  href: api/TableScript.Table.html#TableScript_Table_AsString_
+  commentId: Overload:TableScript.Table.AsString
+  isSpec: "True"
+  fullName: TableScript.Table.AsString
+  nameWithType: Table.AsString
+- uid: TableScript.Table.Clone
+  name: Clone()
+  href: api/TableScript.Table.html#TableScript_Table_Clone
+  commentId: M:TableScript.Table.Clone
+  fullName: TableScript.Table.Clone()
+  nameWithType: Table.Clone()
+- uid: TableScript.Table.Clone*
+  name: Clone
+  href: api/TableScript.Table.html#TableScript_Table_Clone_
+  commentId: Overload:TableScript.Table.Clone
+  isSpec: "True"
+  fullName: TableScript.Table.Clone
+  nameWithType: Table.Clone
+- uid: TableScript.Table.Contains(TableScript.Table)
+  name: Contains(Table)
+  href: api/TableScript.Table.html#TableScript_Table_Contains_TableScript_Table_
+  commentId: M:TableScript.Table.Contains(TableScript.Table)
+  fullName: TableScript.Table.Contains(TableScript.Table)
+  nameWithType: Table.Contains(Table)
+- uid: TableScript.Table.Contains*
+  name: Contains
+  href: api/TableScript.Table.html#TableScript_Table_Contains_
+  commentId: Overload:TableScript.Table.Contains
+  isSpec: "True"
+  fullName: TableScript.Table.Contains
+  nameWithType: Table.Contains
+- uid: TableScript.Table.EqualTo(TableScript.Table)
+  name: EqualTo(Table)
+  href: api/TableScript.Table.html#TableScript_Table_EqualTo_TableScript_Table_
+  commentId: M:TableScript.Table.EqualTo(TableScript.Table)
+  fullName: TableScript.Table.EqualTo(TableScript.Table)
+  nameWithType: Table.EqualTo(Table)
+- uid: TableScript.Table.EqualTo*
+  name: EqualTo
+  href: api/TableScript.Table.html#TableScript_Table_EqualTo_
+  commentId: Overload:TableScript.Table.EqualTo
+  isSpec: "True"
+  fullName: TableScript.Table.EqualTo
+  nameWithType: Table.EqualTo
+- uid: TableScript.Table.False
+  name: "False"
+  href: api/TableScript.Table.html#TableScript_Table_False
+  commentId: P:TableScript.Table.False
+  fullName: TableScript.Table.False
+  nameWithType: Table.False
+- uid: TableScript.Table.False*
+  name: "False"
+  href: api/TableScript.Table.html#TableScript_Table_False_
+  commentId: Overload:TableScript.Table.False
+  isSpec: "True"
+  fullName: TableScript.Table.False
+  nameWithType: Table.False
+- uid: TableScript.Table.GetBool(System.Boolean)
+  name: GetBool(bool)
+  href: api/TableScript.Table.html#TableScript_Table_GetBool_System_Boolean_
+  commentId: M:TableScript.Table.GetBool(System.Boolean)
+  name.vb: GetBool(Boolean)
+  fullName: TableScript.Table.GetBool(bool)
+  fullName.vb: TableScript.Table.GetBool(Boolean)
+  nameWithType: Table.GetBool(bool)
+  nameWithType.vb: Table.GetBool(Boolean)
+- uid: TableScript.Table.GetBool*
+  name: GetBool
+  href: api/TableScript.Table.html#TableScript_Table_GetBool_
+  commentId: Overload:TableScript.Table.GetBool
+  isSpec: "True"
+  fullName: TableScript.Table.GetBool
+  nameWithType: Table.GetBool
+- uid: TableScript.Table.GetElem(TableScript.TabIndex)
+  name: GetElem(TabIndex)
+  href: api/TableScript.Table.html#TableScript_Table_GetElem_TableScript_TabIndex_
+  commentId: M:TableScript.Table.GetElem(TableScript.TabIndex)
+  fullName: TableScript.Table.GetElem(TableScript.TabIndex)
+  nameWithType: Table.GetElem(TabIndex)
+- uid: TableScript.Table.GetElem*
+  name: GetElem
+  href: api/TableScript.Table.html#TableScript_Table_GetElem_
+  commentId: Overload:TableScript.Table.GetElem
+  isSpec: "True"
+  fullName: TableScript.Table.GetElem
+  nameWithType: Table.GetElem
+- uid: TableScript.Table.GetRange(TableScript.TabIndex,TableScript.TabIndex)
+  name: GetRange(TabIndex, TabIndex)
+  href: api/TableScript.Table.html#TableScript_Table_GetRange_TableScript_TabIndex_TableScript_TabIndex_
+  commentId: M:TableScript.Table.GetRange(TableScript.TabIndex,TableScript.TabIndex)
+  fullName: TableScript.Table.GetRange(TableScript.TabIndex, TableScript.TabIndex)
+  nameWithType: Table.GetRange(TabIndex, TabIndex)
+- uid: TableScript.Table.GetRange*
+  name: GetRange
+  href: api/TableScript.Table.html#TableScript_Table_GetRange_
+  commentId: Overload:TableScript.Table.GetRange
+  isSpec: "True"
+  fullName: TableScript.Table.GetRange
+  nameWithType: Table.GetRange
+- uid: TableScript.Table.IndexOf(System.String)
+  name: IndexOf(string)
+  href: api/TableScript.Table.html#TableScript_Table_IndexOf_System_String_
+  commentId: M:TableScript.Table.IndexOf(System.String)
+  name.vb: IndexOf(String)
+  fullName: TableScript.Table.IndexOf(string)
+  fullName.vb: TableScript.Table.IndexOf(String)
+  nameWithType: Table.IndexOf(string)
+  nameWithType.vb: Table.IndexOf(String)
+- uid: TableScript.Table.IndexOf*
+  name: IndexOf
+  href: api/TableScript.Table.html#TableScript_Table_IndexOf_
+  commentId: Overload:TableScript.Table.IndexOf
+  isSpec: "True"
+  fullName: TableScript.Table.IndexOf
+  nameWithType: Table.IndexOf
+- uid: TableScript.Table.IsNumber
+  name: IsNumber
+  href: api/TableScript.Table.html#TableScript_Table_IsNumber
+  commentId: P:TableScript.Table.IsNumber
+  fullName: TableScript.Table.IsNumber
+  nameWithType: Table.IsNumber
+- uid: TableScript.Table.IsNumber*
+  name: IsNumber
+  href: api/TableScript.Table.html#TableScript_Table_IsNumber_
+  commentId: Overload:TableScript.Table.IsNumber
+  isSpec: "True"
+  fullName: TableScript.Table.IsNumber
+  nameWithType: Table.IsNumber
+- uid: TableScript.Table.Item(System.Int32)
+  name: this[int]
+  href: api/TableScript.Table.html#TableScript_Table_Item_System_Int32_
+  commentId: P:TableScript.Table.Item(System.Int32)
+  name.vb: this[](Integer)
+  fullName: TableScript.Table.this[int]
+  fullName.vb: TableScript.Table.this[](Integer)
+  nameWithType: Table.this[int]
+  nameWithType.vb: Table.this[](Integer)
+- uid: TableScript.Table.Item*
+  name: this
+  href: api/TableScript.Table.html#TableScript_Table_Item_
+  commentId: Overload:TableScript.Table.Item
+  isSpec: "True"
+  name.vb: this[]
+  fullName: TableScript.Table.this
+  fullName.vb: TableScript.Table.this[]
+  nameWithType: Table.this
+  nameWithType.vb: Table.this[]
+- uid: TableScript.Table.Length
+  name: Length
+  href: api/TableScript.Table.html#TableScript_Table_Length
+  commentId: P:TableScript.Table.Length
+  fullName: TableScript.Table.Length
+  nameWithType: Table.Length
+- uid: TableScript.Table.Length*
+  name: Length
+  href: api/TableScript.Table.html#TableScript_Table_Length_
+  commentId: Overload:TableScript.Table.Length
+  isSpec: "True"
+  fullName: TableScript.Table.Length
+  nameWithType: Table.Length
+- uid: TableScript.Table.MaxLength
+  name: MaxLength
+  href: api/TableScript.Table.html#TableScript_Table_MaxLength
+  commentId: F:TableScript.Table.MaxLength
+  fullName: TableScript.Table.MaxLength
+  nameWithType: Table.MaxLength
+- uid: TableScript.Table.Product(TableScript.Table)
+  name: Product(Table)
+  href: api/TableScript.Table.html#TableScript_Table_Product_TableScript_Table_
+  commentId: M:TableScript.Table.Product(TableScript.Table)
+  fullName: TableScript.Table.Product(TableScript.Table)
+  nameWithType: Table.Product(Table)
+- uid: TableScript.Table.Product*
+  name: Product
+  href: api/TableScript.Table.html#TableScript_Table_Product_
+  commentId: Overload:TableScript.Table.Product
+  isSpec: "True"
+  fullName: TableScript.Table.Product
+  nameWithType: Table.Product
+- uid: TableScript.Table.RemoveAll(TableScript.Table)
+  name: RemoveAll(Table)
+  href: api/TableScript.Table.html#TableScript_Table_RemoveAll_TableScript_Table_
+  commentId: M:TableScript.Table.RemoveAll(TableScript.Table)
+  fullName: TableScript.Table.RemoveAll(TableScript.Table)
+  nameWithType: Table.RemoveAll(Table)
+- uid: TableScript.Table.RemoveAll*
+  name: RemoveAll
+  href: api/TableScript.Table.html#TableScript_Table_RemoveAll_
+  commentId: Overload:TableScript.Table.RemoveAll
+  isSpec: "True"
+  fullName: TableScript.Table.RemoveAll
+  nameWithType: Table.RemoveAll
+- uid: TableScript.Table.RemoveAt(System.Int32)
+  name: RemoveAt(int)
+  href: api/TableScript.Table.html#TableScript_Table_RemoveAt_System_Int32_
+  commentId: M:TableScript.Table.RemoveAt(System.Int32)
+  name.vb: RemoveAt(Integer)
+  fullName: TableScript.Table.RemoveAt(int)
+  fullName.vb: TableScript.Table.RemoveAt(Integer)
+  nameWithType: Table.RemoveAt(int)
+  nameWithType.vb: Table.RemoveAt(Integer)
+- uid: TableScript.Table.RemoveAt*
+  name: RemoveAt
+  href: api/TableScript.Table.html#TableScript_Table_RemoveAt_
+  commentId: Overload:TableScript.Table.RemoveAt
+  isSpec: "True"
+  fullName: TableScript.Table.RemoveAt
+  nameWithType: Table.RemoveAt
+- uid: TableScript.Table.RemoveEmpty
+  name: RemoveEmpty()
+  href: api/TableScript.Table.html#TableScript_Table_RemoveEmpty
+  commentId: M:TableScript.Table.RemoveEmpty
+  fullName: TableScript.Table.RemoveEmpty()
+  nameWithType: Table.RemoveEmpty()
+- uid: TableScript.Table.RemoveEmpty*
+  name: RemoveEmpty
+  href: api/TableScript.Table.html#TableScript_Table_RemoveEmpty_
+  commentId: Overload:TableScript.Table.RemoveEmpty
+  isSpec: "True"
+  fullName: TableScript.Table.RemoveEmpty
+  nameWithType: Table.RemoveEmpty
+- uid: TableScript.Table.RemoveSingle(TableScript.Table)
+  name: RemoveSingle(Table)
+  href: api/TableScript.Table.html#TableScript_Table_RemoveSingle_TableScript_Table_
+  commentId: M:TableScript.Table.RemoveSingle(TableScript.Table)
+  fullName: TableScript.Table.RemoveSingle(TableScript.Table)
+  nameWithType: Table.RemoveSingle(Table)
+- uid: TableScript.Table.RemoveSingle*
+  name: RemoveSingle
+  href: api/TableScript.Table.html#TableScript_Table_RemoveSingle_
+  commentId: Overload:TableScript.Table.RemoveSingle
+  isSpec: "True"
+  fullName: TableScript.Table.RemoveSingle
+  nameWithType: Table.RemoveSingle
+- uid: TableScript.Table.Reversed
+  name: Reversed()
+  href: api/TableScript.Table.html#TableScript_Table_Reversed
+  commentId: M:TableScript.Table.Reversed
+  fullName: TableScript.Table.Reversed()
+  nameWithType: Table.Reversed()
+- uid: TableScript.Table.Reversed*
+  name: Reversed
+  href: api/TableScript.Table.html#TableScript_Table_Reversed_
+  commentId: Overload:TableScript.Table.Reversed
+  isSpec: "True"
+  fullName: TableScript.Table.Reversed
+  nameWithType: Table.Reversed
+- uid: TableScript.Table.SetElem(TableScript.TabIndex,TableScript.Table)
+  name: SetElem(TabIndex, Table)
+  href: api/TableScript.Table.html#TableScript_Table_SetElem_TableScript_TabIndex_TableScript_Table_
+  commentId: M:TableScript.Table.SetElem(TableScript.TabIndex,TableScript.Table)
+  fullName: TableScript.Table.SetElem(TableScript.TabIndex, TableScript.Table)
+  nameWithType: Table.SetElem(TabIndex, Table)
+- uid: TableScript.Table.SetElem*
+  name: SetElem
+  href: api/TableScript.Table.html#TableScript_Table_SetElem_
+  commentId: Overload:TableScript.Table.SetElem
+  isSpec: "True"
+  fullName: TableScript.Table.SetElem
+  nameWithType: Table.SetElem
+- uid: TableScript.Table.Shuffled
+  name: Shuffled()
+  href: api/TableScript.Table.html#TableScript_Table_Shuffled
+  commentId: M:TableScript.Table.Shuffled
+  fullName: TableScript.Table.Shuffled()
+  nameWithType: Table.Shuffled()
+- uid: TableScript.Table.Shuffled*
+  name: Shuffled
+  href: api/TableScript.Table.html#TableScript_Table_Shuffled_
+  commentId: Overload:TableScript.Table.Shuffled
+  isSpec: "True"
+  fullName: TableScript.Table.Shuffled
+  nameWithType: Table.Shuffled
+- uid: TableScript.Table.SplitToChars
+  name: SplitToChars()
+  href: api/TableScript.Table.html#TableScript_Table_SplitToChars
+  commentId: M:TableScript.Table.SplitToChars
+  fullName: TableScript.Table.SplitToChars()
+  nameWithType: Table.SplitToChars()
+- uid: TableScript.Table.SplitToChars*
+  name: SplitToChars
+  href: api/TableScript.Table.html#TableScript_Table_SplitToChars_
+  commentId: Overload:TableScript.Table.SplitToChars
+  isSpec: "True"
+  fullName: TableScript.Table.SplitToChars
+  nameWithType: Table.SplitToChars
+- uid: TableScript.Table.ToCompactString
+  name: ToCompactString()
+  href: api/TableScript.Table.html#TableScript_Table_ToCompactString
+  commentId: M:TableScript.Table.ToCompactString
+  fullName: TableScript.Table.ToCompactString()
+  nameWithType: Table.ToCompactString()
+- uid: TableScript.Table.ToCompactString*
+  name: ToCompactString
+  href: api/TableScript.Table.html#TableScript_Table_ToCompactString_
+  commentId: Overload:TableScript.Table.ToCompactString
+  isSpec: "True"
+  fullName: TableScript.Table.ToCompactString
+  nameWithType: Table.ToCompactString
+- uid: TableScript.Table.ToString
+  name: ToString()
+  href: api/TableScript.Table.html#TableScript_Table_ToString
+  commentId: M:TableScript.Table.ToString
+  fullName: TableScript.Table.ToString()
+  nameWithType: Table.ToString()
+- uid: TableScript.Table.ToString*
+  name: ToString
+  href: api/TableScript.Table.html#TableScript_Table_ToString_
+  commentId: Overload:TableScript.Table.ToString
+  isSpec: "True"
+  fullName: TableScript.Table.ToString
+  nameWithType: Table.ToString
+- uid: TableScript.Table.True
+  name: "True"
+  href: api/TableScript.Table.html#TableScript_Table_True
+  commentId: P:TableScript.Table.True
+  fullName: TableScript.Table.True
+  nameWithType: Table.True
+- uid: TableScript.Table.True*
+  name: "True"
+  href: api/TableScript.Table.html#TableScript_Table_True_
+  commentId: Overload:TableScript.Table.True
+  isSpec: "True"
+  fullName: TableScript.Table.True
+  nameWithType: Table.True
+- uid: TableScript.Table.Truthy
+  name: Truthy
+  href: api/TableScript.Table.html#TableScript_Table_Truthy
+  commentId: P:TableScript.Table.Truthy
+  fullName: TableScript.Table.Truthy
+  nameWithType: Table.Truthy
+- uid: TableScript.Table.Truthy*
+  name: Truthy
+  href: api/TableScript.Table.html#TableScript_Table_Truthy_
+  commentId: Overload:TableScript.Table.Truthy
+  isSpec: "True"
+  fullName: TableScript.Table.Truthy
+  nameWithType: Table.Truthy
+- uid: TableScript.Table.contents
+  name: contents
+  href: api/TableScript.Table.html#TableScript_Table_contents
+  commentId: P:TableScript.Table.contents
+  fullName: TableScript.Table.contents
+  nameWithType: Table.contents
+- uid: TableScript.Table.contents*
+  name: contents
+  href: api/TableScript.Table.html#TableScript_Table_contents_
+  commentId: Overload:TableScript.Table.contents
+  isSpec: "True"
+  fullName: TableScript.Table.contents
+  nameWithType: Table.contents
+- uid: TableScript.TableScriptErrorType
+  name: TableScriptErrorType
+  href: api/TableScript.TableScriptErrorType.html
+  commentId: T:TableScript.TableScriptErrorType
+  fullName: TableScript.TableScriptErrorType
+  nameWithType: TableScriptErrorType
+- uid: TableScript.TableScriptErrorType.Binder
+  name: Binder
+  href: api/TableScript.TableScriptErrorType.html#TableScript_TableScriptErrorType_Binder
+  commentId: F:TableScript.TableScriptErrorType.Binder
+  fullName: TableScript.TableScriptErrorType.Binder
+  nameWithType: TableScriptErrorType.Binder
+- uid: TableScript.TableScriptErrorType.Lexer
+  name: Lexer
+  href: api/TableScript.TableScriptErrorType.html#TableScript_TableScriptErrorType_Lexer
+  commentId: F:TableScript.TableScriptErrorType.Lexer
+  fullName: TableScript.TableScriptErrorType.Lexer
+  nameWithType: TableScriptErrorType.Lexer
+- uid: TableScript.TableScriptErrorType.Optimizer
+  name: Optimizer
+  href: api/TableScript.TableScriptErrorType.html#TableScript_TableScriptErrorType_Optimizer
+  commentId: F:TableScript.TableScriptErrorType.Optimizer
+  fullName: TableScript.TableScriptErrorType.Optimizer
+  nameWithType: TableScriptErrorType.Optimizer
+- uid: TableScript.TableScriptErrorType.Parser
+  name: Parser
+  href: api/TableScript.TableScriptErrorType.html#TableScript_TableScriptErrorType_Parser
+  commentId: F:TableScript.TableScriptErrorType.Parser
+  fullName: TableScript.TableScriptErrorType.Parser
+  nameWithType: TableScriptErrorType.Parser
+- uid: TableScript.TableScriptErrorType.Resolver
+  name: Resolver
+  href: api/TableScript.TableScriptErrorType.html#TableScript_TableScriptErrorType_Resolver
+  commentId: F:TableScript.TableScriptErrorType.Resolver
+  fullName: TableScript.TableScriptErrorType.Resolver
+  nameWithType: TableScriptErrorType.Resolver
+- uid: TableScript.TableScriptErrorType.Runtime
+  name: Runtime
+  href: api/TableScript.TableScriptErrorType.html#TableScript_TableScriptErrorType_Runtime
+  commentId: F:TableScript.TableScriptErrorType.Runtime
+  fullName: TableScript.TableScriptErrorType.Runtime
+  nameWithType: TableScriptErrorType.Runtime
+- uid: TableScript.TableScriptException
+  name: TableScriptException
+  href: api/TableScript.TableScriptException.html
+  commentId: T:TableScript.TableScriptException
+  fullName: TableScript.TableScriptException
+  nameWithType: TableScriptException
+- uid: TableScript.TableScriptException.#ctor(TableScript.TableScriptErrorType,System.String,System.Int32,System.String)
+  name: TableScriptException(TableScriptErrorType, string, int, string)
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException__ctor_TableScript_TableScriptErrorType_System_String_System_Int32_System_String_
+  commentId: M:TableScript.TableScriptException.#ctor(TableScript.TableScriptErrorType,System.String,System.Int32,System.String)
+  name.vb: New(TableScriptErrorType, String, Integer, String)
+  fullName: TableScript.TableScriptException.TableScriptException(TableScript.TableScriptErrorType, string, int, string)
+  fullName.vb: TableScript.TableScriptException.New(TableScript.TableScriptErrorType, String, Integer, String)
+  nameWithType: TableScriptException.TableScriptException(TableScriptErrorType, string, int, string)
+  nameWithType.vb: TableScriptException.New(TableScriptErrorType, String, Integer, String)
+- uid: TableScript.TableScriptException.#ctor*
+  name: TableScriptException
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException__ctor_
+  commentId: Overload:TableScript.TableScriptException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: TableScript.TableScriptException.TableScriptException
+  fullName.vb: TableScript.TableScriptException.New
+  nameWithType: TableScriptException.TableScriptException
+  nameWithType.vb: TableScriptException.New
+- uid: TableScript.TableScriptException.ToShortString
+  name: ToShortString()
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_ToShortString
+  commentId: M:TableScript.TableScriptException.ToShortString
+  fullName: TableScript.TableScriptException.ToShortString()
+  nameWithType: TableScriptException.ToShortString()
+- uid: TableScript.TableScriptException.ToShortString*
+  name: ToShortString
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_ToShortString_
+  commentId: Overload:TableScript.TableScriptException.ToShortString
+  isSpec: "True"
+  fullName: TableScript.TableScriptException.ToShortString
+  nameWithType: TableScriptException.ToShortString
+- uid: TableScript.TableScriptException.ToString
+  name: ToString()
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_ToString
+  commentId: M:TableScript.TableScriptException.ToString
+  fullName: TableScript.TableScriptException.ToString()
+  nameWithType: TableScriptException.ToString()
+- uid: TableScript.TableScriptException.ToString*
+  name: ToString
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_ToString_
+  commentId: Overload:TableScript.TableScriptException.ToString
+  isSpec: "True"
+  fullName: TableScript.TableScriptException.ToString
+  nameWithType: TableScriptException.ToString
+- uid: TableScript.TableScriptException.filename
+  name: filename
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_filename
+  commentId: P:TableScript.TableScriptException.filename
+  fullName: TableScript.TableScriptException.filename
+  nameWithType: TableScriptException.filename
+- uid: TableScript.TableScriptException.filename*
+  name: filename
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_filename_
+  commentId: Overload:TableScript.TableScriptException.filename
+  isSpec: "True"
+  fullName: TableScript.TableScriptException.filename
+  nameWithType: TableScriptException.filename
+- uid: TableScript.TableScriptException.line
+  name: line
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_line
+  commentId: P:TableScript.TableScriptException.line
+  fullName: TableScript.TableScriptException.line
+  nameWithType: TableScriptException.line
+- uid: TableScript.TableScriptException.line*
+  name: line
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_line_
+  commentId: Overload:TableScript.TableScriptException.line
+  isSpec: "True"
+  fullName: TableScript.TableScriptException.line
+  nameWithType: TableScriptException.line
+- uid: TableScript.TableScriptException.type
+  name: type
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_type
+  commentId: P:TableScript.TableScriptException.type
+  fullName: TableScript.TableScriptException.type
+  nameWithType: TableScriptException.type
+- uid: TableScript.TableScriptException.type*
+  name: type
+  href: api/TableScript.TableScriptException.html#TableScript_TableScriptException_type_
+  commentId: Overload:TableScript.TableScriptException.type
+  isSpec: "True"
+  fullName: TableScript.TableScriptException.type
+  nameWithType: TableScriptException.type

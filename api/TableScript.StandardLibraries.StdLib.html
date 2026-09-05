@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StdLib | TableScript </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StdLib | TableScript ">
+      
+      <meta name="description" content="Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed. All functions have the same name in the code and in here">
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/new/main/apiSpec/new?filename=TableScript_StandardLibraries_StdLib.md&amp;value=---%0Auid%3A%20TableScript.StandardLibraries.StdLib%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="TableScript">
+            TableScript
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="TableScript.StandardLibraries.StdLib">
+
+
+
+  <h1 id="TableScript_StandardLibraries_StdLib" data-uid="TableScript.StandardLibraries.StdLib" class="text-break">
+Class StdLib  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="TableScript.html">TableScript</a>.<a class="xref" href="TableScript.StandardLibraries.html">StandardLibraries</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>TableScript.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Standard library with useful things. Some things could be replicated with the language, but this implementation in recomended for speed.
+All functions have the same name in the code and in here</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TableScriptLibrary(&quot;stdlib.cs&quot;)]
+public static class StdLib</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">StdLib</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="TableScript_StandardLibraries_StdLib_maxLength" data-uid="TableScript.StandardLibraries.StdLib.maxLength">
+  maxLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum table length</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int maxLength</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TableScript_StandardLibraries_StdLib_os" data-uid="TableScript.StandardLibraries.StdLib.os">
+  os
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Operating system, either 'windows', 'linux', 'macos' or ''</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string os</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="TableScript_StandardLibraries_StdLib_contains_" data-uid="TableScript.StandardLibraries.StdLib.contains*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_contains_TableScript_Table_System_String_" data-uid="TableScript.StandardLibraries.StdLib.contains(TableScript.Table,System.String)">
+  contains(Table, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if any element of a table contains a substring</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool contains(Table self, string substring)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>substring</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_deleteAll_" data-uid="TableScript.StandardLibraries.StdLib.deleteAll*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_deleteAll_TableScript_Table_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.deleteAll(TableScript.Table,TableScript.Table)">
+  deleteAll(Table, Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete all matching elements from a table</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table deleteAll(Table self, Table toDel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>toDel</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_deleteAt_" data-uid="TableScript.StandardLibraries.StdLib.deleteAt*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_deleteAt_TableScript_Table_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.deleteAt(TableScript.Table,TableScript.Table)">
+  deleteAt(Table, Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete element at an index</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table deleteAt(Table self, Table index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_deleteEmpty_" data-uid="TableScript.StandardLibraries.StdLib.deleteEmpty*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_deleteEmpty_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.deleteEmpty(TableScript.Table)">
+  deleteEmpty(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete all 0-length elements</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table deleteEmpty(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_endsWith_" data-uid="TableScript.StandardLibraries.StdLib.endsWith*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_endsWith_TableScript_Table_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.endsWith(TableScript.Table,TableScript.Table)">
+  endsWith(Table, Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if a table last elements are the passed ones</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool endsWith(Table self, Table elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>elements</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_error_" data-uid="TableScript.StandardLibraries.StdLib.error*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_error_System_String_" data-uid="TableScript.StandardLibraries.StdLib.error(System.String)">
+  error(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Print to Standard Error</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void error(string t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_getDate_" data-uid="TableScript.StandardLibraries.StdLib.getDate*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_getDate" data-uid="TableScript.StandardLibraries.StdLib.getDate">
+  getDate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get date and hour in [yy, MM, dd, hh, mm, ss] format</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table getDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_getMaxLength_" data-uid="TableScript.StandardLibraries.StdLib.getMaxLength*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_getMaxLength" data-uid="TableScript.StandardLibraries.StdLib.getMaxLength">
+  getMaxLength()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the maximum table length</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use stdlib::maxLength global&quot;)]
+public static int getMaxLength()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_getOS_" data-uid="TableScript.StandardLibraries.StdLib.getOS*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_getOS" data-uid="TableScript.StandardLibraries.StdLib.getOS">
+  getOS()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the operating system, either 'windows', 'linux', 'macos' or ''</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use stdlib::os global&quot;)]
+public static string getOS()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_indexOf_" data-uid="TableScript.StandardLibraries.StdLib.indexOf*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_indexOf_TableScript_Table_System_String_" data-uid="TableScript.StandardLibraries.StdLib.indexOf(TableScript.Table,System.String)">
+  indexOf(Table, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Find the index of an element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table indexOf(Table self, string element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_input_" data-uid="TableScript.StandardLibraries.StdLib.input*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_input_System_String_" data-uid="TableScript.StandardLibraries.StdLib.input(System.String)">
+  input(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Read from Standard Input</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table input(string prompt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_join_" data-uid="TableScript.StandardLibraries.StdLib.join*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_join_TableScript_Table_System_String_" data-uid="TableScript.StandardLibraries.StdLib.join(TableScript.Table,System.String)">
+  join(Table, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Join all elements of a table with a seperator between them</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string join(Table self, string separator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>separator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_lower_" data-uid="TableScript.StandardLibraries.StdLib.lower*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_lower_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.lower(TableScript.Table)">
+  lower(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transform all elements to lowercase</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table lower(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_print_" data-uid="TableScript.StandardLibraries.StdLib.print*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_print_System_String_" data-uid="TableScript.StandardLibraries.StdLib.print(System.String)">
+  print(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Print to Standard Output</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void print(string t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_removeQuotes_" data-uid="TableScript.StandardLibraries.StdLib.removeQuotes*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_removeQuotes_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.removeQuotes(TableScript.Table)">
+  removeQuotes(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Trims and removes surrounding double quotes (&quot;) from all elements</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table removeQuotes(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_repeat_" data-uid="TableScript.StandardLibraries.StdLib.repeat*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_repeat_TableScript_Table_System_Int32_" data-uid="TableScript.StandardLibraries.StdLib.repeat(TableScript.Table,System.Int32)">
+  repeat(Table, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repeat some elements x times</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table repeat(Table self, int times)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>times</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_replace_" data-uid="TableScript.StandardLibraries.StdLib.replace*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_replace_TableScript_Table_TableScript_Table_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.replace(TableScript.Table,TableScript.Table,TableScript.Table)">
+  replace(Table, Table, Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replace a set of substrings by their replacements</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table replace(Table self, Table originals, Table replacements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>originals</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>replacements</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_reverse_" data-uid="TableScript.StandardLibraries.StdLib.reverse*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_reverse_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.reverse(TableScript.Table)">
+  reverse(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverse the order of a table</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table reverse(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_shuffle_" data-uid="TableScript.StandardLibraries.StdLib.shuffle*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_shuffle_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.shuffle(TableScript.Table)">
+  shuffle(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shuffle randomly the order of a table</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table shuffle(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_sleep_" data-uid="TableScript.StandardLibraries.StdLib.sleep*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_sleep_System_Int32_" data-uid="TableScript.StandardLibraries.StdLib.sleep(System.Int32)">
+  sleep(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sleep x miliseconds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void sleep(int ms)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_split_" data-uid="TableScript.StandardLibraries.StdLib.split*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_split_TableScript_Table_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.split(TableScript.Table,TableScript.Table)">
+  split(Table, Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Split all elements of a table by multiple separators</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table split(Table self, Table separators)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>separators</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_splitLines_" data-uid="TableScript.StandardLibraries.StdLib.splitLines*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_splitLines_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.splitLines(TableScript.Table)">
+  splitLines(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Split all elements of a table by all common line endings</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table splitLines(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_startsWith_" data-uid="TableScript.StandardLibraries.StdLib.startsWith*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_startsWith_TableScript_Table_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.startsWith(TableScript.Table,TableScript.Table)">
+  startsWith(Table, Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if a table first elements are the passed ones</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool startsWith(Table self, Table elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+    <dt><code>elements</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_trim_" data-uid="TableScript.StandardLibraries.StdLib.trim*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_trim_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.trim(TableScript.Table)">
+  trim(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Trim whitespace from all elements</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table trim(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TableScript_StandardLibraries_StdLib_upper_" data-uid="TableScript.StandardLibraries.StdLib.upper*"></a>
+
+  <h3 id="TableScript_StandardLibraries_StdLib_upper_TableScript_Table_" data-uid="TableScript.StandardLibraries.StdLib.upper(TableScript.Table)">
+  upper(Table)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/TableScript/blob/main/src/libraries/StdLib.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transform all elements to uppercase</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Table upper(Table self)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TableScript.Table.html">Table</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

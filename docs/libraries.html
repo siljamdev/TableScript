@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Libraries | TableScript </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Libraries | TableScript ">
+      
+      
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/TableScript/blob/main/docfx/docs/libraries.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="TableScript">
+            TableScript
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="libraries">Libraries</h1>
+
+<p>In this tutorial, we will create a library of C# code to import into TableScript.<br>
+To create a custom library with external functions, start by creating a <code>partial class</code> with static or instance methods marked with the <a href="../api/TableScript.Generator.TableScriptLibrary.yml">TableScriptLibrary</a> attribute, and an appropiate filename:</p>
+<pre><code class="lang-cs">using TableScript;
+using TableScript.Generator;
+
+[TableScriptLibrary(&quot;customlib.cs&quot;)]
+public static partial class CustomLib{
+	
+}
+</code></pre>
+<p>Inside of it, you can place TableScript functions and globals. For example:</p>
+<pre><code class="lang-cs">[TableScriptGlobal]
+public static readonly string country = &quot;Spain&quot;;
+
+[TableScriptFunction]
+public static int sum1(int a){
+	return a + 1;
+}
+
+[TableScriptFunction]
+public static string getDayOfTheWeek(int index){
+	return index switch{
+		1 =&gt; &quot;Monday&quot;,
+		2 =&gt; &quot;Tuesday&quot;,
+		3 =&gt; &quot;Wednesday&quot;,
+		4 =&gt; &quot;Thursday&quot;,
+		5 =&gt; &quot;Friday&quot;,
+		6 =&gt; &quot;Saturday&quot;,
+		7 =&gt; &quot;Sunday&quot;,
+		_ =&gt; null
+	};
+}
+</code></pre>
+<p>Both functions and globals must be declared <code>public</code>, and globals must be declared <code>readonly</code>.</p>
+<p>Because functions in TableScript always return <a href="../api/TableScript.Table.html">Table</a> and take <a href="../api/TableScript.Table.html">Table</a> as arguments, they need to be converted from and to the C# supported types.<br>
+For the methods marked as <code>TableScriptFunction</code>, the valid return types are:</p>
+<ul>
+<li><code>void</code>: Returns an empty Table</li>
+<li><code>string</code>: Returns a single element table. If the string is null, an empty table</li>
+<li><code>int</code>: Returns a number table (<code>new Table(int)</code>)</li>
+<li><code>bool</code>: Returns a 0 or 1 element table (<code>Table.GetBool(bool)</code>)</li>
+<li><a href="../api/TableScript.Table.html">Table</a>: No conversion is done</li>
+</ul>
+<p>For the arguments, they must be one of the following:</p>
+<ul>
+<li><code>string</code>: The table argument is reduced (<code>Table.AsString()</code>)</li>
+<li><code>int</code>: The table argumet Length is used (<code>Table.Length</code>)</li>
+<li><code>bool</code>: The table truthiness(length &gt; 0) is used (<code>Table.Truthy</code>)</li>
+<li><a href="../api/TableScript.Table.html">Table</a>: No conversion is done</li>
+</ul>
+<p>Now, the compile time source generator generates a fully functional <a href="../api/TableScript.ResolvedImport.html">ResolvedImport</a>, accessible through the property <code>TableScriptImport</code>.<br>
+Also, an array of <a href="../api/TableScript.FunctionStmt.html">FunctionStmt</a> is created, <code>TableScriptFunctions</code>, and a <code>Dictionary&lt;string, Table&gt;</code> of globals, <code>TableScriptGlobals</code>.</p>
+<p>As we saw previously, we can use a custom <a href="../api/TableScript.IImportResolver.html">IImportResolver</a>.<br>
+In this example, we will implement a Resolver on top of the Standard Resolver that can resolve this new library.<br>
+This is the custom <a href="../api/TableScript.IImportResolver.html">IImportResolver</a>:</p>
+<pre><code class="lang-cs">using TableScript;
+
+class CustomImportResolver : StandardImportResolver{
+	public override ResolvedImport Resolve(string import, string callingFilename){
+		if(import == &quot;customlib&quot;){
+			return CustomLib.TableScriptImport;
+		}
+		return base.Resolve(import, callingFilename); //Safely handle anything that wasnt recognized
+	}
+}
+</code></pre>
+<p>Then, we just need the Main method:</p>
+<pre><code class="lang-cs">using TableScript;
+
+class Program{
+	static void Main(){
+		string path = &quot;program.tbs&quot;;
+		
+		try{
+			Script script = Script.FromSource(path, File.ReadAllText(path), new CustomImportResolver());
+			
+			script.Run();
+		}catch(TableScriptException ex){
+			Console.Error.WriteLine(ex);
+		}
+	}
+}
+</code></pre>
+<p>Now, using this <code>CustomImportResolver</code>, we will have acess to <code>sum1</code>, <code>getDayOfTheWeek</code> and <code>country</code>:</p>
+<pre><code>// IMPORTANT
+// In this file, next to print() calls, the supposed output will be shown in a comment along with a commentary if needed
+
+import stdlib;
+import stdnum;
+import customlib; //Our custom library!
+
+print(sum1(3).toNum()); //4
+print(getDayOfTheWeek(5)); //Friday
+print(country); //Spain
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Don't call your file <code>customlib.tbs</code> because that will generate two imports with the same name causing conflicts</p>
+</div>
+<h2 id="printing">Printing</h2>
+<p>If there is any doubt about the signature of functions implemented in libraries, you can always print them out:</p>
+<pre><code class="lang-cs">Console.WriteLine(CustomLib.TableScriptImport);
+</code></pre>
+<p>This prints:</p>
+<pre><code>export global country = [&quot;Spain&quot;];
+export function sum1(a){ EXTERN; } //Takes 1 arguments: table a as int. Returns table as int.
+export function getDayOfTheWeek(index){ EXTERN; } //Takes 1 arguments: table index as int. Returns table as string.
+</code></pre>
+<h2 id="xml-comments">XML comments</h2>
+<p>To support function descriptions like this:</p>
+<pre><code>export function sum1(a){ EXTERN; } //Takes 1 arguments: table a as int. Returns table as int. Sum 1 to a number
+export function getDayOfTheWeek(index){ EXTERN; } //Takes 1 arguments: table index as int. Returns table as string. Get day of the week name by index
+</code></pre>
+<p>Just add this to your csproj:</p>
+<pre><code class="lang-xml">&lt;PropertyGroup&gt;
+	&lt;GenerateDocumentationFile&gt;true&lt;/GenerateDocumentationFile&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+<p>And add XML descriptors to functions:</p>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Sum 1 to a number
+/// &lt;/summary&gt;
+[TableScriptFunction]
+public static int sum1(int a){
+	return a + 1;
+}
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
