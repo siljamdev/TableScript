@@ -16,7 +16,7 @@ public static partial class StdList{
 	/// The charachters used for length encoding
 	/// </summary>
 	[TableScriptGlobal]
-	public static string lengthChar => lenChar.ToString();
+	public static readonly string lengthChar = lenChar.ToString();
 	
 	/// <summary>
 	/// Creates a new list

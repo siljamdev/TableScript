@@ -14,7 +14,7 @@ public static partial class StdLib{
 	/// Maximum table length
 	/// </summary>
 	[TableScriptGlobal]
-	public static int maxLength => Table.MaxLength;
+	public static readonly int maxLength = Table.MaxLength;
 	
 	/// <summary>
 	/// Operating system, either 'windows', 'linux', 'macos' or ''

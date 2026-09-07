@@ -11,7 +11,7 @@ public sealed class TableScriptLibraryAttribute : Attribute{
 	}
 }
 
-[AttributeUsage(AttributeTargets.Property)]
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
 public sealed class TableScriptGlobalAttribute : Attribute{}
 
 [AttributeUsage(AttributeTargets.Method)]

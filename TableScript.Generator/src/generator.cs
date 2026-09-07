@@ -66,6 +66,27 @@ public sealed class Generator : IIncrementalGenerator{
 			sb.AppendLine("{get{if(_savedGlobals == null){ _savedGlobals = new Dictionary<string, Table>{");
 			
 			foreach (ISymbol member in library.GetMembers()){
+				if(member is not IFieldSymbol field)
+					continue;
+				
+				AttributeData? attribute2 = field.GetAttributes().FirstOrDefault(attribute => attribute.AttributeClass?.ToDisplayString() == "TableScript.Generator.TableScriptGlobalAttribute");
+				if(attribute2 == null)
+					continue;
+				
+				if(!field.IsReadOnly){
+					spc.ReportDiagnostic(Diagnostic.Create(GlobalMustBeReadonly, field.Locations[0], field.Name));
+					continue;
+				}
+				
+				string tab = getAsTable(field.Type, field.Name);
+				if(tab == null){
+					spc.ReportDiagnostic(Diagnostic.Create(GlobalMustBeType, field.Locations[0], field.Name));
+					continue;
+				}
+				sb.AppendLine("{\"" + field.Name + "\", " + tab + "},");
+			}
+			
+			foreach (ISymbol member in library.GetMembers()){
 				if(member is not IPropertySymbol property)
 					continue;
 				
@@ -229,7 +250,7 @@ public sealed class Generator : IIncrementalGenerator{
 	private static readonly DiagnosticDescriptor GlobalMustBeReadonly = new(
 		id: "TS002",
 		title: "TableScriptGlobal must be readonly",
-		messageFormat: "Property '{0}' must not have a set method because it is marked with TableScriptGlobalAttribute",
+		messageFormat: "Field/Property '{0}' must be declared readonly or not have a set method because it is marked with TableScriptGlobalAttribute",
 		category: "TableScript",
 		defaultSeverity: DiagnosticSeverity.Error,
 		isEnabledByDefault: true
@@ -247,7 +268,7 @@ public sealed class Generator : IIncrementalGenerator{
 	private static readonly DiagnosticDescriptor GlobalMustBeType = new(
 		id: "TS003",
 		title: "TableScriptGlobal invalid type",
-		messageFormat: "Field '{0}' must have type Table, string, int or bool because it is marked with TableScriptGlobalAttribute",
+		messageFormat: "Field/Property '{0}' must have type Table, string, int or bool because it is marked with TableScriptGlobalAttribute",
 		category: "TableScript",
 		defaultSeverity: DiagnosticSeverity.Error,
 		isEnabledByDefault: true
