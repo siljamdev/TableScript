@@ -61,30 +61,37 @@ public sealed class Generator : IIncrementalGenerator{
 			
 			sb.AppendLine($"public {staticClass} string TableScriptFilename = \"{libraryName}\";");
 			
-			sb.AppendLine("public " + staticClass + " readonly Dictionary<string, Table> TableScriptGlobals = new Dictionary<string, Table>(){");
+			sb.AppendLine($"internal {staticClass } Dictionary<string, Table> _savedGlobals = null;");
+			sb.AppendLine($"public {staticClass} Dictionary<string, Table> TableScriptGlobals");
+			sb.AppendLine("{get{if(_savedGlobals == null){ _savedGlobals = new Dictionary<string, Table>{");
 			
 			foreach (ISymbol member in library.GetMembers()){
-				if(member is not IFieldSymbol field)
+				if(member is not IPropertySymbol property)
 					continue;
 				
-				AttributeData? attribute2 = field.GetAttributes().FirstOrDefault(attribute => attribute.AttributeClass?.ToDisplayString() == "TableScript.Generator.TableScriptGlobalAttribute");
+				AttributeData? attribute2 = property.GetAttributes().FirstOrDefault(attribute => attribute.AttributeClass?.ToDisplayString() == "TableScript.Generator.TableScriptGlobalAttribute");
 				if(attribute2 == null)
 					continue;
 				
-				if(field.DeclaredAccessibility != Accessibility.Public || !field.IsReadOnly){
-					spc.ReportDiagnostic(Diagnostic.Create(GlobalMustBePublic, field.Locations[0], field.Name));
+				if(!property.IsReadOnly){
+					spc.ReportDiagnostic(Diagnostic.Create(GlobalMustBeReadonly, property.Locations[0], property.Name));
 					continue;
 				}
 				
-				string tab = getAsTable(field.Type, field.Name);
-				if(tab == null){
-					spc.ReportDiagnostic(Diagnostic.Create(GlobalMustBeType, field.Locations[0], field.Name));
+				if(property.IsIndexer){
+					spc.ReportDiagnostic(Diagnostic.Create(GlobalMustNotBeIndexer, property.Locations[0], property.Name));
 					continue;
 				}
-				sb.AppendLine("{\"" + field.Name + "\", " + tab + "},");
+				
+				string tab = getAsTable(property.Type, property.Name);
+				if(tab == null){
+					spc.ReportDiagnostic(Diagnostic.Create(GlobalMustBeType, property.Locations[0], property.Name));
+					continue;
+				}
+				sb.AppendLine("{\"" + property.Name + "\", " + tab + "},");
 			}
 			
-			sb.AppendLine("};");
+			sb.AppendLine("};} return _savedGlobals;}}");
 			
 			sb.AppendLine($"private {staticClass} FunctionStmt[] _savedFuncs = null;");
 			sb.AppendLine($"public {staticClass} FunctionStmt[] TableScriptFunctions");
@@ -97,11 +104,6 @@ public sealed class Generator : IIncrementalGenerator{
 				AttributeData? attribute2 = method.GetAttributes().FirstOrDefault(attribute => attribute.AttributeClass?.ToDisplayString() == "TableScript.Generator.TableScriptFunctionAttribute");
 				if(attribute2 == null)
 					continue;
-				
-				if(method.DeclaredAccessibility != Accessibility.Public){
-					spc.ReportDiagnostic(Diagnostic.Create(FunctionMustBePublic, method.Locations[0], method.Name));
-					continue;
-				}
 				
 				List<string> args = new();
 				
@@ -149,7 +151,7 @@ public sealed class Generator : IIncrementalGenerator{
 				sb.AppendLine("new FunctionExtStmt(\"" + method.Name + "\", new string[]{" + string.Join(", ", method.Parameters.Select(p => "\"" + p.Name + "\"")) + "}, (tables) => " + ret + ", \"" + sbdoc.ToString() + "\", " + line + "),"); 
 			}
 			
-			sb.AppendLine("};}return _savedFuncs;}}");
+			sb.AppendLine("};} return _savedFuncs;}}");
 			
 			sb.AppendLine($"private {staticClass} ResolvedImport _savedImport = null;");
 			sb.AppendLine($"public {staticClass} ResolvedImport TableScriptImport");
@@ -224,10 +226,19 @@ public sealed class Generator : IIncrementalGenerator{
 		isEnabledByDefault: true
     );
 	
-	private static readonly DiagnosticDescriptor GlobalMustBePublic = new(
+	private static readonly DiagnosticDescriptor GlobalMustBeReadonly = new(
 		id: "TS002",
-		title: "TableScriptGlobal must be public and readonly",
-		messageFormat: "Field '{0}' must be declared public and readonly because it is marked with TableScriptGlobalAttribute",
+		title: "TableScriptGlobal must be readonly",
+		messageFormat: "Property '{0}' must not have a set method because it is marked with TableScriptGlobalAttribute",
+		category: "TableScript",
+		defaultSeverity: DiagnosticSeverity.Error,
+		isEnabledByDefault: true
+    );
+	
+	private static readonly DiagnosticDescriptor GlobalMustNotBeIndexer = new(
+		id: "TS004",
+		title: "TableScriptGlobal must not be an indexer",
+		messageFormat: "Property '{0}' must not be an indexer because it is marked with TableScriptGlobalAttribute",
 		category: "TableScript",
 		defaultSeverity: DiagnosticSeverity.Error,
 		isEnabledByDefault: true
@@ -237,15 +248,6 @@ public sealed class Generator : IIncrementalGenerator{
 		id: "TS003",
 		title: "TableScriptGlobal invalid type",
 		messageFormat: "Field '{0}' must have type Table, string, int or bool because it is marked with TableScriptGlobalAttribute",
-		category: "TableScript",
-		defaultSeverity: DiagnosticSeverity.Error,
-		isEnabledByDefault: true
-    );
-	
-	private static readonly DiagnosticDescriptor FunctionMustBePublic = new(
-		id: "TS004",
-		title: "TableScriptFunction must be public",
-		messageFormat: "Method '{0}' must be declared public because it is marked with TableScriptFunctionAttribute",
 		category: "TableScript",
 		defaultSeverity: DiagnosticSeverity.Error,
 		isEnabledByDefault: true

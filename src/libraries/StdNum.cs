@@ -14,13 +14,13 @@ public static partial class StdNum{
 	/// Pi, 3.1415...
 	/// </summary>
 	[TableScriptGlobal]
-	public static readonly string pi = Math.PI.ToStr();
+	public static string pi => Math.PI.ToStr();
 	
 	/// <summary>
 	/// E, 2.7182...
 	/// </summary>
 	[TableScriptGlobal]
-	public static readonly string e = Math.E.ToStr();
+	public static string e => Math.E.ToStr();
 	
 	/// <summary>
 	/// Transform length into num

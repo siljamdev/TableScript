@@ -14,13 +14,13 @@ public static partial class StdLib{
 	/// Maximum table length
 	/// </summary>
 	[TableScriptGlobal]
-	public static readonly int maxLength = Table.MaxLength;
+	public static int maxLength => Table.MaxLength;
 	
 	/// <summary>
 	/// Operating system, either 'windows', 'linux', 'macos' or ''
 	/// </summary>
 	[TableScriptGlobal]
-	public static readonly string os = OperatingSystem.IsWindows() ? "windows" : OperatingSystem.IsLinux() ? "linux" : OperatingSystem.IsMacOS() ? "macos" : "";
+	public static string os => OperatingSystem.IsWindows() ? "windows" : OperatingSystem.IsLinux() ? "linux" : OperatingSystem.IsMacOS() ? "macos" : "";
 	
 	/// <summary>
 	/// Print to Standard Output
