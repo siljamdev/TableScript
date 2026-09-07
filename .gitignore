@@ -76,4 +76,4 @@ nunit-*.xml
 #Manual
 docfx/
 exec/
-tests/.tebas
+*.tebas
