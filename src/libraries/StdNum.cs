@@ -161,19 +161,31 @@ public static partial class StdNum{
 	public static string getE() => Math.E.ToStr();
 	
 	/// <summary>
-	/// Sine of a num
+	/// Degrees to radians
+	/// </summary>
+	[TableScriptFunction]
+	public static Table degToRad(string self) => numOp(self, a => a * Math.PI / 180.0);
+	
+	/// <summary>
+	/// Radians to degrees
+	/// </summary>
+	[TableScriptFunction]
+	public static Table radToDeg(string self) => numOp(self, a => a * 180.0 / Math.PI);
+	
+	/// <summary>
+	/// Sine of a num (in rads)
 	/// </summary>
 	[TableScriptFunction]
 	public static Table sin(string num) => numOp(num, a => Math.Sin(a));
 	
 	/// <summary>
-	/// Cosine of a num
+	/// Cosine of a num (in rads)
 	/// </summary>
 	[TableScriptFunction]
 	public static Table cos(string num) => numOp(num, a => Math.Cos(a));
 	
 	/// <summary>
-	/// Tangent of a num
+	/// Tangent of a num (in rads)
 	/// </summary>
 	[TableScriptFunction]
 	public static Table tan(string num) => numOp(num, a => Math.Tan(a));
@@ -195,6 +207,42 @@ public static partial class StdNum{
 	/// </summary>
 	[TableScriptFunction]
 	public static Table atan(string num) => numOp(num, a => Math.Atan(a));
+	
+	/// <summary>
+	/// Hyperbolic sine of a num (in rads)
+	/// </summary>
+	[TableScriptFunction]
+	public static Table sinh(string num) => numOp(num, a => Math.Sinh(a));
+	
+	/// <summary>
+	/// Hyperbolic cosine of a num (in rads)
+	/// </summary>
+	[TableScriptFunction]
+	public static Table cosh(string num) => numOp(num, a => Math.Cosh(a));
+	
+	/// <summary>
+	/// Hyperbolic tangent of a num (in rads)
+	/// </summary>
+	[TableScriptFunction]
+	public static Table tanh(string num) => numOp(num, a => Math.Tanh(a));
+	
+	/// <summary>
+	/// Inverse hyperbolic sine of a num
+	/// </summary>
+	[TableScriptFunction]
+	public static Table asinh(string num) => numOp(num, a => Math.Asinh(a));
+	
+	/// <summary>
+	/// Inverse hyperbolic cosine of a num
+	/// </summary>
+	[TableScriptFunction]
+	public static Table acosh(string num) => numOp(num, a => Math.Acosh(a));
+	
+	/// <summary>
+	/// Inverse hyperbolic tangent of a num
+	/// </summary>
+	[TableScriptFunction]
+	public static Table atanh(string num) => numOp(num, a => Math.Atanh(a));
 	
 	/// <summary>
 	/// Minimum of two nums
