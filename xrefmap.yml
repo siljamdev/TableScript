@@ -932,7 +932,14 @@ references:
 - uid: TableScript.StandardLibraries.StdLib.os
   name: os
   href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_os
-  commentId: F:TableScript.StandardLibraries.StdLib.os
+  commentId: P:TableScript.StandardLibraries.StdLib.os
+  fullName: TableScript.StandardLibraries.StdLib.os
+  nameWithType: StdLib.os
+- uid: TableScript.StandardLibraries.StdLib.os*
+  name: os
+  href: api/TableScript.StandardLibraries.StdLib.html#TableScript_StandardLibraries_StdLib_os_
+  commentId: Overload:TableScript.StandardLibraries.StdLib.os
+  isSpec: "True"
   fullName: TableScript.StandardLibraries.StdLib.os
   nameWithType: StdLib.os
 - uid: TableScript.StandardLibraries.StdLib.print(System.String)
@@ -1411,6 +1418,22 @@ references:
   isSpec: "True"
   fullName: TableScript.StandardLibraries.StdNum.acos
   nameWithType: StdNum.acos
+- uid: TableScript.StandardLibraries.StdNum.acosh(System.String)
+  name: acosh(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_acosh_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.acosh(System.String)
+  name.vb: acosh(String)
+  fullName: TableScript.StandardLibraries.StdNum.acosh(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.acosh(String)
+  nameWithType: StdNum.acosh(string)
+  nameWithType.vb: StdNum.acosh(String)
+- uid: TableScript.StandardLibraries.StdNum.acosh*
+  name: acosh
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_acosh_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.acosh
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.acosh
+  nameWithType: StdNum.acosh
 - uid: TableScript.StandardLibraries.StdNum.asin(System.String)
   name: asin(string)
   href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_asin_System_String_
@@ -1427,6 +1450,22 @@ references:
   isSpec: "True"
   fullName: TableScript.StandardLibraries.StdNum.asin
   nameWithType: StdNum.asin
+- uid: TableScript.StandardLibraries.StdNum.asinh(System.String)
+  name: asinh(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_asinh_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.asinh(System.String)
+  name.vb: asinh(String)
+  fullName: TableScript.StandardLibraries.StdNum.asinh(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.asinh(String)
+  nameWithType: StdNum.asinh(string)
+  nameWithType.vb: StdNum.asinh(String)
+- uid: TableScript.StandardLibraries.StdNum.asinh*
+  name: asinh
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_asinh_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.asinh
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.asinh
+  nameWithType: StdNum.asinh
 - uid: TableScript.StandardLibraries.StdNum.atan(System.String)
   name: atan(string)
   href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_atan_System_String_
@@ -1443,6 +1482,22 @@ references:
   isSpec: "True"
   fullName: TableScript.StandardLibraries.StdNum.atan
   nameWithType: StdNum.atan
+- uid: TableScript.StandardLibraries.StdNum.atanh(System.String)
+  name: atanh(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_atanh_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.atanh(System.String)
+  name.vb: atanh(String)
+  fullName: TableScript.StandardLibraries.StdNum.atanh(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.atanh(String)
+  nameWithType: StdNum.atanh(string)
+  nameWithType.vb: StdNum.atanh(String)
+- uid: TableScript.StandardLibraries.StdNum.atanh*
+  name: atanh
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_atanh_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.atanh
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.atanh
+  nameWithType: StdNum.atanh
 - uid: TableScript.StandardLibraries.StdNum.ceil(System.String)
   name: ceil(string)
   href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_ceil_System_String_
@@ -1491,6 +1546,38 @@ references:
   isSpec: "True"
   fullName: TableScript.StandardLibraries.StdNum.cos
   nameWithType: StdNum.cos
+- uid: TableScript.StandardLibraries.StdNum.cosh(System.String)
+  name: cosh(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_cosh_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.cosh(System.String)
+  name.vb: cosh(String)
+  fullName: TableScript.StandardLibraries.StdNum.cosh(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.cosh(String)
+  nameWithType: StdNum.cosh(string)
+  nameWithType.vb: StdNum.cosh(String)
+- uid: TableScript.StandardLibraries.StdNum.cosh*
+  name: cosh
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_cosh_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.cosh
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.cosh
+  nameWithType: StdNum.cosh
+- uid: TableScript.StandardLibraries.StdNum.degToRad(System.String)
+  name: degToRad(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_degToRad_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.degToRad(System.String)
+  name.vb: degToRad(String)
+  fullName: TableScript.StandardLibraries.StdNum.degToRad(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.degToRad(String)
+  nameWithType: StdNum.degToRad(string)
+  nameWithType.vb: StdNum.degToRad(String)
+- uid: TableScript.StandardLibraries.StdNum.degToRad*
+  name: degToRad
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_degToRad_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.degToRad
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.degToRad
+  nameWithType: StdNum.degToRad
 - uid: TableScript.StandardLibraries.StdNum.div(System.String,System.String)
   name: div(string, string)
   href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_div_System_String_System_String_
@@ -1785,6 +1872,22 @@ references:
   isSpec: "True"
   fullName: TableScript.StandardLibraries.StdNum.pow
   nameWithType: StdNum.pow
+- uid: TableScript.StandardLibraries.StdNum.radToDeg(System.String)
+  name: radToDeg(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_radToDeg_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.radToDeg(System.String)
+  name.vb: radToDeg(String)
+  fullName: TableScript.StandardLibraries.StdNum.radToDeg(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.radToDeg(String)
+  nameWithType: StdNum.radToDeg(string)
+  nameWithType.vb: StdNum.radToDeg(String)
+- uid: TableScript.StandardLibraries.StdNum.radToDeg*
+  name: radToDeg
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_radToDeg_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.radToDeg
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.radToDeg
+  nameWithType: StdNum.radToDeg
 - uid: TableScript.StandardLibraries.StdNum.rand(System.String,System.String)
   name: rand(string, string)
   href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_rand_System_String_System_String_
@@ -1865,6 +1968,22 @@ references:
   isSpec: "True"
   fullName: TableScript.StandardLibraries.StdNum.sin
   nameWithType: StdNum.sin
+- uid: TableScript.StandardLibraries.StdNum.sinh(System.String)
+  name: sinh(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sinh_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.sinh(System.String)
+  name.vb: sinh(String)
+  fullName: TableScript.StandardLibraries.StdNum.sinh(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.sinh(String)
+  nameWithType: StdNum.sinh(string)
+  nameWithType.vb: StdNum.sinh(String)
+- uid: TableScript.StandardLibraries.StdNum.sinh*
+  name: sinh
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sinh_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.sinh
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.sinh
+  nameWithType: StdNum.sinh
 - uid: TableScript.StandardLibraries.StdNum.sqrt(System.String)
   name: sqrt(string)
   href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_sqrt_System_String_
@@ -1942,6 +2061,22 @@ references:
   isSpec: "True"
   fullName: TableScript.StandardLibraries.StdNum.tan
   nameWithType: StdNum.tan
+- uid: TableScript.StandardLibraries.StdNum.tanh(System.String)
+  name: tanh(string)
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_tanh_System_String_
+  commentId: M:TableScript.StandardLibraries.StdNum.tanh(System.String)
+  name.vb: tanh(String)
+  fullName: TableScript.StandardLibraries.StdNum.tanh(string)
+  fullName.vb: TableScript.StandardLibraries.StdNum.tanh(String)
+  nameWithType: StdNum.tanh(string)
+  nameWithType.vb: StdNum.tanh(String)
+- uid: TableScript.StandardLibraries.StdNum.tanh*
+  name: tanh
+  href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_tanh_
+  commentId: Overload:TableScript.StandardLibraries.StdNum.tanh
+  isSpec: "True"
+  fullName: TableScript.StandardLibraries.StdNum.tanh
+  nameWithType: StdNum.tanh
 - uid: TableScript.StandardLibraries.StdNum.toLen(System.String)
   name: toLen(string)
   href: api/TableScript.StandardLibraries.StdNum.html#TableScript_StandardLibraries_StdNum_toLen_System_String_

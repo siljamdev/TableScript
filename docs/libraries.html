@@ -88,7 +88,7 @@
 <h1 id="libraries">Libraries</h1>
 
 <p>In this tutorial, we will create a library of C# code to import into TableScript.<br>
-To create a custom library with external functions, start by creating a <code>partial class</code> with static or instance methods marked with the <a href="../api/TableScript.Generator.TableScriptLibrary.yml">TableScriptLibrary</a> attribute, and an appropiate filename:</p>
+To create a custom library with external functions, start by creating a <code>partial class</code> with static or instance methods marked with the <a href="../api/TableScript.Generator.TableScriptLibraryAttribute.html">TableScriptLibrary</a> attribute, and an appropiate filename:</p>
 <pre><code class="lang-cs">using TableScript;
 using TableScript.Generator;
 
@@ -120,9 +120,11 @@ public static string getDayOfTheWeek(int index){
 	};
 }
 </code></pre>
-<p>Both functions and globals must be declared <code>public</code>, and globals must be declared <code>readonly</code>.</p>
+<p>Fields marked with <a href="../api/TableScript.Generator.TableScriptGlobalAttribute.html">TableScriptGlobal</a> must be declared <code>readonly</code>.<br>
+Properties marked with <a href="../api/TableScript.Generator.TableScriptGlobalAttribute.html">TableScriptGlobal</a> must be read-only (no <code>set</code> method) and not be indexers. They will be accessed <strong>once</strong>, on first usage of the <code>TableScriptGlobals</code> variable.</p>
+<h2 id="type-casting">Type casting</h2>
 <p>Because functions in TableScript always return <a href="../api/TableScript.Table.html">Table</a> and take <a href="../api/TableScript.Table.html">Table</a> as arguments, they need to be converted from and to the C# supported types.<br>
-For the methods marked as <code>TableScriptFunction</code>, the valid return types are:</p>
+For the methods marked as <a href="../api/TableScript.Generator.TableScriptFunctionAttribute.html">TableScriptFunction</a>, the valid return types are:</p>
 <ul>
 <li><code>void</code>: Returns an empty Table</li>
 <li><code>string</code>: Returns a single element table. If the string is null, an empty table</li>
@@ -133,12 +135,19 @@ For the methods marked as <code>TableScriptFunction</code>, the valid return typ
 <p>For the arguments, they must be one of the following:</p>
 <ul>
 <li><code>string</code>: The table argument is reduced (<code>Table.AsString()</code>)</li>
-<li><code>int</code>: The table argumet Length is used (<code>Table.Length</code>)</li>
+<li><code>int</code>: The table argument Length is used (<code>Table.Length</code>)</li>
 <li><code>bool</code>: The table truthiness(length &gt; 0) is used (<code>Table.Truthy</code>)</li>
 <li><a href="../api/TableScript.Table.html">Table</a>: No conversion is done</li>
 </ul>
-<p>Now, the compile time source generator generates a fully functional <a href="../api/TableScript.ResolvedImport.html">ResolvedImport</a>, accessible through the property <code>TableScriptImport</code>.<br>
-Also, an array of <a href="../api/TableScript.FunctionStmt.html">FunctionStmt</a> is created, <code>TableScriptFunctions</code>, and a <code>Dictionary&lt;string, Table&gt;</code> of globals, <code>TableScriptGlobals</code>.</p>
+<h2 id="generator-output">Generator output</h2>
+<p>Now, the compile time source generator generates:</p>
+<ul>
+<li><code>TableScriptFilename</code>: a string containing the argument specified in <a href="../api/TableScript.Generator.TableScriptLibraryAttribute">TableScriptLibrary</a>.</li>
+<li><code>TableScriptImport</code>: fully functional <a href="../api/TableScript.ResolvedImport.html">ResolvedImport</a>.</li>
+<li><code>TableScriptFunctions</code>: an array of <a href="../api/TableScript.FunctionStmt.html">FunctionStmt</a>.</li>
+<li><code>TableScriptGlobals</code>: a <code>Dictionary&lt;string, Table&gt;</code> of globals.</li>
+</ul>
+<h2 id="importing-the-library">Importing the library</h2>
 <p>As we saw previously, we can use a custom <a href="../api/TableScript.IImportResolver.html">IImportResolver</a>.<br>
 In this example, we will implement a Resolver on top of the Standard Resolver that can resolve this new library.<br>
 This is the custom <a href="../api/TableScript.IImportResolver.html">IImportResolver</a>:</p>
