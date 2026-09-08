@@ -8,7 +8,7 @@ Compiler & interpreter for TableScript language.
 
 ## TableScript
 TableScript is a scripting language where its only type is a string collection called **table**.  
-With imports, you can access functions of [standard libraries](https://siljamdev.github.io/TableScript/api/TabScript.StandardLibraries.html).  
+With imports, you can access functions of [standard libraries](https://siljamdev.github.io/TableScript/api/TableScript.StandardLibraries.html).  
 
 ## Usage
 Very straightforward: create a Script from source code, and execute it.  
