@@ -147,7 +147,7 @@ class Binder{
 		}else if(frag.exit is RedirectCFGNode){ //We cant do this
 			return;
 		}else{
-			throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, -1, "Invdalid CFG: fragment exit was not stmt nor dummy");
+			throw new TableScriptException(TableScriptErrorType.Binder, currentFilename, -1, "Invalid CFG: fragment exit was not stmt nor dummy");
 		}
 		frag.exit = exit;
 	}
@@ -177,6 +177,11 @@ class Binder{
 			}
 		}
 		
+		if(first == null){
+			DummyCFGNode dummy = new();
+			return new CFGFragment(dummy, dummy);
+		}
+		
 		return new CFGFragment(first?.entry, cur?.exit);
 	}
 	
@@ -200,7 +205,7 @@ class Binder{
 				replaceExit(trueFrag, exit);
 				replaceExit(falseFrag, exit);
 				
-				condition.isTrue = trueFrag.entry;
+				condition.isTrue = trueFrag?.entry ?? exit;
 				condition.isFalse = falseFrag?.entry ?? exit;
 				
 				return new CFGFragment(condition, exit);
@@ -225,7 +230,7 @@ class Binder{
 				CFGFragment elseFrag = Build(w.els);
 				replaceExit(elseFrag, exit);
 				
-				condition.isTrue = bodyFrag.entry;
+				condition.isTrue = bodyFrag?.entry ?? exit;
 				condition.isFalse = elseFrag?.entry ?? exit;
 				
 				return new CFGFragment(condition, exit);
@@ -267,7 +272,7 @@ class Binder{
 				}
 				loops.Pop();
 				
-				getItem.next = bodyFrag.entry;
+				getItem.next = bodyFrag?.entry ?? exit;
 				
 				elseFrag = Build(t.els);
 				replaceExit(elseFrag, exit);
@@ -297,7 +302,7 @@ class Binder{
 				elseFrag = Build(du.els);
 				replaceExit(elseFrag, exit);
 				
-				condition.isTrue = bodyFrag.entry;
+				condition.isTrue = bodyFrag?.entry ?? exit;
 				condition.isFalse = elseFrag?.entry ?? exit;
 				
 				return new CFGFragment(bodyFrag.entry, exit);
