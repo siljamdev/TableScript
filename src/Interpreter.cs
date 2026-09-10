@@ -68,7 +68,10 @@ class Interpreter{
 	}
 	
 	void setStack(int index, Table t){
-		if(index == stack.Count){
+		if(index >= stack.Count){
+			for(int i = stack.Count; i < index; i++){
+				stack.Add(null);
+			}
 			stack.Add(t);
 			return;
 		}
