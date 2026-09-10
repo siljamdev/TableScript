@@ -130,7 +130,10 @@ public sealed class Generator : IIncrementalGenerator{
 				
 				StringBuilder sbdoc = new();
 				
-				sbdoc.Append($"Takes {method.Parameters.Length} arguments:");
+				sbdoc.Append($"Takes {method.Parameters.Length} arguments");
+				if(method.Parameters.Length > 0){
+					sbdoc.Append(":");
+				}
 				for(int i = 0; i < method.Parameters.Length; i++){
 					IParameterSymbol parameter = method.Parameters[i];
 					string tab = getFromTable(parameter.Type, "tables[" + i + "]");

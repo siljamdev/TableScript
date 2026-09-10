@@ -61,7 +61,7 @@ class Optimizer{
 				int nl = lastLen;
 				lastLen = usedFuncsIndexTranslation.Count;
 				
-				for(int i = nl; i < usedFuncsIndexTranslation.Count; i++){
+				for(int i = nl; i < lastLen; i++){
 					if(p.functions[usedFuncsIndexTranslation[i]] is BoundNativeFunc n){
 						walkNode(n.body, none, none, deleteDeadFunctions);
 					}

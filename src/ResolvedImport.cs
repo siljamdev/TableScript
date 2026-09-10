@@ -8,6 +8,10 @@ public class ResolvedImport{
 	internal FunctionStmt[] funcs;
 	
 	public string[] furtherImports => imports?.Select(i => i.reference).ToArray() ?? Array.Empty<string>();
+	
+	/// <summary>
+	/// Defined and export globals
+	/// </summary>
 	public string[] definedGlobals => globals?.Where(g => g.export).Select(g => g.identifier).ToArray() ?? Array.Empty<string>();
 	public FunctionStmt[] functions => funcs.ToArray();
 	
